@@ -23,7 +23,7 @@ jobs:
       - name: Prepare artifact
         run: |
           mkdir -p _site
-          cp index.html tokens.css raining-letters.js CNAME _site/
+          cp index.html tokens.css raining-letters.js favicon.svg CNAME _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
