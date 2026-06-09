@@ -24,4 +24,5 @@ Vanilla HTML/CSS/JS — served via Python `http.server`.
 
 ## Deployment
 
-Served from a hardened edge node via Tailscale mesh, bound to `100.72.133.89:8766`.
+Published to **https://cyber.oversight.ee** via GitHub Pages.
+Push to `main` triggers automatic deploy.
