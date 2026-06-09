@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>oversight.ee — cybersecurity & infrastructure</title>
+<meta name="description" content="Cybersecurity implementation, consultancy, and managed infrastructure for operational environments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* Content sits above raining letters canvas */
+  header, .container { position: relative; z-index: 1; }
+  header { background: color-mix(in oklch, var(--color-paper-2) 88%, transparent); backdrop-filter: blur(2px); }
+  .arch-node, blockquote, .arch-note { backdrop-filter: blur(4px); }
+  .section-hdr[id], #contact { scroll-margin-top: 120px; }
+</style>
+</head>
+<body>
+
+<!-- RainingLetters background canvas -->
+<script src="raining-letters.js"></script>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div>
+      <a href="/" class="brand">● <span class="accent">oversight</span>.ee</a>
+    </div>
+    <div class="badges">
+      <span class="badge highlight">v1.0.0</span>
+      
+      <span class="badge">ESTONIA</span>
+      <span class="badge">MARITIME</span>
+    </div>
+    <nav>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="path">~/<span class="accent">oversight</span>/</div>
+    <h1>Cybersecurity &amp; infrastructure<br>for operational environments.</h1>
+    <div class="meta">
+      <span>EST. 2022</span>
+      <span class="dot">·</span>
+      <span>3 ACTIVE CLUSTERS</span>
+      <span class="dot">·</span>
+      <span>6 CAPABILITIES</span>
+      <span class="dot">·</span>
+      <span>6 MIN READ</span>
+    </div>
+    <p>Oversight delivers security implementation, consultancy, and managed infrastructure for organisations where standard IT security models don&rsquo;t apply — maritime vessels, industrial networks, research infrastructure, and distributed operational technology.</p>
+    <div class="contact-line"><span class="accent">contact</span>@oversight.ee → contact@oversight.ee</div>
+  </div>
+
+  <!-- Capabilities -->
+  <h2 class="section-hdr" id="capabilities"><span class="comment">//</span>Capabilities<span class="line"></span></h2>
+
+  <ul class="cap-list">
+    <li>
+      <span class="name">security/consulting</span>
+      <span class="desc">Architecture review, threat modelling, compliance readiness (NIST, ISO 27001). Hands-on implementation, not slide decks.</span>
+    </li>
+    <li>
+      <span class="name">soc/monitoring</span>
+      <span class="desc">ELK-based security operations — log ingestion, custom correlation rules, alerting pipelines, and Kibana dashboards deployed on your infrastructure or ours.</span>
+    </li>
+    <li>
+      <span class="name">edge/infrastructure</span>
+      <span class="desc">Hardened edge devices for constrained environments. NMEA, CAN bus, industrial sensor collection — encrypted, authenticated, transmitted.</span>
+    </li>
+    <li>
+      <span class="name">network/topology</span>
+      <span class="desc">Real-time mesh network visualisation. Tailscale-based topology with direct/relay detection, live node status, and automated alerting.</span>
+    </li>
+    <li>
+      <span class="name">deception/research</span>
+      <span class="desc">Honeypot deployment for maritime and industrial OT environments. VSAT emulation, credential capture, attacker behaviour analysis.</span>
+    </li>
+    <li>
+      <span class="name">automation/iac</span>
+      <span class="desc">Ansible-based provisioning, firewalld hardening, systemd lockdown, immutable infrastructure. Reproducible, auditable, version-controlled.</span>
+    </li>
+  </ul>
+
+  <!-- Architecture -->
+  <h2 class="section-hdr" id="architecture"><span class="comment">//</span>Architecture<span class="line"></span></h2>
+
+  <div class="arch-note">
+    Every deployment follows a three-layer model — edge collection, core processing, and operations. All layers connect over zero-trust mesh networking with real-time topology visibility.
+  </div>
+
+  <div class="arch-grid">
+    <div class="arch-node">
+      <div class="node-name">Edge</div>
+      <div class="node-detail">
+        vessel sensors<br>
+        pi r5 + piccan-m<br>
+        firewalld (default drop)<br>
+        <span class="arrow">→</span> encrypted offload
+      </div>
+    </div>
+    <div class="arch-node">
+      <div class="node-name">Core</div>
+      <div class="node-detail">
+        elasticsearch + logstash<br>
+        filebeat ingestion<br>
+        correlation rules<br>
+        <span class="arrow">→</span> kibana dashboards
+      </div>
+    </div>
+    <div class="arch-node">
+      <div class="node-name">Operations</div>
+      <div class="node-detail">
+        zabbix monitoring<br>
+        alert pipeline<br>
+        24/7 triage<br>
+        <span class="arrow">→</span> incident response
+      </div>
+    </div>
+    <div class="arch-node">
+      <div class="node-name">Mesh</div>
+      <div class="node-detail">
+        tailscale overlay<br>
+        direct / deep routing<br>
+        topology visualization<br>
+        <span class="arrow">→</span> node auto-provisioning
+      </div>
+    </div>
+  </div>
+
+  <blockquote>
+    Built for environments where standard IT security models don't apply — maritime vessels, industrial networks, research infrastructure, and distributed operational technology.
+  </blockquote>
+
+  <!-- Contact -->
+  <div class="contact-block" id="contact">
+    <div class="info">
+      <span class="hl">Estonia</span> · operational since 2022<br>
+      built by <span class="hl">Ahmed Nasr</span>
+    </div>
+    <a href="mailto:contact@oversight.ee" class="email">contact@oversight.ee →</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    oversight.ee — cybersecurity &amp; infrastructure · © 2026
+  </footer>
+
+</div>
+
+</body>
+</html>

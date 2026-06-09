@@ -1,0 +1,141 @@
+/* Hallmark · macrostructure: Long Document · tone: technical-editorial · anchor hue: green 160°
+ * studied-DNA (source: https://web.archive.org/web/20260507221416/https://thelocalstack.eu/posts/linkedin-generative-ai-training/)
+ * paper oklch(93% 0.012 90) · accent oklch(62% 0.18 160) · Inter + JetBrains Mono
+ */
+
+:root {
+  --color-paper: oklch(93% 0.012 90);
+  --color-paper-2: oklch(89% 0.01 90);
+  --color-paper-3: oklch(84% 0.01 90);
+
+  --color-ink: oklch(15% 0.01 90);
+  --color-ink-2: oklch(40% 0.015 90);
+  --color-ink-3: oklch(55% 0.02 90);
+
+  --color-accent: oklch(62% 0.18 160);
+  --color-accent-dim: oklch(50% 0.12 160);
+  --color-accent-glow: oklch(62% 0.18 160 / 0.1);
+
+  --color-line: oklch(80% 0.015 90);
+  --color-line-strong: oklch(65% 0.02 90);
+
+  --font-sans: 'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, Menlo, 'Courier New', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2.125rem;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: oklch(15% 0.01 90);
+    --color-paper-2: oklch(18% 0.012 90);
+    --color-paper-3: oklch(22% 0.015 90);
+    --color-ink: oklch(90% 0.01 90);
+    --color-ink-2: oklch(65% 0.015 90);
+    --color-ink-3: oklch(48% 0.02 90);
+    --color-line: oklch(25% 0.015 90);
+    --color-line-strong: oklch(35% 0.02 90);
+    --color-accent: oklch(68% 0.18 160);
+    --color-accent-dim: oklch(52% 0.12 160);
+    --color-accent-glow: oklch(68% 0.18 160 / 0.12);
+  }
+}
+
+/* Light mode override (default) */
+@media (prefers-color-scheme: light) {
+  :root { /* uses light defaults above */ }
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:clip}body{overflow-x:clip}
+body{font-family:var(--font-sans);font-size:var(--text-base);line-height:1.75;color:var(--color-ink);background:var(--color-paper);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:background var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--color-accent);color:var(--color-paper)}
+::-webkit-scrollbar{width:5px;background:var(--color-paper)}
+::-webkit-scrollbar-thumb{background:var(--color-line);border-radius:2px}
+
+.container{max-width:860px;margin:0 auto;padding-inline:clamp(1.25rem,3vw,1.5rem)}
+
+/* ── Header ── */
+header{padding:var(--space-3xl) 0 var(--space-xl);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-3xl);background:var(--color-paper-2)}
+header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}
+header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.5px;color:var(--color-ink)}
+header .brand .accent{color:var(--color-accent)}
+header .badges{display:flex;gap:var(--space-sm);flex-wrap:wrap}
+header .badge{font-family:var(--font-mono);font-size:var(--text-xs);padding:2px var(--space-sm);border:1px solid var(--color-line-strong);border-radius:var(--radius-sm);color:var(--color-ink-2);letter-spacing:0.02em}
+header .badge.highlight{border-color:var(--color-accent-dim);color:var(--color-accent)}
+header nav{display:flex;gap:var(--space-xl)}
+header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:0.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out)}
+header nav a:hover{color:var(--color-accent)}
+@media(max-width:640px){header{padding:var(--space-xl)0 var(--space-lg)}header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-lg)}}
+
+/* ── Hero ── */
+.hero{margin-bottom:var(--space-3xl)}
+.hero .path{font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-ink-3);margin-bottom:var(--space-lg)}
+.hero .path .accent{color:var(--color-accent)}
+.hero h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-4xl);line-height:1.2;letter-spacing:-0.03em;text-transform:uppercase;color:var(--color-ink);margin-bottom:var(--space-md)}
+.hero .meta{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);margin-bottom:var(--space-xl);display:flex;gap:var(--space-md);flex-wrap:wrap}
+.hero .meta .dot{color:var(--color-accent-dim)}
+.hero p{font-size:var(--text-lg);color:var(--color-ink-2);line-height:1.8;max-width:65ch;margin-bottom:var(--space-lg)}
+.hero .contact-line{font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-ink-3)}
+.hero .contact-line .accent{color:var(--color-accent)}
+
+/* ── Section headings (// style) ── */
+.section-hdr{font-family:var(--font-sans);font-weight:700;font-size:var(--text-2xl);line-height:1.3;letter-spacing:-0.02em;text-transform:uppercase;color:var(--color-ink);margin:var(--space-3xl) 0 var(--space-lg);padding-top:var(--space-md)}
+.section-hdr .comment{font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent-dim);margin-right:var(--space-sm);font-weight:400;text-transform:none;letter-spacing:0}
+.section-hdr .line{display:block;height:1px;background:var(--color-line);margin-top:var(--space-lg);width:100%}
+
+/* ── Capability list ── */
+.cap-list{list-style:none;margin-bottom:var(--space-2xl)}
+.cap-list li{display:flex;align-items:baseline;gap:var(--space-lg);padding:var(--space-md) 0;border-bottom:1px solid var(--color-line)}
+.cap-list li:last-child{border-bottom:none}
+.cap-list .name{font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent);min-width:20ch;font-weight:500}
+.cap-list .desc{font-size:var(--text-sm);color:var(--color-ink-2);line-height:1.7}
+@media(max-width:640px){.cap-list li{flex-direction:column;gap:var(--space-xs);padding:var(--space-lg)0}.cap-list .name{min-width:auto}}
+
+/* ── Architecture block ── */
+.arch-note{font-size:var(--text-sm);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-xl);max-width:65ch;border-left:3px solid var(--color-accent);padding-left:var(--space-lg);background:var(--color-paper-2);padding:var(--space-lg);border-radius:0 var(--radius-sm) var(--radius-sm) 0}
+.arch-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);margin-bottom:var(--space-2xl)}
+.arch-node{padding:var(--space-lg);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:var(--text-sm);line-height:1.8}
+.arch-node .node-name{font-weight:600;color:var(--color-accent);margin-bottom:var(--space-xs);text-transform:uppercase;font-size:var(--text-xs);letter-spacing:0.05em}
+.arch-node .node-detail{color:var(--color-ink-2)}
+.arch-node .arrow{color:var(--color-accent-dim)}
+@media(max-width:640px){.arch-grid{grid-template-columns:1fr}}
+
+/* ── Contact block ── */
+.contact-block{padding:var(--space-2xl) 0;border-top:1px solid var(--color-line);margin-top:var(--space-2xl);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-lg)}
+.contact-block .info{font-size:var(--text-sm);color:var(--color-ink-3);line-height:1.6}
+.contact-block .info .hl{color:var(--color-ink-2)}
+.contact-block .email{font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent);padding:var(--space-sm) var(--space-lg);border:1px solid var(--color-accent-dim);border-radius:var(--radius-sm);transition:background var(--dur-fast) var(--ease-out)}
+.contact-block .email:hover{background:var(--color-accent-glow)}
+@media(max-width:640px){.contact-block{flex-direction:column;align-items:flex-start}}
+
+/* ── Footer ── */
+footer{padding:var(--space-xl) 0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-md)}
+
+/* ── Blockquote ── */
+blockquote{border-left:3px solid var(--color-accent);padding:var(--space-lg);margin:var(--space-xl) 0;background:var(--color-paper-2);font-size:var(--text-sm);color:var(--color-ink-2);line-height:1.8;border-radius:0 var(--radius-sm) var(--radius-sm) 0}
