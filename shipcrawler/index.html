@@ -73,14 +73,9 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 
 <div class="form-box">
   <p style="margin-bottom:var(--space-md);font-size:var(--text-sm);color:var(--color-ink-2)"><strong>Start your free scan</strong> — no commitment, no installation, no credentials needed.</p>
-  <form action="mailto:contact@oversight.ee" method="GET" enctype="text/plain">
-    <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="e.g. Hans Meier" required></div>
-    <div class="form-group"><label>Work email</label><input type="email" name="email" placeholder="hans@shippingcompany.com" required></div>
-    <div class="form-group"><label>Company</label><input type="text" name="company" placeholder="e.g. Baltic Shipping Ltd"></div>
-    <div class="form-group"><label>Vessel names (up to 3)</label><textarea name="vessels" placeholder="e.g.&#10;Vessel 1&#10;Vessel 2&#10;Vessel 3" required></textarea></div>
-    <button type="submit" class="btn">Request free scan</button>
-    <p style="margin-top:var(--space-sm);font-size:var(--text-xs);color:var(--color-ink-3);text-align:center">For now, this sends via email. Direct API integration coming soon.</p>
-  </form>
+  <p style="font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-lg)">Send us your vessel names and we'll run the scan. Your report will arrive within 24 hours.</p>
+  <a href="mailto:contact@oversight.ee?subject=Free Shipcrawler Scan&body=Vessel names (up to 3):%0A1.%0A2.%0A3.%0A%0ACompany:%0AName:%0APhone (optional):" class="btn" style="display:block;text-decoration:none">📧 Email us to start your scan</a>
+  <p style="margin-top:var(--space-sm);font-size:var(--text-xs);color:var(--color-ink-3);text-align:center">Or copy: contact@oversight.ee — we respond within 2 hours during business days.</p>
 </div>
 
 <div class="trust"><strong>Peer-reviewed methodology</strong> · IEEE Access 2026 · <strong>Zero risk</strong> · No installation or credentials needed</div>
