@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ECDIS Vulnerabilities for Fleet Managers — Oversight Blog</title>
+<meta name="description" content="Electronic Chart Display and Information Systems are critical navigation equipment connected to networks that may be exposed to the internet.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/blog/ecdis-vulnerabilities-fleet-managers.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<style>.container{max-width:720px;margin:0 auto;padding-inline:clamp(1.25rem,3vw,1.5rem)}header{padding:var(--space-3xl)0 var(--space-xl);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-3xl);background:var(--color-paper-2)}header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-.5px;color:var(--color-ink)}header .brand .accent{color:var(--color-accent)}header nav{display:flex;gap:var(--space-xl)}header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out)}header nav a:hover{color:var(--color-accent)}.post-date{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);margin-bottom:var(--space-md)}h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-3xl);letter-spacing:-.02em;color:var(--color-ink);margin-bottom:var(--space-lg);line-height:1.25}h2{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);color:var(--color-ink);margin:var(--space-2xl)0 var(--space-md);padding-bottom:var(--space-xs);border-bottom:1px solid var(--color-line)}h3{font-family:var(--font-sans);font-weight:600;font-size:var(--text-lg);color:var(--color-ink);margin:var(--space-xl)0 var(--space-sm)}p{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-lg)}strong{color:var(--color-ink)}ul,ol{margin-bottom:var(--space-lg);padding-left:var(--space-xl)}li{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-sm)}footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-3xl)}@media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-lg)}}</style>
+</head>
+<body>
+<header><div class="container"><div><a href="../" class="brand">● <span class="accent">oversight</span>.ee</a></div>
+<nav><a href="../#capabilities">Capabilities</a><a href="../#architecture">Architecture</a><a href="../blog/">Blog</a><a href="../#contact">Contact</a></nav></div></header>
+<div class="container">
+
+<div class="post-date">2026-06-16 · ECDIS</div>
+<h1>ECDIS Vulnerabilities: What Fleet Managers Need to Know</h1>
+
+<p>ECDIS — Electronic Chart Display and Information Systems — are the primary navigation tool on most modern vessels. They replace paper charts and integrate GPS, AIS, radar, and other sensor data into a single display.</p>
+
+<p>They're also computers connected to the ship's network. And like any computer, they can be compromised.</p>
+
+<h2>How ECDIS Systems Are Connected</h2>
+<p>Modern ECDIS installations are typically connected to the ship's local network for chart updates, weather data, and bridge system integration. That network also connects to the VSAT/satellite link. If the VSAT terminal is compromised, an attacker with access to the ship's network can potentially reach the ECDIS.</p>
+
+<h2>Real Risks vs. Hollywood Scenarios</h2>
+<p><strong>What attackers can actually do:</strong></p>
+<ul>
+<li>Interfere with chart data or feed false GPS data (GPS spoofing is well-documented in certain regions)</li>
+<li>Access the system remotely if the ECDIS is network-connected with no access controls</li>
+<li>Exfiltrate route data — future voyage plans are commercially sensitive</li>
+</ul>
+<p>The real risk isn't a movie-style ship hijacking. It's more subtle: data manipulation, route monitoring by competitors, and gradual degradation of navigation system integrity that goes unnoticed until something goes wrong.</p>
+
+<h2>Known Vulnerabilities</h2>
+<p>Academic research and public databases (CVE) have documented vulnerabilities in major ECDIS software packages:</p>
+<ul>
+<li>Unpatched operating systems (many run Windows Embedded or unsupported OS versions)</li>
+<li>Network services running with default configurations</li>
+<li>USB port access allowing malware introduction during chart updates</li>
+<li>Lack of integrity checking on chart data files</li>
+<li>Insecure update mechanisms</li>
+</ul>
+
+<h2>Questions for Fleet Managers</h2>
+<ol>
+<li>Are ECDIS systems on your vessels on the same network as the VSAT terminal?</li>
+<li>Are software and chart updates applied through a secure, verified process?</li>
+<li>Has anyone checked whether the ECDIS is accessible from the internet?</li>
+<li>What's the procedure when an ECDIS behaves unexpectedly?</li>
+</ol>
+
+</div>
+<footer><div class="container">oversight.ee — cybersecurity &amp; infrastructure · © 2026</div></footer>
+</body>
+</html>

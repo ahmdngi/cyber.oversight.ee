@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>What is VSAT Security — Oversight Blog</title>
+<meta name="description" content="Your vessels' satellite terminals are connected to the open internet. Here's what that means for your fleet's security posture.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/blog/vsat-security-fleet-managers.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.container{max-width:720px;margin:0 auto;padding-inline:clamp(1.25rem,3vw,1.5rem)}
+header{padding:var(--space-3xl)0 var(--space-xl);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-3xl);background:var(--color-paper-2)}
+header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}
+header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-.5px;color:var(--color-ink)}
+header .brand .accent{color:var(--color-accent)}
+header nav{display:flex;gap:var(--space-xl)}
+header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out)}
+header nav a:hover{color:var(--color-accent)}
+.post-date{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);margin-bottom:var(--space-md)}
+h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-3xl);letter-spacing:-.02em;color:var(--color-ink);margin-bottom:var(--space-lg);line-height:1.25}
+h2{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);color:var(--color-ink);margin:var(--space-2xl)0 var(--space-md);padding-bottom:var(--space-xs);border-bottom:1px solid var(--color-line)}
+h3{font-family:var(--font-sans);font-weight:600;font-size:var(--text-lg);color:var(--color-ink);margin:var(--space-xl)0 var(--space-sm)}
+p{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-lg)}
+strong{color:var(--color-ink)}
+ul,ol{margin-bottom:var(--space-lg);padding-left:var(--space-xl)}
+li{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-sm)}
+.cta-box{margin:var(--space-2xl)0;padding:var(--space-lg);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-md)}
+.cta-box a{color:var(--color-accent);font-weight:500}
+footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-3xl)}
+@media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-lg)}}
+</style>
+</head>
+<body>
+<header><div class="container"><div><a href="../" class="brand">● <span class="accent">oversight</span>.ee</a></div>
+<nav><a href="../#capabilities">Capabilities</a><a href="../#architecture">Architecture</a><a href="../blog/">Blog</a><a href="../#contact">Contact</a></nav></div></header>
+<div class="container">
+
+<div class="post-date">2026-06-16 · VSAT</div>
+<h1>What is VSAT Security and Why Fleet Managers Should Care</h1>
+
+<p>If you manage a commercial fleet, every vessel with a satellite terminal has a direct connection to the open internet. And unlike your office network, nobody is watching that connection.</p>
+
+<p><strong>Here's the uncomfortable reality:</strong> VSAT terminals are designed for connectivity, not security. They expose management interfaces — web dashboards, SSH ports, SNMP endpoints — directly to the internet by default. And attackers know exactly where to look.</p>
+
+<p>This post explains what VSAT security means, why it matters for your fleet, and what you can do about it in under an hour.</p>
+
+<h2>What Actually Is a VSAT Terminal?</h2>
+
+<p>VSAT (Very Small Aperture Terminal) is the standard satellite communication system on most commercial vessels. Brands like Cobham (SAILOR series), KVH, and Intellian are on thousands of ships worldwide.</p>
+
+<p>These terminals are essentially small satellite dishes connected to a below-deck unit that functions as a router, modem, and network gateway. That below-deck unit typically runs a web-based management interface — the same kind of interface you'd find on an office router, but exposed via satellite link to the entire internet.</p>
+
+<h2>The Problem: Designed for Access, Not Security</h2>
+
+<p>VSAT manufacturers prioritise making their terminals accessible from anywhere in the world. That's useful for remote troubleshooting but creates a security gap:</p>
+
+<ul>
+<li><strong>Default credentials</strong> are often well-known or never changed during installation</li>
+<li><strong>Management interfaces</strong> are accessible from the satellite link, meaning anyone with the terminal's public IP can attempt to log in</li>
+<li><strong>Firmware updates</strong> are rare once installed — many terminals run software versions with known vulnerabilities</li>
+<li><strong>No built-in monitoring</strong> — unlike office IT, nobody watches VSAT traffic for intrusion attempts</li>
+</ul>
+
+<p>This isn't a flaw in any specific manufacturer's product. It's a design trade-off that made sense when satellite terminals were niche equipment used by technical crews. Today, automated scanners find these terminals within hours of them going online.</p>
+
+<h2>What Attackers Actually Do</h2>
+
+<p>Automated scanning tools like Shodan continuously scan the entire IPv4 internet. When they find a VSAT terminal, they:</p>
+
+<ol>
+<li><strong>Identify the make and model</strong> — the management interface usually advertises this</li>
+<li><strong>Check for default credentials</strong> — common username/password combinations</li>
+<li><strong>List open ports</strong> — SSH, HTTP/HTTPS, SNMP, and proprietary management protocols</li>
+<li><strong>Attempt known exploits</strong> — against unpatched firmware versions</li>
+</ol>
+
+<p>Once inside a VSAT terminal, an attacker can:</p>
+<ul>
+<li><strong>Disrupt communications</strong> — take the terminal offline, causing off-hire</li>
+<li><strong>Redirect traffic</strong> — intercept or modify data passing through the satellite link</li>
+<li><strong>Use the terminal as a pivot</strong> — access other systems on the ship's network</li>
+<li><strong>Monitor position data</strong> — track vessel movements</li>
+</ul>
+
+<h2>Why Port State Control Is Starting to Ask</h2>
+
+<p>Port state control regimes — Paris MoU, Tokyo MoU, USCG — have added cyber security to their inspection checklists. Inspectors are increasingly asking for evidence that vessel IT and OT systems are secured.</p>
+
+<p>A VSAT terminal with default credentials and open management interfaces is exactly the kind of finding that gets noted on an inspection report. And once it's on record, it stays on the vessel's profile for future inspections.</p>
+
+<h2>What You Can Do Right Now</h2>
+
+<p><strong>Step 1: Find out what's exposed.</strong> <a href="https://cyber.oversight.ee/shipcrawler/">Run a free Shipcrawler scan</a> on three of your vessels. We'll search Shodan, AIS databases, and public sources to show you exactly what attackers see when they scan your fleet.</p>
+
+<p><strong>Step 2: Change default credentials.</strong> This is the single highest-impact, lowest-effort fix. Every VSAT terminal in your fleet should have unique, strong credentials for its management interface.</p>
+
+<p><strong>Step 3: Restrict management access.</strong> If your satellite provider supports it, restrict management interface access to specific IP addresses — your office or your provider's support team only.</p>
+
+<p><strong>Step 4: Document what you've done.</strong> When the PSC inspector asks, you want to show a documented process, not a blank look.</p>
+
+<div class="cta-box">
+  <strong>Free fleet scan →</strong> <a href="https://cyber.oversight.ee/shipcrawler/">Get your free 3-vessel Shipcrawler scan</a> — no installation, no credentials, no commitment.
+</div>
+
+</div>
+<footer><div class="container">oversight.ee — cybersecurity &amp; infrastructure · © 2026</div></footer>
+</body>
+</html>

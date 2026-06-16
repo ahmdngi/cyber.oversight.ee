@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Free Fleet Scan — Shipcrawler | Oversight</title>
+<meta name="description" content="Find out what hackers already know about your fleet. Free 3-vessel scan. No installation, no credentials, no commitment.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cyber.oversight.ee/shipcrawler/">
+<meta property="og:title" content="Free 3-Vessel Scan — Shipcrawler by Oversight">
+<meta property="og:description" content="Find out what hackers already know about your fleet. Free scan, 24-hour turnaround, plain-language report.">
+<meta property="og:url" content="https://cyber.oversight.ee/shipcrawler/">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.container{max-width:720px;margin:0 auto;padding-inline:clamp(1.25rem,3vw,1.5rem)}
+header{padding:var(--space-3xl)0 var(--space-xl);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-3xl);background:var(--color-paper-2)}
+header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}
+header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-.5px;color:var(--color-ink)}
+header .brand .accent{color:var(--color-accent)}
+header nav{display:flex;gap:var(--space-xl)}
+header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out)}
+header nav a:hover{color:var(--color-accent)}
+h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-4xl);letter-spacing:-.03em;color:var(--color-ink);margin-bottom:var(--space-lg);line-height:1.15}
+h1 .accent{color:var(--color-accent)}
+.subtitle{font-size:var(--text-lg);color:var(--color-ink-2);line-height:1.8;max-width:65ch;margin-bottom:var(--space-2xl)}
+.benefits{margin-bottom:var(--space-2xl)}
+.benefit{display:flex;gap:12px;padding:var(--space-md)0;border-bottom:1px solid var(--color-line)}
+.benefit:last-child{border-bottom:none}
+.benefit-icon{font-family:var(--font-mono);color:var(--color-accent);flex-shrink:0;margin-top:2px}
+.benefit-text{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.7}
+.benefit-text strong{color:var(--color-ink)}
+.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-md);margin-bottom:var(--space-2xl)}
+.step{padding:var(--space-lg);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-md);text-align:center}
+.step-num{font-family:var(--font-mono);font-weight:600;font-size:var(--text-2xl);color:var(--color-accent);line-height:1;margin-bottom:var(--space-xs)}
+.step-label{font-size:var(--text-sm);color:var(--color-ink-2)}
+.form-box{padding:var(--space-2xl);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-md);margin-bottom:var(--space-2xl)}
+.form-box p{font-size:var(--text-sm);color:var(--color-ink-3);margin-bottom:var(--space-lg)}
+.form-group{margin-bottom:var(--space-md)}
+.form-group label{display:block;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);margin-bottom:var(--space-xs)}
+.form-group input,.form-group textarea{width:100%;background:var(--color-paper);border:1px solid var(--color-line-strong);border-radius:var(--radius-sm);padding:12px 14px;color:var(--color-ink);font-size:var(--text-base);font-family:var(--font-sans);transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--color-accent)}
+.form-group textarea{min-height:80px;resize:vertical}
+.btn{display:inline-block;font-family:var(--font-sans);font-size:var(--text-base);font-weight:600;color:#fff;background:var(--color-accent);padding:14px 32px;border:none;border-radius:var(--radius-sm);cursor:pointer;width:100%;transition:opacity .2s;text-align:center}
+.btn:hover{opacity:.9}
+.trust{text-align:center;padding:var(--space-xl)0;border-top:1px solid var(--color-line);font-size:var(--text-xs);color:var(--color-ink-3)}
+.trust strong{color:var(--color-ink-2)}
+footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-md)}
+@media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-lg)}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="container"><div><a href="../" class="brand">● <span class="accent">oversight</span>.ee</a></div>
+<nav><a href="../#capabilities">Capabilities</a><a href="../#architecture">Architecture</a><a href="../blog/">Blog</a><a href="../#contact">Contact</a></nav></div></header>
+<div class="container">
+
+<h1>See what hackers already know about <span class="accent">your fleet</span>.</h1>
+<p class="subtitle">Every day, automated scanners crawl the internet looking for exposed systems on ships. Shipcrawler does the same scan on your behalf. Send us vessel names, and we'll show you exactly what's exposed. No credentials needed. No onboard installation.</p>
+
+<div class="benefits">
+  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>See your fleet through a hacker's eyes.</strong> We search Shodan, AIS databases, and web sources — the same tools attackers use.</div></div>
+  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>Know what to fix first.</strong> Clear three-part report: what's exposed, how an attacker could use it, what to prioritise.</div></div>
+  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>Zero risk to try.</strong> First three vessels are on us. See the value before you spend a cent.</div></div>
+  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>Plain language, not security jargon.</strong> Reports written for fleet managers, not just security engineers.</div></div>
+  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>Published, peer-reviewed methodology.</strong> Our approach (IEEE Access 2026) is research, not marketing.</div></div>
+</div>
+
+<div class="steps">
+  <div class="step"><div class="step-num">1</div><div class="step-label">Send vessel names</div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-label">We scan the internet</div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-label">Clear report in 24h</div></div>
+</div>
+
+<div class="form-box">
+  <p style="margin-bottom:var(--space-md);font-size:var(--text-sm);color:var(--color-ink-2)"><strong>Start your free scan</strong> — no commitment, no installation, no credentials needed.</p>
+  <form action="mailto:contact@oversight.ee" method="GET" enctype="text/plain">
+    <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="e.g. Hans Meier" required></div>
+    <div class="form-group"><label>Work email</label><input type="email" name="email" placeholder="hans@shippingcompany.com" required></div>
+    <div class="form-group"><label>Company</label><input type="text" name="company" placeholder="e.g. Baltic Shipping Ltd"></div>
+    <div class="form-group"><label>Vessel names (up to 3)</label><textarea name="vessels" placeholder="e.g.&#10;Vessel 1&#10;Vessel 2&#10;Vessel 3" required></textarea></div>
+    <button type="submit" class="btn">Request free scan</button>
+    <p style="margin-top:var(--space-sm);font-size:var(--text-xs);color:var(--color-ink-3);text-align:center">For now, this sends via email. Direct API integration coming soon.</p>
+  </form>
+</div>
+
+<div class="trust"><strong>Peer-reviewed methodology</strong> · IEEE Access 2026 · <strong>Zero risk</strong> · No installation or credentials needed</div>
+
+</div>
+<footer><div class="container">oversight.ee — cybersecurity &amp; infrastructure · © 2026</div></footer>
+</body>
+</html>

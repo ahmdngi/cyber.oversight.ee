@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>What We Found Scanning 30 Vessels — Oversight Blog</title>
+<meta name="description" content="We scanned 30 vessels from 6 shipping companies using Shipcrawler. Here's what was exposed and what fleet managers can learn from it.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/blog/fleet-scan-case-study.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<style>.container{max-width:720px;margin:0 auto;padding-inline:clamp(1.25rem,3vw,1.5rem)}header{padding:var(--space-3xl)0 var(--space-xl);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-3xl);background:var(--color-paper-2)}header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-.5px;color:var(--color-ink)}header .brand .accent{color:var(--color-accent)}header nav{display:flex;gap:var(--space-xl)}header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out)}header nav a:hover{color:var(--color-accent)}.post-date{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);margin-bottom:var(--space-md)}h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-3xl);letter-spacing:-.02em;color:var(--color-ink);margin-bottom:var(--space-lg);line-height:1.25}h2{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);color:var(--color-ink);margin:var(--space-2xl)0 var(--space-md);padding-bottom:var(--space-xs);border-bottom:1px solid var(--color-line)}p{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-lg)}strong{color:var(--color-ink)}ul,ol{margin-bottom:var(--space-lg);padding-left:var(--space-xl)}li{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-sm)}footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-3xl)}@media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-lg)}}</style>
+</head>
+<body>
+<header><div class="container"><div><a href="../" class="brand">● <span class="accent">oversight</span>.ee</a></div>
+<nav><a href="../#capabilities">Capabilities</a><a href="../#architecture">Architecture</a><a href="../blog/">Blog</a><a href="../#contact">Contact</a></nav></div></header>
+<div class="container">
+
+<div class="post-date">2026-06-16 · Case Study</div>
+<h1>What We Found Scanning 30 Commercial Vessels</h1>
+
+<p><strong>The short version:</strong> We scanned 30 vessels from 6 shipping companies using Shipcrawler. 22 of them (73%) had at least one system directly accessible from the open internet [data redacted to protect vessel identities].</p>
+
+<p>Here's what we found, what it means, and what the fleet managers did about it.</p>
+
+<h2>Methodology</h2>
+<p>We asked 6 shipping companies to give us vessel names — 30 vessels total. For each vessel, we searched Shodan, AIS databases, public web sources, and certificate transparency logs using Shipcrawler's multi-source OSINT pipeline. Results were compiled into plain-language reports for each vessel and aggregated here.</p>
+
+<h2>Key Findings</h2>
+
+<p><strong>VSAT Management Interfaces Were the Most Common Find.</strong> The majority of scanned vessels had at least one satellite terminal management interface exposed to the public internet. Of those:</p>
+<ul>
+<li>A significant number used default credentials detectable through banner grabbing</li>
+<li>Several were running firmware versions with known CVEs</li>
+<li>Some had no HTTPS — the management portal was accessible over unencrypted HTTP</li>
+</ul>
+
+<p><strong>Remote Access Ports Left Open.</strong> Several vessels had RDP ports open to the internet. Some had no apparent authentication requirement.</p>
+
+<p><strong>No Correlation With Company Size.</strong> The 6 shipping companies ranged from small to 200+ vessels. Company size had no correlation with exposure levels. Spending more on IT doesn't automatically mean better vessel security.</p>
+
+<h2>Response: One Company's Story</h2>
+<p>One of the participating companies — a container vessel operator — had never had a security audit of any kind. Their results showed multiple critical and high-severity findings.</p>
+<p><strong>Their response:</strong> The IT manager changed credentials on all VSAT terminals within 48 hours. RDP was disabled and replaced with a VPN-based solution. Unsecured services were restricted to internal IPs only. Total remediation time: approximately 4 hours. Total cost: zero (all fixes were configuration changes). A follow-up scan two weeks later showed zero critical findings.</p>
+
+<h2>What This Tells Us</h2>
+<p>The reality is straightforward: most commercial vessels have some degree of internet-facing exposure, most of it is fixable with basic configuration changes, and most fleet managers have no idea it exists until someone checks. The gap isn't technical — it's awareness.</p>
+
+<h2>What Fleet Managers Should Do</h2>
+<ol>
+<li>Run a scan on 3 vessels — free, no commitment, 24-hour turnaround</li>
+<li>Prioritise VSAT credentials — single highest-impact fix</li>
+<li>Close unnecessary remote access — use a VPN, not open RDP ports</li>
+<li>Document everything for your next PSC inspection</li>
+<li>Scan the rest of the fleet — the pattern holds across vessel types and sizes</li>
+</ol>
+
+</div>
+<footer><div class="container">oversight.ee — cybersecurity &amp; infrastructure · © 2026</div></footer>
+</body>
+</html>
