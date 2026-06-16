@@ -9,93 +9,70 @@
 <link rel="canonical" href="https://cyber.oversight.ee/">
 <link rel="sitemap" type="application/xml" href="https://cyber.oversight.ee/sitemap.xml">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-<!-- Open Graph -->
 <meta property="og:title" content="Oversight — Cybersecurity for Commercial Fleets">
 <meta property="og:description" content="Free 3-vessel internet exposure scan. Automated fleet security. Peer-reviewed maritime cybersecurity research (IEEE Access 2026).">
 <meta property="og:url" content="https://cyber.oversight.ee/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Oversight">
 <meta property="og:locale" content="en_EE">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oversight — Cybersecurity for Commercial Fleets">
 <meta name="twitter:description" content="Free 3-vessel internet exposure scan. Automated fleet security. Peer-reviewed maritime cybersecurity research (IEEE Access 2026).">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Oversight",
-  "url": "https://cyber.oversight.ee",
-  "description": "Cybersecurity for commercial fleets. Free vessel exposure scanning, automated fleet security, and maritime monitoring.",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "contact@oversight.ee",
-    "contactType": "sales"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "EE"
-  }
-}
-</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Oversight","url":"https://cyber.oversight.ee","description":"Cybersecurity for commercial fleets. Free vessel exposure scanning, automated fleet security, and maritime monitoring.","contactPoint":{"@type":"ContactPoint","email":"contact@oversight.ee","contactType":"sales"},"address":{"@type":"PostalAddress","addressCountry":"EE"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <style>
-  /* Content sits above raining letters canvas */
-  header, .container { position: relative; z-index: 1; }
-  header { background: color-mix(in oklch, var(--color-paper-2) 88%, transparent); backdrop-filter: blur(2px); }
-  .arch-node, blockquote, .arch-note { backdrop-filter: blur(4px); }
-  .section-hdr[id], #contact { scroll-margin-top: 120px; }
-  .hero .cta-row { display: flex; gap: var(--space-md); margin-top: var(--space-lg); flex-wrap: wrap; }
-  .hero .cta { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-sans); font-weight: 700; font-size: var(--text-base); color: #fff; background: var(--color-accent); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); transition: opacity var(--dur-fast) var(--ease-out); }
-  .hero .cta:hover { opacity: 0.85; }
-  .hero .cta-outline { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-sans); font-weight: 600; font-size: var(--text-base); color: var(--color-accent); background: transparent; padding: var(--space-md) var(--space-lg); border: 1.5px solid var(--color-line-strong); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease-out); }
-  .hero .cta-outline:hover { border-color: var(--color-accent); }
-  .authority-bar { display: flex; gap: var(--space-xl); flex-wrap: wrap; margin: var(--space-lg) 0 var(--space-xl); padding: var(--space-md) 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
-  .authority-item { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); display: flex; align-items: center; gap: var(--space-sm); }
-  .authority-item .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
-  .dot-peer { background: #a855f7; }
-  .dot-ieee { background: #3b82f6; }
-  .dot-free { background: #22c55e; }
+header, .container { position: relative; z-index: 1; }
+header { background: color-mix(in oklch, var(--color-paper-2) 88%, transparent); backdrop-filter: blur(2px); }
+.cta-row { display: flex; gap: var(--space-md); margin-top: var(--space-lg); flex-wrap: wrap; }
+.cta { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-sans); font-weight: 700; font-size: var(--text-base); color: #fff; background: var(--color-accent); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); transition: opacity var(--dur-fast) var(--ease-out); }
+.cta:hover { opacity: 0.85; }
+.cta-outline { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-sans); font-weight: 600; font-size: var(--text-base); color: var(--color-accent); background: transparent; padding: var(--space-md) var(--space-lg); border: 1.5px solid var(--color-line-strong); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease-out); }
+.cta-outline:hover { border-color: var(--color-accent); }
+.authority-bar { display: flex; gap: var(--space-xl); flex-wrap: wrap; margin: var(--space-lg) 0 var(--space-xl); padding: var(--space-md) 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.authority-item { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); display: flex; align-items: center; gap: var(--space-sm); }
+.authority-item .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+.dot-peer { background: #a855f7; } .dot-ieee { background: #3b82f6; } .dot-free { background: #22c55e; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-2xl) 0; }
+.card { padding: var(--space-lg); background: var(--color-paper-2); border: 1px solid var(--color-line); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease-out); display: flex; flex-direction: column; }
+.card:hover { border-color: var(--color-accent); }
+.card .label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); margin-bottom: var(--space-xs); }
+.card .title { font-family: var(--font-sans); font-weight: 700; font-size: var(--text-lg); color: var(--color-ink); margin-bottom: var(--space-sm); }
+.card .desc { font-size: var(--text-sm); color: var(--color-ink-2); line-height: 1.7; margin-bottom: var(--space-md); flex: 1; }
+.card .link { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); }
+.stats-row { display: flex; gap: var(--space-2xl); margin: var(--space-2xl) 0; padding: var(--space-lg) 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.stat { text-align: center; }
+.stat-val { font-family: var(--font-sans); font-weight: 700; font-size: var(--text-2xl); color: var(--color-accent); }
+.stat-lbl { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); margin-top: var(--space-xs); }
+@media(max-width:640px){.card-grid{grid-template-columns:1fr}.stats-row{gap:var(--space-lg);flex-wrap:wrap}}
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
 <body>
 
-<!-- RainingLetters background canvas -->
 <script src="raining-letters.js"></script>
 
-<!-- Header -->
 <header>
   <div class="container">
-    <div>
-      <a href="/" class="brand">● <span class="accent">oversight</span>.ee</a>
-    </div>
+    <div><a href="/" class="brand">● <span class="accent">oversight</span>.ee</a></div>
     <div class="badges">
       <span class="badge highlight">v1.0.0</span>
-      
       <span class="badge">ESTONIA</span>
       <span class="badge">MARITIME</span>
     </div>
     <nav>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#architecture">Architecture</a>
+      <a href="capabilities/">Capabilities</a>
+      <a href="architecture/">Architecture</a>
       <a href="blog/">Blog</a>
       <a href="shipcrawler/">Scan</a>
-      <a href="#contact">Contact</a>
+      <a href="contact/">Contact</a>
     </nav>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- Hero -->
   <div class="hero">
     <div class="path">~/<span class="accent">oversight</span>/</div>
     <h1>Cybersecurity for<br>commercial fleets.</h1>
@@ -112,7 +89,7 @@
 
     <div class="cta-row">
       <a href="shipcrawler/" class="cta">&#x1F50D; Free 3-vessel scan</a>
-      <a href="#capabilities" class="cta-outline">How it works</a>
+      <a href="capabilities/" class="cta-outline">View products</a>
     </div>
 
     <div class="authority-bar">
@@ -123,96 +100,52 @@
     </div>
   </div>
 
-  <!-- Capabilities -->
-  <h2 class="section-hdr" id="capabilities"><span class="comment">//</span>Our Products<span class="line"></span></h2>
-
-  <ul class="cap-list">
-    <li>
-      <span class="name">shipcrawler</span>
-      <span class="desc">See what hackers already know about your fleet. Searches Shodan, AIS databases, and public web sources — the same tools attackers use. Free 3-vessel scan, plain-language report in 24 hours. <a href="shipcrawler/" style="color:var(--color-accent)">Start free scan &#8594;</a></span>
-    </li>
-    <li>
-      <span class="name">project haris</span>
-      <span class="desc">Ship-to-shore security and data collection that works on 256 kbps satellite links. Edge node collects navigation, engine, and weather data from sensors you already have. Under $800 hardware, no recurring licence fees. Deployed on active commercial vessels.</span>
-    </li>
-    <li>
-      <span class="name">m-soc / monitoring</span>
-      <span class="desc">A security operations centre that understands how ships work. GPS spoofing detection, VSAT intrusion alerts, navigation system anomaly detection. Three peer-reviewed academic papers back every detection rule. Adds maritime intelligence to your existing SIEM.</span>
-    </li>
-    <li>
-      <span class="name">watchtower</span>
-      <span class="desc">One command to secure your entire fleet. Ansible-based automation provisions firewalls, encrypted connections, monitoring, and time sync identically across every vessel. Full audit trail for PSC and insurance evidence.</span>
-    </li>
-    <li>
-      <span class="name">haris crew app</span>
-      <span class="desc">Live vessel data and security alerts on Android phones and tablets. No passwords, no training. Auto-authenticates through the ship's secure network. Works offline with cached data during satellite dropouts.</span>
-    </li>
-  </ul>
-
-  <!-- Architecture -->
-  <h2 class="section-hdr" id="architecture"><span class="comment">//</span>Architecture<span class="line"></span></h2>
-
-  <div class="arch-note">
-    Every deployment follows a three-layer model designed for the reality of maritime operations — intermittent satellite links, no IT crew onboard, and the need for shore teams to see what's happening.
+  <div class="stats-row">
+    <div class="stat"><div class="stat-val">5</div><div class="stat-lbl">Products</div></div>
+    <div class="stat"><div class="stat-val">'22</div><div class="stat-lbl">Active Since</div></div>
+    <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Clusters</div></div>
+    <div class="stat"><div class="stat-val">&#x1F4F0;</div><div class="stat-lbl">IEEE Access 2026</div></div>
   </div>
 
-  <div class="arch-grid">
-    <div class="arch-node">
-      <div class="node-name">Edge</div>
-      <div class="node-detail">
-        rugged hardware on the vessel<br>
-        connects to existing sensors<br>
-        stores weeks of data locally<br>
-        <span class="arrow">→</span> syncs when satellite allows
-      </div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="label">Our Products</div>
+      <div class="title">Shipcrawler, Project Haris, M-SOC, Watchtower, Haris Crew App</div>
+      <div class="desc">Five products covering the full maritime security stack — from OSINT reconnaissance through edge data collection to crew mobile tools.</div>
+      <a href="capabilities/" class="link">View all products &#8594;</a>
     </div>
-    <div class="arch-node">
-      <div class="node-name">Core</div>
-      <div class="node-detail">
-        shoreside processing<br>
-        fleet-wide visibility<br>
-        threat detection & correlation<br>
-        <span class="arrow">→</span> integrates with your existing tools
-      </div>
+    <div class="card">
+      <div class="label">Architecture</div>
+      <div class="title">Three-layer model for maritime operations</div>
+      <div class="desc">Edge collection, core processing, and operations over an encrypted zero-trust mesh — designed for intermittent satellite links and no IT crew onboard.</div>
+      <a href="architecture/" class="link">Explore architecture &#8594;</a>
     </div>
-    <div class="arch-node">
-      <div class="node-name">Operations</div>
-      <div class="node-detail">
-        24/7 monitoring<br>
-        automated alert pipeline<br>
-        plain-language incident reports<br>
-        <span class="arrow">→</span> actionable, not theoretical
-      </div>
+    <div class="card">
+      <div class="label">Blog</div>
+      <div class="title">Research, guides, and fleet security analysis</div>
+      <div class="desc">VSAT security, ECDIS vulnerabilities, PSC cyber requirements, and the latest maritime OSINT research from the Oversight team.</div>
+      <a href="blog/" class="link">Read the blog &#8594;</a>
     </div>
-    <div class="arch-node">
-      <div class="node-name">Mesh</div>
-      <div class="node-detail">
-        encrypted zero-trust network<br>
-        direct or relayed connections<br>
-        live topology visibility<br>
-        <span class="arrow">→</span> works through any link
-      </div>
+    <div class="card">
+      <div class="label">Free Scan</div>
+      <div class="title">See what hackers know about your fleet</div>
+      <div class="desc">Free 3-vessel scan. We search Shodan, AIS databases, and public sources. Plain-language report in 24 hours. No installation or credentials needed.</div>
+      <a href="shipcrawler/" class="link">Start free scan &#8594;</a>
     </div>
   </div>
 
-  <blockquote>
-    Built for environments where standard IT security models don't apply — maritime vessels, industrial networks, research infrastructure, and distributed operational technology.
-  </blockquote>
-
-  <!-- Contact -->
   <div class="contact-block" id="contact">
     <div class="info">
       <span class="hl">Estonia</span> · operational since 2022<br>
     </div>
     <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;align-items:center">
-      <a href="mailto:contact@oversight.ee" class="email">contact@oversight.ee →</a>
-      <a href="shipcrawler/" class="email" style="color:var(--color-accent)">Free fleet scan ↗</a>
+      <a href="contact/" class="email">Contact us &#8594;</a>
+      <a href="shipcrawler/" class="email" style="color:var(--color-accent)">Free fleet scan &#8594;</a>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
-    oversight.ee — fleet cybersecurity · © 2026
+    oversight.ee — fleet cybersecurity · &copy; 2026
   </footer>
 
 </div>

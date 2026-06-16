@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Capabilities — Oversight | Maritime Cybersecurity</title>
+<meta name="description" content="Oversight's maritime cybersecurity products: Shipcrawler, Project Haris, M-SOC, Watchtower, and Haris Crew App.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/capabilities/">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css"><style>
+.container{max-width:860px;margin:0 auto;padding-inline:clamp(1.25rem,3vw,1.5rem)}
+header{padding:var(--space-3xl)0 var(--space-xl);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-3xl);background:var(--color-paper-2)}
+header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}
+header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-.5px;color:var(--color-ink)}
+header .brand .accent{color:var(--color-accent)}
+header nav{display:flex;gap:var(--space-xl)}
+header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out)}
+header nav a:hover{color:var(--color-accent)}
+h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-3xl);letter-spacing:-.02em;color:var(--color-ink);margin-bottom:var(--space-md)}
+.subtitle{font-size:var(--text-lg);color:var(--color-ink-2);line-height:1.8;max-width:65ch;margin-bottom:var(--space-3xl)}
+.prod{margin-bottom:var(--space-2xl);padding-bottom:var(--space-2xl);border-bottom:1px solid var(--color-line)}
+.prod:last-child{border-bottom:none}
+.prod-name{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);color:var(--color-accent);margin-bottom:var(--space-sm)}
+.prod-desc{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-md)}
+.prod-list{list-style:none;padding:0}
+.prod-list li{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.7;margin-bottom:var(--space-sm);padding-left:var(--space-lg);position:relative}
+.prod-list li::before{content:'\u25b8';position:absolute;left:0;color:var(--color-accent)}
+footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-3xl)}
+@media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-lg)}}
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<body>
+<header><div class="container"><div><a href="../" class="brand">● <span class="accent">oversight</span>.ee</a></div>
+<nav><a href="../capabilities/">Capabilities</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../shipcrawler/">Scan</a><a href="../contact/">Contact</a></nav></div></header>
+<div class="container">
+<div class="path">~/<span class="accent">oversight</span>/capabilities/</div>
+<h1><span class="comment" style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent-dim)">//</span> Products</h1>
+<p class="subtitle">Five products covering the full maritime security stack — from OSINT reconnaissance through edge data collection to crew mobile tools. Built by maritime researchers, deployed on active vessels.</p>
+
+<div class="prod">
+<div class="prod-name">shipcrawler</div>
+<div class="prod-desc">See what hackers already know about your fleet. Searches Shodan, AIS databases, and public web sources — the same tools attackers use. Produces plain-language reports showing what's exposed, how it could be exploited, and what to fix first.</div>
+<ul class="prod-list">
+<li>Free 3-vessel scan — no installation, no credentials, no commitment</li>
+<li>Published, peer-reviewed methodology (IEEE Access 2026)</li>
+<li>24-hour turnaround, plain-language reports for fleet managers</li>
+<li>Volume pricing available for fleet-wide assessments</li>
+</ul>
+</div>
+
+<div class="prod">
+<div class="prod-name">project haris</div>
+<div class="prod-desc">Ship-to-shore security and data collection platform designed for the reality of maritime operations — intermittent satellite links, limited bandwidth, no IT crew onboard. Collects navigation, engine, and weather data from sensors you already have.</div>
+<ul class="prod-list">
+<li>Under $800 hardware — no recurring licence fees</li>
+<li>Stores weeks of data locally during satellite dropouts</li>
+<li>Critical alerts prioritised even on slow links</li>
+<li>Ansible-based automated deployment — one playbook provisions everything</li>
+<li>Deployed and proven on active commercial vessels</li>
+</ul>
+</div>
+
+<div class="prod">
+<div class="prod-name">m-soc / monitoring</div>
+<div class="prod-desc">A security operations centre that understands how ships work. Detects GPS spoofing, VSAT intrusion, navigation system anomalies — threats generic SOCs miss. Three peer-reviewed academic papers back every detection rule.</div>
+<ul class="prod-list">
+<li>Adds maritime intelligence on top of your existing SIEM — no rip-and-replace</li>
+<li>Fleet-wide visibility on a single dashboard</li>
+<li>Automated alert pipeline with plain-language incident reports</li>
+<li>Deploy on your infrastructure or ours — operational in hours</li>
+</ul>
+</div>
+
+<div class="prod">
+<div class="prod-name">watchtower</div>
+<div class="prod-desc">One command to secure your entire fleet. Ansible-based automation provisions firewalls, encrypted connections, monitoring, and time sync identically across every vessel. Full audit trail for PSC and insurance evidence.</div>
+<ul class="prod-list">
+<li>Identical deployment every time — no variance between vessels</li>
+<li>Full audit trail — prove what was configured and when</li>
+<li>Secrets encrypted at rest — never stored in plain text</li>
+<li>Scales to any fleet size — adding vessel 20 takes the same time as vessel 1</li>
+</ul>
+</div>
+
+<div class="prod">
+<div class="prod-name">haris crew app</div>
+<div class="prod-desc">Live vessel data and security alerts on Android phones and tablets. Clean gauges show navigation and engine data. Security alerts from shore appear instantly. No passwords to remember — the phone authenticates automatically through the ship's secure network.</div>
+<ul class="prod-list">
+<li>No training needed — familiar mobile interface</li>
+<li>No passwords to manage — automatic authentication</li>
+<li>Works offline with cached data during satellite dropouts</li>
+<li>Built with Flutter — modern, fast, extendable</li>
+</ul>
+</div>
+
+</div>
+<footer><div class="container">oversight.ee — fleet cybersecurity · © 2026</div></footer>
+</body>
+</html>

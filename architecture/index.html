@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Architecture — Oversight | Maritime Cybersecurity</title>
+<meta name="description" content="How Oversight's three-layer architecture works for maritime security — edge collection, core processing, and operations over a zero-trust mesh.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/architecture/">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css"><style>
+.container{max-width:860px;margin:0 auto;padding-inline:clamp(1.25rem,3vw,1.5rem)}
+header{padding:var(--space-3xl)0 var(--space-xl);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-3xl);background:var(--color-paper-2)}
+header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}
+header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-.5px;color:var(--color-ink)}
+header .brand .accent{color:var(--color-accent)}
+header nav{display:flex;gap:var(--space-xl)}
+header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out)}
+header nav a:hover{color:var(--color-accent)}
+h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-3xl);letter-spacing:-.02em;color:var(--color-ink);margin-bottom:var(--space-md)}
+.subtitle{font-size:var(--text-lg);color:var(--color-ink-2);line-height:1.8;max-width:65ch;margin-bottom:var(--space-2xl)}
+.layer{margin-bottom:var(--space-2xl);padding:var(--space-lg);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-md)}
+.layer-name{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);color:var(--color-accent);margin-bottom:var(--space-sm)}
+.layer-desc{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-md)}
+.layer-details{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md)}
+.detail-item{padding:var(--space-md);background:var(--color-paper);border:1px solid var(--color-line);border-radius:var(--radius-sm)}
+.detail-item .label{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);margin-bottom:var(--space-xs)}
+.detail-item .value{font-size:var(--text-base);color:var(--color-ink-2)}
+blockquote{padding:var(--space-lg);margin:var(--space-2xl)0;border-left:3px solid var(--color-accent);font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;background:var(--color-paper-2);border-radius:0 var(--radius-sm) var(--radius-sm) 0}
+footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-3xl)}
+@media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-lg)}.layer-details{grid-template-columns:1fr}}
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<body>
+<header><div class="container"><div><a href="../" class="brand">● <span class="accent">oversight</span>.ee</a></div>
+<nav><a href="../capabilities/">Capabilities</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../shipcrawler/">Scan</a><a href="../contact/">Contact</a></nav></div></header>
+<div class="container">
+<div class="path">~/<span class="accent">oversight</span>/architecture/</div>
+<h1><span class="comment" style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent-dim)">//</span> Architecture</h1>
+<p class="subtitle">Every deployment follows a three-layer model designed for the reality of maritime operations — intermittent satellite links, no IT crew onboard, and the need for shore teams to see what's happening in real time.</p>
+
+<div class="layer">
+<div class="layer-name">Edge Layer</div>
+<div class="layer-desc">Rugged hardware installed on the vessel that connects to existing sensors — navigation, engine, weather, position. Stores weeks of telemetry locally during satellite dropouts and syncs automatically when the connection returns.</div>
+<div class="layer-details">
+<div class="detail-item"><div class="label">hardware</div><div class="value">Under $800, tamper-resistant, no moving parts</div></div>
+<div class="detail-item"><div class="label">connectivity</div><div class="value">Designed for 256 kbps satellite links</div></div>
+<div class="detail-item"><div class="label">storage</div><div class="value">Weeks of local buffer during outages</div></div>
+<div class="detail-item"><div class="label">priority</div><div class="value">Critical alerts go through immediately</div></div>
+</div>
+</div>
+
+<div class="layer">
+<div class="layer-name">Core Layer</div>
+<div class="layer-desc">Shore-side processing that aggregates data from all vessels into a single fleet-wide view. Runs threat detection, anomaly correlation, and generates plain-language incident reports.</div>
+<div class="layer-details">
+<div class="detail-item"><div class="label">processing</div><div class="value">Real-time ingestion from all edge nodes</div></div>
+<div class="detail-item"><div class="label">detection</div><div class="value">GPS spoofing, VSAT intrusion, nav system anomalies</div></div>
+<div class="detail-item"><div class="label">integration</div><div class="value">Feeds into your existing SIEM — no rip-and-replace</div></div>
+<div class="detail-item"><div class="label">research</div><div class="value">Three peer-reviewed papers back detection rules</div></div>
+</div>
+</div>
+
+<div class="layer">
+<div class="layer-name">Operations Layer</div>
+<div class="layer-desc">24/7 monitoring with an automated alert pipeline. Incidents are triaged, analysed, and reported in plain language — actionable intelligence for fleet managers, not raw data for security engineers.</div>
+<div class="layer-details">
+<div class="detail-item"><div class="label">monitoring</div><div class="value">Continuous fleet-wide visibility</div></div>
+<div class="detail-item"><div class="label">alerts</div><div class="value">Automated triage and prioritisation</div></div>
+<div class="detail-item"><div class="label">reporting</div><div class="value">Plain-language incident reports</div></div>
+<div class="detail-item"><div class="label">compliance</div><div class="value">Audit trail for PSC and insurance evidence</div></div>
+</div>
+</div>
+
+<div class="layer">
+<div class="layer-name">Mesh Network</div>
+<div class="layer-desc">All layers connect over an encrypted zero-trust mesh network with live topology visibility. Direct connections when available, relayed through the fastest path when not.</div>
+<div class="layer-details">
+<div class="detail-item"><div class="label">security</div><div class="value">End-to-end encrypted, zero-trust model</div></div>
+<div class="detail-item"><div class="label">routing</div><div class="value">Automatic failover — direct or relayed</div></div>
+<div class="detail-item"><div class="label">visibility</div><div class="value">Live topology showing connection quality</div></div>
+<div class="detail-item"><div class="label">reliability</div><div class="value">Works through any satellite link</div></div>
+</div>
+</div>
+
+<blockquote>
+Built for environments where standard IT security models don't apply — maritime vessels, industrial networks, research infrastructure, and distributed operational technology.
+</blockquote>
+
+</div>
+<footer><div class="container">oversight.ee — fleet cybersecurity · © 2026</div></footer>
+</body>
+</html>
