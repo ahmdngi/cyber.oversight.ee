@@ -33,11 +33,26 @@
   .post-title a:hover { color: var(--color-accent); }
   .post-desc { font-size: var(--text-sm); color: var(--color-ink-2); line-height: 1.7; margin-bottom: var(--space-sm); }
   .post-tags { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
-  .post-tag { font-family: var(--font-mono); font-size: var(--text-xs); padding: 2px var(--space-sm); border: 1px solid var(--color-line-strong); border-radius: var(--radius-sm); color: var(--color-ink-3); }
+  .post-tag { font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 500; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 5px; }
+  .post-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+  .tag-osint { background: rgba(147,51,234,0.12); color: #c084fc; } .tag-osint::before { background: #a855f7; }
+  .tag-case-study { background: rgba(59,130,246,0.12); color: #93c5fd; } .tag-case-study::before { background: #3b82f6; }
+  .tag-shipcrawler { background: rgba(20,184,166,0.12); color: #5eead4; } .tag-shipcrawler::before { background: #14b8a6; }
+  .tag-shodan { background: rgba(251,146,60,0.12); color: #fdba74; } .tag-shodan::before { background: #fb923c; }
+  .tag-threat-intel { background: rgba(239,68,68,0.12); color: #fca5a5; } .tag-threat-intel::before { background: #ef4444; }
+  .tag-compliance { background: rgba(34,197,94,0.12); color: #86efac; } .tag-compliance::before { background: #22c55e; }
+  .tag-psc { background: rgba(34,197,94,0.12); color: #86efac; } .tag-psc::before { background: #22c55e; }
+  .tag-regulation { background: rgba(234,179,8,0.12); color: #fde047; } .tag-regulation::before { background: #eab308; }
+  .tag-ecdis { background: rgba(99,102,241,0.12); color: #a5b4fc; } .tag-ecdis::before { background: #6366f1; }
+  .tag-navigation { background: rgba(6,182,212,0.12); color: #67e8f9; } .tag-navigation::before { background: #06b6d4; }
+  .tag-ot-security { background: rgba(239,68,68,0.12); color: #fca5a5; } .tag-ot-security::before { background: #ef4444; }
+  .tag-vsat { background: rgba(147,51,234,0.12); color: #c084fc; } .tag-vsat::before { background: #a855f7; }
+  .tag-satellite { background: rgba(59,130,246,0.12); color: #93c5fd; } .tag-satellite::before { background: #3b82f6; }
+  .tag-maritime-security { background: rgba(20,184,166,0.12); color: #5eead4; } .tag-maritime-security::before { background: #14b8a6; }
   footer { padding: var(--space-xl) 0 var(--space-2xl); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); border-top: 1px solid var(--color-line); margin-top: var(--space-3xl); }
   @media(max-width:640px) { header .container { flex-direction: column; align-items: flex-start; } header nav { gap: var(--space-lg); } }
 </style>
-</head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
 <body>
 
 <header>
@@ -64,9 +79,9 @@
       <div class="post-title"><a href="fleet-scan-case-study.html">What We Found Scanning 30 Commercial Vessels</a></div>
       <div class="post-desc">73% of scanned vessels had at least one system directly accessible from the internet. Here's the full breakdown, what it means, and how one fleet manager fixed everything in 4 hours.</div>
       <div class="post-tags">
-        <span class="post-tag">OSINT</span>
-        <span class="post-tag">Case Study</span>
-        <span class="post-tag">Shipcrawler</span>
+        <span class="post-tag tag-osint">OSINT</span>
+        <span class="post-tag tag-case-study">Case Study</span>
+        <span class="post-tag tag-shipcrawler">Shipcrawler</span>
       </div>
     </li>
 
@@ -75,9 +90,9 @@
       <div class="post-title"><a href="how-attackers-find-ships-shodan.html">How Attackers Find Ships on Shodan (And What It Means for Your Fleet)</a></div>
       <div class="post-desc">Automated scanners crawl the entire internet every day looking for exposed systems. Here's how they find vessels, what they look for, and what you can do about it.</div>
       <div class="post-tags">
-        <span class="post-tag">OSINT</span>
-        <span class="post-tag">Shodan</span>
-        <span class="post-tag">Threat Intel</span>
+        <span class="post-tag tag-osint">OSINT</span>
+        <span class="post-tag tag-shodan">Shodan</span>
+        <span class="post-tag tag-threat-intel">Threat Intel</span>
       </div>
     </li>
 
@@ -86,9 +101,9 @@
       <div class="post-title"><a href="psc-cyber-requirements-2026.html">Port State Control Cyber Requirements for 2026: A Fleet Manager's Guide</a></div>
       <div class="post-desc">Paris MoU, Tokyo MoU, and USCG have all added cyber to their inspection checklists. Here's what inspectors look for, common findings, and how to prepare.</div>
       <div class="post-tags">
-        <span class="post-tag">Compliance</span>
-        <span class="post-tag">PSC</span>
-        <span class="post-tag">Regulation</span>
+        <span class="post-tag tag-compliance">Compliance</span>
+        <span class="post-tag tag-psc">PSC</span>
+        <span class="post-tag tag-regulation">Regulation</span>
       </div>
     </li>
 
@@ -97,9 +112,9 @@
       <div class="post-title"><a href="ecdis-vulnerabilities-fleet-managers.html">ECDIS Vulnerabilities: What Fleet Managers Need to Know</a></div>
       <div class="post-desc">Electronic Chart Display systems are critical navigation equipment — and they're connected to networks that may be exposed to the internet.</div>
       <div class="post-tags">
-        <span class="post-tag">ECDIS</span>
-        <span class="post-tag">Navigation</span>
-        <span class="post-tag">OT Security</span>
+        <span class="post-tag tag-ecdis">ECDIS</span>
+        <span class="post-tag tag-navigation">Navigation</span>
+        <span class="post-tag tag-ot-security">OT Security</span>
       </div>
     </li>
 
@@ -108,9 +123,9 @@
       <div class="post-title"><a href="vsat-security-fleet-managers.html">What is VSAT Security and Why Fleet Managers Should Care</a></div>
       <div class="post-desc">Your vessels' satellite terminals are connected to the open internet. Here's what that means for your fleet's security posture and what to do about it.</div>
       <div class="post-tags">
-        <span class="post-tag">VSAT</span>
-        <span class="post-tag">Satellite</span>
-        <span class="post-tag">Maritime Security</span>
+        <span class="post-tag tag-vsat">VSAT</span>
+        <span class="post-tag tag-satellite">Satellite</span>
+        <span class="post-tag tag-maritime-security">Maritime Security</span>
       </div>
     </li>
 
