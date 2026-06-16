@@ -153,44 +153,44 @@
   <h2 class="section-hdr" id="architecture"><span class="comment">//</span>Architecture<span class="line"></span></h2>
 
   <div class="arch-note">
-    Every deployment follows a three-layer model — edge collection, core processing, and operations. All layers connect over zero-trust mesh networking with real-time topology visibility.
+    Every deployment follows a three-layer model designed for the reality of maritime operations — intermittent satellite links, no IT crew onboard, and the need for shore teams to see what's happening.
   </div>
 
   <div class="arch-grid">
     <div class="arch-node">
       <div class="node-name">Edge</div>
       <div class="node-detail">
-        vessel sensors<br>
-        pi r5 + piccan-m<br>
-        firewalld (default drop)<br>
-        <span class="arrow">→</span> encrypted offload
+        rugged hardware on the vessel<br>
+        connects to existing sensors<br>
+        stores weeks of data locally<br>
+        <span class="arrow">→</span> syncs when satellite allows
       </div>
     </div>
     <div class="arch-node">
       <div class="node-name">Core</div>
       <div class="node-detail">
-        elasticsearch + logstash<br>
-        filebeat ingestion<br>
-        correlation rules<br>
-        <span class="arrow">→</span> kibana dashboards
+        shoreside processing<br>
+        fleet-wide visibility<br>
+        threat detection & correlation<br>
+        <span class="arrow">→</span> integrates with your existing tools
       </div>
     </div>
     <div class="arch-node">
       <div class="node-name">Operations</div>
       <div class="node-detail">
-        zabbix monitoring<br>
-        alert pipeline<br>
-        24/7 triage<br>
-        <span class="arrow">→</span> incident response
+        24/7 monitoring<br>
+        automated alert pipeline<br>
+        plain-language incident reports<br>
+        <span class="arrow">→</span> actionable, not theoretical
       </div>
     </div>
     <div class="arch-node">
       <div class="node-name">Mesh</div>
       <div class="node-detail">
-        tailscale overlay<br>
-        direct / deep routing<br>
-        topology visualization<br>
-        <span class="arrow">→</span> node auto-provisioning
+        encrypted zero-trust network<br>
+        direct or relayed connections<br>
+        live topology visibility<br>
+        <span class="arrow">→</span> works through any link
       </div>
     </div>
   </div>
