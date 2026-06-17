@@ -23,7 +23,7 @@ jobs:
       - name: Prepare artifact
         run: |
           mkdir -p _site
-          cp -r index.html tokens.css raining-letters.js favicon.svg CNAME sitemap.xml robots.txt _site/
+          cp -r index.html tokens.css raining-letters.js favicon.svg CNAME sitemap.xml robots.txt manifest.json sw.js _site/
           cp -r blog shipcrawler capabilities architecture contact _site/
 
       - name: Upload artifact

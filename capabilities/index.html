@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Oversight">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="/manifest.json">
 <title>Capabilities — Oversight | Maritime Cybersecurity</title>
 <meta name="description" content="Oversight's maritime cybersecurity products: Shipcrawler, Project Haris, M-SOC, Watchtower, and Haris Crew App.">
 <meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/capabilities/">
@@ -97,5 +102,22 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 
 </div>
 <footer><div class="container">oversight.ee — fleet cybersecurity · © 2026</div></footer>
+
+<div id="pwa-banner" class="pwa-banner">
+  <span class="pwa-text">Install <strong>Oversight</strong> on your home screen for quick access.</span>
+  <div style="display:flex;gap:var(--space-sm);align-items:center">
+    <button class="pwa-btn" id="pwa-install-btn">Install</button>
+    <button class="pwa-close" id="pwa-dismiss-btn">&times;</button>
+  </div>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(function(){});
+}
+var deferredPrompt = null;
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferredPrompt=e;document.getElementById('pwa-banner').classList.add('visible');});
+document.getElementById('pwa-install-btn').addEventListener('click',function(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(function(){deferredPrompt=null;document.getElementById('pwa-banner').classList.remove('visible');});}});
+document.getElementById('pwa-dismiss-btn').addEventListener('click',function(){document.getElementById('pwa-banner').classList.remove('visible');});
+</script>
 </body>
 </html>

@@ -10,10 +10,12 @@ Vanilla HTML/CSS/JS — served via Python `http.server`.
 
 ## Features
 
+- **PWA** — Installable on home screen (manifest.json + service worker)
+- Responsive layout for mobile, tablet, and desktop
 - Digital rain (RainingLetters) background effect, confined to side gutters
 - Glitch-scrambling hero title that rotates through taglines
 - Hallmark design system with dark/light mode awareness
-- Zero-dependency, single-page static site
+- Zero-dependency, multi-page static site
 
 ## Design
 
