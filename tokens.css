@@ -323,7 +323,7 @@ code{font-family:var(--font-mono);font-size:0.9em}
 /* ── Bottom CTA strip (fixed, above tab bar) ── */
 @media(max-width:768px){
   .mobile-cta-strip{
-    position:fixed; bottom:64px; left:0; right:0; z-index:1001;
+    position:fixed; bottom:64px; left:0; right:0; z-index:200;
     display:flex; align-items:center; justify-content:center; gap:var(--space-sm);
     padding:var(--space-sm) var(--space-lg);
     background:color-mix(in oklch, var(--color-paper-2) 95%, transparent);
@@ -342,7 +342,7 @@ code{font-family:var(--font-mono);font-size:0.9em}
 /* ── Bottom tab bar (fixed, always visible on mobile) ── */
 @media(max-width:768px){
   .mobile-tabbar{
-    position:fixed; bottom:0; left:0; right:0; z-index:1002;
+    position:fixed; bottom:0; left:0; right:0; z-index:300;
     display:flex; align-items:stretch;
     background:var(--color-paper-2);
     border-top:1px solid var(--color-line-strong);
