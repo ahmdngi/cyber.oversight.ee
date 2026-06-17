@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Free Fleet Scan — Shipcrawler | Oversight</title>
 <meta name="description" content="Find out what hackers already know about your fleet. Free 3-vessel scan. No installation, no credentials, no commitment.">
 <meta name="robots" content="index, follow">
@@ -9,13 +9,6 @@
 <meta property="og:description" content="Find out what hackers already know about your fleet. Free scan, 24-hour turnaround, plain-language report.">
 <meta property="og:url" content="https://cyber.oversight.ee/shipcrawler/">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<!-- PWA Meta -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Shipcrawler">
-<meta name="theme-color" content="#0a0a0f">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="../icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../tokens.css">
@@ -97,57 +90,5 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 
 </div>
 <footer><div class="container">oversight.ee — cybersecurity &amp; infrastructure · © 2026</div></footer>
-
-<!-- PWA Install Banner -->
-<div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0f0f1a;border-top:1px solid var(--color-line);padding:12px 16px;z-index:1000;font-family:var(--font-sans);align-items:center;gap:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)">
-  <div style="flex:1;font-size:var(--text-sm);color:var(--color-ink)">Install <strong>Shipcrawler</strong> for quick access</div>
-  <button id="pwa-install-btn" style="background:var(--color-accent);color:#fff;border:none;border-radius:var(--radius-sm);padding:8px 18px;font-size:var(--text-sm);font-weight:600;cursor:pointer">Install</button>
-  <button id="pwa-dismiss-btn" style="background:transparent;color:var(--color-ink-3);border:none;font-size:var(--text-lg);cursor:pointer;line-height:1">&times;</button>
-</div>
-
-<script>
-// Register service worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').then(reg => {
-      console.log('SW registered:', reg.scope);
-    }).catch(err => {
-      console.warn('SW registration failed:', err);
-    });
-  });
-}
-
-// PWA install banner
-let deferredPrompt;
-const banner = document.getElementById('pwa-banner');
-const installBtn = document.getElementById('pwa-install-btn');
-const dismissBtn = document.getElementById('pwa-dismiss-btn');
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  banner.style.display = 'flex';
-});
-
-installBtn.addEventListener('click', async () => {
-  banner.style.display = 'none';
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const result = await deferredPrompt.userChoice;
-    console.log('PWA install result:', result.outcome);
-    deferredPrompt = null;
-  }
-});
-
-dismissBtn.addEventListener('click', () => {
-  banner.style.display = 'none';
-  deferredPrompt = null;
-});
-
-window.addEventListener('appinstalled', () => {
-  console.log('PWA installed');
-  banner.style.display = 'none';
-});
-</script>
 </body>
 </html>

@@ -2,13 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Oversight">
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="manifest" href="/manifest.json">
-<title>Oversight — Maritime & Fleet Cybersecurity | Estonia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oversight — Maritime &amp; Fleet Cybersecurity | Estonia</title>
 <meta name="description" content="Cybersecurity for commercial fleets. Free 3-vessel internet exposure scan, automated fleet-wide monitoring, and edge data collection for maritime operators.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://cyber.oversight.ee/">
@@ -31,9 +26,29 @@
 <style>
 header, .container { position: relative; z-index: 1; }
 header { background: color-mix(in oklch, var(--color-paper-2) 88%, transparent); backdrop-filter: blur(2px); }
+.cta-row { display: flex; gap: var(--space-md); margin-top: var(--space-lg); flex-wrap: wrap; }
+.cta { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-sans); font-weight: 700; font-size: var(--text-base); color: #fff; background: var(--color-accent); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); transition: opacity var(--dur-fast) var(--ease-out); }
+.cta:hover { opacity: 0.85; }
+.cta-outline { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-sans); font-weight: 600; font-size: var(--text-base); color: var(--color-accent); background: transparent; padding: var(--space-md) var(--space-lg); border: 1.5px solid var(--color-line-strong); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease-out); }
+.cta-outline:hover { border-color: var(--color-accent); }
+.authority-bar { display: flex; gap: var(--space-xl); flex-wrap: wrap; margin: var(--space-lg) 0 var(--space-xl); padding: var(--space-md) 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.authority-item { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); display: flex; align-items: center; gap: var(--space-sm); }
+.authority-item .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+.dot-peer { background: #a855f7; } .dot-ieee { background: #3b82f6; } .dot-free { background: #22c55e; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-2xl) 0; }
+.card { padding: var(--space-lg); background: var(--color-paper-2); border: 1px solid var(--color-line); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease-out); display: flex; flex-direction: column; }
+.card:hover { border-color: var(--color-accent); }
+.card .label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); margin-bottom: var(--space-xs); }
+.card .title { font-family: var(--font-sans); font-weight: 700; font-size: var(--text-lg); color: var(--color-ink); margin-bottom: var(--space-sm); }
+.card .desc { font-size: var(--text-sm); color: var(--color-ink-2); line-height: 1.7; margin-bottom: var(--space-md); flex: 1; }
+.card .link { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); }
+.stats-row { display: flex; gap: var(--space-2xl); margin: var(--space-2xl) 0; padding: var(--space-lg) 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.stat { text-align: center; }
+.stat-val { font-family: var(--font-sans); font-weight: 700; font-size: var(--text-2xl); color: var(--color-accent); }
+.stat-lbl { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-3); margin-top: var(--space-xs); }
+@media(max-width:640px){.card-grid{grid-template-columns:1fr}.stats-row{gap:var(--space-lg);flex-wrap:wrap}}
 </style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
-</head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
 <body>
 
 <script src="raining-letters.js"></script>
@@ -130,40 +145,5 @@ header { background: color-mix(in oklch, var(--color-paper-2) 88%, transparent);
 
 </div>
 
-<!-- PWA install banner -->
-<div id="pwa-banner" class="pwa-banner">
-  <span class="pwa-text">Install <strong>Oversight</strong> on your home screen for quick access.</span>
-  <div style="display:flex;gap:var(--space-sm);align-items:center">
-    <button class="pwa-btn" id="pwa-install-btn">Install</button>
-    <button class="pwa-close" id="pwa-dismiss-btn">✕</button>
-  </div>
-</div>
-
-<script>
-// Register service worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').catch(function(){});
-}
-
-// PWA install prompt
-var deferredPrompt = null;
-window.addEventListener('beforeinstallprompt', function(e) {
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('pwa-banner').classList.add('visible');
-});
-document.getElementById('pwa-install-btn').addEventListener('click', function() {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(function() {
-      deferredPrompt = null;
-      document.getElementById('pwa-banner').classList.remove('visible');
-    });
-  }
-});
-document.getElementById('pwa-dismiss-btn').addEventListener('click', function() {
-  document.getElementById('pwa-banner').classList.remove('visible');
-});
-</script>
 </body>
 </html>
