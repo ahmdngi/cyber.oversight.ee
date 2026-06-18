@@ -18,9 +18,10 @@ Vanilla HTML/CSS/JS — served via Python `http.server`.
 ## Design
 
 - **Fonts:** Inter + JetBrains Mono (Google Fonts)
-- **Tokens-based CSS** using oklch color space
-- **Accent:** green 160° hue
-- **Paper/ink contrast** for readability in both light and dark mode
+- Tokens-based CSS using oklch color space
+- Accent: green 160° hue
+- Paper/ink contrast for readability in both light and dark mode
+- Open Graph preview card (og-image.png, 1200x630) for social link previews
 
 ## Deployment
 
