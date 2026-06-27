@@ -1,0 +1,30 @@
+# Oversight — Maritime & OT Cybersecurity
+
+Cybersecurity consultancy and managed infrastructure for maritime, industrial, and operational technology environments.
+
+## Products
+
+- Shipcrawler — vessel OSINT investigation platform. MMSI/IMO lookup, AIS tracking, port call history, Shodan scanning, Equasis, red-team playbooks.
+- Haris — vessel edge data collection and transmission (NMEA 0183/2000, Signal K, compression, webhook/sync).
+- M-SOC — Maritime Security Operations Center — monitoring and alerting for vessel fleets.
+- Watchtower — vessel edge device management and monitoring.
+- Haris Crew App — Flutter-based crew management application.
+
+## Tools
+
+- VSAT Honeypot — maritime satellite communication honeypot.
+- Tailscale Topography — Tailscale network topology mapping.
+- Agent Eye — Chrome extension for vessel tracking.
+- ExtSentry — external perimeter monitoring.
+
+## Key pages
+
+- /capabilities/ — OSINT frameworks, tools, and methodology
+- /architecture/ — system architecture and deployment
+- /shipcrawler/ — Shipcrawler OSINT platform details
+- /blog/ — maritime security research and updates
+- /contact/ — contact information
+
+## Contact
+
+Email: ahmed.nasr@taltech.ee
