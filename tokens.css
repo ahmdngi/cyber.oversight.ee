@@ -85,7 +85,6 @@ header{padding:var(--space-3xl) 0 var(--space-xl);border-bottom:1px solid var(--
 header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}
 header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.5px;color:var(--color-ink)}
 header .brand .accent{color:var(--color-accent)}
-header .logo-header{height:48px;width:auto;display:block;object-fit:contain}
 header .badges{display:flex;gap:var(--space-sm);flex-wrap:wrap}
 header .badge{font-family:var(--font-mono);font-size:var(--text-xs);padding:2px var(--space-sm);border:1px solid var(--color-line-strong);border-radius:var(--radius-sm);color:var(--color-ink-2);letter-spacing:0.02em}
 header .badge.highlight{border-color:var(--color-accent-dim);color:var(--color-accent)}
