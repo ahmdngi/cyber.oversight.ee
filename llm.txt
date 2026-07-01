@@ -1,4 +1,4 @@
-# Oversight — Maritime & OT Cybersecurity
+# Cyber Oversight — Maritime & OT Cybersecurity
 
 Cybersecurity consultancy and managed infrastructure for maritime, industrial, and operational technology environments.
 
