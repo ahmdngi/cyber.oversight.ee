@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Fleet Scan — Shipcrawler | Cyber Oversight</title>
+<meta name="description" content="Free 3-vessel scan. We search Shodan, AIS databases, and public sources. Plain-language report in 24 hours.">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; margin-bottom: var(--space-4xl); }
+.feature-list { list-style: none; margin-top: var(--space-xl); }
+.feature-list li { display: flex; align-items: flex-start; gap: var(--space-md); margin-bottom: var(--space-lg); color: var(--color-ink-2); font-size: var(--text-base); }
+.feature-list .check { color: var(--color-accent); font-family: var(--font-mono); font-weight: bold; }
+.form-card { background: rgba(10, 15, 25, 0.4); padding: var(--space-3xl); border-radius: var(--radius-md); border: 1px solid var(--color-line); position: relative; backdrop-filter: blur(10px); }
+.form-card::before { content: ""; position: absolute; top: -1px; left: 0; width: 100%; height: 2px; background: var(--color-accent); box-shadow: 0 0 15px var(--color-accent); }
+.form-card h2 { margin-bottom: var(--space-md); font-size: var(--text-2xl); color: var(--color-ink); }
+.form-card p { margin-bottom: var(--space-2xl); color: var(--color-ink-2); line-height: 1.6; }
+.steps-container { margin-bottom: var(--space-4xl); }
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl); }
+.step-item { padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border-radius: var(--radius-md); border: 1px solid var(--color-line); backdrop-filter: blur(10px); transition: transform var(--dur-fast); }
+.step-item:hover { transform: translateY(-4px); border-color: rgba(168, 213, 6, 0.3); }
+.step-num { font-family: var(--font-mono); color: var(--color-accent); font-size: var(--text-xs); margin-bottom: var(--space-md); letter-spacing: 0.1em; background: var(--color-accent-dim); padding: 4px 8px; border-radius: var(--radius-full); display: inline-block; border: 1px solid rgba(168, 213, 6, 0.3); }
+.step-item h3 { margin-bottom: var(--space-xs); font-size: var(--text-lg); color: var(--color-ink); }
+.step-item p { color: var(--color-ink-2); font-size: var(--text-sm); line-height: 1.6; }
+@media(max-width:900px){.dashboard-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}}
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<body>
+<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
+<div class="bg-grid"></div>
+
+<header>
+  <div class="container">
+    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
+    <nav>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="blog.html">Blog</a>
+      <a href="shipcrawler.html" class="active">Shipcrawler</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="page-header animate-fade-up delay-1">
+    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/shipcrawler</div>
+    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Free Shipcrawler Scan</h1>
+    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2);">See what hackers know about your fleet. We search Shodan, AIS databases, and public sources.</p>
+  </div>
+
+  <div class="dashboard-grid animate-fade-up delay-2">
+    <div>
+      <h2 style="font-size:var(--text-3xl); margin-bottom:var(--space-md); color:var(--color-ink);">Identify exposure before attackers do.</h2>
+      <p style="color:var(--color-ink-2); font-size:var(--text-lg); line-height:1.6;">Every day, automated scanners crawl the internet looking for exposed systems on ships. Shipcrawler performs the same scan defensively on your behalf.</p>
+      <ul class="feature-list">
+        <li><span class="check">[OK]</span><span><strong>Zero Installation Required:</strong> We don't need access to your networks.</span></li>
+        <li><span class="check">[OK]</span><span><strong>Comprehensive Scanning:</strong> We query Shodan, AIS databases, Certificate Logs, and the Public Web.</span></li>
+        <li><span class="check">[OK]</span><span><strong>Actionable Reporting:</strong> Plain-language report in 24 hours. No installation or credentials needed.</span></li>
+      </ul>
+    </div>
+    <div class="form-card">
+      <h2>Request Free Scan</h2>
+      <p>Your first 3 commercial vessels are completely free. Find out what's exposed right now.</p>
+      <a href="mailto:contact@oversight.ee?subject=Free Shipcrawler Scan" class="cta" style="width:100%; font-size:var(--text-base);">Start free scan &rarr;</a>
+    </div>
+  </div>
+
+  <div class="steps-container animate-fade-up delay-3">
+    <h2 style="font-size:var(--text-3xl); margin-bottom:var(--space-lg); color:var(--color-ink);">Scan Process</h2>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">PHASE.01</div>
+        <h3>Input Targets</h3>
+        <p>Provide the names of up to 3 commercial vessels you want us to analyze.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">PHASE.02</div>
+        <h3>Execute Scan</h3>
+        <p>Our intelligence engine queries public and deep web sources for exposures.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">PHASE.03</div>
+        <h3>Review Report</h3>
+        <p>We deliver a comprehensive risk matrix highlighting critical vulnerabilities.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
+        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Contact us &rarr;</a>
+        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

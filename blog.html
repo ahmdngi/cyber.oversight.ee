@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Cyber Oversight | Zero-trust edge ops</title>
+<meta name="description" content="Research, guides, and fleet security analysis.">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+.post-list { display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: var(--space-4xl); max-width: 900px; margin-left: auto; margin-right: auto; }
+.post-item { display: block; padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border-radius: var(--radius-md); border: 1px solid var(--color-line); border-left: 2px solid transparent; text-decoration: none; transition: all var(--dur-base) var(--ease-out); backdrop-filter: blur(10px); }
+.post-item:hover { transform: translateX(8px); border-color: rgba(168, 213, 6, 0.3); border-left-color: var(--color-accent); background: var(--color-paper-hover); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.post-meta { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.1em; display: flex; gap: var(--space-md); }
+.post-meta span { background: var(--color-accent-dim); padding: 4px 8px; border-radius: var(--radius-full); border: 1px solid rgba(168, 213, 6, 0.2); }
+.post-title { font-size: var(--text-2xl); color: var(--color-ink); margin-bottom: var(--space-sm); transition: color var(--dur-fast) var(--ease-out); }
+.post-item:hover .post-title { color: var(--color-ink); }
+.post-excerpt { font-size: var(--text-base); color: var(--color-ink-2); line-height: 1.6; }
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<body>
+<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
+<div class="bg-grid"></div>
+
+<header>
+  <div class="container">
+    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
+    <nav>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="shipcrawler.html">Shipcrawler</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="page-header animate-fade-up delay-1">
+    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/blog</div>
+    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Blog</h1>
+    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2);">Research, guides, and fleet security analysis. VSAT security, ECDIS vulnerabilities, PSC cyber requirements, and the latest maritime OSINT research from the Cyber Oversight team.</p>
+  </div>
+
+  <div class="post-list animate-fade-up delay-2">
+    <a href="blog/how-attackers-find-ships-shodan.html" class="post-item">
+      <div class="post-meta"><span>PUB. 2026-05-12</span><span>OSINT</span></div>
+      <div class="post-title">How Attackers Find Ships on Shodan</div>
+      <div class="post-excerpt">An analysis of the specific search queries and techniques used to locate internet-facing vessel infrastructure using public search engines.</div>
+    </a>
+    <a href="blog/vsat-security-fleet-managers.html" class="post-item">
+      <div class="post-meta"><span>PUB. 2026-04-28</span><span>VSAT</span></div>
+      <div class="post-title">VSAT Security Essentials for Fleet Managers</div>
+      <div class="post-excerpt">Understanding the common misconfigurations in maritime satellite communications and how to secure them without disrupting operations.</div>
+    </a>
+    <a href="blog/ecdis-vulnerabilities-fleet-managers.html" class="post-item">
+      <div class="post-meta"><span>PUB. 2026-04-15</span><span>OT SECURITY</span></div>
+      <div class="post-title">ECDIS Vulnerabilities: A Plain-Language Guide</div>
+      <div class="post-excerpt">Breaking down recent Electronic Chart Display and Information System vulnerabilities and their practical implications for commercial shipping.</div>
+    </a>
+    <a href="blog/psc-cyber-requirements-2026.html" class="post-item">
+      <div class="post-meta"><span>PUB. 2026-03-20</span><span>COMPLIANCE</span></div>
+      <div class="post-title">Preparing for PSC Cyber Requirements in 2026</div>
+      <div class="post-excerpt">What Port State Control inspectors are actually looking for when assessing your vessel's cybersecurity posture this year.</div>
+    </a>
+    <a href="blog/fleet-scan-case-study.html" class="post-item">
+      <div class="post-meta"><span>PUB. 2026-02-05</span><span>CASE STUDY</span></div>
+      <div class="post-title">Shipcrawler Case Study: 300-Vessel Fleet Analysis</div>
+      <div class="post-excerpt">Our findings from a comprehensive OSINT scan of a major commercial fleet, highlighting the most common exposed systems.</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
+        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Contact us &rarr;</a>
+        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

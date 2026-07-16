@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Cyber Oversight | Zero-trust edge ops</title>
+<meta name="description" content="Contact Cyber Oversight for maritime cybersecurity, fleet security scans, and edge data collection.">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin-bottom: var(--space-4xl); }
+.contact-card { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border-radius: var(--radius-md); border: 1px solid var(--color-line); border-left: 2px solid transparent; transition: all var(--dur-base) var(--ease-out); backdrop-filter: blur(10px); }
+.contact-card:hover { border-color: rgba(168, 213, 6, 0.3); border-left-color: var(--color-accent); transform: translateX(8px); background: var(--color-paper-hover); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.card-label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.1em; background: var(--color-accent-dim); padding: 4px 8px; border-radius: var(--radius-full); display: inline-block; border: 1px solid rgba(168, 213, 6, 0.2); width: fit-content; }
+.card-value { font-size: var(--text-2xl); font-weight: 600; color: var(--color-ink); }
+.card-value a { color: var(--color-ink); }
+.card-value a:hover { color: var(--color-accent); text-shadow: 0 0 15px var(--color-accent-glow); }
+.card-desc { color: var(--color-ink-2); font-size: var(--text-sm); }
+.cta-box { padding: var(--space-3xl); background: rgba(10, 15, 25, 0.4); border-radius: var(--radius-md); border: 1px solid var(--color-line); margin-bottom: var(--space-4xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-xl); backdrop-filter: blur(10px); }
+.cta-box h2 { font-size: var(--text-2xl); margin-bottom: var(--space-sm); }
+.cta-box p { font-size: var(--text-base); color: var(--color-ink-2); max-width: 500px; }
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr} .cta-box { flex-direction: column; align-items: flex-start; } }
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<body>
+<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
+<div class="bg-grid"></div>
+
+<header>
+  <div class="container">
+    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
+    <nav>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="blog.html">Blog</a>
+      <a href="shipcrawler.html">Shipcrawler</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="page-header animate-fade-up delay-1">
+    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/contact</div>
+    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Get in Touch</h1>
+    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2);">Based in Estonia. Operational worldwide. Protecting commercial fleets since 2022.</p>
+  </div>
+
+  <div class="cta-box animate-fade-up delay-2" style="margin-bottom: var(--space-xl);">
+    <div>
+      <h2>Free Fleet Exposure Scan</h2>
+      <p>We search the same sources attackers use to map out exposed maritime infrastructure. No installation, no credentials, no commitment.</p>
+    </div>
+    <a href="shipcrawler.html" class="cta">Request Free Scan</a>
+  </div>
+
+  <div class="cta-box animate-fade-up delay-2">
+    <div>
+      <h2>Web Design & Branding Services</h2>
+      <p>Looking to elevate your corporate identity? We build extremely fast, secure, and modern websites for global enterprises.</p>
+    </div>
+    <a href="mailto:contact@oversight.ee?subject=Web Design Request" class="cta-outline">Request Web Design</a>
+  </div>
+
+  <div class="contact-grid animate-fade-up delay-3">
+    <div class="contact-card">
+      <div class="card-label">Global Email</div>
+      <div class="card-value"><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
+      <div class="card-desc">General inquiries, sales, and support.</div>
+    </div>
+    <div class="contact-card">
+      <div class="card-label">Headquarters</div>
+      <div class="card-value">Tallinn, Estonia</div>
+      <div class="card-desc">Operating in European time zones (EET/EEST).</div>
+    </div>
+    <div class="contact-card">
+      <div class="card-label">Middle East Email & Phone</div>
+      <div class="card-value"><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a></div>
+      <div class="card-desc"><a href="tel:+966553629384" style="font-family: var(--font-mono); color: var(--color-ink); font-size: var(--text-xl); font-weight: 500; display: block;">+966 55 362 9384</a></div>
+    </div>
+    <div class="contact-card">
+      <div class="card-label">Middle East Office</div>
+      <div class="card-value">Al Khobar, KSA</div>
+      <div class="card-desc">Serving Saudi Arabia and the GCC region.</div>
+    </div>
+    <div class="contact-card">
+      <div class="card-label">Methodology</div>
+      <div class="card-value">IEEE Access 2026</div>
+      <div class="card-desc">Our detection methods are peer-reviewed.</div>
+    </div>
+    <div class="contact-card">
+      <div class="card-label">Deployment</div>
+      <div class="card-value">Active Worldwide</div>
+      <div class="card-desc">Currently securing 3 active commercial clusters.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
+        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Contact us &rarr;</a>
+        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

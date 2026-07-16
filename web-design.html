@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Design & Identity — Cyber Oversight</title>
+<meta name="description" content="We build and design websites and complete corporate identities. Serving clients in the EU and Saudi Arabia.">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-4xl); }
+.service-card { padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border: 1px solid var(--color-line); border-radius: var(--radius-md); backdrop-filter: blur(10px); transition: all var(--dur-base) var(--ease-out); position: relative; overflow: hidden; }
+.service-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--color-line-strong); transition: background var(--dur-base) var(--ease-out); }
+.service-card:hover::before { background: var(--color-accent); box-shadow: 0 0 20px var(--color-accent); }
+.service-card:hover { transform: translateY(-4px); border-color: rgba(168, 213, 6, 0.2); }
+.service-icon { font-size: 2rem; margin-bottom: var(--space-md); }
+.service-card h3 { font-size: var(--text-xl); color: var(--color-ink); margin-bottom: var(--space-md); }
+.service-card p { color: var(--color-ink-2); font-size: var(--text-base); line-height: 1.6; }
+.global-presence { padding: var(--space-4xl) 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); margin-bottom: var(--space-4xl); background: radial-gradient(ellipse at top, rgba(168,213,6,0.03) 0%, transparent 70%); }
+.presence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); max-width: 900px; margin: 0 auto; }
+.presence-card { background: rgba(10, 15, 25, 0.6); border: 1px solid var(--color-line); border-radius: var(--radius-md); padding: var(--space-2xl); position: relative; overflow: hidden; backdrop-filter: blur(10px); transition: all var(--dur-base) var(--ease-out); }
+.presence-card:hover { transform: translateY(-4px); border-color: rgba(168, 213, 6, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.presence-bg-icon { position: absolute; top: -10px; right: -10px; font-size: 8rem; opacity: 0.05; filter: grayscale(100%); transition: all var(--dur-base) var(--ease-out); pointer-events: none; }
+.presence-card:hover .presence-bg-icon { opacity: 0.1; filter: grayscale(0%); transform: scale(1.1); }
+.presence-content { position: relative; z-index: 2; }
+.presence-dot { width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; box-shadow: 0 0 15px var(--color-accent); margin-bottom: var(--space-md); animation: blink 2s infinite; }
+.presence-content h3 { font-size: var(--text-2xl); color: var(--color-ink); margin-bottom: var(--space-xs); }
+.presence-content p { color: var(--color-ink-2); font-size: var(--text-sm); line-height: 1.6; margin: 0; }
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<body>
+<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
+<div class="bg-grid"></div>
+
+<header>
+  <div class="container">
+    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
+    <nav>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="web-design.html" class="active">Web Design</a>
+      <a href="blog.html">Blog</a>
+      <a href="shipcrawler.html">Shipcrawler</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="page-header animate-fade-up delay-1">
+    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/web-design</div>
+    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Web Design & Identity</h1>
+    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2); max-width: 800px; margin: 0 auto;">Beyond cybersecurity, we build world-class digital experiences. From high-performance websites to complete corporate branding and visual identities for global enterprises.</p>
+  </div>
+
+  <div class="global-presence animate-fade-up delay-2">
+    <h2 style="font-size: var(--text-sm); font-family: var(--font-mono); color: var(--color-ink-2); text-align: center; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-xl);">Trusted by clients across key global markets</h2>
+    
+    <div class="presence-grid">
+      <div class="presence-card">
+        <div class="presence-bg-icon">🇪🇺</div>
+        <div class="presence-content">
+          <div class="presence-dot"></div>
+          <h3>European Union</h3>
+          <p>Delivering high-performance, GDPR-compliant digital experiences for European enterprises.</p>
+        </div>
+      </div>
+      
+      <div class="presence-card">
+        <div class="presence-bg-icon">🇸🇦</div>
+        <div class="presence-content">
+          <div class="presence-dot"></div>
+          <h3>Saudi Arabia</h3>
+          <p>Building premium corporate identities and robust web architectures for the growing GCC market.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-grid animate-fade-up delay-3">
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <h3>Web Design & Development</h3>
+      <p>We build extremely fast, secure, and modern websites designed to convert. Leveraging the latest front-end technologies to deliver a premium, flawless user experience across all devices.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <h3>Complete Corporate Identity</h3>
+      <p>Your brand is your frontline. We design complete corporate identities including logos, color systems, typography, and brand guidelines that project authority and trust.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <h3>Secure Hosting Architecture</h3>
+      <p>Websites built with the same zero-trust philosophy as our maritime products. We ensure your digital presence is immune to common web vulnerabilities and scalable under heavy load.</p>
+    </div>
+  </div>
+  
+  <div style="text-align: center; margin-bottom: var(--space-4xl);" class="animate-fade-up delay-4">
+    <a href="contact.html" class="cta">Start Your Project</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
+        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Contact us &rarr;</a>
+        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products & Capabilities — Cyber Oversight | Zero-trust edge ops</title>
+<meta name="description" content="Five products covering the full maritime security stack — from OSINT reconnaissance through edge data collection to crew mobile tools.">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+.cap-section { margin-bottom: var(--space-4xl); }
+.cap-title { font-size: var(--text-3xl); color: var(--color-ink); margin-bottom: var(--space-2xl); display: flex; align-items: center; gap: var(--space-sm); }
+.cap-title::before { content: ""; display: block; width: 12px; height: 12px; background: var(--color-accent); box-shadow: 0 0 10px var(--color-accent); border-radius: 50%; }
+.cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); }
+.cap-card { padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border: 1px solid var(--color-line); border-radius: var(--radius-md); position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+.cap-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--color-line-strong); transition: background var(--dur-base) var(--ease-out); }
+.cap-card:hover::before { background: var(--color-accent); box-shadow: 0 0 20px var(--color-accent); }
+.cap-card:hover { transform: translateY(-4px); border-color: rgba(168, 213, 6, 0.2); }
+.cap-card h3 { font-size: var(--text-xl); color: var(--color-ink); margin-bottom: var(--space-md); }
+.cap-card p { color: var(--color-ink-2); font-size: var(--text-sm); line-height: 1.6; }
+.icon-wrap { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); margin-bottom: var(--space-lg); letter-spacing: 0.1em; background: var(--color-accent-dim); padding: 4px 8px; border-radius: var(--radius-full); display: inline-block; border: 1px solid rgba(168, 213, 6, 0.3); }
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<body>
+<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
+<div class="bg-grid"></div>
+
+<header>
+  <div class="container">
+    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
+    <nav>
+      <a href="capabilities.html" class="active">Capabilities</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="web-design.html">Web Design</a>
+      <a href="blog.html">Blog</a>
+      <a href="shipcrawler.html">Shipcrawler</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="page-header animate-fade-up delay-1">
+    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/products</div>
+    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Our Products</h1>
+    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2);">Five products covering the full maritime security stack — from OSINT reconnaissance through edge data collection to crew mobile tools.</p>
+  </div>
+
+  <div class="cap-section animate-fade-up delay-2">
+    <h2 class="cap-title">Maritime SOC</h2>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="icon-wrap">MOD.01</div>
+        <h3>Continuous Monitoring</h3>
+        <p>24/7 oversight of vessel IT and OT networks. We alert on anomalies, unauthorized access, and suspicious traffic patterns across the entire fleet.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon-wrap">MOD.02</div>
+        <h3>Threat Hunting</h3>
+        <p>Proactive searching through telemetry data to identify sophisticated threats that evade standard automated detection systems.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon-wrap">MOD.03</div>
+        <h3>Incident Response</h3>
+        <p>Immediate triage and response guidance for confirmed incidents. We provide playbooks for crew to isolate affected systems effectively.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cap-section animate-fade-up delay-3">
+    <h2 class="cap-title">Vulnerability Management</h2>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="icon-wrap">MOD.04</div>
+        <h3>OSINT Reconnaissance</h3>
+        <p>Automated scanning of public internet sources to identify exposed vessel infrastructure before attackers can exploit them.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon-wrap">MOD.05</div>
+        <h3>Internal Scanning</h3>
+        <p>Agentless vulnerability assessment of onboard networks (bridge, engine, crew) to identify misconfigurations and outdated software.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon-wrap">MOD.06</div>
+        <h3>Risk Prioritization</h3>
+        <p>Vulnerabilities are scored based on exploitability within a realistic maritime context, not just generic CVSS scores.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
+        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Contact us &rarr;</a>
+        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
