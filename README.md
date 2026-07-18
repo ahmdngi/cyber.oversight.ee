@@ -4,6 +4,11 @@
 
 This is the company website.
 
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-success?style=flat-square)](https://cyber.oversight.ee)
+[![CI](https://img.shields.io/github/actions/workflow/status/ahmdngi/cyber.oversight.ee/ci.yml?style=flat-square)](https://github.com/ahmdngi/cyber.oversight.ee/actions/workflows/ci.yml)
+[![Language](https://img.shields.io/badge/language-HTML-blue?style=flat-square)]()
+[![Stars](https://img.shields.io/github/stars/ahmdngi/cyber.oversight.ee?style=flat-square)](https://github.com/ahmdngi/cyber.oversight.ee)
+
 ## Stack
 
 Vanilla HTML/CSS/JS — served via GitHub Pages.
