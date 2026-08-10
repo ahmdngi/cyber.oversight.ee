@@ -1,6 +1,6 @@
 # cyber.oversight.ee
 
-**Cyber Oversight** — maritime & fleet cybersecurity. Free 3-vessel exposure scan, automated fleet-wide monitoring, and edge data collection. Built by maritime researchers, peer-reviewed in IEEE Access 2026.
+**Cyber Oversight** — cybersecurity services & web development. Maritime, industrial/OT, and enterprise security: assessments, compliance, managed SOC. Plus corporate web development. Built by researchers, peer-reviewed in IEEE Access 2026.
 
 This is the company website.
 

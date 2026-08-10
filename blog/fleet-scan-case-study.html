@@ -10,7 +10,7 @@
   gtag('config', 'G-CD4768PRXW');
 </script>
 
-<title>What We Found Scanning 30 Vessels — Cyber Oversight Blog</title>
+<title>What We Found Scanning 30 Vessels | Cyber Oversight</title>
 <meta name="description" content="We scanned 30 vessels from 6 shipping companies using Shipcrawler. Here's what was exposed and what fleet managers can learn from it.">
 <meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/blog/fleet-scan-case-study.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -22,19 +22,19 @@
 <body>
 <script src="../raining-letters.js"></script>
 <header><div class="container"><div><a href="../" class="brand">● <span class="accent">cyber oversight</span>.ee</a></div>
-<nav><a href="../capabilities/">Capabilities</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../shipcrawler/">Shipcrawler</a><a href="../contact/">Contact</a></nav></div></header>
+<nav><a href="../services/">Services</a><a href="../web/">Web</a><a href="../shipcrawler/">Shipcrawler</a><a href="../products/">Products</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../contact/">Contact</a></nav></div></header>
 <div class="container">
 
 <div class="path">~/<span class="accent">cyber-oversight</span>/blog/fleet-scan-case-study.html</div>
 <p style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);margin-bottom:var(--space-md)">2026-06-16 · Case Study</p>
 <h1>What We Found Scanning 30 Commercial Vessels</h1>
 
-<p><strong>The short version:</strong> We scanned 30 vessels from 6 shipping companies using Shipcrawler. 22 of them (73%) had at least one system directly accessible from the open internet [data redacted to protect vessel identities].</p>
+<p><strong>The short version:</strong> We scanned 30 vessels from 6 shipping companies using Shipcrawler. A number of vessels had at least one system directly accessible from the open internet [data redacted to protect vessel identities].</p>
 
 <p>Here's what we found, what it means, and what the fleet managers did about it.</p>
 
 <h2>Methodology</h2>
-<p>We asked 6 shipping companies to give us vessel names — 30 vessels total. For each vessel, we searched Shodan, AIS databases, public web sources, and certificate transparency logs using Shipcrawler's multi-source OSINT pipeline. Results were compiled into plain-language reports for each vessel and aggregated here.</p>
+<p>We asked 6 shipping companies to give us vessel names: 30 vessels total. For each vessel, we searched Shodan, AIS databases, public web sources, and certificate transparency logs using Shipcrawler's multi-source OSINT pipeline. Results were compiled into plain-language reports for each vessel and aggregated here.</p>
 
 <h2>Key Findings</h2>
 
@@ -42,7 +42,7 @@
 <ul>
 <li>A significant number used default credentials detectable through banner grabbing</li>
 <li>Several were running firmware versions with known CVEs</li>
-<li>Some had no HTTPS — the management portal was accessible over unencrypted HTTP</li>
+<li>Some had no HTTPS; the management portal was accessible over unencrypted HTTP</li>
 </ul>
 
 <p><strong>Remote Access Ports Left Open.</strong> Several vessels had RDP ports open to the internet. Some had no apparent authentication requirement.</p>
@@ -50,22 +50,22 @@
 <p><strong>No Correlation With Company Size.</strong> The 6 shipping companies ranged from small to 200+ vessels. Company size had no correlation with exposure levels. Spending more on IT doesn't automatically mean better vessel security.</p>
 
 <h2>Response: One Company's Story</h2>
-<p>One of the participating companies — a container vessel operator — had never had a security audit of any kind. Their results showed multiple critical and high-severity findings.</p>
+<p>One of the participating companies, a container vessel operator, had never had a security audit of any kind. Their results showed multiple critical and high-severity findings.</p>
 <p><strong>Their response:</strong> The IT manager changed credentials on all VSAT terminals within 48 hours. RDP was disabled and replaced with a VPN-based solution. Unsecured services were restricted to internal IPs only. Total remediation time: approximately 4 hours. Total cost: zero (all fixes were configuration changes). A follow-up scan two weeks later showed zero critical findings.</p>
 
 <h2>What This Tells Us</h2>
-<p>The reality is straightforward: most commercial vessels have some degree of internet-facing exposure, most of it is fixable with basic configuration changes, and most fleet managers have no idea it exists until someone checks. The gap isn't technical — it's awareness.</p>
+<p>The reality is straightforward: most commercial vessels have some degree of internet-facing exposure, most of it is fixable with basic configuration changes, and most fleet managers have no idea it exists until someone checks. The gap is not technical; it is awareness.</p>
 
 <h2>What Fleet Managers Should Do</h2>
 <ol>
-<li>Run a scan on 3 vessels — free, no commitment, 24-hour turnaround</li>
-<li>Prioritise VSAT credentials — single highest-impact fix</li>
-<li>Close unnecessary remote access — use a VPN, not open RDP ports</li>
+<li>Run a scan on 3 vessels: free, no commitment, 24-hour turnaround</li>
+<li>Prioritise VSAT credentials: single highest-impact fix</li>
+<li>Close unnecessary remote access: use a VPN, not open RDP ports</li>
 <li>Document everything for your next PSC inspection</li>
-<li>Scan the rest of the fleet — the pattern holds across vessel types and sizes</li>
+<li>Scan the rest of the fleet; the pattern holds across vessel types and sizes</li>
 </ol>
 
 </div>
-<footer><div class="container">Cyber Oversight — cybersecurity &amp; infrastructure · © 2026</div></footer>
+<footer><div class="container">Cyber Oversight · cybersecurity &amp; web development · © 2026</div></footer>
 </body>
 </html>

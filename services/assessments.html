@@ -9,12 +9,12 @@
   gtag('js', new Date());
   gtag('config', 'G-CD4768PRXW');
 </script>
-<title>Blog | Cyber Oversight</title>
-<meta name="description" content="Cybersecurity research, guides, and OSINT analysis from the Cyber Oversight team.">
-<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/blog/">
-<meta property="og:title" content="Blog | Cyber Oversight">
-<meta property="og:description" content="Cybersecurity research, guides, and OSINT analysis from the Cyber Oversight team.">
-<meta property="og:url" content="https://cyber.oversight.ee/blog/">
+<title>Security Assessments | Cyber Oversight</title>
+<meta name="description" content="Penetration testing and external attack-surface reviews for web, network, and wireless. Plain-language reports with priorities.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/services/assessments.html">
+<meta property="og:title" content="Security Assessments | Cyber Oversight">
+<meta property="og:description" content="Penetration testing and external attack-surface reviews for web, network, and wireless. Plain-language reports with priorities.">
+<meta property="og:url" content="https://cyber.oversight.ee/services/assessments.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cyber Oversight">
 <meta property="og:locale" content="en_EE">
@@ -23,8 +23,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cyber.oversight.ee/og-image.png">
-<meta name="twitter:title" content="Blog | Cyber Oversight">
-<meta name="twitter:description" content="Cybersecurity research, guides, and OSINT analysis from the Cyber Oversight team.">
+<meta name="twitter:title" content="Security Assessments | Cyber Oversight">
+<meta name="twitter:description" content="Penetration testing and external attack-surface reviews for web, network, and wireless. Plain-language reports with priorities.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -54,27 +54,33 @@ footer a:hover{color:var(--color-accent)}
 .btn.ghost{background:transparent;color:var(--color-accent);border:1px solid var(--color-accent)}
 @media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-md)}}
 
-.post{display:flex;justify-content:space-between;gap:var(--space-lg);padding:var(--space-lg) 0;border-top:1px solid var(--color-line);flex-wrap:wrap}
-.post:last-child{border-bottom:1px solid var(--color-line)}
-.post .title{font-family:var(--font-sans);font-weight:600;font-size:var(--text-lg);color:var(--color-ink)}
-.post .title a{color:var(--color-ink);text-decoration:none}
-.post .title a:hover{color:var(--color-accent)}
-.post .meta{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3)}
-.post .tags{font-size:var(--text-xs);color:var(--color-ink-3);margin-top:var(--space-xs)}
+.svc-hero{padding:var(--space-2xl)0 var(--space-xl);border-bottom:1px solid var(--color-line)}
+.svc-hero h1{font-size:var(--text-4xl);max-width:24ch}
+.svc-hero .tagline{font-size:var(--text-xl);color:var(--color-accent);font-family:var(--font-sans);font-weight:600;margin-bottom:var(--space-md)}
+.item{padding:var(--space-lg) 0;border-top:1px solid var(--color-line)}
+.item .name{font-family:var(--font-sans);font-weight:700;font-size:var(--text-lg);color:var(--color-ink);margin-bottom:var(--space-xs)}
+.item .desc{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8}
+.deliverable{padding:var(--space-lg);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-md);margin:var(--space-2xl)0}
+.deliverable .lbl{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:var(--space-sm)}
+.back{margin-top:var(--space-2xl)}
+.back a{font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;text-decoration:none}
+.back a:hover{text-decoration:underline}
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
 <body>
 <script src="../raining-letters.js"></script>
 <header><div class="container"><div><a href="../" class="brand">● <span class="accent">cyber oversight</span>.ee</a></div>
-<nav><a href="../services/">Services</a><a href="../web/">Web</a><a href="../shipcrawler/">Shipcrawler</a><a href="../products/">Products</a><a href="../architecture/">Architecture</a><a href="../blog/" class="active">Blog</a><a href="../contact/">Contact</a></nav></div></header>
+<nav><a href="../services/" class="active">Services</a><a href="../web/">Web</a><a href="../shipcrawler/">Shipcrawler</a><a href="../products/">Products</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../contact/">Contact</a></nav></div></header>
 <div class="container">
-<div class="path">~/<span class="accent">cyber-oversight</span>/blog/</div><h1><span class="comment" style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent-dim)">//</span> Blog</h1>
-<p class="subtitle">Cybersecurity research, fleet security guides, and OSINT analysis from the Cyber Oversight team.</p>
-<div class="post"><div><div class="title"><a href="fleet-scan-case-study.html">What We Found Scanning 30 Commercial Vessels</a></div><div class="tags">OSINT · Case Study · Shipcrawler</div></div><div class="meta">2026-06-16</div></div>
-<div class="post"><div><div class="title"><a href="how-attackers-find-ships-shodan.html">How Attackers Find Ships on Shodan (And What It Means for Your Fleet)</a></div><div class="tags">OSINT · Shodan · Threat Intel</div></div><div class="meta">2026-06-16</div></div>
-<div class="post"><div><div class="title"><a href="vsat-security-fleet-managers.html">What is VSAT Security and Why Fleet Managers Should Care</a></div><div class="tags">VSAT · Fleet Security</div></div><div class="meta">2026-06-16</div></div>
-<div class="post"><div><div class="title"><a href="ecdis-vulnerabilities-fleet-managers.html">ECDIS Vulnerabilities: What Fleet Managers Should Know</a></div><div class="tags">ECDIS · Navigation</div></div><div class="meta">2026-06-16</div></div>
-<div class="post"><div><div class="title"><a href="psc-cyber-requirements-2026.html">PSC Cyber Requirements 2026: What Inspectors Are Checking</a></div><div class="tags">PSC · Compliance</div></div><div class="meta">2026-06-16</div></div>
+<div class="path">~/<span class="accent">cyber-oversight</span>/services/assessments/</div>
+<div class="svc-hero">
+<h1>security assessments</h1>
+<div class="tagline">Find what attackers already know about you.</div>
+<p class="subtitle">Penetration testing for web, network, and wireless. External attack-surface reviews that find what attackers already know about you, before they use it. For fleets, Shipcrawler automates the OSINT layer: start with a free 3-vessel scan. Output is a plain-language report with priorities, not pentest-speak.</p>
+</div>
+<div class="item"><div class="name">external attack surface</div><div class="desc">Discovers exposed systems, ports, certificates, and forgotten services across your IP space.</div></div><div class="item"><div class="name">web & application</div><div class="desc">Targeted testing of web applications and APIs for the OWASP Top 10 and business-logic flaws.</div></div><div class="item"><div class="name">network & wireless</div><div class="desc">Internal and external network testing, wireless assessments, and segmentation checks.</div></div><div class="item"><div class="name">maritime OSINT layer</div><div class="desc">Shipcrawler automates the reconnaissance phase for fleets, backed by peer-reviewed methodology (IEEE Access 2026).</div></div>
+<div class="deliverable"><div class="lbl">What you get</div><p style="margin-bottom:0">A clear report: what is exposed, how it could be exploited, and what to fix first, prioritised by severity. No jargon dumps.</p></div>
+<div class="back"><a href="index.html">&larr; All services</a></div>
 </div>
 <footer><div class="container">Cyber Oversight · cybersecurity &amp; web development · © 2026 · <a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div></footer>
 </body>

@@ -9,12 +9,12 @@
   gtag('js', new Date());
   gtag('config', 'G-CD4768PRXW');
 </script>
-<title>Blog | Cyber Oversight</title>
-<meta name="description" content="Cybersecurity research, guides, and OSINT analysis from the Cyber Oversight team.">
-<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/blog/">
-<meta property="og:title" content="Blog | Cyber Oversight">
-<meta property="og:description" content="Cybersecurity research, guides, and OSINT analysis from the Cyber Oversight team.">
-<meta property="og:url" content="https://cyber.oversight.ee/blog/">
+<title>SAC Arabia Case Study | Cyber Oversight</title>
+<meta name="description" content="29-page corporate Oil & Gas B2B website for a KSA contractor: SEO, structured data, performance, and accessibility.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/web/sac-arabia-case-study.html">
+<meta property="og:title" content="SAC Arabia Case Study | Cyber Oversight">
+<meta property="og:description" content="29-page corporate Oil & Gas B2B website for a KSA contractor: SEO, structured data, performance, and accessibility.">
+<meta property="og:url" content="https://cyber.oversight.ee/web/sac-arabia-case-study.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cyber Oversight">
 <meta property="og:locale" content="en_EE">
@@ -23,8 +23,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cyber.oversight.ee/og-image.png">
-<meta name="twitter:title" content="Blog | Cyber Oversight">
-<meta name="twitter:description" content="Cybersecurity research, guides, and OSINT analysis from the Cyber Oversight team.">
+<meta name="twitter:title" content="SAC Arabia Case Study | Cyber Oversight">
+<meta name="twitter:description" content="29-page corporate Oil & Gas B2B website for a KSA contractor: SEO, structured data, performance, and accessibility.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -54,27 +54,35 @@ footer a:hover{color:var(--color-accent)}
 .btn.ghost{background:transparent;color:var(--color-accent);border:1px solid var(--color-accent)}
 @media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-md)}}
 
-.post{display:flex;justify-content:space-between;gap:var(--space-lg);padding:var(--space-lg) 0;border-top:1px solid var(--color-line);flex-wrap:wrap}
-.post:last-child{border-bottom:1px solid var(--color-line)}
-.post .title{font-family:var(--font-sans);font-weight:600;font-size:var(--text-lg);color:var(--color-ink)}
-.post .title a{color:var(--color-ink);text-decoration:none}
-.post .title a:hover{color:var(--color-accent)}
-.post .meta{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3)}
-.post .tags{font-size:var(--text-xs);color:var(--color-ink-3);margin-top:var(--space-xs)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg);padding:var(--space-xl)0;border-top:1px solid var(--color-line);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-2xl)}
+.stat .num{font-family:var(--font-mono);font-weight:600;font-size:var(--text-2xl);color:var(--color-accent)}
+.stat .lbl{font-size:var(--text-xs);color:var(--color-ink-3);margin-top:var(--space-xs);text-transform:uppercase;letter-spacing:.08em}
+.what{padding:var(--space-lg) 0;border-top:1px solid var(--color-line)}
+.what .name{font-family:var(--font-sans);font-weight:700;font-size:var(--text-lg);color:var(--color-ink);margin-bottom:var(--space-xs)}
+.what .desc{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8}
+.back{margin-top:var(--space-2xl)}
+.back a{font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;text-decoration:none}
+.back a:hover{text-decoration:underline}
+@media(max-width:640px){.stats{grid-template-columns:1fr}}
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
 <body>
 <script src="../raining-letters.js"></script>
 <header><div class="container"><div><a href="../" class="brand">● <span class="accent">cyber oversight</span>.ee</a></div>
-<nav><a href="../services/">Services</a><a href="../web/">Web</a><a href="../shipcrawler/">Shipcrawler</a><a href="../products/">Products</a><a href="../architecture/">Architecture</a><a href="../blog/" class="active">Blog</a><a href="../contact/">Contact</a></nav></div></header>
+<nav><a href="../services/">Services</a><a href="../web/" class="active">Web</a><a href="../shipcrawler/">Shipcrawler</a><a href="../products/">Products</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../contact/">Contact</a></nav></div></header>
 <div class="container">
-<div class="path">~/<span class="accent">cyber-oversight</span>/blog/</div><h1><span class="comment" style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent-dim)">//</span> Blog</h1>
-<p class="subtitle">Cybersecurity research, fleet security guides, and OSINT analysis from the Cyber Oversight team.</p>
-<div class="post"><div><div class="title"><a href="fleet-scan-case-study.html">What We Found Scanning 30 Commercial Vessels</a></div><div class="tags">OSINT · Case Study · Shipcrawler</div></div><div class="meta">2026-06-16</div></div>
-<div class="post"><div><div class="title"><a href="how-attackers-find-ships-shodan.html">How Attackers Find Ships on Shodan (And What It Means for Your Fleet)</a></div><div class="tags">OSINT · Shodan · Threat Intel</div></div><div class="meta">2026-06-16</div></div>
-<div class="post"><div><div class="title"><a href="vsat-security-fleet-managers.html">What is VSAT Security and Why Fleet Managers Should Care</a></div><div class="tags">VSAT · Fleet Security</div></div><div class="meta">2026-06-16</div></div>
-<div class="post"><div><div class="title"><a href="ecdis-vulnerabilities-fleet-managers.html">ECDIS Vulnerabilities: What Fleet Managers Should Know</a></div><div class="tags">ECDIS · Navigation</div></div><div class="meta">2026-06-16</div></div>
-<div class="post"><div><div class="title"><a href="psc-cyber-requirements-2026.html">PSC Cyber Requirements 2026: What Inspectors Are Checking</a></div><div class="tags">PSC · Compliance</div></div><div class="meta">2026-06-16</div></div>
+<div class="path">~/<span class="accent">cyber-oversight</span>/web/sac-arabia-case-study/</div><h1><span class="comment" style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent-dim)">//</span> SAC Arabia Case Study</h1>
+<p class="subtitle">Corporate Oil &amp; Gas B2B website for a Saudi Arabia-based contractor. Scope: rebuild of a 26-page legacy site into a 29-page modern build with full technical SEO.</p>
+<div class="stats">
+<div class="stat"><div class="num">29</div><div class="lbl">pages</div></div>
+<div class="stat"><div class="num">8</div><div class="lbl">service detail pages</div></div>
+<div class="stat"><div class="num">4</div><div class="lbl">sector pages</div></div>
+</div>
+<div class="what"><div class="name">SEO foundation</div><div class="desc">JSON-LD structured data (Organization schema), sitemap.xml, robots.txt, unique meta titles and descriptions per page, canonical and OG tags, geo tags for regional relevance.</div></div>
+<div class="what"><div class="name">Performance</div><div class="desc">Async font loading, preloads, lazy-loaded images, CSS cache-busting, and kebab-case URL cleanup across all cross-references.</div></div>
+<div class="what"><div class="name">Accessibility &amp; correctness</div><div class="desc">Single H1 per page, descriptive alt text, fixed duplicate navigation, working contact form, and Google Maps integration on the address.</div></div>
+<div class="what"><div class="name">Design</div><div class="desc">Deep navy and gold palette for a serious B2B industrial presence, Bootstrap 5, service and sector detail pages, team, testimonials, and blog sections.</div></div>
+<div class="back"><a href="index.html">&larr; Web development</a></div>
 </div>
 <footer><div class="container">Cyber Oversight · cybersecurity &amp; web development · © 2026 · <a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div></footer>
 </body>

@@ -10,7 +10,7 @@
   gtag('config', 'G-CD4768PRXW');
 </script>
 
-<title>How Attackers Find Ships on Shodan — Cyber Oversight Blog</title>
+<title>How Attackers Find Ships on Shodan | Cyber Oversight</title>
 <meta name="description" content="Automated scanners crawl the internet looking for exposed systems on ships. Here's how they do it and what you can do about it.">
 <meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/blog/how-attackers-find-ships-shodan.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -22,7 +22,7 @@
 <body>
 <script src="../raining-letters.js"></script>
 <header><div class="container"><div><a href="../" class="brand">● <span class="accent">cyber oversight</span>.ee</a></div>
-<nav><a href="../capabilities/">Capabilities</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../shipcrawler/">Shipcrawler</a><a href="../contact/">Contact</a></nav></div></header>
+<nav><a href="../services/">Services</a><a href="../web/">Web</a><a href="../shipcrawler/">Shipcrawler</a><a href="../products/">Products</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../contact/">Contact</a></nav></div></header>
 <div class="container">
 
 <div class="path">~/<span class="accent">cyber-oversight</span>/blog/how-attackers-find-ships-shodan.html</div>
@@ -32,17 +32,17 @@
 <p>Every day, automated systems scan the entire public internet looking for exposed devices. They don't discriminate between office servers in London and VSAT terminals on a vessel in the South China Sea. If it has an IP address, it gets scanned.</p>
 
 <h2>The Scanning Process</h2>
-<p><strong>Discovery.</strong> Scanners probe every possible IP address on specific ports — 80/443 (web interfaces), 22 (SSH), 161 (SNMP), and manufacturer-specific management ports.</p>
+<p><strong>Discovery.</strong> Scanners probe every possible IP address on specific ports: 80/443 (web interfaces), 22 (SSH), 161 (SNMP), and manufacturer-specific management ports.</p>
 <p><strong>Identification.</strong> The scanner interacts with the responding service to identify make, model, and firmware version. Shodan and Censys index these responses.</p>
-<p><strong>Targeting.</strong> Once identified, the device enters a database accessible to anyone — researchers, competitors, and attackers alike. Default credentials and known vulnerabilities are cross-referenced against the device type.</p>
+<p><strong>Targeting.</strong> Once identified, the device enters a database accessible to anyone: researchers, competitors, and attackers alike. Default credentials and known vulnerabilities are cross-referenced against the device type.</p>
 
 <h2>What Attackers Find on Your Vessels</h2>
 <ul>
-<li><strong>VSAT management portals</strong> — the most common find, often accessible with unchanged default credentials</li>
-<li><strong>Exposed remote desktop or SSH</strong> — left open for shore support, often with weak or no passwords</li>
-<li><strong>Unsecured network storage</strong> — containing crew data, manifests, and operational documents</li>
-<li><strong>AIS transceiver data</strong> — correlating vessel identity with technical vulnerabilities</li>
-<li><strong>Onboard email servers</strong> — with outdated software, accessible from the internet</li>
+<li><strong>VSAT management portals</strong>: the most common find, often accessible with unchanged default credentials</li>
+<li><strong>Exposed remote desktop or SSH</strong>: left open for shore support, often with weak or no passwords</li>
+<li><strong>Unsecured network storage</strong>: containing crew data, manifests, and operational documents</li>
+<li><strong>AIS transceiver data</strong>: correlating vessel identity with technical vulnerabilities</li>
+<li><strong>Onboard email servers</strong>: with outdated software, accessible from the internet</li>
 </ul>
 
 <h2>Why This Matters for Fleet Managers</h2>
@@ -52,7 +52,7 @@
 <p><strong>Business intelligence:</strong> Your exposure profile is available to competitors and charterers.</p>
 
 <h2>How to Check Your Own Fleet</h2>
-<p>You have two options. Search Shodan manually using your vessel's IP ranges (requires technical knowledge). Or use <a href="https://cyber.oversight.ee/shipcrawler/">Shipcrawler</a> — send three vessel names, we search Shodan, AIS databases, and web sources, and deliver a plain-language report.</p>
+<p>You have two options. Search Shodan manually using your vessel's IP ranges (requires technical knowledge). Or use <a href="https://cyber.oversight.ee/shipcrawler/">Shipcrawler</a>: send three vessel names, we search Shodan, AIS databases, and web sources, and deliver a plain-language report.</p>
 
 <h2>The Baseline Fix</h2>
 <ol>
@@ -63,10 +63,10 @@
 </ol>
 
 <div class="cta-box">
-  <strong>Free 3-vessel scan →</strong> <a href="https://cyber.oversight.ee/shipcrawler/">Start your free Shipcrawler scan</a> — peer-reviewed methodology, plain-language report, 24-hour turnaround.
+  <strong>Free 3-vessel scan →</strong> <a href="https://cyber.oversight.ee/shipcrawler/">Start your free Shipcrawler scan</a>: peer-reviewed methodology, plain-language report, 24-hour turnaround.
 </div>
 
 </div>
-<footer><div class="container">Cyber Oversight — cybersecurity &amp; infrastructure · © 2026</div></footer>
+<footer><div class="container">Cyber Oversight · cybersecurity &amp; web development · © 2026</div></footer>
 </body>
 </html>

@@ -9,13 +9,11 @@
   gtag('js', new Date());
   gtag('config', 'G-CD4768PRXW');
 </script>
-
-<title>Free Fleet Scan — Shipcrawler | Cyber Oversight</title>
-<meta name="description" content="Find out what hackers already know about your fleet. Free 3-vessel scan. No installation, no credentials, no commitment.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://cyber.oversight.ee/shipcrawler/">
-<meta property="og:title" content="Free 3-Vessel Scan — Shipcrawler by Cyber Oversight">
-<meta property="og:description" content="Find out what hackers already know about your fleet. Free scan, 24-hour turnaround, plain-language report.">
+<title>Free Fleet Scan | Cyber Oversight</title>
+<meta name="description" content="See what hackers already know about your fleet. Free 3-vessel Shipcrawler scan. Plain-language report in 24 hours.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/shipcrawler/">
+<meta property="og:title" content="Free Fleet Scan | Cyber Oversight">
+<meta property="og:description" content="See what hackers already know about your fleet. Free 3-vessel Shipcrawler scan. Plain-language report in 24 hours.">
 <meta property="og:url" content="https://cyber.oversight.ee/shipcrawler/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cyber Oversight">
@@ -25,89 +23,81 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cyber.oversight.ee/og-image.png">
-<meta name="twitter:title" content="Free 3-Vessel Scan — Shipcrawler by Cyber Oversight">
-<meta name="twitter:description" content="Find out what hackers already know about your fleet. Free scan, 24-hour turnaround, plain-language report.">
+<meta name="twitter:title" content="Free Fleet Scan | Cyber Oversight">
+<meta name="twitter:description" content="See what hackers already know about your fleet. Free 3-vessel Shipcrawler scan. Plain-language report in 24 hours.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../tokens.css">
-<style>
+<link rel="stylesheet" href="../tokens.css"><style>
+
 header{padding:var(--space-3xl)0 var(--space-xl);border-bottom:1px solid var(--color-line);margin-bottom:var(--space-3xl);background:var(--color-paper-2)}
 header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)}
 header .brand{font-family:var(--font-sans);font-weight:700;font-size:var(--text-xl);letter-spacing:-.5px;color:var(--color-ink)}
 header .brand .accent{color:var(--color-accent)}
-header nav{display:flex;gap:var(--space-xl)}
-header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out)}
+header nav{display:flex;gap:var(--space-lg);flex-wrap:wrap}
+header nav a{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-2);letter-spacing:.05em;text-transform:uppercase;transition:color var(--dur-fast) var(--ease-out);text-decoration:none}
 header nav a:hover{color:var(--color-accent)}
+header nav a.active{color:var(--color-accent)}
+h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-3xl);letter-spacing:-.02em;color:var(--color-ink);margin-bottom:var(--space-md);line-height:1.2}
 .path{font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-ink-3);margin-bottom:var(--space-lg)}
 .path .accent{color:var(--color-accent)}
-h1{font-family:var(--font-sans);font-weight:700;font-size:var(--text-4xl);letter-spacing:-.03em;color:var(--color-ink);margin-bottom:var(--space-lg);line-height:1.15}
-h1 .accent{color:var(--color-accent)}
-.subtitle{font-size:var(--text-lg);color:var(--color-ink-2);line-height:1.8;max-width:65ch;margin-bottom:var(--space-2xl)}
-.benefits{margin-bottom:var(--space-2xl)}
-.benefit{display:flex;gap:12px;padding:var(--space-md)0;border-bottom:1px solid var(--color-line)}
-.benefit:last-child{border-bottom:none}
-.benefit-icon{font-family:var(--font-mono);color:var(--color-accent);flex-shrink:0;margin-top:2px}
-.benefit-text{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.7}
+.subtitle{font-size:var(--text-lg);color:var(--color-ink-2);line-height:1.8;max-width:65ch;margin-bottom:var(--space-3xl)}
+p{font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-lg)}
+strong{color:var(--color-ink)}
+a{color:var(--color-accent)}
+.comment{font-family:var(--font-mono);font-size:var(--text-sm);color:var(--color-accent-dim)}
+footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-3xl)}
+footer a{color:var(--color-ink-3);text-decoration:none}
+footer a:hover{color:var(--color-accent)}
+.btn{display:inline-block;font-family:var(--font-sans);font-size:var(--text-base);font-weight:600;color:#fff;background:var(--color-accent);padding:14px 32px;border:none;border-radius:var(--radius-sm);cursor:pointer;transition:opacity var(--dur-fast) var(--ease-out);text-decoration:none}
+.btn:hover{opacity:.9}
+.btn.ghost{background:transparent;color:var(--color-accent);border:1px solid var(--color-accent)}
+@media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-md)}}
+
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);margin-bottom:var(--space-2xl)}
+.benefit{display:flex;gap:var(--space-md);padding:var(--space-lg);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-md)}
+.benefit-icon{color:var(--color-accent);font-family:var(--font-mono)}
+.benefit-text{font-size:var(--text-sm);color:var(--color-ink-2);line-height:1.7}
 .benefit-text strong{color:var(--color-ink)}
-.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-md);margin-bottom:var(--space-2xl)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);margin-bottom:var(--space-2xl)}
 .step{padding:var(--space-lg);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-md);text-align:center}
 .step-num{font-family:var(--font-mono);font-weight:600;font-size:var(--text-2xl);color:var(--color-accent);line-height:1;margin-bottom:var(--space-xs)}
 .step-label{font-size:var(--text-sm);color:var(--color-ink-2)}
 .form-box{padding:var(--space-2xl);background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-md);margin-bottom:var(--space-2xl)}
-.form-box p{font-size:var(--text-sm);color:var(--color-ink-3);margin-bottom:var(--space-lg)}
-.form-group{margin-bottom:var(--space-md)}
-.form-group label{display:block;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);margin-bottom:var(--space-xs)}
-.form-group input,.form-group textarea{width:100%;background:var(--color-paper);border:1px solid var(--color-line-strong);border-radius:var(--radius-sm);padding:12px 14px;color:var(--color-ink);font-size:var(--text-base);font-family:var(--font-sans);transition:border-color .2s}
-.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--color-accent)}
-.form-group textarea{min-height:80px;resize:vertical}
-.btn{display:inline-block;font-family:var(--font-sans);font-size:var(--text-base);font-weight:600;color:#fff;background:var(--color-accent);padding:14px 32px;border:none;border-radius:var(--radius-sm);cursor:pointer;width:100%;transition:opacity .2s;text-align:center}
-.btn:hover{opacity:.9}
-.trust{text-align:center;padding:var(--space-xl)0;border-top:1px solid var(--color-line);font-size:var(--text-xs);color:var(--color-ink-3)}
+.trust{padding:var(--space-xl)0;border-top:1px solid var(--color-line);font-size:var(--text-xs);color:var(--color-ink-3)}
 .trust strong{color:var(--color-ink-2)}
-footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-ink-3);border-top:1px solid var(--color-line);margin-top:var(--space-md)}
-@media(max-width:640px){header .container{flex-direction:column;align-items:flex-start}header nav{gap:var(--space-lg)}.steps{grid-template-columns:1fr}}
+@media(max-width:640px){.benefits{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
 <body>
 <script src="../raining-letters.js"></script>
 <header><div class="container"><div><a href="../" class="brand">● <span class="accent">cyber oversight</span>.ee</a></div>
-<nav><a href="../capabilities/">Capabilities</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../shipcrawler/">Shipcrawler</a><a href="../contact/">Contact</a></nav></div></header>
+<nav><a href="../services/">Services</a><a href="../web/">Web</a><a href="../shipcrawler/" class="active">Shipcrawler</a><a href="../products/">Products</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../contact/">Contact</a></nav></div></header>
 <div class="container">
-
 <div class="path">~/<span class="accent">cyber-oversight</span>/shipcrawler/</div>
-
 <h1>See what hackers already know about <span class="accent">your fleet</span>.</h1>
-<p class="subtitle">Every day, automated scanners crawl the internet looking for exposed systems on ships. Shipcrawler does the same scan on your behalf. Send us vessel names, and we'll show you exactly what's exposed. No credentials needed. No onboard installation.</p>
-
-<h2 class="section-hdr"><span class="comment">//</span>What is Shipcrawler</h2>
-<p>Shipcrawler is a maritime OSINT reconnaissance tool developed by Cyber Oversight. It searches Shodan, AIS databases, certificate transparency logs, and public web sources to identify internet-facing systems on commercial vessels — VSAT management portals, exposed remote access, unsecured network services, and other attack surface. Its methodology is <strong>published and peer-reviewed in IEEE Access (2026)</strong>.</p>
-<p>Designed for fleet managers, not security engineers, each report delivers a plain-language breakdown of what's exposed, how an attacker could exploit it, and what to fix first — prioritised by severity.</p>
-
+<p class="subtitle">Every day, automated scanners crawl the internet looking for exposed systems on ships. Shipcrawler does the same scan on your behalf. Send us vessel names, and we will show you exactly what is exposed. No credentials needed. No onboard installation.</p>
+<h2><span class="comment">//</span> What is Shipcrawler</h2>
+<p>Shipcrawler is a maritime OSINT reconnaissance tool developed by Cyber Oversight. It searches Shodan, AIS databases, certificate transparency logs, and public web sources to identify internet-facing systems on commercial vessels: VSAT management portals, exposed remote access, unsecured network services, and other attack surface. Its methodology is <strong>published and peer-reviewed in IEEE Access (2026)</strong>.</p>
+<p>Designed for fleet managers, not security engineers, each report delivers a plain-language breakdown of what is exposed, how an attacker could exploit it, and what to fix first, prioritised by severity.</p>
 <div class="benefits">
-  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>See your fleet through a hacker's eyes.</strong> We search Shodan, AIS databases, and web sources — the same tools attackers use.</div></div>
-  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>Know what to fix first.</strong> Clear three-part report: what's exposed, how an attacker could use it, what to prioritise.</div></div>
-  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>Zero risk to try.</strong> First three vessels are on us. See the value before you spend a cent.</div></div>
-  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>Plain language, not security jargon.</strong> Reports written for fleet managers, not just security engineers.</div></div>
-  <div class="benefit"><span class="benefit-icon">▸</span><div class="benefit-text"><strong>Published, peer-reviewed methodology.</strong> Our approach (IEEE Access 2026) is research, not marketing.</div></div>
+<div class="benefit"><span class="benefit-icon">&#9656;</span><div class="benefit-text"><strong>See your fleet through a hacker's eyes.</strong> We search Shodan, AIS databases, and web sources, the same tools attackers use.</div></div>
+<div class="benefit"><span class="benefit-icon">&#9656;</span><div class="benefit-text"><strong>Know what to fix first.</strong> Clear three-part report: what is exposed, how an attacker could use it, what to prioritise.</div></div>
+<div class="benefit"><span class="benefit-icon">&#9656;</span><div class="benefit-text"><strong>Zero risk to try.</strong> First three vessels are on us. See the value before you spend a cent.</div></div>
+<div class="benefit"><span class="benefit-icon">&#9656;</span><div class="benefit-text"><strong>Plain language, not security jargon.</strong> Reports written for fleet managers, not just security engineers.</div></div>
 </div>
-
 <div class="steps">
-  <div class="step"><div class="step-num">1</div><div class="step-label">Send vessel names</div></div>
-  <div class="step"><div class="step-num">2</div><div class="step-label">We scan the internet</div></div>
-  <div class="step"><div class="step-num">3</div><div class="step-label">Clear report in 24h</div></div>
+<div class="step"><div class="step-num">1</div><div class="step-label">Send vessel names</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-label">We scan the internet</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-label">Clear report in 24h</div></div>
 </div>
-
 <div class="form-box">
-  <p style="margin-bottom:var(--space-md);font-size:var(--text-sm);color:var(--color-ink-2)"><strong>Start your free scan</strong> — no commitment, no installation, no credentials needed.</p>
-  <p style="font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-lg)">Send us your vessel names and we'll run the scan. Your report will arrive within 24 hours.</p>
-  <a href="mailto:contact@oversight.ee?subject=Free Shipcrawler Scan&body=Vessel names (up to 3):%0A1.%0A2.%0A3.%0A%0ACompany:%0AName:%0APhone (optional):" class="btn" style="display:block;text-decoration:none">📧 Email us to start your scan</a>
-  <p style="margin-top:var(--space-sm);font-size:var(--text-xs);color:var(--color-ink-3);text-align:center">Or copy: contact@oversight.ee — we respond within 2 hours during business days.</p>
+<p style="font-size:var(--text-base);color:var(--color-ink-2);line-height:1.8;margin-bottom:var(--space-lg)"><strong>Start your free scan.</strong> Send us your vessel names and we will run the scan. Your report arrives within 24 hours.</p>
+<a href="mailto:contact@oversight.ee?subject=Free Shipcrawler Scan&body=Vessel names (up to 3):%0A1.%0A2.%0A3.%0A%0ACompany:%0AName:%0APhone (optional):" class="btn" style="display:block;text-decoration:none;text-align:center">Email us to start your scan</a>
+<p style="margin-top:var(--space-sm);font-size:var(--text-xs);color:var(--color-ink-3);text-align:center">Or copy: contact@oversight.ee. We respond within 2 hours during business days.</p>
 </div>
-
 <div class="trust"><strong>Peer-reviewed methodology</strong> · IEEE Access 2026 · <strong>Zero risk</strong> · No installation or credentials needed</div>
-
 </div>
-<footer><div class="container">Cyber Oversight — cybersecurity &amp; infrastructure · © 2026</div></footer>
+<footer><div class="container">Cyber Oversight · cybersecurity &amp; web development · © 2026 · <a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div></footer>
 </body>
 </html>

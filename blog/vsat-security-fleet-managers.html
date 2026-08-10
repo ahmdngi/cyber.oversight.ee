@@ -10,7 +10,7 @@
   gtag('config', 'G-CD4768PRXW');
 </script>
 
-<title>What is VSAT Security — Cyber Oversight Blog</title>
+<title>What is VSAT Security | Cyber Oversight</title>
 <meta name="description" content="Your vessels' satellite terminals are connected to the open internet. Here's what that means for your fleet's security posture.">
 <meta name="robots" content="index, follow"><link rel="canonical" href="https://cyber.oversight.ee/blog/vsat-security-fleet-managers.html">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -43,7 +43,7 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 <body>
 <script src="../raining-letters.js"></script>
 <header><div class="container"><div><a href="../" class="brand">● <span class="accent">cyber oversight</span>.ee</a></div>
-<nav><a href="../capabilities/">Capabilities</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../shipcrawler/">Shipcrawler</a><a href="../contact/">Contact</a></nav></div></header>
+<nav><a href="../services/">Services</a><a href="../web/">Web</a><a href="../shipcrawler/">Shipcrawler</a><a href="../products/">Products</a><a href="../architecture/">Architecture</a><a href="../blog/">Blog</a><a href="../contact/">Contact</a></nav></div></header>
 <div class="container">
 
 <div class="path">~/<span class="accent">cyber-oversight</span>/blog/vsat-security-fleet-managers.html</div>
@@ -52,7 +52,7 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 
 <p>If you manage a commercial fleet, every vessel with a satellite terminal has a direct connection to the open internet. And unlike your office network, nobody is watching that connection.</p>
 
-<p><strong>Here's the uncomfortable reality:</strong> VSAT terminals are designed for connectivity, not security. They expose management interfaces — web dashboards, SSH ports, SNMP endpoints — directly to the internet by default. And attackers know exactly where to look.</p>
+<p><strong>Here's the uncomfortable reality:</strong> VSAT terminals are designed for connectivity, not security. They expose management interfaces (web dashboards, SSH ports, SNMP endpoints) directly to the internet by default. And attackers know exactly where to look.</p>
 
 <p>This post explains what VSAT security means, why it matters for your fleet, and what you can do about it in under an hour.</p>
 
@@ -60,7 +60,7 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 
 <p>VSAT (Very Small Aperture Terminal) is the standard satellite communication system on most commercial vessels. Brands like Cobham (SAILOR series), KVH, and Intellian are on thousands of ships worldwide.</p>
 
-<p>These terminals are essentially small satellite dishes connected to a below-deck unit that functions as a router, modem, and network gateway. That below-deck unit typically runs a web-based management interface — the same kind of interface you'd find on an office router, but exposed via satellite link to the entire internet.</p>
+<p>These terminals are essentially small satellite dishes connected to a below-deck unit that functions as a router, modem, and network gateway. That below-deck unit typically runs a web-based management interface, the same kind of interface you'd find on an office router, but exposed via satellite link to the entire internet.</p>
 
 <h2>The Problem: Designed for Access, Not Security</h2>
 
@@ -69,8 +69,8 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 <ul>
 <li><strong>Default credentials</strong> are often well-known or never changed during installation</li>
 <li><strong>Management interfaces</strong> are accessible from the satellite link, meaning anyone with the terminal's public IP can attempt to log in</li>
-<li><strong>Firmware updates</strong> are rare once installed — many terminals run software versions with known vulnerabilities</li>
-<li><strong>No built-in monitoring</strong> — unlike office IT, nobody watches VSAT traffic for intrusion attempts</li>
+<li><strong>Firmware updates</strong> are rare once installed; many terminals run software versions with known vulnerabilities</li>
+<li><strong>No built-in monitoring</strong>: unlike office IT, nobody watches VSAT traffic for intrusion attempts</li>
 </ul>
 
 <p>This isn't a flaw in any specific manufacturer's product. It's a design trade-off that made sense when satellite terminals were niche equipment used by technical crews. Today, automated scanners find these terminals within hours of them going online.</p>
@@ -80,23 +80,23 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 <p>Automated scanning tools like Shodan continuously scan the entire IPv4 internet. When they find a VSAT terminal, they:</p>
 
 <ol>
-<li><strong>Identify the make and model</strong> — the management interface usually advertises this</li>
-<li><strong>Check for default credentials</strong> — common username/password combinations</li>
-<li><strong>List open ports</strong> — SSH, HTTP/HTTPS, SNMP, and proprietary management protocols</li>
-<li><strong>Attempt known exploits</strong> — against unpatched firmware versions</li>
+<li><strong>Identify the make and model</strong>: the management interface usually advertises this</li>
+<li><strong>Check for default credentials</strong>: common username/password combinations</li>
+<li><strong>List open ports</strong>: SSH, HTTP/HTTPS, SNMP, and proprietary management protocols</li>
+<li><strong>Attempt known exploits</strong>: against unpatched firmware versions</li>
 </ol>
 
 <p>Once inside a VSAT terminal, an attacker can:</p>
 <ul>
-<li><strong>Disrupt communications</strong> — take the terminal offline, causing off-hire</li>
-<li><strong>Redirect traffic</strong> — intercept or modify data passing through the satellite link</li>
-<li><strong>Use the terminal as a pivot</strong> — access other systems on the ship's network</li>
-<li><strong>Monitor position data</strong> — track vessel movements</li>
+<li><strong>Disrupt communications</strong>: take the terminal offline, causing off-hire</li>
+<li><strong>Redirect traffic</strong>: intercept or modify data passing through the satellite link</li>
+<li><strong>Use the terminal as a pivot</strong>: access other systems on the ship's network</li>
+<li><strong>Monitor position data</strong>: track vessel movements</li>
 </ul>
 
 <h2>Why Port State Control Is Starting to Ask</h2>
 
-<p>Port state control regimes — Paris MoU, Tokyo MoU, USCG — have added cyber security to their inspection checklists. Inspectors are increasingly asking for evidence that vessel IT and OT systems are secured.</p>
+<p>Port state control regimes (Paris MoU, Tokyo MoU, USCG) have added cyber security to their inspection checklists. Inspectors are increasingly asking for evidence that vessel IT and OT systems are secured.</p>
 
 <p>A VSAT terminal with default credentials and open management interfaces is exactly the kind of finding that gets noted on an inspection report. And once it's on record, it stays on the vessel's profile for future inspections.</p>
 
@@ -106,15 +106,15 @@ footer{padding:var(--space-xl)0 var(--space-2xl);font-family:var(--font-mono);fo
 
 <p><strong>Step 2: Change default credentials.</strong> This is the single highest-impact, lowest-effort fix. Every VSAT terminal in your fleet should have unique, strong credentials for its management interface.</p>
 
-<p><strong>Step 3: Restrict management access.</strong> If your satellite provider supports it, restrict management interface access to specific IP addresses — your office or your provider's support team only.</p>
+<p><strong>Step 3: Restrict management access.</strong> If your satellite provider supports it, restrict management interface access to specific IP addresses: your office or your provider's support team only.</p>
 
 <p><strong>Step 4: Document what you've done.</strong> When the PSC inspector asks, you want to show a documented process, not a blank look.</p>
 
 <div class="cta-box">
-  <strong>Free fleet scan →</strong> <a href="https://cyber.oversight.ee/shipcrawler/">Get your free 3-vessel Shipcrawler scan</a> — no installation, no credentials, no commitment.
+  <strong>Free fleet scan →</strong> <a href="https://cyber.oversight.ee/shipcrawler/">Get your free 3-vessel Shipcrawler scan</a>: no installation, no credentials, no commitment.
 </div>
 
 </div>
-<footer><div class="container">Cyber Oversight — cybersecurity &amp; infrastructure · © 2026</div></footer>
+<footer><div class="container">Cyber Oversight · cybersecurity &amp; web development · © 2026</div></footer>
 </body>
 </html>

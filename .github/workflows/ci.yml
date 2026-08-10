@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir -p _site
           cp -r index.html tokens.css raining-letters.js favicon.svg CNAME sitemap.xml robots.txt og-image.png _site/
-          cp -r blog shipcrawler capabilities architecture contact _site/
+          cp -r blog shipcrawler services web products architecture contact _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
