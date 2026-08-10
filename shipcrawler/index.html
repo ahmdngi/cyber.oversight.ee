@@ -68,7 +68,81 @@ footer a:hover{color:var(--color-accent)}
 .trust strong{color:var(--color-ink-2)}
 @media(max-width:640px){.benefits{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
 </style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://cyber.oversight.ee/#organization",
+  "name": "Cyber Oversight",
+  "url": "https://cyber.oversight.ee/",
+  "logo": "https://cyber.oversight.ee/og-image.png",
+  "email": "contact@oversight.ee",
+  "sameAs": [
+    "https://github.com/ahmdngi"
+  ]
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://cyber.oversight.ee/shipcrawler/#service",
+  "name": "Shipcrawler Free Fleet Scan",
+  "description": "See what hackers already know about your fleet. Free 3-vessel Shipcrawler scan. Plain-language report in 24 hours.",
+  "provider": {
+    "@id": "https://cyber.oversight.ee/#organization"
+  },
+  "url": "https://cyber.oversight.ee/shipcrawler/",
+  "areaServed": "Worldwide",
+  "serviceType": "Maritime cybersecurity OSINT reconnaissance"
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Shipcrawler scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shipcrawler searches Shodan, AIS databases, and public web sources to find internet-facing systems on commercial vessels, using methodology published in IEEE Access 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the free fleet scan really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The first three vessels are scanned at no cost, with no installation, no credentials, and no commitment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the report include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A plain-language breakdown of what is exposed, how an attacker could exploit it, and what to fix first, prioritised by severity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the scan take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Send vessel names and receive a clear report within 24 hours."
+      }
+    }
+  ]
+}
+</script>
+</head>
 <body>
 <script src="../raining-letters.js"></script>
 <header><div class="container"><div><a href="../" class="brand">● <span class="accent">cyber oversight</span>.ee</a></div>
@@ -96,6 +170,7 @@ footer a:hover{color:var(--color-accent)}
 <a href="mailto:contact@oversight.ee?subject=Free Shipcrawler Scan&body=Vessel names (up to 3):%0A1.%0A2.%0A3.%0A%0ACompany:%0AName:%0APhone (optional):" class="btn" style="display:block;text-decoration:none;text-align:center">Email us to start your scan</a>
 <p style="margin-top:var(--space-sm);font-size:var(--text-xs);color:var(--color-ink-3);text-align:center">Or copy: contact@oversight.ee. We respond within 2 hours during business days.</p>
 </div>
+<div class="faq"><h2><span class="comment">//</span> Frequently asked questions</h2><h3>What is a Shipcrawler scan?</h3><p>Shipcrawler searches Shodan, AIS databases, and public web sources to find internet-facing systems on commercial vessels, using methodology published in IEEE Access 2026.</p><h3>Is the free fleet scan really free?</h3><p>Yes. The first three vessels are scanned at no cost, with no installation, no credentials, and no commitment.</p><h3>What does the report include?</h3><p>A plain-language breakdown of what is exposed, how an attacker could exploit it, and what to fix first, prioritised by severity.</p><h3>How long does the scan take?</h3><p>Send vessel names and receive a clear report within 24 hours.</p></div>
 <div class="trust"><strong>Peer-reviewed methodology</strong> · IEEE Access 2026 · <strong>Zero risk</strong> · No installation or credentials needed</div>
 </div>
 <footer><div class="container">Cyber Oversight · cybersecurity &amp; web development · © 2026 · <a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div></footer>
