@@ -3,110 +3,244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Fleet Scan — Shipcrawler | Cyber Oversight</title>
-<meta name="description" content="Free 3-vessel scan. We search Shodan, AIS databases, and public sources. Plain-language report in 24 hours.">
-<link rel="icon" type="image/png" href="logo-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Shipcrawler · Free Fleet Exposure Scan | Cyber Oversight</title>
+<meta name="description" content="Shipcrawler OSINT platform: MMSI/IMO lookup, AIS tracking, and Shodan scanning. Find out what threat actors see on your commercial vessels. 3 vessels scanned free.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
-<style>
-.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; margin-bottom: var(--space-4xl); }
-.feature-list { list-style: none; margin-top: var(--space-xl); }
-.feature-list li { display: flex; align-items: flex-start; gap: var(--space-md); margin-bottom: var(--space-lg); color: var(--color-ink-2); font-size: var(--text-base); }
-.feature-list .check { color: var(--color-accent); font-family: var(--font-mono); font-weight: bold; }
-.form-card { background: rgba(10, 15, 25, 0.4); padding: var(--space-3xl); border-radius: var(--radius-md); border: 1px solid var(--color-line); position: relative; backdrop-filter: blur(10px); }
-.form-card::before { content: ""; position: absolute; top: -1px; left: 0; width: 100%; height: 2px; background: var(--color-accent); box-shadow: 0 0 15px var(--color-accent); }
-.form-card h2 { margin-bottom: var(--space-md); font-size: var(--text-2xl); color: var(--color-ink); }
-.form-card p { margin-bottom: var(--space-2xl); color: var(--color-ink-2); line-height: 1.6; }
-.steps-container { margin-bottom: var(--space-4xl); }
-.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl); }
-.step-item { padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border-radius: var(--radius-md); border: 1px solid var(--color-line); backdrop-filter: blur(10px); transition: transform var(--dur-fast); }
-.step-item:hover { transform: translateY(-4px); border-color: rgba(168, 213, 6, 0.3); }
-.step-num { font-family: var(--font-mono); color: var(--color-accent); font-size: var(--text-xs); margin-bottom: var(--space-md); letter-spacing: 0.1em; background: var(--color-accent-dim); padding: 4px 8px; border-radius: var(--radius-full); display: inline-block; border: 1px solid rgba(168, 213, 6, 0.3); }
-.step-item h3 { margin-bottom: var(--space-xs); font-size: var(--text-lg); color: var(--color-ink); }
-.step-item p { color: var(--color-ink-2); font-size: var(--text-sm); line-height: 1.6; }
-@media(max-width:900px){.dashboard-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}}
-</style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<script src="theme.js"></script>
+<script defer src="fx.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+</head>
 <body>
-<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
-<div class="bg-grid"></div>
 
-<header>
-  <div class="container">
-    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
-    <nav>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="web-design.html">Web Design</a>
-      <a href="blog.html">Blog</a>
-      <a href="shipcrawler.html" class="active">Shipcrawler</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
 
-<div class="container">
-  <div class="page-header animate-fade-up delay-1">
-    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/shipcrawler</div>
-    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Free Shipcrawler Scan</h1>
-    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2);">See what hackers know about your fleet. We search Shodan, AIS databases, and public sources.</p>
-  </div>
-
-  <div class="dashboard-grid animate-fade-up delay-2">
-    <div>
-      <h2 style="font-size:var(--text-3xl); margin-bottom:var(--space-md); color:var(--color-ink);">Identify exposure before attackers do.</h2>
-      <p style="color:var(--color-ink-2); font-size:var(--text-lg); line-height:1.6;">Every day, automated scanners crawl the internet looking for exposed systems on ships. Shipcrawler performs the same scan defensively on your behalf.</p>
-      <ul class="feature-list">
-        <li><span class="check">[OK]</span><span><strong>Zero Installation Required:</strong> We don't need access to your networks.</span></li>
-        <li><span class="check">[OK]</span><span><strong>Comprehensive Scanning:</strong> We query Shodan, AIS databases, Certificate Logs, and the Public Web.</span></li>
-        <li><span class="check">[OK]</span><span><strong>Actionable Reporting:</strong> Plain-language report in 24 hours. No installation or credentials needed.</span></li>
-      </ul>
-    </div>
-    <div class="form-card">
-      <h2>Request Free Scan</h2>
-      <p>Your first 3 commercial vessels are completely free. Find out what's exposed right now.</p>
-      <a href="mailto:contact@oversight.ee?subject=Free Shipcrawler Scan" class="cta" style="width:100%; font-size:var(--text-base);">Start free scan &rarr;</a>
-    </div>
-  </div>
-
-  <div class="steps-container animate-fade-up delay-3">
-    <h2 style="font-size:var(--text-3xl); margin-bottom:var(--space-lg); color:var(--color-ink);">Scan Process</h2>
-    <div class="steps-grid">
-      <div class="step-item">
-        <div class="step-num">PHASE.01</div>
-        <h3>Input Targets</h3>
-        <p>Provide the names of up to 3 commercial vessels you want us to analyze.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-num">PHASE.02</div>
-        <h3>Execute Scan</h3>
-        <p>Our intelligence engine queries public and deep web sources for exposures.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-num">PHASE.03</div>
-        <h3>Review Report</h3>
-        <p>We deliver a comprehensive risk matrix highlighting critical vulnerabilities.</p>
-      </div>
-    </div>
-  </div>
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+<div class="neural-mesh">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
+      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
+      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
+      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
+      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
+      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
+      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
+      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
+      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
+      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
+      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
+      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
+      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
+    </g>
+  </svg>
 </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
-        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
-      </div>
-      <div class="footer-links">
-        <a href="contact.html">Contact us &rarr;</a>
-        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="capabilities.html">Capabilities</a><a href="architecture.html">Architecture</a><a href="web-design.html">Web Studio</a><a href="networking.html">Networking</a><a href="shipcrawler.html" class="active">Shipcrawler</a><a href="blog.html">Research</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a>
+  <a href="capabilities.html">Capabilities</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="web-design.html">Web Studio</a>
+  <a href="networking.html">Networking</a>
+  <a href="shipcrawler.html">Shipcrawler</a>
+  <a href="blog.html">Research</a>
+  <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
+</div>
+
+<section class="hero" style="min-height:auto;padding:170px 0 70px">
+  <div class="grid-bg" data-parallax="0.2"></div>
+  <div class="glow" data-parallax="0.35"></div>
+    <div class="wrap hero-inner">
+    <div>
+      <div class="coord"><b>Method</b> Shodan · Censys · satellite ASN · <b>Report</b> 24h</div>
+      <h1>
+        <span class="h1-line"><span class="w">See</span> <span class="w">your</span> <span class="w">fleet</span></span>
+        <span class="h1-line"><span class="w">the</span> <span class="w">way</span> <span class="w">an</span> <span class="w"><em class="lime">attacker</em> <em class="lime">does.</em></span></span>
+      </h1>
+      <p class="sub">Shipcrawler queries public search indexes and satellite ASN ranges to reveal what is exposed on your vessels, unauthenticated VSAT terminals, open Telnet ports, bridge cameras. All passive. No agent. No shipboard access.</p>
+      <div class="cta-row">
+        <a href="#scan" class="btn primary magnetic">Request your Free Scan →</a>
+        <a href="blog/how-attackers-find-ships-shodan.html" class="btn ghost magnetic">Read the Shodan Brief</a>
       </div>
     </div>
   </div>
-</footer>
+</section>
+
+<div class="ticker"><div class="track" id="tickTrack">
+  <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
+</div></div>
+
+<section class="sec" id="scan"><div class="wrap">
+  <div class="sec-head reveal"><div class="no">§ 01 · Free scan</div><h2>Request your 3-vessel <em>exposure report.</em></h2><p>Give us the IMO numbers or vessel names. We do the rest and deliver a confidential report within 24 hours.</p></div>
+  <div class="board" style="max-width:760px;margin:0 auto;padding:36px">
+    <div class="bl">Scan request form</div>
+    <form id="shipcrawlerScanForm" onsubmit="handleScanSubmit(event)" style="display:flex;flex-direction:column;gap:18px">
+      <div>
+        <label for="scanTargets">Vessel targets (IMO numbers or names)</label>
+        <input type="text" id="scanTargets" placeholder="IMO 9742211, IMO 9412034, M/V Arctic Spirit" required>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <label for="scanEmail">Superintendent email</label>
+          <input type="email" id="scanEmail" placeholder="name@company.com" required>
+        </div>
+        <div>
+          <label for="scanCompany">Company</label>
+          <input type="text" id="scanCompany" placeholder="Fleet operator">
+        </div>
+      </div>
+      <button type="submit" class="btn primary" style="justify-content:center;font-size:1rem;padding:16px 34px;border:none;cursor:pointer">Generate Exposure Report →</button>
+      <div id="scanFormStatus" style="display:none;font-size:.9rem;padding:12px 16px;border-radius:12px"></div>
+    </form>
+  </div>
+</div></section>
+
+<!-- ═══ THE PATH · attacker rail vs defense rail ═══ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal"><div class="no">§ 02 · How the scan maps to risk</div><h2>The path to your fleet, <em>closed at every step.</em></h2><p>Two rails, one route. Above: the exposure an attacker counts on. Below: the finding in your report that closes it. Every station is a gap your fleet had, until the scan.</p></div>
+
+  <div class="ship-path">
+    <div class="ship-rails">
+      <svg viewBox="0 0 1136 120" preserveAspectRatio="none">
+        <path class="ship-rail-attack" d="M10 30 H1126"/>
+        <path class="ship-rail-defend-glow" d="M10 95 H1126"/>
+        <path class="ship-rail-defend" d="M10 95 H1126"/>
+        <g style="offset-path:path('M10 95 H1126');animation:voyage 16s linear infinite">
+          <circle class="ship-vessel" r="4"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="ship-stations">
+      <div class="ship-station">
+        <div class="num">01</div>
+        <div class="hole">open VSAT GUI</div>
+        <div class="close">found</div>
+        <div class="title">Satellite terminal <em>exposure</em></div>
+        <div class="detail" style="display:none!important"><h4>Finding 01</h4><p>VSAT web GUIs reachable without authentication, terminal admin ports, and the satellite ASN blocks your fleet actually lives in.</p><span class="d-tag">VSAT · ASN</span></div>
+      </div>
+      <div class="ship-station">
+        <div class="num">02</div>
+        <div class="hole">bridge cameras</div>
+        <div class="close">found</div>
+        <div class="title">Bridge &amp; CCTV <em>visibility</em></div>
+        <div class="detail" style="display:none!important"><h4>Finding 02</h4><p>Exposed bridge cameras and console feeds that give anyone with an internet connection a window into your operations.</p><span class="d-tag">CCTV · Bridge</span></div>
+      </div>
+      <div class="ship-station">
+        <div class="num">03</div>
+        <div class="hole">open OT ports</div>
+        <div class="close">found</div>
+        <div class="title">Open OT <em>ports</em></div>
+        <div class="detail" style="display:none!important"><h4>Finding 03</h4><p>Telnet, Modbus, and management ports on shipboard networks that should never be reachable from the open internet.</p><span class="d-tag">Telnet · Modbus</span></div>
+      </div>
+      <div class="ship-station">
+        <div class="num">04</div>
+        <div class="hole">no context</div>
+        <div class="close">framed</div>
+        <div class="title">AIS &amp; movement <em>context</em></div>
+        <div class="detail" style="display:none!important"><h4>Finding 04</h4><p>MMSI/IMO lookup, port-call history, and AIS tracking that frames each finding, because a ship in port and a ship mid-ocean face different threats.</p><span class="d-tag">MMSI · IMO · AIS</span></div>
+      </div>
+      <div class="ship-station">
+        <div class="num">05</div>
+        <div class="hole">no fix order</div>
+        <div class="close">prioritized</div>
+        <div class="title">Remediation <em>guidance</em></div>
+        <div class="detail" style="display:none!important"><h4>Finding 05</h4><p>Every finding ships with a fix: what to change, in what order, and what can be deferred safely until the next port call.</p><span class="d-tag">Prioritized fixes</span></div>
+      </div>
+      <div class="ship-station">
+        <div class="num">06</div>
+        <div class="hole">data leaks</div>
+        <div class="close">sealed</div>
+        <div class="title">Confidential <em>delivery</em></div>
+        <div class="detail" style="display:none!important"><h4>Finding 06</h4><p>The report goes to you, encrypted, and nowhere else. Your vessels' exposure data is not a marketing asset.</p><span class="d-tag">Encrypted · Private</span></div>
+      </div>
+    </div>
+
+    <div class="ship-lanes">
+      <div class="lane attack">what they use</div>
+      <div class="lane defend">what you get</div>
+      <div class="lane attack">what they use</div>
+      <div class="lane defend">what you get</div>
+      <div class="lane attack">what they use</div>
+      <div class="lane defend">what you get</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal"><div class="no">§ 03 · What the report covers</div><h2>Exposure, prioritized. <em>Not a data dump.</em></h2></div>
+  <div class="bento">
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Finding 01</div><h3>Satellite terminal exposure</h3><p>VSAT web GUIs reachable without authentication, terminal admin ports, and the satellite ASN blocks your fleet actually lives in.</p><span class="chip">VSAT · ASN</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Finding 02</div><h3>Bridge &amp; CCTV visibility</h3><p>Exposed bridge cameras and console feeds that give anyone with an internet connection a window into your operations.</p><span class="chip">CCTV · Bridge</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Finding 03</div><h3>Open OT ports</h3><p>Telnet, Modbus, and management ports on shipboard networks that should never be reachable from the open internet.</p><span class="chip">Telnet · Modbus</span></div>
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Finding 04</div><h3>AIS &amp; movement context</h3><p>MMSI/IMO lookup, port-call history, and AIS tracking context that frames each finding, because a ship in port and a ship mid-ocean face different threats.</p><span class="chip">MMSI · IMO · AIS</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Finding 05</div><h3>Remediation guidance</h3><p>Every finding ships with a fix: what to change, in what order, and what can be deferred safely until the next port call.</p><span class="chip">Prioritized fixes</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Finding 06</div><h3>Confidential delivery</h3><p>The report goes to you, encrypted, and nowhere else. Your vessels' exposure data is not a marketing asset.</p><span class="chip">Encrypted · Private</span></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <h3>Free scan. Real findings. <em>No obligation.</em></h3>
+    <p>Three vessels, one confidential report, zero commitment. It is also the honest way to evaluate whether we are the right team for your fleet.</p>
+  </div>
+  <a href="#scan" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Start the Scan →</a>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:40px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="capabilities.html">M-SOC</a><a href="architecture.html">Haris Edge</a><a href="architecture.html">Watchtower</a></div>
+    <div><h4>Research</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a><a href="tel:+966553629384">+966 55 362 9384</a></div>
+  </div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Cyber Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+</div></footer>
+
+<script>
+function handleScanSubmit(e) {
+  e.preventDefault();
+  const targets = document.getElementById('scanTargets').value.trim();
+  const email = document.getElementById('scanEmail').value.trim();
+  const company = document.getElementById('scanCompany').value.trim();
+  const status = document.getElementById('scanFormStatus');
+  status.style.display = 'block';
+  status.style.background = 'rgba(168,213,6,.08)';
+  status.style.border = '1px solid rgba(168,213,6,.3)';
+  status.innerHTML = 'Preparing your scan request...';
+  const subject = encodeURIComponent(`Shipcrawler Free Scan: ${targets}`);
+  const body = encodeURIComponent(`Fleet targets: ${targets}\nEmail: ${email}\nCompany: ${company || 'n/a'}\n\nPlease generate our confidential 3-vessel exposure report.`);
+  setTimeout(() => {
+    window.location.href = `mailto:contact@oversight.ee?subject=${subject}&body=${body}`;
+    status.innerHTML = 'Request ready. If your email client did not open, send directly to <a href="mailto:contact@oversight.ee" style="color:var(--lime);font-weight:600">contact@oversight.ee</a>.';
+  }, 400);
+}
+</script>
 
 </body>
 </html>

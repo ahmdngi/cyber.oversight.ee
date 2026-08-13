@@ -3,92 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Cyber Oversight | Zero-trust edge ops</title>
-<meta name="description" content="Research, guides, and fleet security analysis.">
-<link rel="icon" type="image/png" href="logo-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Research &amp; Intelligence · Cyber Oversight</title>
+<meta name="description" content="Maritime and OT cybersecurity research from Cyber Oversight: Shodan exposure of ships, VSAT security, ECDIS vulnerabilities, and PSC 2026 compliance.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
-<style>
-.post-list { display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: var(--space-4xl); max-width: 900px; margin-left: auto; margin-right: auto; }
-.post-item { display: block; padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border-radius: var(--radius-md); border: 1px solid var(--color-line); border-left: 2px solid transparent; text-decoration: none; transition: all var(--dur-base) var(--ease-out); backdrop-filter: blur(10px); }
-.post-item:hover { transform: translateX(8px); border-color: rgba(168, 213, 6, 0.3); border-left-color: var(--color-accent); background: var(--color-paper-hover); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.post-meta { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.1em; display: flex; gap: var(--space-md); }
-.post-meta span { background: var(--color-accent-dim); padding: 4px 8px; border-radius: var(--radius-full); border: 1px solid rgba(168, 213, 6, 0.2); }
-.post-title { font-size: var(--text-2xl); color: var(--color-ink); margin-bottom: var(--space-sm); transition: color var(--dur-fast) var(--ease-out); }
-.post-item:hover .post-title { color: var(--color-ink); }
-.post-excerpt { font-size: var(--text-base); color: var(--color-ink-2); line-height: 1.6; }
-</style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<script src="theme.js"></script>
+<script defer src="fx.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+</head>
 <body>
-<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
-<div class="bg-grid"></div>
 
-<header>
-  <div class="container">
-    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
-    <nav>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="web-design.html">Web Design</a>
-      <a href="blog.html" class="active">Blog</a>
-      <a href="shipcrawler.html">Shipcrawler</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
 
-<div class="container">
-  <div class="page-header animate-fade-up delay-1">
-    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/blog</div>
-    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Blog</h1>
-    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2);">Research, guides, and fleet security analysis. VSAT security, ECDIS vulnerabilities, PSC cyber requirements, and the latest maritime OSINT research from the Cyber Oversight team.</p>
-  </div>
-
-  <div class="post-list animate-fade-up delay-2">
-    <a href="blog/how-attackers-find-ships-shodan.html" class="post-item">
-      <div class="post-meta"><span>PUB. 2026-05-12</span><span>OSINT</span></div>
-      <div class="post-title">How Attackers Find Ships on Shodan</div>
-      <div class="post-excerpt">An analysis of the specific search queries and techniques used to locate internet-facing vessel infrastructure using public search engines.</div>
-    </a>
-    <a href="blog/vsat-security-fleet-managers.html" class="post-item">
-      <div class="post-meta"><span>PUB. 2026-04-28</span><span>VSAT</span></div>
-      <div class="post-title">VSAT Security Essentials for Fleet Managers</div>
-      <div class="post-excerpt">Understanding the common misconfigurations in maritime satellite communications and how to secure them without disrupting operations.</div>
-    </a>
-    <a href="blog/ecdis-vulnerabilities-fleet-managers.html" class="post-item">
-      <div class="post-meta"><span>PUB. 2026-04-15</span><span>OT SECURITY</span></div>
-      <div class="post-title">ECDIS Vulnerabilities: A Plain-Language Guide</div>
-      <div class="post-excerpt">Breaking down recent Electronic Chart Display and Information System vulnerabilities and their practical implications for commercial shipping.</div>
-    </a>
-    <a href="blog/psc-cyber-requirements-2026.html" class="post-item">
-      <div class="post-meta"><span>PUB. 2026-03-20</span><span>COMPLIANCE</span></div>
-      <div class="post-title">Preparing for PSC Cyber Requirements in 2026</div>
-      <div class="post-excerpt">What Port State Control inspectors are actually looking for when assessing your vessel's cybersecurity posture this year.</div>
-    </a>
-    <a href="blog/fleet-scan-case-study.html" class="post-item">
-      <div class="post-meta"><span>PUB. 2026-02-05</span><span>CASE STUDY</span></div>
-      <div class="post-title">Shipcrawler Case Study: 300-Vessel Fleet Analysis</div>
-      <div class="post-excerpt">Our findings from a comprehensive OSINT scan of a major commercial fleet, highlighting the most common exposed systems.</div>
-    </a>
-  </div>
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+<div class="neural-mesh">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
+      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
+      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
+      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
+      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
+      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
+      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
+      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
+      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
+      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
+      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
+      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
+      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
+    </g>
+  </svg>
 </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
-        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
-      </div>
-      <div class="footer-links">
-        <a href="contact.html">Contact us &rarr;</a>
-        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="capabilities.html">Capabilities</a><a href="architecture.html">Architecture</a><a href="web-design.html">Web Studio</a><a href="networking.html">Networking</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html" class="active">Research</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a>
+  <a href="capabilities.html">Capabilities</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="web-design.html">Web Studio</a>
+  <a href="networking.html">Networking</a>
+  <a href="shipcrawler.html">Shipcrawler</a>
+  <a href="blog.html">Research</a>
+  <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
+</div>
+
+<section class="hero" style="min-height:auto;padding:170px 0 70px">
+  <div class="grid-bg" data-parallax="0.2"></div>
+  <div class="glow" data-parallax="0.35"></div>
+    <div class="wrap hero-inner">
+    <div>
+      <div class="coord"><b>Latest</b> How attackers find ships on Shodan · <b>Standard</b> IEEE Access 2026</div>
+      <h1>
+        <span class="h1-line"><span class="w">Field</span> <span class="w">notes</span> <span class="w">from</span></span>
+        <span class="h1-line"><span class="w">the</span> <span class="w">maritime</span> <span class="w"><em class="lime">attack</em> <em class="lime">surface.</em></span></span>
+      </h1>
+      <p class="sub">Plain-language briefings on how ships get found, exposed, and attacked online, grounded in our own scans and peer-reviewed methodology, not vendor FUD.</p>
+      <div class="cta-row">
+        <a href="shipcrawler.html" class="btn primary magnetic">Scan 3 Vessels Free →</a>
       </div>
     </div>
   </div>
-</footer>
+</section>
+
+<div class="ticker"><div class="track" id="tickTrack">
+  <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
+</div></div>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head reveal"><div class="no">§ 01 · Briefings</div><h2>Read the findings, then test them <em>on your own fleet.</em></h2></div>
+  <div class="bento">
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Brief 01 · OSINT</div><h3>How attackers find ships on Shodan</h3><p>An empirical breakdown of the queries, filters, and satellite ASN ranges that surface exposed vessels, and what the findings actually mean.</p><span class="chip">6 min read</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Brief 02 · Satellite</div><h3>VSAT security essentials</h3><p>What a VSAT terminal is, why it keeps showing up in scans, and the checklist every fleet manager should run before the next port call.</p><span class="chip">5 min read</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Brief 03 · Bridge OT</div><h3>ECDIS vulnerabilities in plain language</h3><p>Electronic chart display risks explained without the jargon: what can go wrong, how often, and what the bridge team should know.</p><span class="chip">5 min read</span></div>
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Brief 04 · Compliance</div><h3>Preparing for PSC cyber requirements in 2026</h3><p>What Port State Control inspections will actually check, what evidence counts, and how to build it without a year-long compliance project.</p><span class="chip">6 min read</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Brief 05 · Case study</div><h3>Fleet scan case study</h3><p>A real three-vessel exposure scan, what it surfaced, and the remediation path, anonymized with the numbers intact.</p><span class="chip">5 min read</span></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <h3>Research-backed, then <em>verified on your vessels.</em></h3>
+    <p>Our detection methodology is published in IEEE Access 2026. The free scan is how you verify it on your fleet.</p>
+  </div>
+  <a href="shipcrawler.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Scan 3 Vessels Free →</a>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:40px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="capabilities.html">M-SOC</a><a href="architecture.html">Haris Edge</a><a href="architecture.html">Watchtower</a></div>
+    <div><h4>Research</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a><a href="tel:+966553629384">+966 55 362 9384</a></div>
+  </div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Cyber Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+</div></footer>
 
 </body>
 </html>

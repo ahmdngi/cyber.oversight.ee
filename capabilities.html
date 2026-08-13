@@ -3,109 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products & Capabilities — Cyber Oversight | Zero-trust edge ops</title>
-<meta name="description" content="Five products covering the full maritime security stack — from OSINT reconnaissance through edge data collection to crew mobile tools.">
-<link rel="icon" type="image/png" href="logo-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Capabilities · Cyber Oversight</title>
+<meta name="description" content="Maritime SOC, OSINT exposure auditing, edge telemetry, vulnerability management, and compliance evidence. See what Cyber Oversight actually does for commercial fleets.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
-<style>
-.cap-section { margin-bottom: var(--space-4xl); }
-.cap-title { font-size: var(--text-3xl); color: var(--color-ink); margin-bottom: var(--space-2xl); display: flex; align-items: center; gap: var(--space-sm); }
-.cap-title::before { content: ""; display: block; width: 12px; height: 12px; background: var(--color-accent); box-shadow: 0 0 10px var(--color-accent); border-radius: 50%; }
-.cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); }
-.cap-card { padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border: 1px solid var(--color-line); border-radius: var(--radius-md); position: relative; overflow: hidden; backdrop-filter: blur(10px); }
-.cap-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--color-line-strong); transition: background var(--dur-base) var(--ease-out); }
-.cap-card:hover::before { background: var(--color-accent); box-shadow: 0 0 20px var(--color-accent); }
-.cap-card:hover { transform: translateY(-4px); border-color: rgba(168, 213, 6, 0.2); }
-.cap-card h3 { font-size: var(--text-xl); color: var(--color-ink); margin-bottom: var(--space-md); }
-.cap-card p { color: var(--color-ink-2); font-size: var(--text-sm); line-height: 1.6; }
-.icon-wrap { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); margin-bottom: var(--space-lg); letter-spacing: 0.1em; background: var(--color-accent-dim); padding: 4px 8px; border-radius: var(--radius-full); display: inline-block; border: 1px solid rgba(168, 213, 6, 0.3); }
-</style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<script src="theme.js"></script>
+<script defer src="fx.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+</head>
 <body>
-<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
-<div class="bg-grid"></div>
 
-<header>
-  <div class="container">
-    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
-    <nav>
-      <a href="capabilities.html" class="active">Capabilities</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="web-design.html">Web Design</a>
-      <a href="blog.html">Blog</a>
-      <a href="shipcrawler.html">Shipcrawler</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
 
-<div class="container">
-  <div class="page-header animate-fade-up delay-1">
-    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/products</div>
-    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Our Products</h1>
-    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2);">Five products covering the full maritime security stack — from OSINT reconnaissance through edge data collection to crew mobile tools.</p>
-  </div>
-
-  <div class="cap-section animate-fade-up delay-2">
-    <h2 class="cap-title">Maritime SOC</h2>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <div class="icon-wrap">MOD.01</div>
-        <h3>Continuous Monitoring</h3>
-        <p>24/7 oversight of vessel IT and OT networks. We alert on anomalies, unauthorized access, and suspicious traffic patterns across the entire fleet.</p>
-      </div>
-      <div class="cap-card">
-        <div class="icon-wrap">MOD.02</div>
-        <h3>Threat Hunting</h3>
-        <p>Proactive searching through telemetry data to identify sophisticated threats that evade standard automated detection systems.</p>
-      </div>
-      <div class="cap-card">
-        <div class="icon-wrap">MOD.03</div>
-        <h3>Incident Response</h3>
-        <p>Immediate triage and response guidance for confirmed incidents. We provide playbooks for crew to isolate affected systems effectively.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cap-section animate-fade-up delay-3">
-    <h2 class="cap-title">Vulnerability Management</h2>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <div class="icon-wrap">MOD.04</div>
-        <h3>OSINT Reconnaissance</h3>
-        <p>Automated scanning of public internet sources to identify exposed vessel infrastructure before attackers can exploit them.</p>
-      </div>
-      <div class="cap-card">
-        <div class="icon-wrap">MOD.05</div>
-        <h3>Internal Scanning</h3>
-        <p>Agentless vulnerability assessment of onboard networks (bridge, engine, crew) to identify misconfigurations and outdated software.</p>
-      </div>
-      <div class="cap-card">
-        <div class="icon-wrap">MOD.06</div>
-        <h3>Risk Prioritization</h3>
-        <p>Vulnerabilities are scored based on exploitability within a realistic maritime context, not just generic CVSS scores.</p>
-      </div>
-    </div>
-  </div>
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+<div class="neural-mesh">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
+      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
+      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
+      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
+      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
+      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
+      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
+      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
+      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
+      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
+      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
+      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
+      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
+    </g>
+  </svg>
 </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
-        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
-      </div>
-      <div class="footer-links">
-        <a href="contact.html">Contact us &rarr;</a>
-        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="capabilities.html" class="active">Capabilities</a><a href="architecture.html">Architecture</a><a href="web-design.html">Web Studio</a><a href="networking.html">Networking</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Research</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a>
+  <a href="capabilities.html">Capabilities</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="web-design.html">Web Studio</a>
+  <a href="networking.html">Networking</a>
+  <a href="shipcrawler.html">Shipcrawler</a>
+  <a href="blog.html">Research</a>
+  <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
+</div>
+
+<section class="hero" style="min-height:auto;padding:170px 0 70px">
+  <div class="grid-bg" data-parallax="0.2"></div>
+  <div class="glow" data-parallax="0.35"></div>
+    <div class="wrap hero-inner">
+    <div>
+      <div class="coord"><b>Coverage</b> IT, OT, and satellite links, bridge to engine room</div>
+      <h1>
+        <span class="h1-line"><span class="w">What</span> <span class="w">we</span> <span class="w">actually</span></span>
+        <span class="h1-line"><span class="w">do</span> <span class="w">for</span> <span class="w">your</span> <span class="w"><em class="lime">fleet.</em></span></span>
+      </h1>
+      <p class="sub">No slideware. These are the operational services behind the products, the monitoring, the audits, the vulnerability work, and the evidence that keeps you audit-ready.</p>
+      <div class="cta-row">
+        <a href="contact.html" class="btn primary magnetic">Talk to an Engineer →</a>
       </div>
     </div>
   </div>
-</footer>
+</section>
+
+<div class="ticker"><div class="track" id="tickTrack">
+  <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
+</div></div>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head reveal"><div class="no">§ 01 · Operations</div><h2>Five services, run by people <em>who know ships.</em></h2></div>
+  <div class="bento">
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Service 01</div><h3>Managed maritime SOC</h3><p>24/7 analyst watch over vessel IT and OT. Real-time alerting on GPS spoofing, unauthorized access, and bridge command anomalies, triaged by maritime specialists.</p><span class="chip">24/7 · Threat hunting</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Service 02</div><h3>OSINT exposure audits</h3><p>Periodic passive sweeps of your fleet across Shodan, Censys, and satellite ASN ranges. You get a prioritized list of exposed terminals, cameras, and consoles with remediation guidance.</p><span class="chip">Zero agent · Passive</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Service 03</div><h3>Vulnerability management</h3><p>Continuous inventory of every IT and OT device on board, with prioritized findings your crew can actually act on, no 400-item spreadsheets, no vendor theater.</p><span class="chip">Prioritized findings</span></div>
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Service 04</div><h3>PSC compliance evidence</h3><p>Telemetry and forensic logs structured automatically for IACS UR E26/E27 and IMO MSC.428(98) verifications. Exportable records your superintendent can hand to a Port State Control officer.</p><span class="chip">E26/E27 · Auto reporting</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Service 05</div><h3>Crew &amp; shore training</h3><p>Plain-language sessions for bridge officers and shore staff: spotting a compromised VSAT terminal, isolating a device mid-voyage, and running the offline playbooks in the Haris app.</p><span class="chip">Crew-friendly</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Service 06</div><h3>Incident response at sea</h3><p>When something is already wrong, we help isolate and recover over satellite links, working with your crew through the Haris app and phone bridges until the bridge is yours again.</p><span class="chip">Duty desk · 24/7</span></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <h3>Not sure which service fits? <em>Start with a free scan.</em></h3>
+    <p>Three vessels, scanned free, report in 24 hours. It is also the fastest way to see the quality of our work.</p>
+  </div>
+  <a href="shipcrawler.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Scan 3 Vessels Free →</a>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:40px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="capabilities.html">M-SOC</a><a href="architecture.html">Haris Edge</a><a href="architecture.html">Watchtower</a></div>
+    <div><h4>Research</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a><a href="tel:+966553629384">+966 55 362 9384</a></div>
+  </div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Cyber Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+</div></footer>
 
 </body>
 </html>

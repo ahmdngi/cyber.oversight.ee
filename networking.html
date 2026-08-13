@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Architecture · Cyber Oversight</title>
-<meta name="description" content="Three-layer deployment model: ruggedized edge nodes on board, secure core in Tallinn, operations layer for fleets. See the Cyber Oversight architecture.">
+<title>Networking · Cyber Oversight</title>
+<meta name="description" content="Enterprise network engineering: firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring. Cisco, Fortinet, and clean architecture.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
 <script src="theme.js"></script>
@@ -54,7 +54,7 @@
 <nav id="nav"><div class="wrap">
   <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
   <div class="nav-links">
-    <a href="capabilities.html">Capabilities</a><a href="architecture.html" class="active">Architecture</a><a href="web-design.html">Web Studio</a><a href="networking.html">Networking</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Research</a>
+    <a href="capabilities.html">Capabilities</a><a href="architecture.html">Architecture</a><a href="web-design.html">Web Studio</a><a href="networking.html" class="active">Networking</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Research</a>
   </div>
   <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
   <div class="nav-right">
@@ -77,14 +77,14 @@
   <div class="glow" data-parallax="0.35"></div>
     <div class="wrap hero-inner">
     <div>
-      <div class="coord"><b>Layer 1</b> Edge · <b>Layer 2</b> Core · <b>Layer 3</b> Operations</div>
+      <div class="coord"><b>Stack</b> Cisco · Fortinet · WireGuard · <b>Uptime</b> 24/7</div>
       <h1>
-        <span class="h1-line"><span class="w">Built</span> <span class="w">for</span> <span class="w">the</span> <span class="w">reality</span></span>
-        <span class="h1-line"><span class="w">of</span> <span class="w">life</span> <span class="w">at</span> <span class="w"><em class="lime">sea.</em></span></span>
+        <span class="h1-line"><span class="w">Networks</span> <span class="w">that</span> <span class="w">survive</span></span>
+        <span class="h1-line"><span class="w">the</span> <span class="w">real</span> <span class="w"><em class="lime">world.</em></span></span>
       </h1>
-      <p class="sub">Three layers: rugged hardware on the bridge, a secure core on shore, and an operations layer your fleet team actually uses. Designed for low bandwidth, high vibration, and no second chances.</p>
+      <p class="sub">Firewall clustering, global WireGuard ZTNA meshes, SD-WAN, and uptime monitoring, engineered by people who treat a dropped link as an incident, not an event.</p>
       <div class="cta-row">
-        <a href="contact.html" class="btn primary magnetic">Plan a Deployment →</a>
+        <a href="contact.html" class="btn primary magnetic">Audit my Network →</a>
       </div>
     </div>
   </div>
@@ -95,24 +95,23 @@
 </div></div>
 
 <section class="sec"><div class="wrap">
-  <div class="sec-head reveal"><div class="no">§ 01 · The architecture</div><h2>From bridge telemetry to <em>audit-ready evidence.</em></h2><p>What happens to the data after the node syncs, layer by layer.</p></div>
+  <div class="sec-head reveal"><div class="no">§ 01 · What we engineer</div><h2>The same discipline on shore <em>as at sea.</em></h2><p>Enterprise network engineering for offices that cannot afford downtime.</p></div>
   <div class="bento">
-    <div class="tile med reveal" data-tilt data-spot><div class="tref">Layer 1 · Edge</div><h3>Haris, the node that never sleeps</h3><p>Solid-state, fanless, vibration-rated hardware that sits in the bridge rack and talks to the ship's own sensors.</p><span class="chip">NMEA 0183/2000 · Signal K</span></div>
-    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Layer 1 · Edge</div><h3>30-day local buffer</h3><p>When satellite links drop mid-ocean, nothing is lost. Telemetry buffers on solid-state storage and syncs when the link returns.</p><span class="chip">Solid state</span></div>
-    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Layer 1 · Edge</div><h3>256 kbps sync</h3><p>Compression built for maritime bandwidth. Full situational awareness over links that would choke a normal security agent.</p><span class="chip">Low-bandwidth ready</span></div>
-    <div class="tile med reveal" data-tilt data-spot><div class="tref">Layer 2 · Core</div><h3>Encrypted telemetry</h3><p>Vessel data lands in our Tallinn core over encrypted channels, correlated against maritime threat intelligence, not generic enterprise feeds.</p><span class="chip">Zero-trust mesh</span></div>
-    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Layer 2 · Core</div><h3>Watchtower</h3><p>Fleet-wide visibility of every Haris node: firmware versions, health, connectivity, and buffered data status from one console.</p><span class="chip">Fleet-wide</span></div>
-    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Layer 3 · Operations</div><h3>M-SOC watch</h3><p>Analysts who know maritime operations triage alerts around the clock. GPS spoofing patterns look different at 20 knots; we read them correctly.</p><span class="chip">24/7 · Threat hunting</span></div>
-    <div class="tile med reveal" data-tilt data-spot><div class="tref">Layer 3 · Operations</div><h3>Audit export</h3><p>Evidence structured for IACS UR E26/E27 and IMO MSC.428(98), exportable in minutes and accepted by Port State Control officers.</p><span class="chip">E26/E27 · PSC ready</span></div>
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Service 01</div><h3>Firewall clustering</h3><p>Fortinet and Cisco clusters configured for failover, not just for show. Configs are documented, tested, and someone knows why each rule exists.</p><span class="chip">Cisco · Fortinet</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Service 02</div><h3>WireGuard ZTNA meshes</h3><p>Global zero-trust meshes that connect offices, vessels, and remote engineers without exposing a single management port to the internet.</p><span class="chip">Zero-trust</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Service 03</div><h3>SD-WAN</h3><p>Transport-agnostic WAN design that keeps business-critical traffic on the best path, even when the best path changes mid-voyage.</p><span class="chip">Transport-agnostic</span></div>
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Service 04</div><h3>24/7 uptime monitoring</h3><p>Proactive monitoring of links, devices, and services. Alerts go to engineers who can actually do something about them.</p><span class="chip">24/7 watch</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Service 05</div><h3>Hardening reviews</h3><p>Full audit of existing infrastructure: exposed services, weak configs, credential hygiene, and a prioritized fix list.</p><span class="chip">Prioritized fixes</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Service 06</div><h3>Documentation &amp; handover</h3><p>Networks that depend on one engineer are a liability. Every build ships with documentation your team can actually operate from.</p><span class="chip">Operable docs</span></div>
   </div>
 </div></section>
 
 <div class="wrap"><div class="cta reveal">
   <div>
-    <h3>One node per vessel. <em>One console for the fleet.</em></h3>
-    <p>We handle shipping, installation guidance, and commissioning. Your crew does the physical mounting; our engineers do the rest remotely.</p>
+    <h3>Not sure where your network leaks? <em>We will show you.</em></h3>
+    <p>A network hardening review gives you a prioritized list of what to fix, and a straight answer about what is already fine.</p>
   </div>
-  <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Plan a Deployment →</a>
+  <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Request an Assessment →</a>
 </div></div>
 
 <footer><div class="wrap">

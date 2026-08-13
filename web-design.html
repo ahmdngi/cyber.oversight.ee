@@ -3,120 +3,552 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Design & Identity — Cyber Oversight</title>
-<meta name="description" content="We build and design websites and complete corporate identities. Serving clients in the EU and Saudi Arabia.">
-<link rel="icon" type="image/png" href="logo-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Web Studio · Corporate Web Engineering, Digital Identity & 24/7 SLA Support · Cyber Oversight</title>
+<meta name="description" content="Cyber Oversight's dedicated Web Studio division. Bespoke corporate web platforms, authoritative digital brand systems, and 24/7 managed technical support for European and Saudi enterprises.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
-<style>
-.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-4xl); }
-.service-card { padding: var(--space-2xl); background: rgba(10, 15, 25, 0.4); border: 1px solid var(--color-line); border-radius: var(--radius-md); backdrop-filter: blur(10px); transition: all var(--dur-base) var(--ease-out); position: relative; overflow: hidden; }
-.service-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--color-line-strong); transition: background var(--dur-base) var(--ease-out); }
-.service-card:hover::before { background: var(--color-accent); box-shadow: 0 0 20px var(--color-accent); }
-.service-card:hover { transform: translateY(-4px); border-color: rgba(168, 213, 6, 0.2); }
-.service-icon { font-size: 2rem; margin-bottom: var(--space-md); }
-.service-card h3 { font-size: var(--text-xl); color: var(--color-ink); margin-bottom: var(--space-md); }
-.service-card p { color: var(--color-ink-2); font-size: var(--text-base); line-height: 1.6; }
-.global-presence { padding: var(--space-4xl) 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); margin-bottom: var(--space-4xl); background: radial-gradient(ellipse at top, rgba(168,213,6,0.03) 0%, transparent 70%); }
-.presence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); max-width: 900px; margin: 0 auto; }
-.presence-card { background: rgba(10, 15, 25, 0.6); border: 1px solid var(--color-line); border-radius: var(--radius-md); padding: var(--space-2xl); position: relative; overflow: hidden; backdrop-filter: blur(10px); transition: all var(--dur-base) var(--ease-out); }
-.presence-card:hover { transform: translateY(-4px); border-color: rgba(168, 213, 6, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.presence-bg-icon { position: absolute; top: -10px; right: -10px; font-size: 8rem; opacity: 0.05; filter: grayscale(100%); transition: all var(--dur-base) var(--ease-out); pointer-events: none; }
-.presence-card:hover .presence-bg-icon { opacity: 0.1; filter: grayscale(0%); transform: scale(1.1); }
-.presence-content { position: relative; z-index: 2; }
-.presence-dot { width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; box-shadow: 0 0 15px var(--color-accent); margin-bottom: var(--space-md); animation: blink 2s infinite; }
-.presence-content h3 { font-size: var(--text-2xl); color: var(--color-ink); margin-bottom: var(--space-xs); }
-.presence-content p { color: var(--color-ink-2); font-size: var(--text-sm); line-height: 1.6; margin: 0; }
-</style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script></head>
+<script src="theme.js"></script>
+<script defer src="fx.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+</head>
 <body>
-<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
-<div class="bg-grid"></div>
 
-<header>
-  <div class="container">
-    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
-    <nav>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="web-design.html" class="active">Web Design</a>
-      <a href="blog.html">Blog</a>
-      <a href="shipcrawler.html">Shipcrawler</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
 
-<div class="container">
-  <div class="page-header animate-fade-up delay-1">
-    <div class="path" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-accent); display:inline-block; margin-bottom:var(--space-md); padding:6px 12px; border-radius:var(--radius-full); border:1px solid rgba(168, 213, 6, 0.3); background:var(--color-accent-dim);">~/cyber-oversight/web-design</div>
-    <h1 style="font-size:var(--text-4xl); margin-bottom:var(--space-lg);">Web Design & Identity</h1>
-    <p class="subtitle" style="font-size:var(--text-lg); color:var(--color-ink-2); max-width: 800px; margin: 0 auto;">Beyond cybersecurity, we build world-class digital experiences. From high-performance websites to complete corporate branding and visual identities for global enterprises.</p>
-  </div>
-
-  <div class="global-presence animate-fade-up delay-2">
-    <h2 style="font-size: var(--text-sm); font-family: var(--font-mono); color: var(--color-ink-2); text-align: center; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-xl);">Trusted by clients across key global markets</h2>
-    
-    <div class="presence-grid">
-      <div class="presence-card">
-        <div class="presence-bg-icon">🇪🇺</div>
-        <div class="presence-content">
-          <div class="presence-dot"></div>
-          <h3>European Union</h3>
-          <p>Delivering high-performance, GDPR-compliant digital experiences for European enterprises.</p>
-        </div>
-      </div>
-      
-      <div class="presence-card">
-        <div class="presence-bg-icon">🇸🇦</div>
-        <div class="presence-content">
-          <div class="presence-dot"></div>
-          <h3>Saudi Arabia</h3>
-          <p>Building premium corporate identities and robust web architectures for the growing GCC market.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="service-grid animate-fade-up delay-3">
-    <div class="service-card">
-      <div class="service-icon">🌐</div>
-      <h3>Web Design & Development</h3>
-      <p>We build extremely fast, secure, and modern websites designed to convert. Leveraging the latest front-end technologies to deliver a premium, flawless user experience across all devices.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">✨</div>
-      <h3>Complete Corporate Identity</h3>
-      <p>Your brand is your frontline. We design complete corporate identities including logos, color systems, typography, and brand guidelines that project authority and trust.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🛡️</div>
-      <h3>Secure Hosting Architecture</h3>
-      <p>Websites built with the same zero-trust philosophy as our maritime products. We ensure your digital presence is immune to common web vulnerabilities and scalable under heavy load.</p>
-    </div>
-  </div>
-  
-  <div style="text-align: center; margin-bottom: var(--space-4xl);" class="animate-fade-up delay-4">
-    <a href="contact.html" class="cta">Start Your Project</a>
-  </div>
+<!-- monumental watermark -->
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+<div class="neural-mesh">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
+      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
+      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
+      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
+      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
+      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
+      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
+      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
+      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
+      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
+      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
+      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
+      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
+    </g>
+  </svg>
 </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
-        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
+<!-- floating theme toggle (center-right) -->
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+
+<!-- navigation -->
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="capabilities.html">Capabilities</a><a href="architecture.html">Architecture</a><a href="web-design.html" class="active">Web Studio</a><a href="networking.html">Networking</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Research</a>
+  </div>
+  <a href="#project-scope" class="nav-cta">Start a Project</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a>
+  <a href="capabilities.html">Capabilities</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="web-design.html" class="active">Web Studio</a>
+  <a href="networking.html">Networking</a>
+  <a href="shipcrawler.html">Shipcrawler</a>
+  <a href="blog.html">Research</a>
+  <a href="#project-scope" class="drawer-cta">Start a Project</a>
+</div>
+
+<!-- ══════════════════════ HERO SECTION (SPECIALIZED DIGITAL STUDIO) ══════════════════════ -->
+<section class="hero" style="padding:150px 0 70px">
+  <div class="grid-bg" data-parallax="0.2"></div>
+  <div class="glow" data-parallax="0.35"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="coord"><b>Studio Zero</b> Web Engineering · Brand Identity · 24/7 SLA</div>
+      <h1>
+        <span class="h1-line"><span class="w">Web</span> <span class="w">platforms</span> <span class="w">and</span> <span class="w">brands</span></span>
+        <span class="h1-line"><span class="w">built</span> <span class="w">to</span> <span class="w"><span class="underline">lead the market.<svg viewBox="0 0 320 14"><path d="M4 10 C 90 2, 210 3, 316 8"/></svg></span></span></span>
+      </h1>
+      <p class="sub" style="margin:20px 0 32px">
+        Bespoke corporate websites, authoritative brand systems, and 24/7 managed SLA support for enterprise leaders in Saudi Arabia and Europe.
+      </p>
+      <div class="cta-row">
+        <a href="#project-scope" class="btn primary magnetic">Start a Project →</a>
+        <a href="#three-pillars" class="btn ghost magnetic">View 3 Pillars</a>
       </div>
-      <div class="footer-links">
-        <a href="contact.html">Contact us &rarr;</a>
-        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+    </div>
+
+    <!-- Live Studio Terminal / Inspector -->
+    <div class="board" data-tilt>
+      <div class="bl">Studio Live Inspector · Enterprise Suite</div>
+      
+      <div id="terminalTabContent" style="min-height:220px">
+        <!-- Tab 1: Lighthouse Gauges -->
+        <div id="tabLighthouse">
+          <div class="gauge-grid">
+            <div class="gauge-box">
+              <div class="gauge-circle">
+                <svg viewBox="0 0 50 50">
+                  <circle class="bg" cx="25" cy="25" r="22"/>
+                  <circle class="val" cx="25" cy="25" r="22"/>
+                </svg>
+                <div class="score">100</div>
+              </div>
+              <div class="gauge-label">Performance</div>
+            </div>
+            <div class="gauge-box">
+              <div class="gauge-circle">
+                <svg viewBox="0 0 50 50">
+                  <circle class="bg" cx="25" cy="25" r="22"/>
+                  <circle class="val" cx="25" cy="25" r="22"/>
+                </svg>
+                <div class="score">100</div>
+              </div>
+              <div class="gauge-label">Accessibility</div>
+            </div>
+            <div class="gauge-box">
+              <div class="gauge-circle">
+                <svg viewBox="0 0 50 50">
+                  <circle class="bg" cx="25" cy="25" r="22"/>
+                  <circle class="val" cx="25" cy="25" r="22"/>
+                </svg>
+                <div class="score">100</div>
+              </div>
+              <div class="gauge-label">Best Practice</div>
+            </div>
+            <div class="gauge-box">
+              <div class="gauge-circle">
+                <svg viewBox="0 0 50 50">
+                  <circle class="bg" cx="25" cy="25" r="22"/>
+                  <circle class="val" cx="25" cy="25" r="22"/>
+                </svg>
+                <div class="score">100</div>
+              </div>
+              <div class="gauge-label">SEO Score</div>
+            </div>
+          </div>
+          
+          <div class="rows">
+            <div class="row"><span class="k">Time to First Byte</span><span class="v ok">142ms · Edge Cached</span></div>
+            <div class="row"><span class="k">Core Web Vitals</span><span class="v ok">CLS: 0.00 · FCP: 0.4s</span></div>
+            <div class="row"><span class="k">Code Philosophy</span><span class="v ok">100% Handcrafted · No Page Builders</span></div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Bilingual Brand Preview -->
+        <div id="tabIdentity" style="display:none">
+          <div style="background:var(--void);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px">
+            <div style="font-family:var(--serif);font-size:1.3rem;color:var(--text);margin-bottom:6px">
+              Corporate Digital Identity &amp; Prestige
+            </div>
+            <div style="font-family:var(--sans);font-size:1.15rem;color:var(--lime);direction:rtl;margin-top:8px">
+              هوية الشركات الرقمية والأنظمة البصرية المتكاملة
+            </div>
+          </div>
+          <div class="rows">
+            <div class="row"><span class="k">Bilingual Typography</span><span class="v ok">Harmonized Arabic (KSA) &amp; Latin (EU)</span></div>
+            <div class="row"><span class="k">Logomark Geometry</span><span class="v ok">Precision Vector Grid &amp; Brand Token System</span></div>
+            <div class="row"><span class="k">Brand Guidelines</span><span class="v ok">Executive Collateral, Presentations &amp; Web</span></div>
+          </div>
+        </div>
+
+        <!-- Tab 3: SLA Telemetry -->
+        <div id="tabSLA" style="display:none">
+          <div class="rows" style="margin-top:6px">
+            <div class="row"><span class="k">Guaranteed Uptime SLA</span><span class="v ok">99.999% · 24/7 Proactive Monitoring</span></div>
+            <div class="row"><span class="k">Saudi / GCC Edge Hub</span><span class="v ok">Riyadh &amp; Jeddah &lt; 18ms Latency</span></div>
+            <div class="row"><span class="k">European Edge Hub</span><span class="v ok">Frankfurt &amp; Stockholm &lt; 14ms Latency</span></div>
+            <div class="row"><span class="k">Automated Daily Backups</span><span class="v ok">Encrypted Offsite Cloud Snapshots</span></div>
+            <div class="row"><span class="k">Emergency Support</span><span class="v ok">&lt; 30 min Critical Incident SLA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs" style="margin-top:14px">
+        <button class="on" onclick="switchStudioTab(0)">100/100 Quality Audit</button>
+        <button onclick="switchStudioTab(1)">Corporate Identity</button>
+        <button onclick="switchStudioTab(2)">24/7 SLA Telemetry</button>
       </div>
     </div>
   </div>
-</footer>
+</section>
+
+<!-- ══════════════════════ DIGITAL EXCELLENCE TICKER ══════════════════════ -->
+<div class="ticker"><div class="track" id="tickTrack">
+  <span>100/100 <b>LIGHTHOUSE</b></span><span>ZERO <b>DEPENDENCY BLOAT</b></span><span>SUB-<b>200MS</b> TTFB</span><span>BILINGUAL <b>AR / EN</b></span><span>24/7 <b>MANAGED SLA</b></span><span>GDPR &amp; <b>NDMO</b> READY</span><span>TALLINN <b>·</b> AL KHOBAR</span>
+</div></div>
+
+<!-- ══════════════════════ 3 CORE PILLARS (THE STUDIO'S 3 SERVICES) ══════════════════════ -->
+<section class="sec" id="three-pillars"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no">§ 01 · Studio Services</div>
+    <h2>Three specialized services. <em>Uncompromising quality.</em></h2>
+    <p>We operate as a dedicated digital division delivering bespoke web development, corporate brand identity, and continuous 24/7 technical support for commercial enterprises.</p>
+  </div>
+
+  <div class="bento" style="grid-template-columns:repeat(3,1fr)">
+    
+    <!-- Service 1: Bespoke Web Design & Development -->
+    <div class="tile reveal" data-tilt data-spot style="grid-column:span 1">
+      <div class="tref">Service 01 · Development</div>
+      <h3>Bespoke Web Design &amp; Engineering</h3>
+      <p style="margin-bottom:16px">
+        Custom-coded web platforms, corporate portals, and B2B digital applications engineered from scratch. Built without slow WordPress templates or bloated plugins, ensuring instantaneous load times (&lt;200ms) and maximum conversion rates.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px">
+        <span class="chip">100/100 Lighthouse</span>
+        <span class="chip">Sub-200ms Load Time</span>
+        <span class="chip">Handcrafted Code</span>
+        <span class="chip">High-Conversion UX</span>
+      </div>
+    </div>
+
+    <!-- Service 2: Corporate Brand & Digital Identity -->
+    <div class="tile reveal d1" data-tilt data-spot style="grid-column:span 1">
+      <div class="tref">Service 02 · Branding</div>
+      <h3>Corporate Brand &amp; Digital Identity</h3>
+      <p style="margin-bottom:16px">
+        Authoritative visual identities that command executive trust. We design precision geometric logos, complete corporate brand books, tokenized design systems (Dark &amp; Light palettes), and harmonized bilingual Arabic/English typography.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px">
+        <span class="chip">Geometric Logomarks</span>
+        <span class="chip">Bilingual AR / EN Typo</span>
+        <span class="chip">Complete Brand Books</span>
+        <span class="chip">Executive Pitch Decks</span>
+      </div>
+    </div>
+
+    <!-- Service 3: 24/7 Managed Technical Support & SLA -->
+    <div class="tile reveal d2" data-tilt data-spot style="grid-column:span 1">
+      <div class="tref">Service 03 · SLA &amp; Support</div>
+      <h3>24/7 Managed Technical Support</h3>
+      <p style="margin-bottom:16px">
+        Complete operational peace of mind for your digital infrastructure. Includes 99.99% uptime guarantees, sub-hour emergency response times, proactive security vulnerability patching, automated daily backups, and dedicated technical helpdesks.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px">
+        <span class="chip">99.99% Uptime SLA</span>
+        <span class="chip">&lt; 30min Response</span>
+        <span class="chip">Encrypted Daily Backups</span>
+        <span class="chip">Continuous Patching</span>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- ══════════════════════ ENGINEERING ADVANTAGE COMPARISON ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line);background:var(--panel)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no">§ 02 · The Engineering Difference</div>
+    <h2>Why custom code <em>beats template agencies.</em></h2>
+    <p>How Cyber Oversight Web Studio outperforms conventional WordPress, Wix, and Elementor marketing agencies on every metric that matters.</p>
+  </div>
+
+  <div class="spec-table-wrap reveal">
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Performance &amp; Quality Metric</th>
+          <th>Conventional Agencies (WordPress / Wix / Elementor)</th>
+          <th class="highlight">Cyber Oversight Web Studio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Page Load Speed (TTFB)</strong></td>
+          <td><span class="spec-badge-bad">2.8s – 5.5s (Heavy bloated scripts &amp; DOM bloat)</span></td>
+          <td class="highlight"><span class="spec-badge-good">&lt; 180ms Instantaneous Edge Response</span></td>
+        </tr>
+        <tr>
+          <td><strong>Google Lighthouse Audit</strong></td>
+          <td><span class="spec-badge-bad">45 – 75 (Fails Core Web Vitals &amp; mobile ranking)</span></td>
+          <td class="highlight"><span class="spec-badge-good">Guaranteed 100/100 Across All Categories</span></td>
+        </tr>
+        <tr>
+          <td><strong>Security &amp; Vulnerabilities</strong></td>
+          <td><span class="spec-badge-bad">35+ Unpatched third-party plugins prone to zero-days</span></td>
+          <td class="highlight"><span class="spec-badge-good">Zero third-party bloat · A+ Hardened Security Headers</span></td>
+        </tr>
+        <tr>
+          <td><strong>Bilingual Arabic &amp; English</strong></td>
+          <td><span class="spec-badge-bad">Automated plugin translation that breaks RTL layouts</span></td>
+          <td class="highlight"><span class="spec-badge-good">Native Bilingual Arabic (KSA) &amp; Latin (EU) Typography</span></td>
+        </tr>
+        <tr>
+          <td><strong>24/7 Technical SLA Support</strong></td>
+          <td><span class="spec-badge-bad">Slow email ticket queue with multi-day delays</span></td>
+          <td class="highlight"><span class="spec-badge-good">99.99% Uptime SLA · Direct Senior Engineer Desks</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ 6 FULL-LIFECYCLE EXECUTION CAPABILITIES ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no">§ 03 · Execution Lifecycle</div>
+    <h2>Engineered for endurance. <em>Maintained with precision.</em></h2>
+    <p>From initial brand strategy to 24/7 high-availability operational support for market leaders.</p>
+  </div>
+
+  <div class="bento">
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Lifecycle 01</div><h3>High-Conversion UX Strategy</h3><p>Information architecture designed to persuade corporate executives and B2B buyers. Clear conversion funnels that transform visitors into qualified RFP inquiries.</p><span class="chip">Executive UI/UX</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Lifecycle 02</div><h3>Harmonized Bilingual Identity</h3><p>Arabic (KSA &amp; GCC) and English (EU &amp; Global) typographic scales engineered to look equally prestigious and balanced in both directions.</p><span class="chip">Native Arabic &amp; English</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Lifecycle 03</div><h3>Global Anycast Edge Hosting</h3><p>Enterprise hosting distributed globally over fast Anycast edge networks with automated SSL rotation, DDoS shielding, and sub-second failover.</p><span class="chip">Edge CDN Hosting</span></div>
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Lifecycle 04</div><h3>A+ Hardened Security Discipline</h3><p>Every website inherits our cybersecurity protocols: strict Content Security Policies (CSP), HSTS preloading, and zero vulnerable dependencies.</p><span class="chip">A+ Security Grade</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Lifecycle 05</div><h3>Privacy-First First-Party Analytics</h3><p>Lightweight, cookieless telemetry providing actionable visitor intelligence without cookie consent banners, invasive trackers, or GDPR/NDMO issues.</p><span class="chip">GDPR &amp; NDMO Compliant</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Lifecycle 06</div><h3>Direct Regional Desks (KSA &amp; EU)</h3><p>Direct communication with our technical directors in Al Khobar and Tallinn. Zero offshore outsourcing or account manager middlemen.</p><span class="chip">Tallinn · Al Khobar</span></div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ PROJECT SCOPE & DIRECT ENGAGEMENT (SECTION 04) ══════════════════════ -->
+<section class="sec" id="project-scope" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no">§ 04 · Commission a Project</div>
+    <h2>Let’s build your <em>corporate digital asset.</em></h2>
+    <p>Tell us about your upcoming platform, brand identity system, or SLA technical support needs. Your inquiry goes directly to our senior engineering directors.</p>
+  </div>
+
+  <div class="studio-commission-grid reveal">
+
+    <!-- Left Column: The Interactive Form -->
+    <div style="padding:42px 38px;border-right:1px solid var(--line)">
+      <form id="studioInquiryForm" onsubmit="handleStudioSubmit(event)" style="display:flex;flex-direction:column;gap:18px">
+        
+        <div>
+          <label for="studioService">Select Primary Requirement</label>
+          <select id="studioService" required>
+            <option value="Bespoke Web Design & Development">1. Bespoke Web Design &amp; Engineering (Custom Code)</option>
+            <option value="Corporate Brand & Digital Identity">2. Corporate Brand &amp; Digital Identity Systems</option>
+            <option value="24/7 Managed Technical Support & SLA">3. 24/7 Managed Technical Support &amp; SLA</option>
+            <option value="Complete Enterprise Suite (Web + Brand + Support)" selected>4. Complete Enterprise Suite (Web + Brand + 24/7 SLA)</option>
+          </select>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <label for="studioName">Name</label>
+            <input type="text" id="studioName" placeholder="Name" required>
+          </div>
+          <div>
+            <label for="studioEmail">Email</label>
+            <input type="email" id="studioEmail" placeholder="name@mail.com" required>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <label for="studioCompany">Company</label>
+            <input type="text" id="studioCompany" placeholder="Company name">
+          </div>
+          <div>
+            <label for="studioTimeline">Target Timeline</label>
+            <select id="studioTimeline">
+              <option value="Urgent (Within 30 Days)">Urgent (Within 30 Days)</option>
+              <option value="Standard (1 - 2 Months)" selected>Standard (1 - 2 Months)</option>
+              <option value="Q3 / Q4 2026">Q3 / Q4 2026</option>
+              <option value="Ongoing 24/7 SLA Support">Ongoing 24/7 SLA Support</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="studioScope">Project Overview / Requirements</label>
+          <textarea id="studioScope" rows="4" placeholder="Describe your digital objectives, required features, branding scope, or support SLA..." required style="resize:vertical"></textarea>
+        </div>
+
+        <button type="submit" class="btn primary magnetic" style="justify-content:center;font-size:1rem;padding:16px 36px;border:none;cursor:pointer">
+          Submit Project Brief →
+        </button>
+
+        <div id="studioFormStatus" style="display:none;padding:12px 16px;border-radius:10px;font-family:var(--mono);font-size:.85rem"></div>
+      </form>
+    </div>
+
+    <!-- Right Column: Studio Engineering Commitments & Desks -->
+    <div style="display:flex;flex-direction:column;background:var(--panel2)">
+      
+      <!-- Commitments -->
+      <div style="padding:34px 30px;border-bottom:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--lime);text-transform:uppercase;margin-bottom:16px">
+          Studio Engineering Commitments
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;font-size:.88rem;color:var(--text);line-height:1.6">
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="color:var(--lime);font-weight:bold">✓</span>
+            <span><strong>100% Custom Code:</strong> Zero page builders, zero third-party plugin vulnerabilities.</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="color:var(--lime);font-weight:bold">✓</span>
+            <span><strong>Guaranteed 100/100:</strong> Core Web Vitals audit contractually assured.</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="color:var(--lime);font-weight:bold">✓</span>
+            <span><strong>Direct Senior Engineers:</strong> Zero account manager friction or offshore outsourcing.</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="color:var(--lime);font-weight:bold">✓</span>
+            <span><strong>24/7 Managed SLA:</strong> &lt; 30min emergency incident response.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regional Desks -->
+      <div style="padding:30px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px">
+        <div>
+          <div style="font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;margin-bottom:4px">
+            Al Khobar · GCC Desk
+          </div>
+          <div style="font-size:.88rem;color:var(--text);font-family:var(--mono)">
+            <a href="mailto:ksa@oversight.ee" style="color:var(--lime);text-decoration:none">ksa@oversight.ee</a> · +966 55 362 9384
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;margin-bottom:4px">
+            Tallinn · Studio HQ
+          </div>
+          <div style="font-size:.88rem;color:var(--text);font-family:var(--mono)">
+            <a href="mailto:contact@oversight.ee" style="color:var(--lime);text-decoration:none">contact@oversight.ee</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div></section>
+
+<!-- ══════════════════════ FOOTER (DEDICATED STUDIO DIVISION) ══════════════════════ -->
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:40px"></a>
+      <p style="color:var(--mut);font-size:.9rem;max-width:320px;line-height:1.75;margin-top:14px">
+        Cyber Oversight Web Studio — Bespoke corporate web engineering, digital brand identity systems, and 24/7 managed technical support. Tallinn HQ, Al Khobar desk.
+      </p>
+    </div>
+    <div>
+      <h4>Studio Services</h4>
+      <a href="web-design.html#three-pillars">Web Development</a>
+      <a href="web-design.html#three-pillars">Corporate Brand Identity</a>
+      <a href="web-design.html#three-pillars">24/7 Managed SLA Support</a>
+      <a href="web-design.html#three-pillars">Bilingual AR / EN Systems</a>
+    </div>
+    <div>
+      <h4>Other Divisions</h4>
+      <a href="capabilities.html">Security Capabilities</a>
+      <a href="networking.html">Enterprise Networking</a>
+      <a href="shipcrawler.html">Shipcrawler Platform</a>
+      <a href="blog.html">Research &amp; Insights</a>
+    </div>
+    <div>
+      <h4>Studio Inquiries</h4>
+      <a href="mailto:contact@oversight.ee">contact@oversight.ee</a>
+      <a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a>
+      <a href="tel:+966553629384">+966 55 362 9384</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>Tallinn, Estonia · Al Khobar, KSA · © 2026 Cyber Oversight Web Studio</span>
+    <span>Engineered with 100/100 Lighthouse Standard</span>
+  </div>
+</div></footer>
+
+<script>
+// Studio Terminal Tab Switcher
+function switchStudioTab(idx) {
+  const tabs = document.querySelectorAll('.board .tabs button');
+  tabs.forEach((b, j) => b.classList.toggle('on', j === idx));
+
+  document.getElementById('tabLighthouse').style.display = (idx === 0) ? 'block' : 'none';
+  document.getElementById('tabIdentity').style.display = (idx === 1) ? 'block' : 'none';
+  document.getElementById('tabSLA').style.display = (idx === 2) ? 'block' : 'none';
+}
+
+async function handleStudioSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('studioInquiryForm');
+  const btn = form.querySelector('button[type="submit"]');
+  const service = document.getElementById('studioService').value;
+  const name = document.getElementById('studioName').value.trim();
+  const email = document.getElementById('studioEmail').value.trim();
+  const company = document.getElementById('studioCompany').value.trim();
+  const timeline = document.getElementById('studioTimeline').value;
+  const scope = document.getElementById('studioScope').value.trim();
+  const status = document.getElementById('studioFormStatus');
+
+  btn.disabled = true;
+  btn.style.opacity = '0.75';
+  btn.textContent = 'Sending Brief Directly...';
+
+  status.style.display = 'block';
+  status.style.background = 'rgba(168,213,6,.10)';
+  status.style.color = 'var(--lime)';
+  status.style.border = '1px solid var(--lime-dim)';
+  status.innerHTML = 'Sending project brief directly to <strong>contact@oversight.ee</strong>...';
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/contact@oversight.ee', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `[Web Studio Project Brief] ${service} - ${name} (${company || 'Direct'})`,
+        _cc: 'ksa@oversight.ee',
+        _template: 'table',
+        _captcha: 'false',
+        'Client Name': name,
+        'Email Address': email,
+        'Company / Organization': company || 'Not specified',
+        'Primary Service Required': service,
+        'Target Timeline': timeline,
+        'Project Scope & Requirements': scope
+      })
+    });
+
+    const result = await response.json();
+
+    if (response.ok || result.success === "true" || result.success === true) {
+      status.style.background = 'rgba(168,213,6,.15)';
+      status.style.color = 'var(--lime)';
+      status.style.border = '1px solid var(--lime)';
+      status.innerHTML = '✓ <strong>Thank you!</strong> Your project brief has been sent directly to <strong>contact@oversight.ee</strong>. Our engineering directors will review it and reply within 24 hours.';
+      form.reset();
+    } else {
+      throw new Error(result.message || 'Submission error');
+    }
+  } catch (err) {
+    status.style.background = 'rgba(232,140,122,.12)';
+    status.style.color = 'var(--alert-red)';
+    status.style.border = '1px solid var(--alert-red)';
+    status.innerHTML = 'Direct submission failed. Please send an email directly to <a href="mailto:contact@oversight.ee" style="color:var(--lime);font-weight:700">contact@oversight.ee</a>.';
+  } finally {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.textContent = 'Submit Project Brief →';
+  }
+}
+</script>
 
 </body>
 </html>

@@ -3,142 +3,401 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber Oversight | Zero-trust edge ops</title>
-<meta name="description" content="Most fleet managers don't know what's exposed on the open internet — until port state control flags it. Cyber Oversight finds your fleet's exposure, monitors it continuously, and automates compliance.">
-<link rel="icon" type="image/png" href="logo-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Cyber Oversight · Maritime Cybersecurity for Commercial Fleets</title>
+<meta name="description" content="Cyber Oversight protects commercial fleets from satellite terminal exposure, bridge OT attacks, and GPS spoofing. OSINT audits, edge hardware, and 24/7 maritime SOC. Tallinn HQ, KSA desk.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="theme.js"></script>
+
+<script defer src="fx.js"></script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
 </head>
 <body>
-<img src="logo-icon.png" class="watermark" alt="Cyber Oversight Watermark">
-<div class="bg-grid"></div>
 
-<header>
-  <div class="container">
-    <div class="brand-line"><a href="index.html" class="brand"><img src="logo-full.png" alt="Cyber Oversight" style="height: 60px; width: auto; object-fit: contain;"></a></div>
-    <nav>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="web-design.html">Web Design</a>
-      <a href="blog.html">Blog</a>
-      <a href="shipcrawler.html">Shipcrawler</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
 
-<div class="container">
-  <div class="hero animate-fade-up delay-1">
-    <div class="hero-content">
-      <div class="path">~/cyber-oversight/</div>
-      <h1>Zero-trust edge ops</h1>
-      
-      <div class="tags">
-        <span>EST. 2022</span> &bull; 
-        <span>PEER-REVIEWED</span> &bull; 
-        <span>IEEE ACCESS 2026</span> &bull; 
-        <span>5 PRODUCTS</span>
-      </div>
-
-      <p class="subtitle">
-        Most fleet managers don't know what's exposed on the open internet — until port state control flags it. Cyber Oversight finds your fleet's exposure, monitors it continuously, and automates compliance. Built by maritime researchers, not enterprise IT vendors.
-      </p>
-
-      <div class="cta-group">
-        <a href="shipcrawler.html" class="cta">🔍 Free 3-vessel scan</a>
-        <a href="capabilities.html" class="cta-outline">View products</a>
-      </div>
-    </div>
-    
-    <div class="hero-visual">
-      <div class="radar-circle radar-1"></div>
-      <div class="radar-circle radar-2"></div>
-      <div class="radar-circle radar-3"></div>
-      <div class="radar-sweep"></div>
-      <div class="ship-node"></div>
-      <div class="ship-node ship-node-2"></div>
-      <div class="ship-node ship-node-3"></div>
-      <div class="ship-node ship-node-4"></div>
-      <div class="ship-node ship-node-5"></div>
-    </div>
-  </div>
-
-  <div class="cyber-stats-grid animate-fade-up delay-2">
-    <div class="cyber-stat-card">
-      <div class="stat-id">ID:01</div>
-      <div class="cyber-value">5</div>
-      <div class="cyber-label">Products</div>
-    </div>
-    <div class="cyber-stat-card">
-      <div class="stat-id">ID:02</div>
-      <div class="cyber-value">'22</div>
-      <div class="cyber-label">Active Since</div>
-    </div>
-    <div class="cyber-stat-card">
-      <div class="stat-id">ID:03</div>
-      <div class="cyber-value">3</div>
-      <div class="cyber-label">Clusters</div>
-    </div>
-    <div class="cyber-stat-card">
-      <div class="stat-id">WARN</div>
-      <div class="cyber-value">73%</div>
-      <div class="cyber-label">Of vessels found exposed</div>
-    </div>
-    <div class="cyber-stat-card">
-      <div class="stat-id">DOC</div>
-      <div class="cyber-value">IEEE</div>
-      <div class="cyber-label">Access 2026 Peer-reviewed</div>
-    </div>
-  </div>
-
-  <div class="card-grid animate-fade-up delay-3" style="margin-top: var(--space-4xl);">
-    <div class="card">
-      <h2 class="card-title">Our Products</h2>
-      <div class="card-subtitle">Shipcrawler, Project Haris, M-SOC, Watchtower, Haris Crew App</div>
-      <p class="card-desc">Five products covering the full maritime security stack — from OSINT reconnaissance through edge data collection to crew mobile tools.</p>
-      <a href="capabilities.html" class="card-link">View all products &rarr;</a>
-    </div>
-
-    <div class="card">
-      <h2 class="card-title">Architecture</h2>
-      <div class="card-subtitle">Three-layer model for maritime operations</div>
-      <p class="card-desc">Edge collection, core processing, and operations over an encrypted zero-trust mesh — designed for intermittent satellite links and no IT crew onboard.</p>
-      <a href="architecture.html" class="card-link">Explore architecture &rarr;</a>
-    </div>
-
-    <div class="card">
-      <h2 class="card-title">Blog</h2>
-      <div class="card-subtitle">Research, guides, and fleet security analysis</div>
-      <p class="card-desc">VSAT security, ECDIS vulnerabilities, PSC cyber requirements, and the latest maritime OSINT research from the Cyber Oversight team.</p>
-      <a href="blog.html" class="card-link">Read the blog &rarr;</a>
-    </div>
-
-    <div class="card">
-      <h2 class="card-title">Free Shipcrawler Scan</h2>
-      <div class="card-subtitle">See what hackers know about your fleet</div>
-      <p class="card-desc">Free 3-vessel scan. We search Shodan, AIS databases, and public sources. Plain-language report in 24 hours. No installation or credentials needed.</p>
-      <a href="shipcrawler.html" class="card-link">Start free scan &rarr;</a>
-    </div>
-  </div>
+<!-- stepped logo blocks watermark -->
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+<div class="neural-mesh">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
+      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
+      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
+      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
+      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
+      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
+      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
+      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
+      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
+      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
+      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
+      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
+      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
+    </g>
+  </svg>
 </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <p style="color: var(--color-ink); margin-bottom: var(--space-xs); font-weight: 600;">Estonia &bull; operational since 2022</p>
-        <p>Cyber Oversight — fleet cybersecurity &bull; &copy; 2026</p>
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="capabilities.html">Capabilities</a><a href="architecture.html">Architecture</a><a href="web-design.html">Web Studio</a><a href="networking.html">Networking</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Research</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a>
+  <a href="capabilities.html">Capabilities</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="web-design.html">Web Studio</a>
+  <a href="networking.html">Networking</a>
+  <a href="shipcrawler.html">Shipcrawler</a>
+  <a href="blog.html">Research</a>
+  <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
+</div>
+
+<section class="hero">
+  <div class="grid-bg" data-parallax="0.2"></div>
+  <div class="glow" data-parallax="0.35"></div>
+  <div class="sea" data-parallax="0.1">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="rgba(168,213,6,.05)"/><stop offset="1" stop-color="rgba(168,213,6,0)"/>
+        </linearGradient>
+      </defs>
+      <path d="M0 620 C 240 570, 420 660, 680 600 S 1160 560, 1440 610 L1440 900 L0 900 Z" fill="url(#sea)">
+        <animate attributeName="d" dur="12s" repeatCount="indefinite" values="
+          M0 620 C 240 570, 420 660, 680 600 S 1160 560, 1440 610 L1440 900 L0 900 Z;
+          M0 600 C 240 650, 420 590, 680 630 S 1160 600, 1440 580 L1440 900 L0 900 Z;
+          M0 620 C 240 570, 420 660, 680 600 S 1160 560, 1440 610 L1440 900 L0 900 Z"/>
+      </path>
+      <path d="M0 700 C 300 650, 520 730, 760 680 S 1200 660, 1440 700" stroke="rgba(168,213,6,.25)" stroke-width="1" fill="none" stroke-dasharray="3 6">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+          M0 700 C 300 650, 520 730, 760 680 S 1200 660, 1440 700;
+          M0 690 C 300 740, 520 660, 760 710 S 1200 680, 1440 690;
+          M0 700 C 300 650, 520 730, 760 680 S 1200 660, 1440 700"/>
+      </path>
+      <path d="M0 780 C 320 740, 560 800, 820 760 S 1240 740, 1440 780" stroke="rgba(168,213,6,.15)" stroke-width="1" fill="none" stroke-dasharray="2 7">
+        <animate attributeName="d" dur="14s" repeatCount="indefinite" values="
+          M0 780 C 320 740, 560 800, 820 760 S 1240 740, 1440 780;
+          M0 770 C 320 810, 560 750, 820 790 S 1240 760, 1440 770;
+          M0 780 C 320 740, 560 800, 820 760 S 1240 740, 1440 780"/>
+      </path>
+    </svg>
+  </div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="coord"><b>59.4370° N</b> 24.7536° E · TALLINN&nbsp;&nbsp;·&nbsp;&nbsp;<b>26.2172° N</b> 50.1971° E · AL KHOBAR</div>
+      <h1>
+        <span class="h1-line"><span class="w">Your</span> <span class="w">ships</span> <span class="w">are</span></span>
+        <span class="h1-line"><span class="w">on</span> <span class="w">the</span> <span class="w">map.</span></span>
+        <span class="h1-line"><span class="w"><span class="underline">We found them<svg viewBox="0 0 320 14"><path d="M4 10 C 90 2, 210 3, 316 8"/></svg></span></span> <span class="w"><em class="lime">first.</em></span></span>
+      </h1>
+      <p class="sub">Merchant vessels surface in public search indexes with open satellite terminals and bridge consoles. Cyber Oversight charts that exposure for commercial fleets, then closes it with edge hardware, 24/7 watch, and audit-ready evidence.</p>
+      <div class="cta-row">
+        <a href="shipcrawler.html" class="btn primary magnetic">Scan 3 Vessels Free →</a>
+        <a href="contact.html" class="btn ghost magnetic">Talk to an Engineer</a>
       </div>
-      <div class="footer-links">
-        <a href="contact.html">Contact us &rarr;</a>
-        <a href="shipcrawler.html">Free fleet scan &rarr;</a>
+    </div>
+
+    <div class="board" data-tilt>
+      <div class="bl">Vessel exposure board · live</div>
+      <div class="route" id="vmap"></div>
+      <div class="rows" id="vesselRows">
+        <div class="row"><span class="k">Vessel / IMO</span><span class="v" id="hudName">M/V NORDIC VOYAGER · IMO 9742211</span></div>
+        <div class="row"><span class="k">Satellite uplink</span><span class="v" id="hudCarrier">Inmarsat · 185.12.xxx.42</span></div>
+        <div class="row"><span class="k">Exposed ports</span><span class="v red" id="hudPorts">Port 80 VSAT GUI · Port 502 Modbus</span></div>
+        <div class="row"><span class="k">Zero-trust mesh</span><span class="v ok" id="hudMesh">Haris online · encrypted</span></div>
+      </div>
+      <div class="tabs">
+        <button class="on" onclick="switchVessel(0)">Nordic Voyager</button>
+        <button onclick="switchVessel(1)">Baltic Century</button>
+        <button onclick="switchVessel(2)">Arctic Spirit</button>
       </div>
     </div>
   </div>
-</footer>
+</section>
+
+<!-- ticker -->
+<div class="ticker"><div class="track" id="tickTrack">
+  <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
+</div></div>
+
+<!-- ═══ WHAT WE DO · attack path ═══ -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head reveal"><div class="no">§ 01 · What we do</div><h2>Keep the bridge <em>yours.</em></h2><p>This is the path an attacker takes to reach your fleet, and the six points where we close it. Follow the line from left to right: every step we take is a step they can't.</p></div>
+
+  <!-- the path -->
+  <div class="path">
+    <div class="path-line">
+      <svg viewBox="0 0 1100 4" preserveAspectRatio="none">
+        <path id="p" d="M0 2 H1100"/>
+        <circle class="traveler" r="3.5" style="offset-path:path('M0 2 H1100')"/>
+      </svg>
+    </div>
+    <div class="path-grid">
+      <div class="step reveal"><div class="dot"><span>01</span></div><div class="t">Recon</div><h3>See exposure first</h3><p>Passive OSINT sweeps of Shodan and satellite ASN ranges.</p><span class="tag">Zero agent</span></div>
+      <div class="step reveal d1"><div class="dot"><span>02</span></div><div class="t">Edge</div><h3>Harden the bridge</h3><p>Haris nodes in the bridge rack, 30 days of offline buffer.</p><span class="tag">256 kbps</span></div>
+      <div class="step reveal d2"><div class="dot"><span>03</span></div><div class="t">Watch</div><h3>Monitor 24/7</h3><p>SOC tracking spoofing and bridge anomalies in real time.</p><span class="tag">Threat hunting</span></div>
+      <div class="step reveal"><div class="dot"><span>04</span></div><div class="t">Evidence</div><h3>Prove at port call</h3><p>Forensic logs structured for E26/E27 and MSC.428(98).</p><span class="tag">Auto reporting</span></div>
+      <div class="step reveal d1"><div class="dot"><span>05</span></div><div class="t">People</div><h3>Train the crew</h3><p>Pocket drills and playbooks, offline, in their language.</p><span class="tag">Crew app</span></div>
+      <div class="step reveal d2"><div class="dot"><span>06</span></div><div class="t">Loop</div><h3>Six products, one loop</h3><p>Each works standalone; together they close the loop.</p><span class="tag">Scan → audit</span></div>
+    </div>
+    <div class="axis">
+      <div class="a">Their <em>view</em></div>
+      <div class="a"></div><div class="a"></div><div class="a"></div><div class="a"></div>
+      <div class="a">Your <em>defense</em></div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="met reveal"><div class="num" data-count="73" data-suffix="%">0%</div><div class="lbl">Exposed vessels</div><div class="desc">had unauthenticated terminals visible online</div></div>
+    <div class="met reveal d1"><div class="num" data-count="24" data-suffix="/7">0/7</div><div class="lbl">Analyst watch</div><div class="desc">Tallinn HQ + Al Khobar desk for GCC fleets</div></div>
+    <div class="met reveal d2"><div class="num" data-text="E26">E26</div><div class="lbl">Audit ready</div><div class="desc">telemetry built for Port State Control</div></div>
+    <div class="met reveal d3"><div class="num" data-count="2022">0</div><div class="lbl">Operating since</div><div class="desc">methodology peer-reviewed in IEEE Access 2026</div></div>
+  </div>
+</div></section>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal"><div class="no">§ 02 · The stack</div><h2>Everything a fleet needs, <em>without the bloat.</em></h2><p>Six products that cover the maritime stack end to end. Each one works standalone; together they close the loop.</p></div>
+  <div class="bento">
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Product 01</div><h3>Shipcrawler</h3><p>Vessel OSINT platform with MMSI/IMO lookup, AIS tracking, port-call history, and Shodan scanning, a picture of your fleet from an attacker's seat.</p><span class="chip">Free 3-vessel scan</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Product 02</div><h3>Haris edge node</h3><p>Ruggedized solid-state hardware for the bridge rack. Collects NMEA 0183/2000 and Signal K, buffers through outages, syncs over any link.</p><span class="chip">NMEA 2000 · 30-day buffer</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Product 03</div><h3>Watchtower</h3><p>Device management and monitoring for your edge fleet, firmware, health, and connectivity for every Haris node from one pane of glass.</p><span class="chip">Fleet-wide · Remote</span></div>
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Product 04</div><h3>M-SOC</h3><p>Maritime security operations center: 24/7 human monitoring, threat hunting, and alerting built around how ships actually operate.</p><span class="chip">24/7 · Threat hunting</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Product 05</div><h3>Haris crew app</h3><p>A Flutter app that gives bridge officers plain-language, offline steps to isolate a compromised device, written for people who have a ship to run.</p><span class="chip">Offline playbooks</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Product 06</div><h3>Enterprise networking</h3><p>Firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring, the same discipline we apply on board, applied to shore offices.</p><span class="chip">Cisco · Fortinet</span></div>
+  </div>
+</div></section>
+
+<!-- ═══ CTA ═══ -->
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <h3>Find out what the internet knows about <em>your</em> fleet.</h3>
+    <p>Three commercial vessels, scanned free, reported in 24 hours. No agent installed, no shipboard access, no obligation, just the facts an attacker would already have.</p>
+  </div>
+  <a href="shipcrawler.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Start Free Scan →</a>
+</div></div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:40px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="capabilities.html">M-SOC</a><a href="architecture.html">Haris Edge</a><a href="architecture.html">Watchtower</a></div>
+    <div><h4>Research</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a><a href="tel:+966553629384">+966 55 362 9384</a></div>
+  </div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Cyber Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+</div></footer>
+
+<script>
+const vesselData=[
+  {name:'M/V NORDIC VOYAGER · IMO 9742211',carrier:'Inmarsat · 185.12.xxx.42',ports:'Port 80 VSAT GUI · Port 502 Modbus',mesh:'Haris online · encrypted',exposed:true},
+  {name:'M/T BALTIC CENTURY · IMO 9412034',carrier:'KVH TracPhone · 216.58.xxx.11',ports:'Port 443 admin · Port 5900 VNC',mesh:'Haris online · encrypted',exposed:true},
+  {name:'M/V ARCTIC SPIRIT · IMO 9813456',carrier:'Marlink Sealink · 62.140.xxx.89',ports:'All ports filtered · secure',mesh:'Zero-trust mesh active',exposed:false}
+];
+function switchVessel(i){
+  document.querySelectorAll('.board .tabs button').forEach((b,j)=>b.classList.toggle('on',j===i));
+  const v=vesselData[i];
+  document.getElementById('hudName').textContent=v.name;
+  document.getElementById('hudCarrier').textContent=v.carrier;
+  document.getElementById('hudPorts').textContent=v.ports;
+  document.getElementById('hudPorts').className='v '+(v.exposed?'red':'ok');
+  document.getElementById('hudMesh').textContent=v.mesh;
+}
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+// ── Live vessel map (real geography, brand colors) ──
+(function(){
+  const el=document.getElementById('vmap');
+  if(!el||typeof L==='undefined')return;
+  const map=L.map(el,{zoomControl:false,attributionControl:false,scrollWheelZoom:false,minZoom:2,maxZoom:10}).setView([38,26],4);
+  let currentTileLayer=null;
+  const lane=[
+    [52.0,3.5],[49.5,-5.5],[46.0,-6.5],[40.5,-11.0],[35.5,-7.0],[36.0,-4.0],
+    [37.0,3.0],[36.5,10.0],[34.5,17.0],[33.0,24.0],[31.5,30.0],
+    [29.97,32.55],[28.2,33.6],[26.0,35.0],[21.0,38.5],[15.5,42.0],
+    [12.6,43.4],[13.5,47.0],[16.0,53.5],[21.0,59.0],[25.0,58.0],
+    [26.55,56.27],[26.2,50.19]
+  ];
+  const feeder=[[59.437,24.7536],[58.0,20.0],[55.5,14.0],[54.0,11.0],[53.5,8.0],[52.0,4.0],[51.92,4.48]];
+  
+  const poly1=L.polyline(lane,{color:'#a8d506',weight:2,opacity:.85,dashArray:'6 5'}).addTo(map);
+  const poly2=L.polyline(feeder,{color:'#a8d506',weight:1.5,opacity:.5,dashArray:'3 6'}).addTo(map);
+
+  function updateMapTheme(theme){
+    const isLight = (theme === 'light');
+    const tileUrl = isLight
+      ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png'
+      : 'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png';
+    
+    if(currentTileLayer){
+      map.removeLayer(currentTileLayer);
+    }
+    currentTileLayer=L.tileLayer(tileUrl,{maxZoom:19,subdomains:'abcd'}).addTo(map);
+    currentTileLayer.bringToBack();
+
+    poly1.setStyle({color: isLight ? '#3b6f00' : '#a8d506', opacity: isLight ? .95 : .85, weight: isLight ? 2.5 : 2});
+    poly2.setStyle({color: isLight ? '#3b6f00' : '#a8d506', opacity: isLight ? .7 : .5, weight: isLight ? 2 : 1.5});
+  }
+
+  // Initial theme application
+  const initialTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  updateMapTheme(initialTheme);
+
+  // Live observer for instant dark/light switching
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(m => {
+      if (m.attributeName === 'data-theme') {
+        const newTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        updateMapTheme(newTheme);
+      }
+    });
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // zoom control (+ / -) styled by tokens.css
+  L.control.zoom({position:'bottomright'}).addTo(map);
+  // initial frame: zoom 4 shows the whole region with large-country labels only
+  map.setView([35.5,26.5],4);
+
+  // ports
+  const ports=[
+    {p:[51.9225,4.4792],n:'ROTTERDAM'},
+    {p:[59.437,24.7536],n:'TALLINN'},
+    {p:[26.2,50.19],n:'AL KHOBAR',hl:true}
+  ];
+  const icon=L.divIcon({className:'vport'+(hl=>hl?' hl':''),html:'<i></i>',iconSize:[14,14],iconAnchor:[7,7]});
+  ports.forEach(pt=>{
+    L.marker(pt.p,{icon:L.divIcon({className:'vport'+(pt.hl?' hl':''),html:'<i></i>',iconSize:[16,16],iconAnchor:[8,8]})})
+      .addTo(map).bindTooltip(pt.n,{direction:'top',offset:[0,-8],className:'vptip'});
+  });
+  L.marker([29.97,32.55],{icon:L.divIcon({className:'vport s',html:'<i></i>',iconSize:[9,9],iconAnchor:[4.5,4.5]})})
+    .addTo(map).bindTooltip('SUEZ',{direction:'top',offset:[0,-6],className:'vptip'});
+  // country labels (added ourselves) — zoom-tiered to avoid overlap:
+  //   big countries appear from zoom 4, small ones only when zoomed in (5/6)
+  const labels=[
+    // ── tier 1: large countries (zoom >= 4) ──
+    {p:[62.0,25.5],t:'FINLAND',size:9,minZoom:4},
+    {p:[60.1,16.5],t:'SWEDEN',size:9,minZoom:4},
+    {p:[60.0,9.5],t:'NORWAY',size:8,minZoom:4},
+    {p:[51.1,10.4],t:'GERMANY',size:10,minZoom:4},
+    {p:[52.1,19.4],t:'POLAND',size:9,minZoom:4},
+    {p:[47.5,14.5],t:'AUSTRIA',size:8,minZoom:4},
+    {p:[46.8,2.4],t:'FRANCE',size:10,minZoom:4},
+    {p:[54.0,-2.5],t:'U.K.',size:9,minZoom:4},
+    {p:[53.7,28.0],t:'BELARUS',size:8,minZoom:4},
+    {p:[49.0,31.5],t:'UKRAINE',size:9,minZoom:4},
+    {p:[45.9,24.9],t:'ROMANIA',size:8,minZoom:4},
+    {p:[42.7,25.5],t:'BULGARIA',size:8,minZoom:4},
+    {p:[42.5,12.8],t:'ITALY',size:9,minZoom:4},
+    {p:[39.0,22.0],t:'GREECE',size:9,minZoom:4},
+    {p:[39.0,35.0],t:'TURKEY',size:10,minZoom:4},
+    {p:[35.0,38.5],t:'SYRIA',size:8,minZoom:4},
+    {p:[31.8,35.2],t:'PALESTINE',size:10,minZoom:4},
+    {p:[31.3,36.3],t:'JORDAN',size:8,minZoom:4},
+    {p:[33.3,43.7],t:'IRAQ',size:9,minZoom:4},
+    {p:[32.5,53.0],t:'IRAN',size:9,minZoom:4},
+    {p:[24.3,45.0],t:'SAUDI ARABIA',size:9,minZoom:4},
+    {p:[15.5,48.0],t:'YEMEN',size:8,minZoom:4},
+    {p:[26.8,30.0],t:'EGYPT',size:10,minZoom:4},
+    {p:[27.0,17.0],t:'LIBYA',size:9,minZoom:4},
+    {p:[15.6,30.2],t:'SUDAN',size:9,minZoom:4},
+    {p:[9.0,40.0],t:'ETHIOPIA',size:8,minZoom:4},
+    {p:[8.5,47.5],t:'SOMALIA',size:8,minZoom:4},
+    // ── tier 2: smaller countries (zoom >= 5) ──
+    {p:[58.7,25.5],t:'ESTONIA',size:8,minZoom:5},
+    {p:[56.9,24.6],t:'LATVIA',size:8,minZoom:5},
+    {p:[55.3,23.9],t:'LITHUANIA',size:8,minZoom:5},
+    {p:[56.0,9.5],t:'DENMARK',size:8,minZoom:5},
+    {p:[52.2,5.8],t:'NETHERLANDS',size:8,minZoom:5},
+    {p:[50.6,4.6],t:'BELGIUM',size:8,minZoom:5},
+    {p:[49.8,15.5],t:'CZECHIA',size:8,minZoom:5},
+    {p:[48.7,19.7],t:'SLOVAKIA',size:8,minZoom:5},
+    {p:[47.2,19.5],t:'HUNGARY',size:8,minZoom:5},
+    {p:[46.8,8.2],t:'SWITZERLAND',size:8,minZoom:5},
+    {p:[47.4,28.6],t:'MOLDOVA',size:8,minZoom:5},
+    {p:[44.2,20.9],t:'SERBIA',size:8,minZoom:5},
+    {p:[45.6,16.0],t:'CROATIA',size:8,minZoom:5},
+    {p:[46.1,14.8],t:'SLOVENIA',size:8,minZoom:5},
+    {p:[41.1,20.1],t:'ALBANIA',size:8,minZoom:5},
+    {p:[44.0,17.8],t:'BOSNIA',size:8,minZoom:5},
+    {p:[41.6,21.7],t:'N. MACEDONIA',size:8,minZoom:5},
+    {p:[35.1,33.3],t:'CYPRUS',size:8,minZoom:5},
+    {p:[33.9,35.9],t:'LEBANON',size:8,minZoom:5},
+    {p:[29.3,47.7],t:'KUWAIT',size:8,minZoom:5},
+    {p:[25.3,51.2],t:'QATAR',size:8,minZoom:5},
+    {p:[26.0,50.5],t:'BAHRAIN',size:8,minZoom:5},
+    {p:[24.0,54.2],t:'U.A.E.',size:8,minZoom:5},
+    {p:[21.5,56.5],t:'OMAN',size:8,minZoom:5},
+    // ── tier 3: tiny / fringe (zoom >= 6) ──
+    {p:[28.5,2.0],t:'ALGERIA',size:8,minZoom:6},
+    {p:[34.0,9.5],t:'TUNISIA',size:8,minZoom:6},
+    {p:[15.2,39.7],t:'ERITREA',size:8,minZoom:6},
+    {p:[11.8,42.5],t:'DJIBOUTI',size:8,minZoom:6}
+  ];
+  const labelMarkers=[];
+  labels.forEach(lb=>{
+    const mk=L.marker(lb.p,{icon:L.divIcon({className:'vlabel',html:lb.t,iconSize:[lb.t.length*6+6,14],iconAnchor:[(lb.t.length*6+6)/2,7]})});
+    mk._minZoom=lb.minZoom||5;
+    mk.addTo(map);
+    labelMarkers.push(mk);
+  });
+  function tierLabels(){
+    const z=map.getZoom();
+    labelMarkers.forEach(mk=>{
+      const show=z>=(mk._minZoom||5);
+      mk.getElement()&&mk.getElement().style.setProperty('display',show?'flex':'none');
+    });
+  }
+  map.on('zoomend',tierLabels);
+  tierLabels();
+  // animated vessel travelling the lane — the map follows it
+  const ship=L.marker(lane[0],{icon:L.divIcon({className:'vship',html:'<i></i>',iconSize:[10,10],iconAnchor:[5,5]})}).addTo(map);
+  let t=0;const dur=32000;
+  setTimeout(function startVoyage(){
+    let lastPan=0;
+    (function animate(){
+      t=(t+16)%dur;const f=t/dur;
+      const total=lane.length-1,idx=Math.min(Math.floor(f*total),total-1);
+      const seg=f*total-idx;
+      const a=lane[idx],b=lane[idx+1];
+      const pos=[a[0]+(b[0]-a[0])*seg,a[1]+(b[1]-a[1])*seg];
+      ship.setLatLng(pos);
+      // pan the camera at most every ~300ms for smoothness without hogging the main thread
+      const now=Date.now();
+      if(now-lastPan>300){
+        map.panTo(pos,{animate:true,duration:.3});
+        lastPan=now;
+      }
+      requestAnimationFrame(animate);
+    })();
+  },2500);
+})();
+</script>
 
 </body>
 </html>
