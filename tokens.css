@@ -63,10 +63,10 @@ body{background:var(--void);color:var(--text);font-family:var(--sans);-webkit-fo
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,6,8,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:.3s}
 :root[data-theme="light"] nav{background:rgba(245,246,240,.85)}
 nav.scrolled{border-bottom-color:var(--line);background:var(--bg-nav)}
-nav .wrap{display:flex;align-items:center;height:84px}
+nav .wrap{display:flex;align-items:center;height:72px}
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--text);flex:none;margin-right:auto}
-.logo .brand-logo-img{height:54px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 0 14px rgba(168,213,6,.35));transition:transform .2s ease}
-footer .logo .brand-logo-img{height:40px !important;filter:drop-shadow(0 0 12px rgba(168,213,6,.25))}
+.logo .brand-logo-img{height:40px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 0 12px rgba(168,213,6,.35));transition:transform .2s ease}
+footer .logo .brand-logo-img{height:28px !important;filter:drop-shadow(0 0 10px rgba(168,213,6,.22))}
 :root[data-theme="light"] .logo .brand-logo-img{filter:invert(1) hue-rotate(180deg);opacity:.92}
 .logo .mark{width:30px;height:30px;background:var(--lime);display:grid;grid-template-columns:repeat(3,5.5px);grid-template-rows:repeat(3,5.5px);gap:1.5px;padding:5px;border-radius:4px;animation:markPulse 3.5s infinite}
 @keyframes markPulse{0%,100%{box-shadow:0 0 0 0 rgba(168,213,6,.35)}50%{box-shadow:0 0 0 9px rgba(168,213,6,0)}}
@@ -409,9 +409,9 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 @media(max-width:1000px){
   .nav-links{display:none}
   .nav-cta{display:none}
-  .nav .wrap{height:68px}
-  .logo .brand-logo-img{height:38px;max-width:230px;object-fit:contain}
-  footer .logo .brand-logo-img{height:34px !important}
+  .nav .wrap{height:58px}
+  .logo .brand-logo-img{height:28px;max-width:180px;object-fit:contain}
+  footer .logo .brand-logo-img{height:24px !important}
   .nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
   .mobile-toggle-btn{display:flex !important}
   .mobile-drawer{display:flex}
