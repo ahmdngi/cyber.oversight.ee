@@ -6,6 +6,8 @@
 (function() {
   'use strict';
   const THEME_KEY = 'cyber_oversight_theme';
+  // Mark the document as JS-enabled immediately (reveal animations gate on this)
+  document.documentElement.classList.add('js');
 
   // 1. Initial Theme Determination & Immediate Application (No Flash)
   function getPreferredTheme() {

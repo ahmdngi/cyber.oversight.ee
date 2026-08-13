@@ -100,6 +100,9 @@
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    // No IntersectionObserver (legacy browsers): show everything immediately
+    revealElements.forEach(el => el.classList.add('is-visible', 'revealed'));
   }
 
   // 6. Telemetry Animated Counters
