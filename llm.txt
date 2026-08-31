@@ -1,0 +1,29 @@
+# Cyber Oversight - Maritime, OT Cybersecurity, Networking & Digital Infrastructure
+
+Cybersecurity consultancy, managed infrastructure, enterprise networking, and corporate web engineering for maritime, industrial, and global enterprises.
+
+## Products & Core Services
+
+- Shipcrawler - vessel OSINT investigation platform. MMSI/IMO lookup, AIS tracking, port call history, Shodan scanning, Equasis, red-team playbooks.
+- Haris - vessel edge data collection and transmission (NMEA 0183/2000, Signal K, compression, webhook/sync).
+- M-SOC - Maritime Security Operations Center - continuous monitoring, threat hunting, and alerting for vessel fleets.
+- Watchtower - vessel edge device management and monitoring.
+- Haris Crew App - Flutter-based crew management application.
+- Networking & Infrastructure - Enterprise LAN/WAN design, firewall hardening, VPN tunnels, SD-WAN, and 24/7 network monitoring.
+- Web Design & Identity - High-conversion corporate websites and full visual identity systems for EU and GCC enterprises.
+
+## Key pages
+
+- /capabilities.html - Products, SOC capabilities, vulnerability management
+- /architecture.html - M-SOC, 24/7 maritime security operations center (GPS spoofing, satellite link monitoring, bridge OT triage, incident response)
+- /web-design.html - Web design, corporate identity, regional hubs
+- /networking.html - Enterprise network engineering & security
+- /shipcrawler.html - Shipcrawler free fleet exposure scan
+- /blog.html - Maritime & OT cybersecurity research
+- /contact.html - Global and regional contact channels
+
+## Contact
+
+- Global: contact@oversight.ee
+- Middle East: ksa@oversight.ee / +966 55 362 9384
+- HQ: Tallinn, Estonia / Operational since 2022

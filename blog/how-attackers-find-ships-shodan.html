@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Attackers Find Ships on Shodan · Cyber Oversight Research</title>
+<meta name="description" content="An empirical breakdown of how Shodan queries, satellite ASN ranges, and exposed VSAT terminals put merchant vessels on the attacker's map.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cyber Oversight">
+<meta property="og:title" content="How Attackers Find Ships on Shodan · Cyber Oversight Research">
+<meta property="og:description" content="An empirical breakdown of how Shodan queries, satellite ASN ranges, and exposed VSAT terminals put merchant vessels on the attacker's map.">
+<meta property="og:url" content="https://cyber.oversight.ee/blog/how-attackers-find-ships-shodan">
+<meta property="og:image" content="https://cyber.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Attackers Find Ships on Shodan · Cyber Oversight Research">
+<meta name="twitter:description" content="An empirical breakdown of how Shodan queries, satellite ASN ranges, and exposed VSAT terminals put merchant vessels on the attacker's map.">
+<meta name="twitter:image" content="https://cyber.oversight.ee/og-image.png">
+<link rel="canonical" href="https://cyber.oversight.ee/blog/how-attackers-find-ships-shodan">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+<div class="neural-mesh">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
+      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
+      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
+      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
+      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
+      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
+      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
+      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
+      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
+      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
+      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
+      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
+      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
+    </g>
+  </svg>
+</div>
+
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="../index.html" class="logo"><img src="../logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="../capabilities.html">Capabilities</a><a href="../architecture.html">M-SOC</a><a href="../shipcrawler.html">Shipcrawler</a><a href="../blog.html">Blog</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="../web-design.html">Web Development</a>
+        <a href="../networking.html">Networking</a>
+        <a href="../mobile-app.html">Mobile App Development</a>
+      </div>
+    </div>
+  </div>
+  <a href="../contact.html" class="nav-cta">Free Fleet Scan</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="../index.html">Home</a>
+  <a href="../capabilities.html">Capabilities</a>
+  <a href="../architecture.html">M-SOC</a>
+  <a href="../shipcrawler.html">Shipcrawler</a>
+  <a href="../blog.html">Blog</a>
+  <div class="drawer-group">
+    <span class="drawer-label">Other Services</span>
+    <a href="../web-design.html">Web Development</a>
+    <a href="../networking.html">Networking</a>
+    <a href="../mobile-app.html">Mobile App Development</a>
+  </div>
+  <a href="../contact.html" class="drawer-cta">Free Fleet Scan</a>
+</div>
+<section class="hero" style="min-height:auto;padding:170px 0 70px">
+  <div class="grid-bg" data-parallax="0.2"></div>
+  <div class="glow" data-parallax="0.35"></div>
+    <div class="wrap hero-inner">
+    <div>
+      <div class="coord"><b>Method</b> Shodan queries · ASN ranges · <b>Report</b> 24h</div>
+      <h1>
+        <span class="h1-line"><span class="w">How</span> <span class="w">attackers</span> <span class="w">find</span></span>
+        <span class="h1-line"><span class="w">ships</span> <span class="w">on</span> <span class="w"><em class="lime">Shodan.</em></span></span>
+      </h1>
+      <p class="sub">An empirical breakdown of the queries, filters, and satellite ASN ranges that surface exposed vessels, and what the findings actually mean.</p>
+      <div class="cta-row">
+        <a href="../shipcrawler.html" class="btn primary magnetic">Scan 3 Vessels Free →</a>
+        <a href="../blog.html" class="btn ghost magnetic">All Research</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec"><div class="wrap" style="max-width:820px">
+  <div class="sec-head reveal" style="margin-bottom:36px"><div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · The search engine that watches ships</div><h2 style="font-size:1.9rem">Shodan is Google for exposed devices</h2></div>
+  <p style="color:var(--mut);font-size:1.05rem;line-height:1.85;margin-bottom:20px">Shodan continuously scans the internet and indexes the banners that devices return. It does not hack anything, it asks politely, over and over, across every IPv4 address. When a device answers with a web login page, a Telnet banner, or an SNMP string, that device becomes searchable by anyone.</p>
+  <p style="color:var(--mut);font-size:1.05rem;line-height:1.85;margin-bottom:40px">Merchant vessels appear in this index because their VSAT terminals and bridge equipment are assigned public IPs from satellite operators' ASN blocks. The equipment is not intentionally exposed, it is simply reachable, and searchable, and catalogued.</p>
+
+  <div class="sec-head reveal" style="margin-bottom:36px"><div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · The three queries that matter</div><h2 style="font-size:1.9rem">How a ship gets surfaced</h2></div>
+  <p style="color:var(--mut);font-size:1.02rem;line-height:1.8;margin-bottom:14px"><strong style="color:var(--text)">Satellite ASN filters.</strong> Inmarsat, Iridium, KVH, and Marlink announce public ASN ranges. Filtering by those ASNs immediately narrows the internet to maritime satellite subscribers.</p>
+  <p style="color:var(--mut);font-size:1.02rem;line-height:1.8;margin-bottom:14px"><strong style="color:var(--text)">VSAT product banners.</strong> Sailor, TracPhone, iDirect, and other terminal web GUIs return identifiable titles. A search for those titles finds terminals with no login required.</p>
+  <p style="color:var(--mut);font-size:1.02rem;line-height:1.8;margin-bottom:40px"><strong style="color:var(--text)">Open OT ports.</strong> Telnet and Modbus on maritime IPs are rare but not vanishingly so, and each one is a bridge into the shipboard network.</p>
+
+  <div class="sec-head reveal" style="margin-bottom:36px"><div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 03 · What our scans found</div><h2 style="font-size:1.9rem">73% of audited vessels had something exposed</h2></div>
+  <p style="color:var(--mut);font-size:1.05rem;line-height:1.85;margin-bottom:20px">Across our audited sample, 73% of merchant vessels had at least one unauthenticated VSAT web GUI, exposed CCTV feed, or open bridge console visible in public indexes. The most common finding was a satellite terminal login page reachable without credentials, a page that also reveals terminal model, firmware, and often the vessel's own IP.</p>
+  <p style="color:var(--mut);font-size:1.05rem;line-height:1.85;margin-bottom:20px">None of this required any exploit. It required a query.</p>
+  <p style="color:var(--mut);font-size:1.05rem;line-height:1.85;margin-bottom:40px">The full detection methodology, including query set and validation approach, is published in IEEE Access 2026.</p>
+
+  <div class="sec-head reveal" style="margin-bottom:36px"><div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 04 · What a fleet manager should do</div><h2 style="font-size:1.9rem">The practical checklist</h2></div>
+  <p style="color:var(--mut);font-size:1.02rem;line-height:1.8;margin-bottom:14px"><strong style="color:var(--text)">1. Audit once.</strong> Run a passive scan of your fleet's IMO numbers and satellite ASNs. Know your baseline before you change anything.</p>
+  <p style="color:var(--mut);font-size:1.02rem;line-height:1.8;margin-bottom:14px"><strong style="color:var(--text)">2. Lock the terminals.</strong> Require authentication on every VSAT web GUI. This removes the single most common finding.</p>
+  <p style="color:var(--mut);font-size:1.02rem;line-height:1.8;margin-bottom:14px"><strong style="color:var(--text)">3. Filter at the edge.</strong> If a port does not need to be public, it should not be reachable from the satellite link.</p>
+  <p style="color:var(--mut);font-size:1.02rem;line-height:1.8;margin-bottom:40px"><strong style="color:var(--text)">4. Re-scan quarterly.</strong> Exposure changes with every port call, firmware update, and crew rotation.</p>
+</div></section>
+
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <h3>See your fleet's <em>exposure.</em></h3>
+    <p>Three vessels scanned free, report in 24 hours.</p>
+  </div>
+  <a href="../shipcrawler.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Start Free Scan →</a>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><a href="../index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="../shipcrawler.html">Shipcrawler</a><a href="../architecture.html">M-SOC</a><a href="../architecture.html">Haris Edge</a><a href="../architecture.html">Watchtower</a></div>
+    <div><h4>Services</h4><a href="../web-design.html">Web Development</a><a href="../networking.html">Networking</a><a href="../mobile-app.html">Mobile Apps</a></div>
+    <div><h4>Blog</h4><a href="../blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="../blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="../blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a><a href="tel:+966****9384">+966 55 362 9384</a></div>
+  </div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Cyber Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+</div></footer>
+
+</body>
+</html>
