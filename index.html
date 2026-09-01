@@ -18,6 +18,115 @@
 <link rel="canonical" href="https://cyber.oversight.ee/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
+<style>
+/* ── Hero: Compact Depth Sonar ── */
+.sonar-compact-hero{min-height:calc(100vh - 72px);padding:96px 0 56px;position:relative;overflow:hidden;background:var(--void);display:flex;align-items:center}
+.sonar-bg-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 75% 50%,rgba(168,213,6,.07),transparent 45%),radial-gradient(circle at 20% 40%,rgba(168,213,6,.03),transparent 35%);transition:background .8s ease}
+.sonar-compact-hero[data-active-depth="3"] .sonar-bg-glow{background:radial-gradient(circle at 75% 50%,rgba(255,61,61,.09),transparent 45%),radial-gradient(circle at 20% 40%,rgba(255,184,0,.04),transparent 35%)}
+.sonar-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,5vw,70px);align-items:center;position:relative;z-index:2;width:100%}
+.sonar-copy{max-width:540px}
+.sonar-copy .coord{margin-bottom:22px}
+.sonar-copy h1{font-family:var(--sans);font-size:clamp(2.5rem,5.2vw,4.8rem);font-weight:500;line-height:.96;letter-spacing:-.055em;color:var(--text);margin-bottom:20px}
+.sonar-copy h1 em{font-style:normal;color:var(--lime);transition:color .4s}
+.sonar-compact-hero[data-active-depth="3"] .sonar-copy h1 em{color:#ff5252}
+.sonar-copy .sub{max-width:480px;color:var(--mut);font-size:1rem;line-height:1.7;margin:0 0 26px}
+.depth-selector-wrap{margin-bottom:28px;background:rgba(17,23,15,.7);border:1px solid var(--line);border-radius:12px;padding:8px;backdrop-filter:blur(12px)}
+.depth-selector-label{display:flex;justify-content:space-between;align-items:center;padding:4px 10px 8px;font:.58rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+.depth-selector-label b{color:var(--lime)}
+.depth-nav-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.depth-btn{background:rgba(255,255,255,.02);border:1px solid transparent;border-radius:8px;padding:10px 8px;cursor:pointer;text-align:left;transition:all .25s var(--ease-spring);color:var(--mut);position:relative;overflow:hidden}
+.depth-btn:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.depth-btn.active{background:rgba(168,213,6,.12);border-color:rgba(168,213,6,.4);color:var(--text);box-shadow:inset 0 0 16px rgba(168,213,6,.1)}
+.depth-btn.active.crit{background:rgba(255,61,61,.14);border-color:rgba(255,61,61,.5);box-shadow:inset 0 0 16px rgba(255,61,61,.15)}
+.depth-btn-level{font:.54rem var(--mono);letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:2px;color:var(--dim)}
+.depth-btn.active .depth-btn-level{color:var(--lime)}
+.depth-btn.active.crit .depth-btn-level{color:#ff5252}
+.depth-btn-name{font:600 .74rem var(--mono);display:block;white-space:nowrap}
+.sonar-cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.sonar-proof{display:flex;align-items:center;gap:16px;margin-top:28px;color:var(--dim);font:.62rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.sonar-proof b{color:var(--text);font-weight:500}
+.sonar-proof i{width:28px;height:1px;background:var(--line)}
+.sonar-console{position:relative;background:#090e09;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.03);overflow:hidden;min-height:480px;display:flex;flex-direction:column;justify-content:space-between}
+.sonar-console-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line);font:.62rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.sonar-live-indicator{display:flex;align-items:center;gap:8px;color:var(--lime)}
+.sonar-live-dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulseDot 1.5s infinite}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+.sonar-stage{position:relative;display:flex;align-items:center;justify-content:center;margin:16px 0}
+.sonar-scope{position:relative;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(168,213,6,.06) 0%,rgba(6,12,6,.95) 80%);border:1px solid rgba(168,213,6,.25);box-shadow:0 0 30px rgba(0,0,0,.8),inset 0 0 20px rgba(168,213,6,.05);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sonar-scope::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 49.5%,rgba(168,213,6,.15) 50%,transparent 50.5%),linear-gradient(to bottom,transparent 49.5%,rgba(168,213,6,.15) 50%,transparent 50.5%);pointer-events:none}
+.depth-circle{position:absolute;border-radius:50%;border:1px dashed rgba(238,243,234,.14);pointer-events:none}
+.depth-circle.c1{width:60px;height:60px}
+.depth-circle.c2{width:115px;height:115px}
+.depth-circle.c3{width:170px;height:170px}
+.sonar-beam{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 270deg, rgba(168,213,6,.04) 295deg, rgba(168,213,6,.22) 335deg, rgba(168,213,6,.58) 360deg);animation:radarSweep 3.5s linear infinite;transform-origin:50% 50%;pointer-events:none;z-index:4;will-change:transform}
+.sonar-beam::after{content:'';position:absolute;top:0;left:50%;width:1.5px;height:50%;background:linear-gradient(to top, var(--lime), #ffffff);box-shadow:0 0 10px var(--lime);transform-origin:bottom center}
+@keyframes radarSweep{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.sonar-ping-wave{position:absolute;width:20px;height:20px;border-radius:50%;border:2px solid var(--lime);opacity:0;pointer-events:none}
+.sonar-ping-wave.firing{animation:pingPop 1.5s cubic-bezier(0.1,0.8,0.3,1) forwards}
+@keyframes pingPop{0%{transform:scale(0.5);opacity:.9}100%{transform:scale(11.5);opacity:0}}
+.sonar-center-target{position:relative;z-index:5;width:38px;height:38px;border-radius:50%;background:var(--void);border:1.5px solid var(--lime);display:flex;align-items:center;justify-content:center;color:var(--lime);box-shadow:0 0 16px rgba(168,213,6,.35);transition:all .4s}
+.target-blip{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);z-index:6;opacity:.35;transform:scale(.8);transition:all .35s var(--ease-spring)}
+.target-blip.active{opacity:1;transform:scale(1.4);box-shadow:0 0 16px var(--lime),0 0 0 3px rgba(168,213,6,.25);animation:blipGlow 1.2s infinite alternate}
+.target-blip.crit{background:#ff3d3d;box-shadow:0 0 10px #ff3d3d}
+.target-blip.crit.active{box-shadow:0 0 20px #ff3d3d,0 0 0 3px rgba(255,61,61,.3)}
+@keyframes blipGlow{from{transform:scale(1.2)}to{transform:scale(1.6)}}
+.target-blip.b-tier0{top:40px;right:40px}
+.target-blip.b-tier1{bottom:48px;left:46px}
+.target-blip.b-tier2{bottom:78px;right:76px}
+.target-blip.b-tier3{top:98px;left:96px}
+.sonar-range-label{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:.5rem var(--mono);letter-spacing:.1em;color:rgba(168,213,6,.4);pointer-events:none}
+.sonar-card-details{background:rgba(7,17,10,.85);border:1px solid var(--line);border-radius:12px;padding:16px;position:relative;min-height:140px}
+.card-layer-badge{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.card-layer-num{font:.56rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--lime)}
+.card-severity{font:.54rem var(--mono);letter-spacing:.12em;padding:2px 8px;border-radius:4px;text-transform:uppercase;font-weight:600}
+.severity-warn{background:rgba(255,184,0,.15);color:#ffb800;border:1px solid rgba(255,184,0,.3)}
+.severity-crit{background:rgba(255,61,61,.18);color:#ff5252;border:1px solid rgba(255,61,61,.4)}
+.severity-safe{background:rgba(168,213,6,.15);color:var(--lime);border:1px solid rgba(168,213,6,.3)}
+.card-title{font:600 1.05rem var(--sans);color:var(--text);margin-bottom:6px;line-height:1.3}
+.card-desc{font-size:.84rem;line-height:1.55;color:var(--mut);margin-bottom:12px}
+.card-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip-item{font:.56rem var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--dim)}
+.chip-item.highlight{border-color:rgba(168,213,6,.4);color:var(--lime)}
+.chip-item.danger{border-color:rgba(255,61,61,.4);color:#ff5252}
+.console-corner{position:absolute;width:14px;height:14px;border:1px solid rgba(168,213,6,.4);pointer-events:none}
+.console-corner.tl{top:10px;left:10px;border-right:none;border-bottom:none}
+.console-corner.tr{top:10px;right:10px;border-left:none;border-bottom:none}
+.console-corner.bl{bottom:10px;left:10px;border-right:none;border-top:none}
+.console-corner.br{bottom:10px;right:10px;border-left:none;border-top:none}
+/* ── Light Mode overrides for Sonar ── */
+:root[data-theme="light"] .sonar-compact-hero{background:var(--void)}
+:root[data-theme="light"] .sonar-bg-glow{background:radial-gradient(circle at 75% 50%,rgba(107,141,0,.08),transparent 45%),radial-gradient(circle at 20% 40%,rgba(107,141,0,.04),transparent 35%)}
+:root[data-theme="light"] .sonar-compact-hero[data-active-depth="3"] .sonar-bg-glow{background:radial-gradient(circle at 75% 50%,rgba(179,56,46,.10),transparent 45%),radial-gradient(circle at 20% 40%,rgba(255,184,0,.05),transparent 35%)}
+:root[data-theme="light"] .depth-selector-wrap{background:#e8eee0;border-color:rgba(20,23,19,.10)}
+:root[data-theme="light"] .depth-btn{background:rgba(255,255,255,.55);color:var(--mut)}
+:root[data-theme="light"] .depth-btn:hover{background:rgba(255,255,255,.9);color:var(--text)}
+:root[data-theme="light"] .depth-btn.active{background:rgba(107,141,0,.14);border-color:rgba(107,141,0,.45);color:var(--text);box-shadow:inset 0 0 12px rgba(107,141,0,.08)}
+:root[data-theme="light"] .depth-btn.active.crit{background:rgba(179,56,46,.12);border-color:rgba(179,56,46,.45);box-shadow:inset 0 0 12px rgba(179,56,46,.1)}
+:root[data-theme="light"] .sonar-console{background:#eef3e7;border-color:rgba(20,23,19,.12);box-shadow:0 20px 50px rgba(20,23,19,.08),inset 0 0 0 1px rgba(255,255,255,.6)}
+:root[data-theme="light"] .sonar-scope{background:radial-gradient(circle,rgba(107,141,0,.08) 0%,#dbe4ce 85%);border-color:rgba(107,141,0,.35);box-shadow:0 0 20px rgba(0,0,0,.06),inset 0 0 15px rgba(107,141,0,.08)}
+:root[data-theme="light"] .sonar-scope::before{background:linear-gradient(to right,transparent 49.5%,rgba(107,141,0,.22) 50%,transparent 50.5%),linear-gradient(to bottom,transparent 49.5%,rgba(107,141,0,.22) 50%,transparent 50.5%)}
+:root[data-theme="light"] .depth-circle{border-color:rgba(20,23,19,.18)}
+:root[data-theme="light"] .depth-circle.c4{border-color:rgba(107,141,0,.35)}
+:root[data-theme="light"] .sonar-beam{background:conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 270deg, rgba(107,141,0,.04) 295deg, rgba(107,141,0,.25) 335deg, rgba(107,141,0,.62) 360deg)}
+:root[data-theme="light"] .sonar-beam::after{background:linear-gradient(to top, #6b8d00, #141713);box-shadow:0 0 8px rgba(107,141,0,.6)}
+:root[data-theme="light"] .sonar-center-target{background:#f5f6f0;border-color:var(--lime);color:var(--lime);box-shadow:0 0 12px rgba(107,141,0,.25)}
+:root[data-theme="light"] .sonar-card-details{background:#fbfcf7;border-color:rgba(20,23,19,.10);box-shadow:0 2px 8px rgba(0,0,0,.03)}
+:root[data-theme="light"] .chip-item{background:rgba(20,23,19,.04);border-color:rgba(20,23,19,.10);color:var(--mut)}
+:root[data-theme="light"] .chip-item.highlight{border-color:rgba(107,141,0,.4);color:var(--lime)}
+:root[data-theme="light"] .chip-item.danger{border-color:rgba(179,56,46,.4);color:var(--alert-red)}
+:root[data-theme="light"] .console-corner{border-color:rgba(107,141,0,.4)}
+:root[data-theme="light"] .severity-warn{background:rgba(196,138,0,.12);color:#946400;border-color:rgba(196,138,0,.3)}
+:root[data-theme="light"] .severity-crit{background:rgba(179,56,46,.12);color:var(--alert-red);border-color:rgba(179,56,46,.3)}
+:root[data-theme="light"] .severity-safe{background:rgba(107,141,0,.12);color:var(--lime);border-color:rgba(107,141,0,.3)}
+
+/* Interactive Tracking heading */
+.qm-tracking-heading{margin:48px 0 18px;padding-top:8px}
+.qm-tracking-heading .no{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.qm-tracking-heading .no::before{content:'';width:26px;height:1px;background:var(--lime)}
+.qm-tracking-heading h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.12;letter-spacing:-.01em;color:var(--text);margin-bottom:10px}
+.qm-tracking-heading h2 em{font-style:italic;color:var(--lime)}
+.qm-tracking-heading p{color:var(--mut);font-size:.95rem;line-height:1.7;max-width:640px}
+</style>
 
 <script src="theme.js"></script>
 
@@ -27,6 +136,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Cyber Oversight","url":"https://cyber.oversight.ee","logo":"https://cyber.oversight.ee/logo-full.png","description":"Maritime cybersecurity: OSINT fleet exposure audits, edge hardware, 24/7 SOC. Tallinn HQ, Al Khobar desk.","contactPoint":[{"@type":"ContactPoint","email":"contact@oversight.ee","contactType":"sales"}]}
 </script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
 
@@ -101,19 +211,104 @@
   </div>
   <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
 </div>
-    <section class="hero hero-night">
-  <img class="hero-photo" src="helm.jpg" alt="Ship's wheel on the bridge" width="1800" height="1200" fetchpriority="high">
-  <div class="grade" aria-hidden="true"></div>
-  <div class="leak" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="wrap night-copy">
-    <p class="night-meta">LIVE AIS BEACON · TALLINN · 59.43N 24.75E</p>
-    <h1 class="night-title">Your bridge is <em>broadcasting.</em></h1>
-    <p class="night-sub">We can hear it. So can they.</p>
-    <div class="cta-row night-cta">
-      <a href="shipcrawler.html" class="btn primary magnetic">Scan 3 Vessels Free →</a>
+<section class="hero sonar-compact-hero" id="home-hero" data-active-depth="0">
+  <div class="sonar-bg-glow" aria-hidden="true"></div>
+  <div class="wrap sonar-grid">
+    <div class="sonar-copy">
+      <div class="coord"><b>MARITIME CYBERSECURITY</b><span>LIVE TELEMETRY DIVE · 4 NETWORK TIERS</span></div>
+      <h1>How deep does the <em>exposure go?</em></h1>
+      <p class="sub">Every commercial vessel carries 4 distinct network layers. Select a tier or let the sonar sweep inspect what attackers find in under 24 hours.</p>
+      
+      <div class="depth-selector-wrap">
+        <div class="depth-selector-label">
+          <span>Active Layer Depth</span>
+          <b id="depthMeter">TIER 01 · SURFACE SATELLITE</b>
+        </div>
+        <div class="depth-nav-btns" id="depthNav">
+          <button class="depth-btn active" data-tier="0" type="button">
+            <span class="depth-btn-level">Tier 01</span>
+            <span class="depth-btn-name">Satellite</span>
+          </button>
+          <button class="depth-btn" data-tier="1" type="button">
+            <span class="depth-btn-level">Tier 02</span>
+            <span class="depth-btn-name">VSAT Web</span>
+          </button>
+          <button class="depth-btn" data-tier="2" type="button">
+            <span class="depth-btn-level">Tier 03</span>
+            <span class="depth-btn-name">Bridge OT</span>
+          </button>
+          <button class="depth-btn crit" data-tier="3" type="button">
+            <span class="depth-btn-level">Tier 04</span>
+            <span class="depth-btn-name">Engine SCADA</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="sonar-cta-row">
+        <a href="shipcrawler.html" class="btn primary magnetic">Scan your fleet free</a>
+        <a href="architecture.html" class="btn ghost magnetic">See the M-SOC</a>
+      </div>
+
+      <div class="sonar-proof">
+        <span><b>47</b> vessels audited</span>
+        <i></i>
+        <span><b>73%</b> critical exposure</span>
+        <i></i>
+        <span><b>0-agent</b> scan</span>
+      </div>
     </div>
-    <p class="night-note">The lime light you see is the one that should not be on.</p>
+
+    <div class="sonar-console" aria-label="M-SOC Live Sonar Scanner">
+      <div class="console-corner tl"></div><div class="console-corner tr"></div>
+      <div class="console-corner bl"></div><div class="console-corner br"></div>
+
+      <div class="sonar-console-header">
+        <div class="sonar-live-indicator">
+          <span class="sonar-live-dot"></span>
+          <b>M-SOC SONAR SCANNER</b>
+        </div>
+        <div style="font-family:var(--mono); color:var(--text)" id="sonarFrequency">1525.0 MHz · L-BAND</div>
+      </div>
+
+      <div class="sonar-stage">
+        <div class="sonar-scope">
+          <div class="depth-circle c1"></div>
+          <div class="depth-circle c2"></div>
+          <div class="depth-circle c3"></div>
+          <div class="depth-circle c4"></div>
+
+          <div class="sonar-beam" id="sonarBeam"></div>
+          <div class="sonar-ping-wave" id="sonarPing"></div>
+
+          <div class="sonar-center-target" id="sonarCenter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+
+          <div class="target-blip b-tier0 active" id="blip0" title="Satellite Uplink"></div>
+          <div class="target-blip b-tier1" id="blip1" title="VSAT Web GUI"></div>
+          <div class="target-blip b-tier2 crit" id="blip2" title="Bridge OT Network"></div>
+          <div class="target-blip b-tier3 crit" id="blip3" title="Engine SCADA PLC"></div>
+
+          <span class="sonar-range-label">100 NM</span>
+        </div>
+      </div>
+
+      <div class="sonar-card-details" id="telemetryCard">
+        <div class="card-layer-badge">
+          <span class="card-layer-num" id="cardLayerNum">LAYER 01 · SATELLITE LINK</span>
+          <span class="card-severity severity-safe" id="cardSeverity">EXPOSURE DETECTED</span>
+        </div>
+        <div class="card-title" id="cardTitle">Inmarsat Terminal Publicly Reachable</div>
+        <div class="card-desc" id="cardDesc">The satellite IP address is indexed on open OSINT databases. Terminal headers confirm active vessel communications.</div>
+        <div class="card-chips" id="cardChips">
+          <span class="chip-item highlight">INMARSAT ASN</span>
+          <span class="chip-item">PUBLIC IP</span>
+          <span class="chip-item danger">INDEXED IN SHODAN</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -122,79 +317,197 @@
   <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
 </div></div>
 
-<!-- ═══ WHAT WE DO · attack path ═══ -->
+<!-- ═══ 2. WHAT IT IS · 3-COLUMN CARDS ═══ -->
 <section class="sec"><div class="wrap">
-  <div class="sec-head reveal"><div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · What we do</div><h2>Keep the bridge <em>yours.</em></h2><p>This is the path an attacker takes to reach your fleet, and the six points where we close it. Follow the line from left to right: every step we take is a step they can't.</p></div>
-
-  <!-- the path -->
-  <div class="path">
-    <div class="path-line">
-      <svg viewBox="0 0 1100 4" preserveAspectRatio="none">
-        <path id="p" d="M0 2 H1100"/>
-        <circle class="traveler" r="3.5" style="offset-path:path('M0 2 H1100')"/>
-      </svg>
-    </div>
-    <div class="path-grid">
-      <div class="step reveal"><div class="dot"><span>01</span></div><div class="t">Recon</div><h3>See exposure first</h3><p>Passive OSINT sweeps of Shodan and satellite ASN ranges.</p><span class="tag">Zero agent</span></div>
-      <div class="step reveal d1"><div class="dot"><span>02</span></div><div class="t">Edge</div><h3>Harden the bridge</h3><p>Haris nodes in the bridge rack, 30 days of offline buffer.</p><span class="tag">256 kbps</span></div>
-      <div class="step reveal d2"><div class="dot"><span>03</span></div><div class="t">Watch</div><h3>Monitor 24/7</h3><p>SOC tracking spoofing and bridge anomalies in real time.</p><span class="tag">Threat hunting</span></div>
-      <div class="step reveal"><div class="dot"><span>04</span></div><div class="t">Evidence</div><h3>Prove at port call</h3><p>Forensic logs structured for E26/E27 and MSC.428(98).</p><span class="tag">Auto reporting</span></div>
-      <div class="step reveal d1"><div class="dot"><span>05</span></div><div class="t">People</div><h3>Train the crew</h3><p>Pocket drills and playbooks, offline, in their language.</p><span class="tag">Crew app</span></div>
-      <div class="step reveal d2"><div class="dot"><span>06</span></div><div class="t">Loop</div><h3>Six products, one loop</h3><p>Each works standalone; together they close the loop.</p><span class="tag">Scan → audit</span></div>
-    </div>
-    <div class="axis">
-      <div class="a">Their <em>view</em></div>
-      <div class="a"></div><div class="a"></div><div class="a"></div><div class="a"></div>
-      <div class="a">Your <em>defense</em></div>
-    </div>
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · What it is</div>
+    <h2>Maritime security, <em>engineered for the bridge.</em></h2>
+    <p>Three core capabilities built specifically for how commercial vessels operate: low bandwidth, intermittent satellite uplinks, and strict safety requirements.</p>
   </div>
-
-  <div class="metrics">
-    <!-- Metric 01 -->
-    <div class="met reveal">
-      <div class="met-tag"><i></i><span>OSINT Findings</span></div>
+  <div class="qm-grid-3">
+    <div class="qm-card reveal" data-tilt data-spot>
       <div>
-        <div class="num" data-count="73" data-suffix="%">0%</div>
-        <div class="lbl">Exposed Vessels</div>
+        <div class="qm-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <h3>OSINT Exposure Scan</h3>
+        <p>Passive sweeps across Shodan, Censys, and satellite ASN blocks to reveal exposed terminals and open ports before attackers find them.</p>
       </div>
-      <div class="desc">Had unauthenticated management terminals visible online on satellite IP ranges.</div>
+      <span class="qm-chip">Zero Agent · 24h Report</span>
     </div>
-
-    <!-- Metric 02 -->
-    <div class="met reveal d1">
-      <div class="met-tag"><i></i><span>Continuous SOC</span></div>
+    <div class="qm-card reveal d1" data-tilt data-spot>
       <div>
-        <div class="num" data-count="24" data-suffix="/7">0/7</div>
-        <div class="lbl">Analyst Watch</div>
+        <div class="qm-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <h3>Haris Edge Node</h3>
+        <p>Ruggedized solid-state hardware for the bridge rack. Ingests NMEA 0183/2000 and Signal K with 30 days of offline telemetry buffer.</p>
       </div>
-      <div class="desc">Tallinn HQ + Al Khobar command desk delivering 24/7 coverage for global and GCC fleets.</div>
+      <span class="qm-chip">NMEA 2000 · 30-Day Buffer</span>
     </div>
-
-    <!-- Metric 03 -->
-    <div class="met reveal d2">
-      <div class="met-tag"><i></i><span>Compliance Core</span></div>
+    <div class="qm-card reveal d2" data-tilt data-spot>
       <div>
-        <div class="num" data-text="E26">E26</div>
-        <div class="lbl">Audit Ready</div>
+        <div class="qm-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+        </div>
+        <h3>M-SOC 24/7</h3>
+        <p>Continuous analyst watch from Tallinn HQ and Al Khobar desk, tracking GPS spoofing, satellite link takeover attempts, and OT command anomalies.</p>
       </div>
-      <div class="desc">Deterministic telemetry built for IACS UR E26 and Port State Control inspections.</div>
-    </div>
-
-    <!-- Metric 04 -->
-    <div class="met reveal d3">
-      <div class="met-tag"><i></i><span>Proven Research</span></div>
-      <div>
-        <div class="num" data-count="2022">0</div>
-        <div class="lbl">Operating Since</div>
-      </div>
-      <div class="desc">Methodology peer-reviewed in IEEE Access 2026 and deployed across commercial maritime.</div>
+      <span class="qm-chip">Tallinn · Al Khobar</span>
     </div>
   </div>
 </div></section>
 
-<!-- ═══ PRODUCTS ═══ -->
+<!-- ═══ 3. BY THE NUMBERS · 4 KEY METRICS ═══ -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="metrics">
+    <div class="met reveal">
+      <div class="met-tag"><i></i><span>Audited Fleets</span></div>
+      <div>
+        <div class="num" data-count="47" data-suffix="+">0+</div>
+        <div class="lbl">Vessels Scanned</div>
+      </div>
+      <div class="desc">Commercial vessels scanned across global satellite ASN blocks with findings reported.</div>
+    </div>
+    <div class="met reveal d1">
+      <div class="met-tag"><i></i><span>Audited Exposure</span></div>
+      <div>
+        <div class="num" data-count="73" data-suffix="%">0%</div>
+        <div class="lbl">Exposure Rate</div>
+      </div>
+      <div class="desc">Audited vessels with unauthenticated management interfaces reachable from the internet.</div>
+    </div>
+    <div class="met reveal d2">
+      <div class="met-tag"><i></i><span>Port State Control</span></div>
+      <div>
+        <div class="num" data-text="E26">E26</div>
+        <div class="lbl">Compliance Ready</div>
+      </div>
+      <div class="desc">Deterministic telemetry structured for IACS UR E26/E27 and IMO MSC.428(98).</div>
+    </div>
+    <div class="met reveal d3">
+      <div class="met-tag"><i></i><span>Peer-Reviewed</span></div>
+      <div>
+        <div class="num" data-count="2022">0</div>
+        <div class="lbl">Operating Since</div>
+      </div>
+      <div class="desc">Tallinn command center and research methodology published in IEEE Access 2026.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 4. LIVE THREAT FEED · SCROLLING LOG ═══ -->
 <section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
-  <div class="sec-head reveal"><div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · The stack</div><h2>Everything a fleet needs, <em>without the bloat.</em></h2><p>Six products that cover the maritime stack end to end. Each one works standalone; together they close the loop.</p></div>
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · Live threat feed</div>
+    <h2>Real-time telemetry, <em>continuous watch.</em></h2>
+    <p>A live view into anomalous bridge signals, satellite terminal exposures, and spoofing attempts detected across monitored commercial routes.</p>
+  </div>
+  <div class="tracking-shell reveal">
+    <div class="tracking-toolbar"><div><span class="tracking-live-dot"></span><b>LIVE FLEET VIEW</b><small>Last sync 14:22:08 UTC</small></div><div class="tracking-actions"><button type="button" class="map-btn active" data-map-layer="dark">Dark chart</button><button type="button" class="map-btn" data-map-layer="labels">Labels</button></div></div>
+    <div class="tracking-grid"><div class="tracking-map-wrap"><div id="fleet-map" class="fleet-map" aria-label="Interactive fleet tracking map"></div><div class="map-scale">100 NM</div><div class="map-coordinates">AIS NETWORK · 6 VESSELS ONLINE</div></div><aside class="vessel-panel"><div class="panel-heading"><span>Monitored vessels</span><b>06 / 06</b></div>
+      <button class="vessel-row active" data-vessel="atlantic"><span class="vessel-status"></span><span><b>VST AMARA</b><small>IMO 9742211 · Crude Oil Tanker</small></span><strong>12.4 kn</strong></button>
+      <button class="vessel-row" data-vessel="redsea"><span class="vessel-status"></span><span><b>VICTORIA</b><small>IMO 9410234 · Crude Oil Tanker</small></span><strong>16.8 kn</strong></button>
+      <button class="vessel-row" data-vessel="gulf"><span class="vessel-status warning"></span><span><b>EVER GIVEN</b><small>IMO 9811000 · Container Ship</small></span><strong>11.2 kn</strong></button>
+      <button class="vessel-row" data-vessel="northsea"><span class="vessel-status"></span><span><b>LNG Northstar</b><small>IMO 9654122 · LNG Carrier</small></span><strong>18.1 kn</strong></button>
+      <div class="vessel-detail"><span class="detail-label">SELECTED VESSEL</span><h3 id="selected-vessel">VST AMARA</h3><div class="detail-stats"><span>Heading <b id="selected-heading">074°</b></span><span>Draft <b>9.7 m</b></span><span>Signal <b class="signal-good">94%</b></span></div><div class="detail-route"><span>ROTTERDAM</span><i></i><span>NORTH SEA</span></div></div>
+    </aside></div>
+  </div>
+  <div class="qm-tracking-heading"><div class="no">Interactive Tracking Section</div><h2>Real-time <em>Tracking</em></h2><p>Access detailed, up-to-the-minute location, heading, and identification data on your fleet and neighboring vessels via our easy-to-use dashboard.</p></div>
+  <div class="threat-feed-card reveal" data-tilt>
+    <div class="threat-feed-header">
+      <div class="threat-feed-title"><i></i> M-SOC Telemetry Feed</div>
+      <div class="threat-feed-live">Live Stream</div>
+    </div>
+    <div class="threat-feed-scroll">
+      <div class="threat-feed-track">
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">14:22 UTC · <b>IMO 9742211</b> · Bulk Carrier · Baltic Sea</div>
+            <div class="threat-desc">Unauthenticated VSAT Web GUI reachable via Inmarsat ASN</div>
+          </div>
+          <span class="badge-severity badge-red">CRITICAL</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">11:05 UTC · <b>IMO 9412034</b> · Container Ship · Red Sea</div>
+            <div class="threat-desc">GPS Timing Desync · 340ns drift signature indicates spoofing attempt</div>
+          </div>
+          <span class="badge-severity badge-amber">WARNING</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">08:41 UTC · <b>IMO 9811000</b> · Product Tanker · Arabian Gulf</div>
+            <div class="threat-desc">Open Telnet management port (Port 23) isolated by Haris edge node</div>
+          </div>
+          <span class="badge-severity badge-lime">RESOLVED</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">04:19 UTC · <b>IMO 9654122</b> · LNG Carrier · North Sea</div>
+            <div class="threat-desc">Outdated Sailor 900 firmware identified with known CVE vulnerability</div>
+          </div>
+          <span class="badge-severity badge-amber">WARNING</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">01:33 UTC · <b>IMO 9388190</b> · General Cargo · Mediterranean</div>
+            <div class="threat-desc">Bridge camera RTSP feed exposed on satellite IP without auth</div>
+          </div>
+          <span class="badge-severity badge-red">CRITICAL</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">YESTERDAY · <b>IMO 9521098</b> · Chemical Tanker · Gulf of Oman</div>
+            <div class="threat-desc">NMEA sentence anomaly detected: autopilot cross-talk blocked</div>
+          </div>
+          <span class="badge-severity badge-lime">RESOLVED</span>
+        </div>
+        <!-- Duplicate for loop -->
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">14:22 UTC · <b>IMO 9742211</b> · Bulk Carrier · Baltic Sea</div>
+            <div class="threat-desc">Unauthenticated VSAT Web GUI reachable via Inmarsat ASN</div>
+          </div>
+          <span class="badge-severity badge-red">CRITICAL</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">11:05 UTC · <b>IMO 9412034</b> · Container Ship · Red Sea</div>
+            <div class="threat-desc">GPS Timing Desync · 340ns drift signature indicates spoofing attempt</div>
+          </div>
+          <span class="badge-severity badge-amber">WARNING</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">08:41 UTC · <b>IMO 9811000</b> · Product Tanker · Arabian Gulf</div>
+            <div class="threat-desc">Open Telnet management port (Port 23) isolated by Haris edge node</div>
+          </div>
+          <span class="badge-severity badge-lime">RESOLVED</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id">04:19 UTC · <b>IMO 9654122</b> · LNG Carrier · North Sea</div>
+            <div class="threat-desc">Outdated Sailor 900 firmware identified with known CVE vulnerability</div>
+          </div>
+          <span class="badge-severity badge-amber">WARNING</span>
+        </div>
+      </div>
+    </div>
+    <div class="threat-feed-cta">
+      <span style="font-family:var(--mono);font-size:.66rem;color:var(--dim)">Continuous telemetry triaged by maritime watch analysts</span>
+      <a href="architecture.html">Monitor your fleet 24/7 →</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 5. PRODUCTS · THE STACK ═══ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 03 · The stack</div>
+    <h2>Everything a fleet needs, <em>without the bloat.</em></h2>
+    <p>Six products that cover the maritime stack end to end. Each one works standalone; together they close the loop.</p>
+  </div>
   <div class="bento">
     <div class="tile med reveal" data-tilt data-spot><div class="tref">Product 01</div><h3>Shipcrawler</h3><p>Vessel OSINT platform with MMSI/IMO lookup, AIS tracking, port-call history, and Shodan scanning, a picture of your fleet from an attacker's seat.</p><span class="chip">Free 3-vessel scan</span></div>
     <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Product 02</div><h3>Haris edge node</h3><p>Ruggedized solid-state hardware for the bridge rack. Collects NMEA 0183/2000 and Signal K, buffers through outages, syncs over any link.</p><span class="chip">NMEA 2000 · 30-day buffer</span></div>
@@ -205,7 +518,7 @@
   </div>
 </div></section>
 
-<!-- ═══ CTA ═══ -->
+<!-- ═══ 6. CTA ═══ -->
 <div class="wrap"><div class="cta reveal">
   <div>
     <h3>Find out what the internet knows about <em>your</em> fleet.</h3>
@@ -214,7 +527,7 @@
   <a href="shipcrawler.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Start Free Scan →</a>
 </div></div>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ═══ 7. FOOTER ═══ -->
 <footer><div class="wrap">
   <div class="foot-grid">
     <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
@@ -223,8 +536,167 @@
     <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
     <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a><a href="tel:+966553629384">+966 55 362 9384</a></div>
   </div>
-  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Cyber Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
 </div></footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="tracking-map.js"></script>
+  <script>
+/* M-SOC Compact Depth Sonar interactive controller */
+(function(){
+  const tiers = [
+    {
+      num: "LAYER 01 · SATELLITE UPLINK",
+      meter: "TIER 01 · SATELLITE UPLINK",
+      freq: "1525.0 MHz · L-BAND",
+      title: "Inmarsat Terminal Publicly Reachable",
+      desc: "The vessel's satellite IP address is publicly indexable across Shodan and Censys. Terminal model and ASN range identifiable in 0.3s.",
+      severity: "EXPOSURE DETECTED",
+      sevClass: "severity-safe",
+      chips: ["INMARSAT ASN", "PUBLIC IP", "INDEXED IN SHODAN"],
+      color: "var(--lime)"
+    },
+    {
+      num: "LAYER 02 · VSAT TERMINAL WEB GUI",
+      meter: "TIER 02 · VSAT MANAGEMENT",
+      freq: "PORT 80 / 23 · TCP",
+      title: "Cobham / Sailor Web GUI Open",
+      desc: "Management console running on standard HTTP port with default administrator credentials. Remote reboot and beam detune exposed.",
+      severity: "HIGH RISK",
+      sevClass: "severity-warn",
+      chips: ["PORT 80 HTTP", "TELNET 23 OPEN", "DEFAULT CREDS", "SNMP PUBLIC"],
+      color: "var(--amber, #ffb800)"
+    },
+    {
+      num: "LAYER 03 · BRIDGE NAVIGATION NETWORK",
+      meter: "TIER 03 · FLAT BRIDGE VLAN",
+      freq: "NMEA 0183 / 2000",
+      title: "ECDIS, AIS & Camera on Flat Network",
+      desc: "No subnet isolation between bridge CCTV and navigational displays. GPS timing stream susceptible to unauthenticated NMEA injection.",
+      severity: "CRITICAL FINDING",
+      sevClass: "severity-crit",
+      chips: ["UNSEGMENTED VLAN", "ECDIS EXPOSED", "RTSP CAMERA OPEN", "NMEA INJECTION"],
+      color: "var(--alert-red, #ff5252)"
+    },
+    {
+      num: "LAYER 04 · ENGINE & OT SCADA",
+      meter: "TIER 04 · PROPULSION & OT",
+      freq: "MODBUS / CAN BUS",
+      title: "Propulsion Controls Reachable from Wi-Fi",
+      desc: "Crew Wi-Fi router bridges directly into industrial PLCs controlling ballast pumps and main engine telemetry. Full vessel takeover risk.",
+      severity: "SEVERE DANGER",
+      sevClass: "severity-crit",
+      chips: ["SCADA NO AUTH", "CREW WI-FI BRIDGE", "PLC CONTROL OPEN", "ZERO ENCRYPTION"],
+      color: "var(--alert-red, #ff3d3d)"
+    }
+  ];
+
+  let currentTier = 0;
+  let autoTimer = null;
+
+  const hero = document.getElementById('home-hero');
+  const buttons = document.querySelectorAll('.depth-btn');
+  const blips = [
+    document.getElementById('blip0'),
+    document.getElementById('blip1'),
+    document.getElementById('blip2'),
+    document.getElementById('blip3')
+  ];
+  const depthMeter = document.getElementById('depthMeter');
+  const sonarFreq = document.getElementById('sonarFrequency');
+  const cardLayerNum = document.getElementById('cardLayerNum');
+  const cardSeverity = document.getElementById('cardSeverity');
+  const cardTitle = document.getElementById('cardTitle');
+  const cardDesc = document.getElementById('cardDesc');
+  const cardChips = document.getElementById('cardChips');
+  const sonarPing = document.getElementById('sonarPing');
+  const sonarCenter = document.getElementById('sonarCenter');
+
+  if (!hero || !buttons.length) return;
+
+  function triggerPing() {
+    if (!sonarPing) return;
+    sonarPing.classList.remove('firing');
+    void sonarPing.offsetWidth;
+    sonarPing.classList.add('firing');
+  }
+
+  function setTier(idx) {
+    currentTier = idx;
+    const data = tiers[idx];
+
+    hero.setAttribute('data-active-depth', idx);
+
+    buttons.forEach((btn, i) => {
+      btn.classList.toggle('active', i === idx);
+    });
+
+    blips.forEach((blip, i) => {
+      if (blip) blip.classList.toggle('active', i === idx);
+    });
+
+    triggerPing();
+
+    if (depthMeter) depthMeter.textContent = data.meter;
+    if (sonarFreq) sonarFreq.textContent = data.freq;
+
+    if (cardLayerNum) {
+      cardLayerNum.textContent = data.num;
+      cardLayerNum.style.color = data.color;
+    }
+    if (cardSeverity) {
+      cardSeverity.textContent = data.severity;
+      cardSeverity.className = `card-severity ${data.sevClass}`;
+    }
+    if (cardTitle) cardTitle.textContent = data.title;
+    if (cardDesc) cardDesc.textContent = data.desc;
+
+    if (cardChips) {
+      cardChips.innerHTML = data.chips.map(c => {
+        const isDanger = c.includes('EXPOSED') || c.includes('DANGER') || c.includes('NO AUTH') || c.includes('ZERO');
+        const isHigh = c.includes('PORT') || c.includes('INMARSAT');
+        return `<span class="chip-item ${isDanger ? 'danger' : isHigh ? 'highlight' : ''}">${c}</span>`;
+      }).join('');
+    }
+
+    if (sonarCenter) {
+      sonarCenter.style.borderColor = data.color;
+      sonarCenter.style.color = data.color;
+    }
+    if (sonarPing) {
+      sonarPing.style.borderColor = data.color;
+    }
+  }
+
+  buttons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      clearInterval(autoTimer);
+      setTier(idx);
+      startAutoCycle();
+    });
+  });
+
+  blips.forEach((blip, idx) => {
+    if (blip) {
+      blip.style.cursor = 'pointer';
+      blip.addEventListener('click', () => {
+        clearInterval(autoTimer);
+        setTier(idx);
+        startAutoCycle();
+      });
+    }
+  });
+
+  function startAutoCycle() {
+    autoTimer = setInterval(() => {
+      currentTier = (currentTier + 1) % tiers.length;
+      setTier(currentTier);
+    }, 4500);
+  }
+
+  setTier(0);
+  startAutoCycle();
+})();
+</script>
 </body>
 </html>
