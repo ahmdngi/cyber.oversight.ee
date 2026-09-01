@@ -73,6 +73,9 @@
   .vessel-panel { padding: 12px !important; }
   .vessel-row { padding: 10px 8px !important; }
   .threat-feed-card { padding: 14px !important; }
+  .vessel-preview-box { max-height: 140px !important; overflow: hidden !important; }
+  .vessel-thumb-preview { max-height: 140px !important; width: 100% !important; object-fit: cover !important; }
+  .vessel-panel { padding: 8px 10px !important; font-size: 0.82rem !important; }
   .threat-meta { font-size: 0.78rem !important; }
 }
 
