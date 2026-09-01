@@ -1,0 +1,94 @@
+/* Cyber Oversight — Mobile Responsive Design System
+   Overrides desktop grid, typography, and interaction for 320px–768px.
+   Applied via <link rel="stylesheet" href="mobile.css"> in index.html
+*/
+
+/* ---- BASE RESET ---- */
+@media (max-width: 1024px) {
+  :root {
+    --mobile-padding: 20px;
+    --mobile-gap: 16px;
+  }
+
+  html { font-size: 15px; -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; }
+}
+
+/* ---- HERO: Sonar Compact ---- */
+@media (max-width: 900px) {
+  .sonar-compact-hero { padding: 72px 0 32px !important; min-height: auto !important; }
+  .sonar-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .sonar-copy { max-width: 100% !important; }
+  .sonar-copy h1 { font-size: clamp(2rem, 8vw, 3rem) !important; line-height: 1.05 !important; letter-spacing: -0.03em !important; }
+  .sonar-copy .sub { font-size: 0.92rem !important; line-height: 1.65 !important; }
+  .sonar-console { min-height: 380px !important; padding: 16px !important; }
+  .sonar-scope { width: 180px !important; height: 180px !important; }
+  .depth-selector-wrap { padding: 6px !important; }
+  .depth-nav-btns { grid-template-columns: repeat(2, 1fr) !important; gap: 4px !important; }
+  .depth-btn { padding: 8px 4px !important; }
+  .depth-btn-name { font-size: 0.7rem !important; }
+  .sonar-cta-row { flex-direction: column !important; gap: 10px !important; }
+  .sonar-proof { flex-wrap: wrap !important; gap: 8px !important; font-size: 0.55rem !important; }
+}
+
+/* ---- NAVIGATION ---- */
+@media (max-width: 900px) {
+  #nav .wrap { padding: 0 16px !important; }
+  #nav .nav-links { display: none !important; }
+  #nav .logo img { height: 30px !important; }
+  #nav .nav-cta { display: none !important; }
+  .mobile-toggle-btn { display: block !important; }
+  .mobile-drawer { font-size: 1.05rem !important; padding-top: 80px !important; }
+  .mobile-drawer a { padding: 14px 20px !important; }
+}
+
+/* ---- TICKER ---- */
+@media (max-width: 900px) {
+  .ticker { font-size: 0.7rem !important; padding: 8px 0 !important; }
+  .ticker .track { animation-duration: 30s !important; }
+}
+
+/* ---- 3-COLUMN CARDS ---- */
+@media (max-width: 900px) {
+  .qm-grid-3 { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .qm-card { padding: 20px !important; }
+  .qm-card h3 { font-size: 1.15rem !important; }
+}
+
+/* ---- METRICS ---- */
+@media (max-width: 900px) {
+  .metrics { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+  .met .num { font-size: 2.2rem !important; }
+  .met .lbl { font-size: 0.75rem !important; }
+  .met .desc { font-size: 0.82rem !important; }
+}
+@media (max-width: 500px) {
+  .metrics { grid-template-columns: 1fr !important; }
+}
+
+/* ---- TRACKING / THREAT FEED ---- */
+@media (max-width: 900px) {
+  .tracking-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .tracking-map-wrap { height: 320px !important; }
+  .vessel-panel { padding: 12px !important; }
+  .vessel-row { padding: 10px 8px !important; }
+  .threat-feed-card { padding: 14px !important; }
+  .threat-meta { font-size: 0.78rem !important; }
+}
+
+/* ---- PRODUCT STACK ---- */
+@media (max-width: 900px) {
+  .qm-grid-3 { gap: 16px !important; }
+}
+
+/* ---- FOOTER / GENERAL ---- */
+@media (max-width: 900px) {
+  .wrap { padding-left: 20px !important; padding-right: 20px !important; }
+  .sec-head h2 { font-size: 1.6rem !important; }
+  .sec-head p { font-size: 0.88rem !important; }
+  img { max-width: 100% !important; height: auto !important; }
+}
+
+/* ---- SCROLLBAR (mobile webkit) ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: rgba(168,213,6,0.3); border-radius: 3px; }
