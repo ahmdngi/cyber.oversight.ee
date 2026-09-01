@@ -170,21 +170,27 @@
         iconAnchor: [12, 12]
       });
 
-      const popupPhoto = v.photo ? `<img src="${v.photo}" alt="${v.name}" class="popup-ship-img" onerror="this.style.display='none'">` : '';
       const marker = L.marker(v.pos, { icon }).addTo(map).bindPopup(
-        `<div class="popup-inner">
-          ${popupPhoto}
-          <div class="popup-meta">
-            <div class="popup-badge ${isWarn ? 'badge-amber' : 'badge-lime'}">${v.threatLevel}</div>
-            <strong>${v.name}</strong><br>
-            <small>${v.imo} · ${v.type}</small>
-            <div class="popup-telemetry-row">
-              <span>SHIELD: <b>${v.shield}</b></span>
-              <span>UPLINK: <b>${v.uplink}</b></span>
-            </div>
-            <span class="popup-status">SOC ENCLAVE · 24/7 ACTIVE</span>
+        `<div class="popup-hud-tag">
+          <div class="hud-tag-top">
+            <strong class="hud-tag-name">${v.name}</strong>
+            <span class="hud-badge ${isWarn ? 'badge-amber' : 'badge-lime'}">${v.threatLevel}</span>
           </div>
-        </div>`
+          <div class="hud-tag-bot">
+            <span>${v.speed}</span>
+            <span class="hud-sep">·</span>
+            <span>${v.heading}</span>
+            <span class="hud-sep">·</span>
+            <span class="hud-shield-tag ${isWarn ? 'warn' : 'safe'}">${isWarn ? 'ISOLATED' : 'SHIELD OK'}</span>
+          </div>
+        </div>`,
+        {
+          autoPan: true,
+          autoPanPaddingTopLeft: [15, 50],
+          autoPanPaddingBottomRight: [15, 20],
+          offset: [0, -8],
+          closeButton: false
+        }
       );
 
       marker.on('click', () => {
@@ -236,7 +242,8 @@
         if(markerEl) markerEl.classList.toggle('selected', key === id);
       });
 
-      map.flyTo(v.pos, 5, { duration: .6 });
+      const latOffset = window.innerWidth < 768 ? 4.8 : 3.0;
+      map.flyTo([v.pos[0] + latOffset, v.pos[1]], 5, { duration: .6 });
       markers[id].openPopup();
     }
 
@@ -430,74 +437,70 @@
       color: var(--void) !important;
     }
 
-    /* Cyber Popup */
+    /* Tactical HUD Popup Tag */
     .leaflet-popup-content-wrapper {
-      border-radius: 12px !important;
-      background: #090f0a !important;
+      border-radius: 8px !important;
+      background: rgba(9,15,10,.94) !important;
       color: var(--text) !important;
       border: 1px solid var(--line) !important;
-      box-shadow: 0 20px 50px rgba(0,0,0,.7) !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,.65) !important;
       overflow: hidden !important;
       padding: 0 !important;
+      backdrop-filter: blur(12px);
     }
     .leaflet-popup-tip {
-      background: #090f0a !important;
+      background: rgba(9,15,10,.94) !important;
     }
     .leaflet-popup-content {
-      font: 12px var(--mono) !important;
-      line-height: 1.55 !important;
+      font: 11px var(--mono) !important;
       color: var(--text) !important;
       margin: 0 !important;
-      width: 250px !important;
+      width: auto !important;
+      min-width: 175px !important;
+      max-width: 230px !important;
     }
-    .popup-ship-img {
-      display: block;
-      width: 100%;
-      height: 110px;
-      object-fit: cover;
-      border-bottom: 1px solid var(--line);
-    }
-    .popup-meta {
-      padding: 12px 14px 14px;
-    }
-    .popup-meta strong {
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .popup-meta small {
-      color: var(--dim);
-      font-size: 10px;
-      letter-spacing: .06em;
-    }
-    .popup-badge {
-      display: inline-block;
-      font: 600 .52rem var(--mono);
-      letter-spacing: .12em;
-      padding: 2px 7px;
-      border-radius: 4px;
-      margin-bottom: 6px;
-    }
-    .badge-lime { background: rgba(168,213,6,.15); color: var(--lime); border: 1px solid var(--lime-dim); }
-    .badge-amber { background: rgba(235,180,50,.18); color: #ebb432; border: 1px solid rgba(235,180,50,.4); }
-    .popup-telemetry-row {
-      margin: 8px 0;
-      padding: 6px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+    .popup-hud-tag {
+      padding: 7px 11px 8px;
       display: flex;
       flex-direction: column;
       gap: 3px;
-      font-size: 10px;
+    }
+    .hud-tag-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .hud-tag-name {
+      font: 600 12px var(--sans);
+      color: var(--text);
+      white-space: nowrap;
+      letter-spacing: .02em;
+    }
+    .hud-badge {
+      display: inline-block;
+      font: 600 .48rem var(--mono);
+      letter-spacing: .08em;
+      padding: 1px 5px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+    .badge-lime { background: rgba(168,213,6,.15); color: var(--lime); border: 1px solid var(--lime-dim); }
+    .badge-amber { background: rgba(235,180,50,.18); color: #ebb432; border: 1px solid rgba(235,180,50,.4); }
+    .hud-tag-bot {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font: .54rem var(--mono);
       color: var(--dim);
     }
-    .popup-telemetry-row b { color: var(--text); }
-    .popup-status {
-      color: var(--lime);
-      font-weight: 500;
-      font-size: 10px;
-      letter-spacing: .08em;
+    .hud-sep { opacity: .4; }
+    .hud-shield-tag {
+      font-weight: 600;
+      letter-spacing: .06em;
     }
+    .hud-shield-tag.safe { color: var(--lime); }
+    .hud-shield-tag.warn { color: #ebb432; }
 
     /* Pins */
     .fleet-pin { background: none !important; border: 0 !important; position: relative; }
@@ -792,10 +795,9 @@
       box-shadow: 0 12px 32px rgba(0,0,0,.15) !important;
     }
     :root[data-theme="light"] .leaflet-popup-tip { background: #ffffff !important; }
-    :root[data-theme="light"] .leaflet-popup-content strong { color: #141713; }
-    :root[data-theme="light"] .popup-telemetry-row { border-color: rgba(20,23,19,.10); }
-    :root[data-theme="light"] .popup-telemetry-row b { color: #141713; }
-    :root[data-theme="light"] .popup-status { color: #5d8200; }
+    :root[data-theme="light"] .hud-tag-name { color: #141713; }
+    :root[data-theme="light"] .hud-tag-bot { color: #6b7066; }
+    :root[data-theme="light"] .hud-shield-tag.safe { color: #5d8200; }
     :root[data-theme="light"] .leaflet-control-zoom a {
       background: #ffffff !important;
       color: #5d8200 !important;
@@ -809,9 +811,41 @@
     @media(max-width:900px){
       .tracking-grid { grid-template-columns: 1fr; }
       .vessel-panel { border-left: 0; border-top: 1px solid var(--line); }
+      .tracking-map-wrap { min-height: 380px; }
+      .tracking-toolbar { align-items: flex-start; gap: 10px; flex-direction: column; }
+      .tracking-toolbar small { display: block; margin: 4px 0 0 16px; }
+    }
+
+    @media(max-width:600px){
       .tracking-map-wrap { min-height: 360px; }
-      .tracking-toolbar { align-items: flex-start; gap: 12px; flex-direction: column; }
-      .tracking-toolbar small { display: block; margin: 5px 0 0 16px; }
+      .map-scale { display: none; }
+      .map-coordinates {
+        left: 10px;
+        right: auto;
+        bottom: 10px;
+        font-size: .46rem;
+        padding: 4px 8px;
+      }
+      .map-hud-tl {
+        top: 8px;
+        left: 8px;
+        font-size: .44rem;
+        padding: 3px 7px;
+      }
+      .leaflet-control-zoom {
+        margin-right: 10px !important;
+        margin-bottom: 10px !important;
+      }
+      .leaflet-popup-content {
+        min-width: 160px !important;
+        max-width: 210px !important;
+      }
+      .hud-tag-name {
+        font-size: 11px;
+      }
+      .hud-tag-bot {
+        font-size: .50rem;
+      }
     }
   `;
   document.head.appendChild(css);
