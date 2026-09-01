@@ -328,17 +328,18 @@ h1 .lime{color:var(--lime)}
 .cta .btn.primary{background:var(--lime);color:var(--void);font-size:1.02rem;padding:18px 36px}
 
 /* footer */
-footer{border-top:1px solid var(--line);padding:70px 0 36px}
-.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
-.foot-grid h4{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
-.foot-grid a{display:block;color:var(--mut);text-decoration:none;font-size:.88rem;margin-bottom:9px;transition:.2s}
+footer{position:relative;z-index:10;background:rgba(5,10,6,.30);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--line);padding:72px 0 36px}
+:root[data-theme="light"] footer{background:rgba(237,242,231,.30);border-top-color:rgba(20,23,19,.10)}
+.foot-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1.3fr;gap:clamp(24px,3.5vw,48px);margin-bottom:56px;align-items:start}
+.foot-grid h4{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;font-weight:500}
+.foot-grid a{display:block;color:var(--mut);text-decoration:none;font-size:.88rem;margin-bottom:10px;transition:color .2s,transform .2s var(--ease-spring)}
 .foot-grid a:hover{color:var(--lime);transform:translateX(3px)}
-.foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--dim);flex-wrap:wrap;gap:10px}
+.foot-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--dim);flex-wrap:wrap;gap:12px}
 
 /* ambient watermark (stepped logo blocks) */
 .monumental-bg-emblem{position:fixed;top:30px;right:-70px;width:680px;height:680px;pointer-events:none;z-index:0;opacity:var(--watermark-opacity);transition:opacity .32s}
 .ambient-aurora-orb{position:fixed;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:620px;background:radial-gradient(ellipse,var(--brand-lime-glow) 0%,transparent 62%);filter:blur(110px);pointer-events:none;z-index:0;opacity:.6;animation:aurora 20s ease-in-out infinite alternate}
-.brand-grid-bg{position:fixed;inset:0;width:100%;height:100%;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;z-index:0;opacity:.22;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,black 0%,transparent 55%);mask-image:radial-gradient(ellipse at 50% 0%,black 0%,transparent 55%)}
+.brand-grid-bg{position:fixed;inset:0;width:100%;height:100%;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;z-index:0;opacity:.30}
 
 /* legacy component aliases used by inner pages */
 .site-wrapper{position:relative;z-index:2;width:100%}
@@ -637,13 +638,11 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
   .theme-toggle-btn{position:fixed !important;bottom:20px !important;right:14px !important;top:auto !important;transform:none !important;width:42px !important;height:42px !important;z-index:1200 !important;box-shadow:0 8px 24px rgba(0,0,0,.45) !important}
   .theme-toggle-btn:hover{transform:none !important}
 
-  /* Footer: 2-Column Responsive Layout (Products & Research side-by-side) */
-  .foot-grid,.footer-grid{display:grid !important;grid-template-columns:repeat(2,1fr) !important;gap:28px 18px !important}
+  /* Footer: Responsive Layout */
+  .foot-grid,.footer-grid{display:grid !important;grid-template-columns:repeat(2,1fr) !important;gap:32px 20px !important}
   .foot-grid > div:first-child,.footer-grid > div:first-child{grid-column:1 / -1 !important}
-  .foot-grid > div:nth-child(2),.footer-grid > div:nth-child(2){grid-column:1 !important}
-  .foot-grid > div:nth-child(3),.footer-grid > div:nth-child(3){grid-column:2 !important}
-  .foot-grid > div:nth-child(4),.footer-grid > div:nth-child(4){grid-column:1 / -1 !important;border-top:1px solid var(--line);padding-top:20px}
-  .foot-bottom{flex-direction:column !important;gap:8px !important;text-align:center !important}
+  .foot-grid > div:last-child,.footer-grid > div:last-child{grid-column:1 / -1 !important;border-top:1px solid var(--line);padding-top:18px}
+  .foot-bottom{flex-direction:column !important;gap:10px !important;text-align:center !important}
 }
 
 @media(max-width:500px){

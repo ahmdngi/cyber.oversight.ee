@@ -65,7 +65,7 @@
 <nav id="nav"><div class="wrap">
   <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
   <div class="nav-links">
-    <a href="capabilities.html" class="active">Capabilities</a><a href="architecture.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Blog</a>
+    <a href="capabilities.html">Capabilities</a><a href="architecture.html">M-SOC</a><a href="shipcrawler.html" class="active">Shipcrawler</a><a href="blog.html">Blog</a>
     <div class="nav-drop">
       <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="drop-menu">
@@ -117,7 +117,7 @@
         <form id="shipcrawlerScanForm" onsubmit="handleScanSubmit(event)" style="display:flex;flex-direction:column;gap:14px">
           <div>
             <label for="scanTargets" class="bl" style="display:block;margin-bottom:6px">Vessel targets (IMO numbers or names)</label>
-            <input type="text" id="scanTargets" placeholder="IMO 9742211, IMO 9412034, M/V Arctic Spirit" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.82rem">
+            <input type="text" id="scanTargets" placeholder="e.g. IMO 0097421, M/V SIMULATED SPIRIT" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.82rem">
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
             <div>

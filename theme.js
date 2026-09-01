@@ -121,7 +121,7 @@
       quickScanInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
           e.preventDefault();
-          const val = encodeURIComponent(quickScanInput.value.trim() || 'IMO 9811000');
+          const val = encodeURIComponent(quickScanInput.value.trim() || 'IMO 0098110');
           window.location.href = `shipcrawler.html?target=${val}`;
         }
       });

@@ -134,7 +134,23 @@
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Cyber Oversight","url":"https://cyber.oversight.ee","logo":"https://cyber.oversight.ee/logo-full.png","description":"Maritime cybersecurity: OSINT fleet exposure audits, edge hardware, 24/7 SOC. Tallinn HQ, Al Khobar desk.","contactPoint":[{"@type":"ContactPoint","email":"contact@oversight.ee","contactType":"sales"}]}
+{"@context":"https://schema.org","@type":"Organization","name":"Cyber Oversight","url":"https://cyber.oversight.ee","logo":"https://cyber.oversight.ee/logo-full.png","description":"Maritime cybersecurity: OSINT fleet exposure audits, edge hardware, 24/7 SOC. Tallinn HQ, Al Khobar desk.","contactPoint":[{"@type":"ContactPoint","email":"contact@oversight.ee","contactType":"sales","availableLanguage":["English","Arabic"]}],"sameAs":["https://www.linkedin.com/company/cyber-oversight","https://twitter.com/cyberoversight"],"address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"foundingDate":"2022","areaServed":["Global","Maritime Industry","Commercial Shipping","Offshore Energy"]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","url":"https://cyber.oversight.ee","name":"Cyber Oversight","description":"Maritime cybersecurity for commercial fleets - OSINT audits, edge hardware, 24/7 M-SOC","publisher":{"@type":"Organization","name":"Cyber Oversight"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://cyber.oversight.ee/shipcrawler?q={search_term_string}"},"query-input":"required name=search_term_string"}}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cyber.oversight.ee/"},{"@type":"ListItem","position":2,"name":"Maritime Cybersecurity","item":"https://cyber.oversight.ee/"}]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is maritime cybersecurity?","acceptedAnswer":{"@type":"Answer","text":"Maritime cybersecurity protects commercial vessels from satellite terminal exposure, bridge OT attacks, GPS spoofing, and VSAT vulnerabilities through OSINT audits, edge monitoring hardware, and 24/7 security operations centers."}},{"@type":"Question","name":"What is the IACS UR E26/E27 requirement?","acceptedAnswer":{"@type":"Answer","text":"IACS Unified Requirements E26 and E27 mandate cyber resilience for ships contracted from 2024, requiring risk assessments, network segmentation, and security monitoring for OT/IT systems onboard commercial vessels."}},{"@type":"Question","name":"How does Shipcrawler work?","acceptedAnswer":{"@type":"Answer","text":"Shipcrawler performs passive OSINT scans across Shodan, Censys, and satellite ASN blocks using MMSI/IMO identifiers to reveal exposed terminals, open ports, and vulnerable firmware without installing agents on vessels."}},{"@type":"Question","name":"What is the Haris Edge Node?","acceptedAnswer":{"@type":"Answer","text":"Haris Edge Node is ruggedized solid-state hardware for bridge racks that ingests NMEA 0183/2000 and Signal K telemetry with 30 days offline buffer, enabling continuous monitoring even during satellite link interruptions."}}]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","serviceType":"Maritime Cybersecurity","name":"Cyber Oversight M-SOC","provider":{"@type":"Organization","name":"Cyber Oversight"},"areaServed":"Global","availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://cyber.oversight.ee/architecture","servicePhone":"+372-xxx-xxxx","serviceLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"}}},"description":"24/7 Maritime Security Operations Center with analyst watch over vessel IT and OT, GPS spoofing detection, threat hunting, and incident response. Tallinn HQ, Al Khobar desk.","offers":[{"@type":"Offer","name":"OSINT Exposure Audit","description":"Passive sweeps across Shodan, Censys, and satellite ASN blocks to reveal exposed terminals and open ports","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Haris Edge Node Deployment","description":"Ruggedized hardware for bridge rack with NMEA 2000 ingestion and 30-day offline telemetry buffer","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"24/7 M-SOC Monitoring","description":"Continuous analyst watch from Tallinn HQ and Al Khobar desk tracking GPS spoofing and OT anomalies","priceCurrency":"EUR","availability":"https://schema.org/InStock"}]}
 </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
@@ -404,90 +420,137 @@
     <p>A live view into anomalous bridge signals, satellite terminal exposures, and spoofing attempts detected across monitored commercial routes.</p>
   </div>
   <div class="tracking-shell reveal">
-    <div class="tracking-toolbar"><div><span class="tracking-live-dot"></span><b>LIVE FLEET VIEW</b><small>Last sync 14:22:08 UTC</small></div><div class="tracking-actions"><button type="button" class="map-btn active" data-map-layer="dark">Dark chart</button><button type="button" class="map-btn" data-map-layer="labels">Labels</button></div></div>
-    <div class="tracking-grid"><div class="tracking-map-wrap"><div id="fleet-map" class="fleet-map" aria-label="Interactive fleet tracking map"></div><div class="map-scale">100 NM</div><div class="map-coordinates">AIS NETWORK · 6 VESSELS ONLINE</div></div><aside class="vessel-panel"><div class="panel-heading"><span>Monitored vessels</span><b>06 / 06</b></div>
-      <button class="vessel-row active" data-vessel="atlantic"><span class="vessel-status"></span><span><b>VST AMARA</b><small>IMO 9742211 · Crude Oil Tanker</small></span><strong>12.4 kn</strong></button>
-      <button class="vessel-row" data-vessel="redsea"><span class="vessel-status"></span><span><b>VICTORIA</b><small>IMO 9410234 · Crude Oil Tanker</small></span><strong>16.8 kn</strong></button>
-      <button class="vessel-row" data-vessel="gulf"><span class="vessel-status warning"></span><span><b>EVER GIVEN</b><small>IMO 9811000 · Container Ship</small></span><strong>11.2 kn</strong></button>
-      <button class="vessel-row" data-vessel="northsea"><span class="vessel-status"></span><span><b>LNG Northstar</b><small>IMO 9654122 · LNG Carrier</small></span><strong>18.1 kn</strong></button>
-      <div class="vessel-detail"><span class="detail-label">SELECTED VESSEL</span><h3 id="selected-vessel">VST AMARA</h3><div class="detail-stats"><span>Heading <b id="selected-heading">074°</b></span><span>Draft <b>9.7 m</b></span><span>Signal <b class="signal-good">94%</b></span></div><div class="detail-route"><span>ROTTERDAM</span><i></i><span>NORTH SEA</span></div></div>
-    </aside></div>
+    <div class="tracking-toolbar">
+      <div><span class="tracking-live-dot"></span><b>M-SOC FLEET DEFENSE VIEW</b><small>Continuous Satellite &amp; Bridge Watch</small></div>
+      <div class="tracking-actions"><button type="button" class="map-btn active" data-map-layer="dark">Tactical Dark</button><button type="button" class="map-btn" data-map-layer="sat">Satellite</button></div>
+    </div>
+    <div class="tracking-grid">
+      <div class="tracking-map-wrap">
+        <div class="map-hud-tl"><i></i> <span>DEFENSE SHIELD: ARMED · 4 VESSELS</span></div>
+        <div class="map-hud-scanline" aria-hidden="true"></div>
+        <div id="fleet-map" class="fleet-map" aria-label="Interactive fleet tracking map"></div>
+        <div class="map-scale">100 NM · RADAR AIS</div>
+        <div class="map-coordinates">TALLINN HQ · AL KHOBAR DESK</div>
+      </div>
+      <aside class="vessel-panel">
+        <div class="panel-heading"><span>Monitored fleet</span><b>04 / 04 ACTIVE</b></div>
+        <button class="vessel-row active" data-vessel="atlantic"><span class="vessel-status"></span><span><b>M/V DEMO BALTIC</b><small>IMO 0097421 · Bulk Carrier · DEMO</small></span><strong>12.4 kn</strong></button>
+        <button class="vessel-row" data-vessel="redsea"><span class="vessel-status"></span><span><b>M/V SIM RED SEA</b><small>IMO 0094102 · Crude Oil Tanker · DEMO</small></span><strong>16.8 kn</strong></button>
+        <button class="vessel-row" data-vessel="gulf"><span class="vessel-status warning"></span><span><b>M/V TEST GULF</b><small>IMO 0098110 · Container Ship · DEMO</small></span><strong>11.2 kn</strong></button>
+        <button class="vessel-row" data-vessel="northsea"><span class="vessel-status warning"></span><span><b>M/V LAB NORTHSTAR</b><small>IMO 0096541 · LNG Carrier · DEMO</small></span><strong>18.1 kn</strong></button>
+        
+        <div class="vessel-detail">
+          <div class="detail-label-row">
+            <span class="detail-label">CYBER DEFENSE STATUS</span>
+            <span class="cyber-badge safe" id="selected-shield">NOMINAL · 0 EXPOSURE</span>
+          </div>
+          <h3 id="selected-vessel">M/V DEMO BALTIC</h3>
+          <div class="vessel-preview-box">
+            <img id="selected-photo" src="vessel-bulk.jpg" alt="M/V DEMO BALTIC" class="vessel-thumb-preview">
+          </div>
+          
+          <div class="cyber-spec-grid">
+            <div class="cyber-spec-item">
+              <span>Edge Hardware</span>
+              <b id="selected-edge">Haris Node v2.4 (Active)</b>
+            </div>
+            <div class="cyber-spec-item">
+              <span>GPS Timing Drift</span>
+              <b id="selected-gps">0.0 ns (Verified)</b>
+            </div>
+            <div class="cyber-spec-item full">
+              <span>Satellite Link</span>
+              <b id="selected-uplink">Inmarsat L-Band · Enclave OK</b>
+            </div>
+            <div class="cyber-spec-item">
+              <span>Heading</span>
+              <b id="selected-heading">074°</b>
+            </div>
+            <div class="cyber-spec-item">
+              <span>Draft</span>
+              <b id="selected-draft">9.7 m</b>
+            </div>
+          </div>
+
+          <div class="detail-route"><span>ROTTERDAM</span><i></i><span>NORTH SEA</span></div>
+        </div>
+      </aside>
+    </div>
   </div>
-  <div class="qm-tracking-heading"><div class="no">Interactive Tracking Section</div><h2>Real-time <em>Tracking</em></h2><p>Access detailed, up-to-the-minute location, heading, and identification data on your fleet and neighboring vessels via our easy-to-use dashboard.</p></div>
-  <div class="threat-feed-card reveal" data-tilt>
+  <div class="threat-feed-card reveal" data-tilt style="margin-top:28px">
     <div class="threat-feed-header">
-      <div class="threat-feed-title"><i></i> M-SOC Telemetry Feed</div>
+      <div class="threat-feed-title"><i></i> M-SOC Telemetry Feed (Simulated Log)</div>
       <div class="threat-feed-live">Live Stream</div>
     </div>
     <div class="threat-feed-scroll">
       <div class="threat-feed-track">
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">14:22 UTC · <b>IMO 9742211</b> · Bulk Carrier · Baltic Sea</div>
+            <div class="threat-time-id">14:22 UTC · <b>IMO 0097421 (SIMULATED)</b> · Bulk Carrier · Baltic Sea</div>
             <div class="threat-desc">Unauthenticated VSAT Web GUI reachable via Inmarsat ASN</div>
           </div>
           <span class="badge-severity badge-red">CRITICAL</span>
         </div>
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">11:05 UTC · <b>IMO 9412034</b> · Container Ship · Red Sea</div>
+            <div class="threat-time-id">11:05 UTC · <b>IMO 0094120 (SIMULATED)</b> · Container Ship · Red Sea</div>
             <div class="threat-desc">GPS Timing Desync · 340ns drift signature indicates spoofing attempt</div>
           </div>
           <span class="badge-severity badge-amber">WARNING</span>
         </div>
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">08:41 UTC · <b>IMO 9811000</b> · Product Tanker · Arabian Gulf</div>
+            <div class="threat-time-id">08:41 UTC · <b>IMO 0098110 (SIMULATED)</b> · Product Tanker · Arabian Gulf</div>
             <div class="threat-desc">Open Telnet management port (Port 23) isolated by Haris edge node</div>
           </div>
           <span class="badge-severity badge-lime">RESOLVED</span>
         </div>
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">04:19 UTC · <b>IMO 9654122</b> · LNG Carrier · North Sea</div>
+            <div class="threat-time-id">04:19 UTC · <b>IMO 0096541 (SIMULATED)</b> · LNG Carrier · North Sea</div>
             <div class="threat-desc">Outdated Sailor 900 firmware identified with known CVE vulnerability</div>
           </div>
           <span class="badge-severity badge-amber">WARNING</span>
         </div>
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">01:33 UTC · <b>IMO 9388190</b> · General Cargo · Mediterranean</div>
+            <div class="threat-time-id">01:33 UTC · <b>IMO 0093881 (SIMULATED)</b> · General Cargo · Mediterranean</div>
             <div class="threat-desc">Bridge camera RTSP feed exposed on satellite IP without auth</div>
           </div>
           <span class="badge-severity badge-red">CRITICAL</span>
         </div>
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">YESTERDAY · <b>IMO 9521098</b> · Chemical Tanker · Gulf of Oman</div>
+            <div class="threat-time-id">YESTERDAY · <b>IMO 0095210 (SIMULATED)</b> · Chemical Tanker · Gulf of Oman</div>
             <div class="threat-desc">NMEA sentence anomaly detected: autopilot cross-talk blocked</div>
           </div>
           <span class="badge-severity badge-lime">RESOLVED</span>
         </div>
-        <!-- Duplicate for loop -->
+        <!-- Duplicate for continuous loop -->
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">14:22 UTC · <b>IMO 9742211</b> · Bulk Carrier · Baltic Sea</div>
+            <div class="threat-time-id">14:22 UTC · <b>IMO 0097421 (SIMULATED)</b> · Bulk Carrier · Baltic Sea</div>
             <div class="threat-desc">Unauthenticated VSAT Web GUI reachable via Inmarsat ASN</div>
           </div>
           <span class="badge-severity badge-red">CRITICAL</span>
         </div>
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">11:05 UTC · <b>IMO 9412034</b> · Container Ship · Red Sea</div>
+            <div class="threat-time-id">11:05 UTC · <b>IMO 0094120 (SIMULATED)</b> · Container Ship · Red Sea</div>
             <div class="threat-desc">GPS Timing Desync · 340ns drift signature indicates spoofing attempt</div>
           </div>
           <span class="badge-severity badge-amber">WARNING</span>
         </div>
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">08:41 UTC · <b>IMO 9811000</b> · Product Tanker · Arabian Gulf</div>
+            <div class="threat-time-id">08:41 UTC · <b>IMO 0098110 (SIMULATED)</b> · Product Tanker · Arabian Gulf</div>
             <div class="threat-desc">Open Telnet management port (Port 23) isolated by Haris edge node</div>
           </div>
           <span class="badge-severity badge-lime">RESOLVED</span>
         </div>
         <div class="threat-item">
           <div class="threat-meta">
-            <div class="threat-time-id">04:19 UTC · <b>IMO 9654122</b> · LNG Carrier · North Sea</div>
+            <div class="threat-time-id">04:19 UTC · <b>IMO 0096541 (SIMULATED)</b> · LNG Carrier · North Sea</div>
             <div class="threat-desc">Outdated Sailor 900 firmware identified with known CVE vulnerability</div>
           </div>
           <span class="badge-severity badge-amber">WARNING</span>
