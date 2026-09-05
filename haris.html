@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haris · Edge Telemetry Node for the Bridge | Oversight</title>
+<meta name="description" content="Haris edge node: ruggedized solid-state hardware for the bridge rack. NMEA 0183/2000 and Signal K telemetry with 30-day offline buffer.r vessel IT and OT, GPS spoofing detection, threat hunting, and incident response. Tallinn HQ, Al Khobar desk.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="Haris · Edge Telemetry Node for the Bridge | Oversight">
+<meta property="og:description" content="Haris edge node: ruggedized solid-state hardware for the bridge rack. NMEA 0183/2000 and Signal K telemetry with 30-day offline buffer.">
+<meta property="og:url" content="https://www.oversight.ee/haris">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Haris · Edge Telemetry Node for the Bridge | Oversight">
+<meta name="twitter:description" content="Haris edge node: ruggedized solid-state hardware for the bridge rack. NMEA 0183/2000 and Signal K telemetry with 30-day offline buffer.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+  <link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="canonical" href="https://www.oversight.ee/haris">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="mobile.css" media="screen and (max-width: 1024px)">
+<script src="theme.js"></script>
+<script defer src="fx.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Haris Edge Telemetry & Cyber Defense Node",
+  "brand": {
+    "@type": "Brand",
+    "name": "Oversight"
+  },
+  "description": "1U ruggedized bridge rack edge computer. Ingests NMEA 0183/2000 telemetry, detects GPS spoofing & drift, buffers data locally during satellite blackout, and synchronizes securely via encrypted burst transmissions.",
+  "category": "Maritime Hardware / Edge Computing / Cybersecurity",
+  "url": "https://www.oversight.ee/haris"
+}
+</script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+<div class="neural-mesh">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
+      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
+      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
+      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
+      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
+      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
+      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
+      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
+      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
+      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
+      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
+      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
+      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
+    </g>
+  </svg>
+</div>
+
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="haris.html" class="active">Haris</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">Web Development</a>
+        <a href="networking.html">Networking</a>
+        <a href="mobile-app.html">Mobile App Development</a>
+      </div>
+    </div>
+    <a href="contact.html">Contact</a><a href="blog.html">Blog</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta">Free Fleet Scan</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a>
+  <a href="M-SOC.html">M-SOC</a>
+  <a href="shipcrawler.html">Shipcrawler</a>
+  <a href="haris.html" class="active">Haris</a>
+  <div class="drawer-group">
+    <span class="drawer-label">Other Services</span>
+    <a href="web-design.html">Web Development</a>
+    <a href="networking.html">Networking</a>
+    <a href="mobile-app.html">Mobile App Development</a>
+  </div>
+  <a href="contact.html">Contact</a>
+  <a href="blog.html">Blog</a>
+  <a href="free-scan.html" class="drawer-cta">Free Fleet Scan</a>
+</div>
+    <section class="hero hero-evidence">
+  <div class="wrap hero-evidence-grid">
+    <div>
+      <div class="coord"><b>HARIS EDGE NODE</b> Bridge Telemetry · NMEA 0183/2000 · Signal K</div>
+      <h1>
+        <span class="h1-line"><span class="w">The</span> <span class="w">bridge,</span> <span class="w">speaking</span></span>
+        <span class="h1-line"><span class="w">for <em class="lime">itself.</em></span></span>
+      </h1>
+      <p class="sub">Haris is a ruggedized solid-state node for the bridge rack. It ingests NMEA 0183/2000 and Signal K telemetry, buffers 30 days of data through satellite outages, and syncs to shore over any link, with the bandwidth discipline a ship actually needs.</p>
+      <div class="cta-row">
+        <a href="contact.html" class="btn primary magnetic">Deploy Haris →</a>
+        <a href="free-scan.html" class="btn ghost magnetic">Scan 3 Vessels Free</a>
+      </div>
+    </div>
+    <div>
+      <div class="haris-hero-card reveal" data-tilt data-spot>
+        <div class="haris-card-topbar">
+          <div class="haris-unit-tag"><i></i><span>Haris Gen-2 // Edge Node</span></div>
+          <div class="haris-unit-status">19" 1U Bridge Rack</div>
+        </div>
+
+        <!-- Detailed 1U Rack Hardware Faceplate SVG -->
+        <svg class="haris-chassis-svg" viewBox="0 0 460 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris Gen-2 1U ruggedized bridge rack hardware unit">
+          <defs>
+            <filter id="chassis-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <linearGradient id="chassis-face" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1c2c1a"/>
+              <stop offset="25%" stop-color="#121e10"/>
+              <stop offset="70%" stop-color="#0a1209"/>
+              <stop offset="100%" stop-color="#050804"/>
+            </linearGradient>
+            <linearGradient id="bevel-top" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#2a4226"/>
+              <stop offset="50%" stop-color="#3c5e35"/>
+              <stop offset="100%" stop-color="#1b2a18"/>
+            </linearGradient>
+            <linearGradient id="oled-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#030803"/>
+              <stop offset="100%" stop-color="#010301"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Outer 19-inch 1U Faceplate with Rack Ears -->
+          <!-- Left Rack Ear (Mounting Holes) -->
+          <rect x="2" y="10" width="28" height="120" rx="3" fill="#0c150b" stroke="rgba(168,213,6,0.4)" stroke-width="1.2"/>
+          <ellipse cx="16" cy="30" rx="4.5" ry="6.5" fill="#040704" stroke="rgba(168,213,6,0.6)" stroke-width="1"/>
+          <ellipse cx="16" cy="110" rx="4.5" ry="6.5" fill="#040704" stroke="rgba(168,213,6,0.6)" stroke-width="1"/>
+          <line x1="8" y1="70" x2="24" y2="70" stroke="rgba(168,213,6,0.25)" stroke-width="1"/>
+
+          <!-- Right Rack Ear (Mounting Holes) -->
+          <rect x="430" y="10" width="28" height="120" rx="3" fill="#0c150b" stroke="rgba(168,213,6,0.4)" stroke-width="1.2"/>
+          <ellipse cx="444" cy="30" rx="4.5" ry="6.5" fill="#040704" stroke="rgba(168,213,6,0.6)" stroke-width="1"/>
+          <ellipse cx="444" cy="110" rx="4.5" ry="6.5" fill="#040704" stroke="rgba(168,213,6,0.6)" stroke-width="1"/>
+          <line x1="436" y1="70" x2="452" y2="70" stroke="rgba(168,213,6,0.25)" stroke-width="1"/>
+
+          <!-- Main Heavy Extruded Chassis Body -->
+          <rect x="30" y="10" width="400" height="120" rx="4" fill="url(#chassis-face)" stroke="#a8d506" stroke-width="1.4"/>
+          <!-- Top Machined Bevel -->
+          <rect x="30" y="10" width="400" height="5" fill="url(#bevel-top)"/>
+
+          <!-- Cooling Airflow Fin Louvers (Left Side) -->
+          <g stroke="rgba(168,213,6,0.22)" stroke-width="1.2">
+            <line x1="40" y1="26" x2="40" y2="114"/>
+            <line x1="44" y1="26" x2="44" y2="114"/>
+            <line x1="48" y1="26" x2="48" y2="114"/>
+            <line x1="52" y1="26" x2="52" y2="114"/>
+            <line x1="56" y1="26" x2="56" y2="114"/>
+          </g>
+
+          <!-- Status LED Array & Branding Header -->
+          <text x="68" y="32" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#eef3ea" letter-spacing="0.22em">HARIS // EDGE NODE</text>
+          <text x="68" y="44" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="600" fill="#a8d506" letter-spacing="0.12em">BRIDGE TELEMETRY GATEWAY · UR E26</text>
+
+          <!-- Live Indicator LEDs -->
+          <g transform="translate(68, 54)">
+            <!-- PWR -->
+            <circle cx="4" cy="4" r="2.8" fill="#a8d506" filter="url(#chassis-glow)"/>
+            <text x="12" y="7" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="600" fill="#a7b0a3">PWR</text>
+            <!-- N2K -->
+            <circle cx="48" cy="4" r="2.8" fill="#d8ff36" filter="url(#chassis-glow)"/>
+            <text x="56" y="7" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="600" fill="#a7b0a3">N2K</text>
+            <!-- BUFF -->
+            <circle cx="92" cy="4" r="2.8" fill="#a8d506" filter="url(#chassis-glow)"/>
+            <text x="100" y="7" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="600" fill="#a7b0a3">BUFF</text>
+            <!-- SYNC -->
+            <circle cx="140" cy="4" r="2.8" fill="#ffffff" filter="url(#chassis-glow)"/>
+            <text x="148" y="7" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="600" fill="#a7b0a3">SYNC</text>
+          </g>
+
+          <!-- Ports Section: NMEA 2000 M12 Connector + RS-422 Terminal Block -->
+          <g transform="translate(68, 72)">
+            <!-- M12 Circular Connector (N2K) -->
+            <circle cx="16" cy="24" r="16" fill="#080e07" stroke="#a8d506" stroke-width="1.3"/>
+            <circle cx="16" cy="24" r="12" fill="#132012" stroke="rgba(168,213,6,0.5)" stroke-width="0.8"/>
+            <circle cx="16" cy="18" r="1.8" fill="#d8ff36"/>
+            <circle cx="22" cy="22" r="1.8" fill="#d8ff36"/>
+            <circle cx="20" cy="28" r="1.8" fill="#d8ff36"/>
+            <circle cx="12" cy="28" r="1.8" fill="#d8ff36"/>
+            <circle cx="10" cy="22" r="1.8" fill="#d8ff36"/>
+            <text x="16" y="47" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a8d506" text-anchor="middle">M12 N2K</text>
+
+            <!-- RS-422 Screw Terminal Block (NMEA 0183) -->
+            <rect x="42" y="10" width="56" height="28" rx="2" fill="#070c06" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+            <rect x="46" y="14" width="8" height="12" rx="1" fill="#152613" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="50" cy="20" r="1.8" fill="#ffffff"/>
+            <rect x="58" y="14" width="8" height="12" rx="1" fill="#152613" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="62" cy="20" r="1.8" fill="#ffffff"/>
+            <rect x="70" y="14" width="8" height="12" rx="1" fill="#152613" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="74" cy="20" r="1.8" fill="#ffffff"/>
+            <rect x="82" y="14" width="8" height="12" rx="1" fill="#152613" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="86" cy="20" r="1.8" fill="#ffffff"/>
+            <text x="70" y="47" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a8d506" text-anchor="middle">NMEA 0183 RS-422</text>
+
+            <!-- Dual Gigabit Ethernet (OT & SATCOM) -->
+            <rect x="110" y="10" width="28" height="28" rx="2" fill="#070c06" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+            <rect x="115" y="17" width="18" height="16" fill="#132012" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="116" cy="13" r="1.3" fill="#a8d506"/>
+            <circle cx="132" cy="13" r="1.3" fill="#ebb432"/>
+            <text x="124" y="47" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a8d506" text-anchor="middle">ETH 0 (OT)</text>
+
+            <rect x="144" y="10" width="28" height="28" rx="2" fill="#070c06" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+            <rect x="149" y="17" width="18" height="16" fill="#132012" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="150" cy="13" r="1.3" fill="#a8d506"/>
+            <circle cx="166" cy="13" r="1.3" fill="#d8ff36"/>
+            <text x="158" y="47" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a8d506" text-anchor="middle">ETH 1 (SAT)</text>
+          </g>
+
+          <!-- Center-Right: High-Contrast OLED Telemetry Screen -->
+          <g transform="translate(254, 24)">
+            <!-- Glass Frame -->
+            <rect x="0" y="0" width="158" height="92" rx="5" fill="url(#oled-bg)" stroke="#a8d506" stroke-width="1.4" filter="url(#chassis-glow)"/>
+            <rect x="3" y="3" width="152" height="86" rx="3" fill="#030703"/>
+
+            <!-- HUD Scanlines & Grid -->
+            <line x1="6" y1="18" x2="152" y2="18" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+            <circle cx="12" cy="11" r="1.8" fill="#a8d506"/>
+            <text x="18" y="13" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506" letter-spacing="0.1em">LIVE STREAM // BUS LOCKED</text>
+            <text x="146" y="13" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#eef3ea" text-anchor="end">24V DC</text>
+
+            <!-- Diagnostic Lines -->
+            <text x="10" y="30" font-family="'JetBrains Mono', monospace" font-size="5.8" fill="#eef3ea">NMEA 0183 <tspan fill="#a8d506">4,800 BPS [OK]</tspan></text>
+            <text x="10" y="42" font-family="'JetBrains Mono', monospace" font-size="5.8" fill="#eef3ea">N2K CAN <tspan fill="#a8d506">250 KBPS · 14 DEV</tspan></text>
+            <text x="10" y="54" font-family="'JetBrains Mono', monospace" font-size="5.8" fill="#eef3ea">BUFFER <tspan fill="#d8ff36">30-DAY FLASH [SYNCED]</tspan></text>
+            <text x="10" y="66" font-family="'JetBrains Mono', monospace" font-size="5.8" fill="#eef3ea">LINK DRAIN <tspan fill="#a8d506">~0 KB/S [BURST DELTA]</tspan></text>
+
+            <!-- Waveform Oscilloscope Track -->
+            <g stroke="#a8d506" stroke-width="1.1" fill="none">
+              <path d="M 10 78 L 30 78 L 36 72 L 42 84 L 48 78 L 70 78 L 76 70 L 82 86 L 88 78 L 120 78 L 126 73 L 132 83 L 148 78"/>
+            </g>
+          </g>
+
+          <!-- Right Edge Fastener Screws -->
+          <circle cx="420" cy="24" r="2.2" fill="#142013" stroke="rgba(168,213,6,0.4)" stroke-width="0.8"/>
+          <circle cx="420" cy="116" r="2.2" fill="#142013" stroke="rgba(168,213,6,0.4)" stroke-width="0.8"/>
+        </svg>
+
+        <!-- Dynamic Telemetry Readout Strip -->
+        <div class="haris-telemetry-hud">
+          <div class="haris-hud-item">
+            <span class="haris-hud-lbl">Bus Ingest</span>
+            <span class="haris-hud-val">NMEA/N2K <em>LOCKED ●</em></span>
+          </div>
+          <div class="haris-hud-item">
+            <span class="haris-hud-lbl">Offline Buffer</span>
+            <span class="haris-hud-val">30 Days <em>SOLID-STATE ●</em></span>
+          </div>
+          <div class="haris-hud-item">
+            <span class="haris-hud-lbl">Satellite Drain</span>
+            <span class="haris-hud-val">Near Zero <em>COMPRESSED ●</em></span>
+          </div>
+        </div>
+
+        <div class="haris-hero-footer">
+          <p class="haris-hero-note">Fleet-wide remote health, telemetry streaming, and OTA updates managed through <a href="watchtower.html" style="color:var(--lime);text-decoration:underline;text-underline-offset:3px">Watchtower</a>, our edge command pane.</p>
+          <a href="#haris-detail" class="btn primary magnetic" style="white-space:nowrap;flex-shrink:0;justify-content:center;font-size:.9rem;padding:12px 20px">How Haris works →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. WHAT HARIS DOES -->
+<section class="sec" id="haris-detail"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · What the node does</div>
+    <h2>Built for the bridge rack, <em>not the data center.</em></h2>
+    <p>Commercial vessels run on low bandwidth, intermittent satellite links, and strict safety rules. Haris was designed around those three constraints from the first board.</p>
+  </div>
+  <div class="haris-pipe-wrap">
+    <div class="haris-pipe-conduit" aria-hidden="true"></div>
+    <div class="haris-pipe-grid">
+      <!-- STAGE 01: COLLECTS -->
+      <div class="haris-pipe-card reveal" data-tilt data-spot>
+        <div class="haris-pipe-top">
+          <span class="haris-stage-badge">STAGE 01 // INGESTION</span>
+          <div class="haris-pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/><path d="M8 4H4v16h16V4h-4"/></svg>
+          </div>
+        </div>
+
+        <div class="haris-pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris bridge instrument multi-protocol multiplexer">
+            <defs>
+              <filter id="p1-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <!-- Background Instrument Feed Nodes -->
+            <!-- GPS Sensor Node -->
+            <rect x="14" y="16" width="58" height="26" rx="4" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="1"/>
+            <text x="22" y="28" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506">GPS/GNSS</text>
+            <text x="22" y="37" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3">4,800 BPS</text>
+            <circle cx="64" cy="24" r="2" fill="#a8d506" filter="url(#p1-glow)"/>
+
+            <!-- Gyro / Heading Node -->
+            <rect x="14" y="60" width="58" height="26" rx="4" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="1"/>
+            <text x="22" y="72" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506">GYROCOMPASS</text>
+            <text x="22" y="81" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3">N2K CAN</text>
+            <circle cx="64" cy="68" r="2" fill="#d8ff36" filter="url(#p1-glow)"/>
+
+            <!-- AIS / OT Telemetry Node -->
+            <rect x="14" y="104" width="58" height="26" rx="4" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="1"/>
+            <text x="22" y="116" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506">AIS &amp; ENGINES</text>
+            <text x="22" y="125" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3">SIGNAL K</text>
+            <circle cx="64" cy="112" r="2" fill="#a8d506" filter="url(#p1-glow)"/>
+
+            <!-- Connecting Circuit Traces Flowing into Central Multiplexer -->
+            <path d="M 72 29 L 102 29 Q 112 29 116 48 L 126 62" fill="none" stroke="#a8d506" stroke-width="1.3" stroke-dasharray="3 2"/>
+            <path d="M 72 73 L 124 73" fill="none" stroke="#d8ff36" stroke-width="1.3"/>
+            <path d="M 72 117 L 102 117 Q 112 117 116 98 L 126 84" fill="none" stroke="#a8d506" stroke-width="1.3" stroke-dasharray="3 2"/>
+
+            <!-- Dynamic Packet Dots -->
+            <circle cx="94" cy="29" r="2" fill="#ffffff" filter="url(#p1-glow)"/>
+            <circle cx="106" cy="73" r="2.2" fill="#ffffff" filter="url(#p1-glow)"/>
+            <circle cx="94" cy="117" r="2" fill="#ffffff" filter="url(#p1-glow)"/>
+
+            <!-- Central Haris Ingestion Multiplexer SoC -->
+            <rect x="126" y="44" width="76" height="58" rx="6" fill="#0d180c" stroke="#a8d506" stroke-width="1.5" filter="url(#p1-glow)"/>
+            <rect x="131" y="49" width="66" height="48" rx="4" fill="#050a04"/>
+            <!-- IC Pins -->
+            <g stroke="#a8d506" stroke-width="1">
+              <line x1="140" y1="41" x2="140" y2="44"/>
+              <line x1="152" y1="41" x2="152" y2="44"/>
+              <line x1="164" y1="41" x2="164" y2="44"/>
+              <line x1="176" y1="41" x2="176" y2="44"/>
+              <line x1="188" y1="41" x2="188" y2="44"/>
+              <line x1="140" y1="102" x2="140" y2="105"/>
+              <line x1="152" y1="102" x2="152" y2="105"/>
+              <line x1="164" y1="102" x2="164" y2="105"/>
+              <line x1="176" y1="102" x2="176" y2="105"/>
+              <line x1="188" y1="102" x2="188" y2="105"/>
+            </g>
+            <text x="164" y="67" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#eef3ea" text-anchor="middle">HARIS MUX</text>
+            <text x="164" y="78" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="600" fill="#a8d506" text-anchor="middle">ZERO-LOSS INGEST</text>
+            <circle cx="164" cy="87" r="2.2" fill="#a8d506"/>
+
+            <!-- Output Conduit to Buffer Stage -->
+            <path d="M 202 73 L 236 73" stroke="#a8d506" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="230" cy="73" r="3" fill="#d8ff36" filter="url(#p1-glow)"/>
+          </svg>
+        </div>
+
+        <div class="haris-pipe-body">
+          <h3>Collects</h3>
+          <p>Ingests NMEA 0183/2000 and Signal K from the bridge instruments: position, heading, engine telemetry, and the sensors that keep the watch informed.</p>
+        </div>
+
+        <div class="haris-pipe-footer">
+          <span class="haris-pipe-chip">&rarr; NMEA 0183 &middot; N2K &middot; Signal K</span>
+        </div>
+      </div>
+
+      <!-- STAGE 02: BUFFERS -->
+      <div class="haris-pipe-card reveal d1" data-tilt data-spot>
+        <div class="haris-pipe-top">
+          <span class="haris-stage-badge">STAGE 02 // AIR-GAP BUFFER</span>
+          <div class="haris-pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+          </div>
+        </div>
+
+        <div class="haris-pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris 30-day solid state offline buffer vault">
+            <defs>
+              <filter id="p2-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <radialGradient id="ring-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#a8d506" stop-opacity="0.25"/>
+                <stop offset="70%" stop-color="#a8d506" stop-opacity="0.04"/>
+                <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- Ambient Glow -->
+            <circle cx="120" cy="74" r="58" fill="url(#ring-glow)"/>
+
+            <!-- Circular Ring Buffer Storage Partitions (30-Day Solid State) -->
+            <circle cx="120" cy="74" r="52" fill="#070c06" stroke="rgba(168,213,6,0.3)" stroke-width="1.2"/>
+            <!-- 30-Day Sliced Arc Sectors -->
+            <circle cx="120" cy="74" r="45" fill="none" stroke="#a8d506" stroke-width="6" stroke-dasharray="6 3" stroke-linecap="round" opacity="0.85"/>
+            <circle cx="120" cy="74" r="34" fill="#0c160b" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+
+            <!-- Center Cryptographic Integrity Vault Seal -->
+            <circle cx="120" cy="74" r="24" fill="#122010" stroke="#a8d506" stroke-width="1.4" filter="url(#p2-glow)"/>
+            <!-- Lock / Checkmark Symbol -->
+            <path d="M 114 74 L 118 78 L 127 69" fill="none" stroke="#d8ff36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="120" y="87" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="700" fill="#a8d506" text-anchor="middle">30 DAYS</text>
+
+            <!-- Diagnostic Callout Banners -->
+            <g transform="translate(14, 20)">
+              <rect x="0" y="0" width="60" height="20" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.3)" stroke-width="0.9"/>
+              <text x="6" y="13" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#eef3ea">SAT OUTAGE: <tspan fill="#ebb432">0% LOSS</tspan></text>
+            </g>
+
+            <g transform="translate(166, 110)">
+              <rect x="0" y="0" width="62" height="20" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.3)" stroke-width="0.9"/>
+              <text x="6" y="13" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#eef3ea">TAMPER-PROOF <tspan fill="#a8d506">✓</tspan></text>
+            </g>
+
+            <!-- Radial Pointer Rays -->
+            <line x1="74" y1="40" x2="88" y2="52" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+            <line x1="166" y1="110" x2="152" y2="98" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+          </svg>
+        </div>
+
+        <div class="haris-pipe-body">
+          <h3>Buffers</h3>
+          <p>Thirty days of solid-state offline storage. When the satellite link drops, nothing is lost; when it returns, the data catches up seamlessly.</p>
+        </div>
+
+        <div class="haris-pipe-footer">
+          <span class="haris-pipe-chip">&rarr; 30-Day Buffer &middot; Solid State</span>
+        </div>
+      </div>
+
+      <!-- STAGE 03: SYNCS -->
+      <div class="haris-pipe-card reveal d2" data-tilt data-spot>
+        <div class="haris-pipe-top">
+          <span class="haris-stage-badge">STAGE 03 // ADAPTIVE UPLINK</span>
+          <div class="haris-pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          </div>
+        </div>
+
+        <div class="haris-pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris bandwidth-disciplined compressed satellite uplink">
+            <defs>
+              <filter id="p3-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <linearGradient id="beam-cone" x1="50%" y1="100%" x2="50%" y2="0%">
+                <stop offset="0%" stop-color="#a8d506" stop-opacity="0.35"/>
+                <stop offset="60%" stop-color="#a8d506" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Uplink Transmission Beam Radiating into Orbit -->
+            <polygon points="120,105 84,20 156,20" fill="url(#beam-cone)"/>
+            <line x1="120" y1="105" x2="120" y2="18" stroke="#d8ff36" stroke-width="1.6" stroke-dasharray="4 3" filter="url(#p3-glow)"/>
+
+            <!-- Satellite / Shore Receiver in Sky -->
+            <g transform="translate(105, 12)">
+              <rect x="0" y="4" width="30" height="10" rx="2" fill="#0a1409" stroke="#a8d506" stroke-width="1"/>
+              <!-- Solar Panels -->
+              <rect x="-10" y="6" width="8" height="6" fill="#132412" stroke="#a8d506" stroke-width="0.8"/>
+              <rect x="32" y="6" width="8" height="6" fill="#132412" stroke="#a8d506" stroke-width="0.8"/>
+              <circle cx="15" cy="9" r="2" fill="#ffffff" filter="url(#p3-glow)"/>
+            </g>
+
+            <!-- Shipboard Maritime VSAT Radome Base -->
+            <g transform="translate(92, 94)">
+              <!-- Pedestal -->
+              <rect x="14" y="24" width="28" height="14" rx="2" fill="#070c06" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+              <!-- Dome -->
+              <path d="M 4 24 C 4 6 52 6 52 24 Z" fill="#0f1a0e" stroke="#a8d506" stroke-width="1.5"/>
+              <ellipse cx="28" cy="24" rx="24" ry="4" fill="#0a1209" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+              <circle cx="28" cy="14" r="3" fill="#a8d506" filter="url(#p3-glow)"/>
+            </g>
+
+            <!-- Burst Delta-Compression Floating Badges -->
+            <g transform="translate(14, 52)">
+              <rect x="0" y="0" width="62" height="22" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="0.9"/>
+              <text x="6" y="11" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3">BANDWIDTH DRAIN</text>
+              <text x="6" y="18" font-family="'JetBrains Mono', monospace" font-size="6.2" font-weight="700" fill="#a8d506">~0 KB/S DRAIN</text>
+            </g>
+
+            <g transform="translate(164, 52)">
+              <rect x="0" y="0" width="62" height="22" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="0.9"/>
+              <text x="6" y="11" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3">BURST ENGINE</text>
+              <text x="6" y="18" font-family="'JetBrains Mono', monospace" font-size="6.2" font-weight="700" fill="#d8ff36">DELTA-SYNC ✓</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="haris-pipe-body">
+          <h3>Syncs</h3>
+          <p>Compressed telemetry delivered over any link: VSAT, Inmarsat, or 4G in port. Webhook and sync targets on shore, with zero bandwidth drain.</p>
+        </div>
+
+        <div class="haris-pipe-footer">
+          <span class="haris-pipe-chip">&rarr; Webhook &middot; Sync &middot; Compressed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 3. SPEC METRICS -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="metrics">
+    <div class="met reveal">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>Offline Buffer</span></div>
+      <div><div class="num" data-text="30d">30d</div><div class="lbl">Solid-State Storage</div></div>
+      <div class="desc">Telemetry survives satellite outages without loss, then syncs when the link returns.</div>
+    </div>
+    <div class="met reveal d1">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>Bridge Protocols</span></div>
+      <div><div class="num" data-text="N2K">N2K</div><div class="lbl">NMEA 2000 · 0183 · Signal K</div></div>
+      <div class="desc">Native ingestion across the three standards the bridge instruments actually speak.</div>
+    </div>
+    <div class="met reveal d2">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>Bandwidth</span></div>
+      <div><div class="num" data-text="~0">~0</div><div class="lbl">Drain on Satellite Link</div></div>
+      <div class="desc">Compressed transmission engineered for the cost and latency of shipboard connectivity.</div>
+    </div>
+    <div class="met reveal d3">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>Compliance</span></div>
+      <div><div class="num" data-text="E26">E26</div><div class="lbl">IACS UR E26/E27 Ready</div></div>
+      <div class="desc">Deterministic telemetry structured for cyber resilience reporting requirements.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 4. WHERE HARIS FITS / HARIS PROTECTION ARCHITECTURE -->
+<section class="sec sec-arch" id="architecture"><div class="wrap wrap-arch">
+  <div class="hpa-bg-decor" aria-hidden="true">
+    <div class="hpa-glow"></div>
+  </div>
+
+  <div class="hpa-head reveal">
+    <div class="hpa-eyebrow">HARIS PROTECTION ARCHITECTURE</div>
+    <h2 class="hpa-title">One System. <em>Total Oversight.</em></h2>
+    <p class="hpa-subtitle">Four integrated layers working together to secure every Haris node.</p>
+  </div>
+
+  <div class="hpa-stage reveal">
+    <!-- LEFT COLUMN: Layer 01 & Layer 03 -->
+    <div class="hpa-col hpa-col-left">
+      <!-- CARD LAYER 01: WATCHTOWER -->
+      <div class="hpa-card hpa-card-l1" data-tilt data-spot>
+        <div class="hpa-card-body">
+          <span class="hpa-card-layer">LAYER 01</span>
+          <h3 class="hpa-card-title"><a href="watchtower.html" style="color:inherit;text-decoration:none">Watchtower ↗</a></h3>
+          <p class="hpa-card-desc">Fleet-wide device management: firmware, health, and connectivity for every Haris node from one pane of glass.</p>
+          <div class="hpa-card-meta">
+            <a href="watchtower.html" class="hpa-meta-tag" style="text-decoration:none;color:inherit">&rarr; EXPLORE WATCHTOWER</a>
+          </div>
+        </div>
+        <div class="hpa-card-art hpa-art-watchtower">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Watchtower edge command station monitor">
+            <defs>
+              <filter id="wt-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <radialGradient id="wt-stand-base" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#182617"/>
+                <stop offset="65%" stop-color="#0e170d"/>
+                <stop offset="100%" stop-color="#060a05"/>
+              </radialGradient>
+              <linearGradient id="wt-frame-top" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#243621"/>
+                <stop offset="100%" stop-color="#121b10"/>
+              </linearGradient>
+              <linearGradient id="wt-frame-side" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#182516"/>
+                <stop offset="100%" stop-color="#070c06"/>
+              </linearGradient>
+              <linearGradient id="wt-screen-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0c180e"/>
+                <stop offset="50%" stop-color="#071008"/>
+                <stop offset="100%" stop-color="#030704"/>
+              </linearGradient>
+              <linearGradient id="wt-sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
+                <stop offset="40%" stop-color="#ffffff" stop-opacity="0.03"/>
+                <stop offset="80%" stop-color="#ffffff" stop-opacity="0"/>
+              </linearGradient>
+              <radialGradient id="wt-ambience" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#a8d506" stop-opacity="0.22"/>
+                <stop offset="60%" stop-color="#a8d506" stop-opacity="0.04"/>
+                <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- Ambient Glow Behind Monitor -->
+            <ellipse cx="110" cy="100" rx="90" ry="60" fill="url(#wt-ambience)"/>
+
+            <!-- Physical Monitor Base & Stand (Isometric 3D) -->
+            <g class="wt-stand">
+              <ellipse cx="110" cy="188" rx="58" ry="19" fill="rgba(168,213,6,0.06)" filter="url(#wt-glow)"/>
+              <path d="M 52 188 C 52 198, 168 198, 168 188 L 168 193 C 168 203, 52 203, 52 193 Z" fill="#070c06" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+              <ellipse cx="110" cy="188" rx="56" ry="17" fill="url(#wt-stand-base)" stroke="rgba(168,213,6,0.45)" stroke-width="1.2"/>
+              <ellipse cx="110" cy="188" rx="42" ry="12" fill="none" stroke="rgba(168,213,6,0.22)" stroke-width="0.8" stroke-dasharray="3 3"/>
+              <ellipse cx="110" cy="188" rx="22" ry="6" fill="#091208" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+              <!-- Heavy metallic angled neck arm -->
+              <polygon points="103,186 117,186 114,124 106,124" fill="#142013" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+              <rect x="102" y="118" width="16" height="8" rx="2" fill="#1c2c19" stroke="#a8d506" stroke-width="1"/>
+              <circle cx="110" cy="122" r="2" fill="#a8d506"/>
+            </g>
+
+            <!-- Visibly Tilted / Isometric Physical Monitor Chassis -->
+            <g class="wt-monitor">
+              <!-- Top Beveled Thickness -->
+              <polygon points="34,44 172,26 184,18 46,36" fill="url(#wt-frame-top)" stroke="rgba(168,213,6,0.5)" stroke-width="1.1"/>
+              <!-- Right Side Beveled Thickness -->
+              <polygon points="172,26 184,18 184,124 172,132" fill="url(#wt-frame-side)" stroke="rgba(168,213,6,0.4)" stroke-width="1.1"/>
+              <!-- Front Outer Bezel Frame -->
+              <polygon points="34,44 172,26 172,132 34,150" fill="#0e170d" stroke="#a8d506" stroke-width="1.6"/>
+              <!-- Inner Bezel Recessed Shadow -->
+              <polygon points="40,50 166,33 166,126 40,143" fill="#050905" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+
+              <!-- Active Display Screen -->
+              <polygon points="42,52 164,36 164,124 42,140" fill="url(#wt-screen-bg)"/>
+
+              <!-- Coordinate Grid & Radar Mesh -->
+              <g stroke="rgba(168,213,6,0.14)" stroke-width="0.8">
+                <line x1="42" y1="74" x2="164" y2="58"/>
+                <line x1="42" y1="96" x2="164" y2="80"/>
+                <line x1="42" y1="118" x2="164" y2="102"/>
+                <line x1="82" y1="47" x2="82" y2="135"/>
+                <line x1="124" y1="41" x2="124" y2="129"/>
+              </g>
+
+              <!-- Dark-Green World-Map-Like Field -->
+              <g fill="rgba(168,213,6,0.32)" stroke="rgba(168,213,6,0.45)" stroke-width="0.7">
+                <!-- Americas -->
+                <path d="M 52 64 Q 60 62 62 70 Q 56 78 58 88 Q 63 94 60 102 Q 54 94 51 82 Z"/>
+                <!-- Europe & Africa -->
+                <path d="M 88 56 Q 98 54 102 60 Q 98 68 102 78 Q 96 86 92 78 Q 86 70 88 56 Z"/>
+                <path d="M 94 80 Q 106 82 108 94 Q 104 106 96 102 Q 90 92 94 80 Z"/>
+                <!-- Asia & Oceania -->
+                <path d="M 112 52 Q 134 50 148 58 Q 152 70 140 76 Q 128 72 120 64 Z"/>
+                <path d="M 136 84 Q 146 82 148 92 Q 140 96 136 84 Z"/>
+              </g>
+
+              <!-- Route Arcs & Vessel Dots -->
+              <g class="wt-routes">
+                <path d="M 58 74 Q 84 62 100 66 T 142 60" fill="none" stroke="#a8d506" stroke-width="1.3" stroke-dasharray="2 2"/>
+                <path d="M 60 92 Q 90 82 124 84 T 144 88" fill="none" stroke="#c4e832" stroke-width="1.1" stroke-dasharray="3 2"/>
+                <path d="M 98 68 Q 106 84 104 96" fill="none" stroke="rgba(168,213,6,0.5)" stroke-width="0.9"/>
+
+                <circle cx="58" cy="74" r="2.4" fill="#ffffff" filter="url(#wt-glow)"/>
+                <circle cx="100" cy="66" r="2.8" fill="#d8ff36" filter="url(#wt-glow)"/>
+                <circle cx="142" cy="60" r="2.4" fill="#ffffff" filter="url(#wt-glow)"/>
+                <circle cx="60" cy="92" r="2.2" fill="#a8d506"/>
+                <circle cx="124" cy="84" r="2.5" fill="#d8ff36"/>
+                <circle cx="104" cy="96" r="2" fill="#a8d506"/>
+              </g>
+
+              <!-- Top Status HUD -->
+              <g class="wt-hud">
+                <text x="48" y="61" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a8d506" letter-spacing="0.12em">WATCHTOWER // L1 FLEET</text>
+                <circle cx="156" cy="42" r="2" fill="#a8d506" filter="url(#wt-glow)"/>
+              </g>
+
+              <!-- Shield / Check Badge -->
+              <g class="wt-badge" transform="translate(62, 108)">
+                <path d="M 0 5 L 10 0 L 20 5 L 20 14 C 20 20, 10 25, 10 25 C 10 25, 0 20, 0 14 Z" fill="#0a140a" stroke="#a8d506" stroke-width="1.6" filter="url(#wt-glow)"/>
+                <circle cx="10" cy="12" r="6.5" fill="rgba(168,213,6,0.12)"/>
+                <path d="M 6.5 12 L 9 14.5 L 14.5 8.5" fill="none" stroke="#d8ff36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+
+              <!-- Diagonal Glass Sheen -->
+              <polygon points="42,52 98,44 58,138 42,140" fill="url(#wt-sheen)" pointer-events="none"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- CARD LAYER 03: HARIS CREW APP -->
+      <div class="hpa-card hpa-card-l3" data-tilt data-spot>
+        <div class="hpa-card-body">
+          <span class="hpa-card-layer">LAYER 03</span>
+          <h3 class="hpa-card-title">Haris crew app</h3>
+          <p class="hpa-card-desc">Offline, plain-language playbooks on the bridge for isolating a compromised device, working alongside the node.</p>
+          <div class="hpa-card-meta">
+            <span class="hpa-meta-tag">&rarr; CREW &middot; OFFLINE</span>
+          </div>
+          <a href="#crew-app" class="hpa-card-action">SEE THE APP &rarr;</a>
+        </div>
+        <div class="hpa-card-art hpa-art-crewapp">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris crew application on bridge device">
+            <defs>
+              <filter id="ph-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <filter id="ph-drop-shadow" x="-30%" y="-20%" width="160%" height="150%">
+                <feGaussianBlur stdDeviation="9" result="blur"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0"/>
+                <feOffset dx="4" dy="14"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <linearGradient id="ph-side-metal" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#182516"/>
+                <stop offset="40%" stop-color="#2a3d25"/>
+                <stop offset="70%" stop-color="#1a2717"/>
+                <stop offset="100%" stop-color="#080e07"/>
+              </linearGradient>
+              <linearGradient id="ph-sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
+                <stop offset="35%" stop-color="#ffffff" stop-opacity="0.04"/>
+                <stop offset="70%" stop-color="#ffffff" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="ph-border" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="rgba(168,213,6,0.65)"/>
+                <stop offset="50%" stop-color="rgba(45,62,40,0.85)"/>
+                <stop offset="100%" stop-color="rgba(168,213,6,0.35)"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Ambient Floor Pedestal & Reflection -->
+            <ellipse cx="112" cy="198" rx="64" ry="16" fill="rgba(168,213,6,0.07)" filter="url(#ph-glow)"/>
+            <ellipse cx="112" cy="198" rx="46" ry="11" fill="none" stroke="rgba(168,213,6,0.25)" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+            <!-- 3D Visibly Angled Smartphone Chassis -->
+            <g class="ph-3d-group" transform="translate(10, 0)" filter="url(#ph-drop-shadow)">
+              <!-- Right-Side Metallic Thickness (Beveled Edge) -->
+              <path d="M 152 14 C 166 14 176 25 176 38 L 176 172 C 176 185 166 196 152 196 L 144 196 C 158 196 167 185 167 172 L 167 38 C 167 25 158 14 144 14 Z" fill="url(#ph-side-metal)" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+              <!-- Side Buttons -->
+              <rect x="175" y="58" width="2.5" height="14" rx="1" fill="#a8d506" opacity="0.85"/>
+              <rect x="175" y="80" width="2.5" height="16" rx="1" fill="#2d4026"/>
+
+              <!-- Front Glass Face -->
+              <rect x="36" y="14" width="132" height="182" rx="20" fill="#0d150c" stroke="url(#ph-border)" stroke-width="1.8"/>
+              <rect x="41" y="19" width="122" height="172" rx="16" fill="#060a05"/>
+
+              <!-- Top Notch & Speaker -->
+              <rect x="85" y="23" width="34" height="4.5" rx="2.2" fill="#000000"/>
+              <circle cx="113" cy="25.2" r="1.3" fill="#142211"/>
+
+              <!-- Status Bar -->
+              <g class="ph-statusbar">
+                <text x="52" y="33" font-family="'Inter', sans-serif" font-size="6.8" font-weight="600" fill="#eef3ea">10:42</text>
+                <line x1="134" y1="32" x2="134" y2="32" stroke="#eef3ea" stroke-width="1.2"/>
+                <line x1="137" y1="30" x2="137" y2="32" stroke="#eef3ea" stroke-width="1.2"/>
+                <line x1="140" y1="28" x2="140" y2="32" stroke="#eef3ea" stroke-width="1.2"/>
+                <line x1="143" y1="26" x2="143" y2="32" stroke="#eef3ea" stroke-width="1.2"/>
+                <rect x="149" y="26" width="12" height="6.5" rx="1.5" fill="none" stroke="#a7b0a3" stroke-width="0.8"/>
+                <rect x="150.5" y="27.5" width="8" height="3.5" rx="0.8" fill="#a8d506"/>
+              </g>
+
+              <!-- App Header -->
+              <g class="ph-header">
+                <path d="M 54 44 L 50 48 L 54 52" stroke="#a8d506" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="60" y="51" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#eef3ea">Playbook</text>
+                <circle cx="152" cy="48" r="2" fill="none" stroke="rgba(168,213,6,0.6)" stroke-width="1"/>
+              </g>
+
+              <!-- Action Item 1: Isolate Device -->
+              <g class="ph-item" transform="translate(47, 57)">
+                <rect x="0" y="0" width="110" height="21" rx="5" fill="rgba(168,213,6,0.08)" stroke="rgba(168,213,6,0.35)" stroke-width="0.9"/>
+                <polygon points="11,4 16,7 16,14 11,17 6,14 6,7" fill="#ebb432" fill-opacity="0.22" stroke="#ebb432" stroke-width="1"/>
+                <text x="11" y="13" font-family="'Inter', sans-serif" font-size="6.5" font-weight="800" fill="#ebb432" text-anchor="middle">!</text>
+                <text x="22" y="13.5" font-family="'Inter', sans-serif" font-size="7.2" font-weight="600" fill="#eef3ea">Isolate Device</text>
+                <path d="M 100 10.5 L 103 13 L 100 15.5" fill="none" stroke="#a8d506" stroke-width="1" stroke-linecap="round"/>
+              </g>
+
+              <!-- Action Item 2: Check Connections -->
+              <g class="ph-item" transform="translate(47, 82)">
+                <rect x="0" y="0" width="110" height="21" rx="5" fill="#0d140e" stroke="rgba(238,243,234,0.12)" stroke-width="0.9"/>
+                <circle cx="9" cy="10.5" r="3.5" fill="none" stroke="#a8d506" stroke-width="1"/>
+                <circle cx="13" cy="10.5" r="3.5" fill="none" stroke="#a8d506" stroke-width="1"/>
+                <text x="22" y="13.5" font-family="'Inter', sans-serif" font-size="7.2" font-weight="600" fill="#eef3ea">Check Connections</text>
+                <path d="M 100 10.5 L 103 13 L 100 15.5" fill="none" stroke="#a7b0a3" stroke-width="1" stroke-linecap="round"/>
+              </g>
+
+              <!-- Action Item 3: Validate Status -->
+              <g class="ph-item" transform="translate(47, 107)">
+                <rect x="0" y="0" width="110" height="21" rx="5" fill="#0d140e" stroke="rgba(238,243,234,0.12)" stroke-width="0.9"/>
+                <path d="M 7 6 L 11 4 L 15 6 L 15 11 C 15 14 11 16 11 16 C 11 16 7 14 7 11 Z" fill="rgba(168,213,6,0.15)" stroke="#a8d506" stroke-width="0.9"/>
+                <path d="M 9.5 10 L 10.5 11 L 13 8.5" fill="none" stroke="#a8d506" stroke-width="1" stroke-linecap="round"/>
+                <text x="22" y="13.5" font-family="'Inter', sans-serif" font-size="7.2" font-weight="600" fill="#eef3ea">Validate Status</text>
+                <path d="M 100 10.5 L 103 13 L 100 15.5" fill="none" stroke="#a7b0a3" stroke-width="1" stroke-linecap="round"/>
+              </g>
+
+              <!-- Action Item 4: Report Incident -->
+              <g class="ph-item" transform="translate(47, 132)">
+                <rect x="0" y="0" width="110" height="21" rx="5" fill="#0d140e" stroke="rgba(238,243,234,0.12)" stroke-width="0.9"/>
+                <polygon points="11,5 16,15 6,15" fill="rgba(232,140,122,0.18)" stroke="#e88c7a" stroke-width="0.9"/>
+                <text x="11" y="13.5" font-family="'Inter', sans-serif" font-size="5.5" font-weight="800" fill="#e88c7a" text-anchor="middle">!</text>
+                <text x="22" y="13.5" font-family="'Inter', sans-serif" font-size="7.2" font-weight="600" fill="#eef3ea">Report Incident</text>
+                <path d="M 100 10.5 L 103 13 L 100 15.5" fill="none" stroke="#a7b0a3" stroke-width="1" stroke-linecap="round"/>
+              </g>
+
+              <!-- OFFLINE MODE Badge -->
+              <g class="ph-offline-badge" transform="translate(58, 161)">
+                <rect x="0" y="0" width="88" height="17" rx="8.5" fill="rgba(168,213,6,0.14)" stroke="#a8d506" stroke-width="1.1"/>
+                <circle cx="12" cy="8.5" r="2.5" fill="#a8d506" filter="url(#ph-glow)"/>
+                <text x="20" y="11.5" font-family="'JetBrains Mono', monospace" font-size="6.2" font-weight="700" letter-spacing="0.14em" fill="#a8d506">OFFLINE MODE</text>
+              </g>
+
+              <!-- Glass Reflection Sheen -->
+              <path d="M 41 19 L 105 19 L 55 191 L 41 191 Z" fill="url(#ph-sheen)" pointer-events="none"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER COLUMN: 4-TIER ISOMETRIC HARIS STACK WITH PCB TRACES -->
+    <div class="hpa-col hpa-col-center">
+      <div class="hpa-stack-wrapper">
+        <svg class="hpa-stack-svg" viewBox="0 0 460 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris 4-tier isometric protection architecture stack">
+          <defs>
+            <filter id="core-glow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="6" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <filter id="plaque-glow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="4" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <filter id="dot-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+
+            <!-- Slab Top Surface Gradients -->
+            <linearGradient id="tier-top-grad" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stop-color="#192817" stop-opacity="0.95"/>
+              <stop offset="60%" stop-color="#101a0f" stop-opacity="0.92"/>
+              <stop offset="100%" stop-color="#070d06" stop-opacity="0.95"/>
+            </linearGradient>
+            <linearGradient id="tier-t1-top" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stop-color="#22371e" stop-opacity="0.96"/>
+              <stop offset="50%" stop-color="#142212" stop-opacity="0.93"/>
+              <stop offset="100%" stop-color="#091108" stop-opacity="0.96"/>
+            </linearGradient>
+
+            <!-- Volumetric Glass Bevel Thickness Gradients -->
+            <linearGradient id="tier-left-bevel" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#182716"/>
+              <stop offset="50%" stop-color="#0e170d"/>
+              <stop offset="100%" stop-color="#050904"/>
+            </linearGradient>
+            <linearGradient id="tier-right-bevel" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1f321d"/>
+              <stop offset="50%" stop-color="#121e10"/>
+              <stop offset="100%" stop-color="#070c06"/>
+            </linearGradient>
+
+            <!-- Core Light Conduit -->
+            <linearGradient id="core-pillar-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#a8d506" stop-opacity="0"/>
+              <stop offset="15%" stop-color="#c4e832" stop-opacity="0.8"/>
+              <stop offset="50%" stop-color="#a8d506" stop-opacity="0.9"/>
+              <stop offset="85%" stop-color="#c4e832" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="beacon-flare-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#d8ff36" stop-opacity="0.9"/>
+              <stop offset="40%" stop-color="#a8d506" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+            </linearGradient>
+            <radialGradient id="emitter-lens" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="30%" stop-color="#d8ff36"/>
+              <stop offset="70%" stop-color="#a8d506"/>
+              <stop offset="100%" stop-color="#3b5200"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Central Vertical Light Conduit / Energy Pillar -->
+          <g class="stack-core-beam">
+            <rect x="214" y="45" width="32" height="400" fill="url(#core-pillar-grad)" opacity="0.32" filter="url(#core-glow)"/>
+            <line x1="230" y1="35" x2="230" y2="445" stroke="#d8ff36" stroke-width="2" opacity="0.8" stroke-dasharray="7 5"/>
+          </g>
+
+          <!-- PCB Circuit Traces Connecting All 4 Cards to Matching Tiers -->
+          <g class="hpa-traces" stroke="#a8d506" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Trace 1 (Layer 01 upper-left -> Tier 1) -->
+            <path d="M -44 110 L 22 110 Q 42 110 52 118 L 80 118" fill="none" stroke="#a8d506" stroke-width="1.8" stroke-opacity="0.85"/>
+            <circle cx="-40" cy="110" r="3.5" fill="#a8d506" filter="url(#dot-glow)"/>
+            <circle cx="80" cy="118" r="4" fill="#d8ff36" filter="url(#dot-glow)"/>
+            <circle cx="22" cy="110" r="2" fill="#a8d506"/>
+
+            <!-- Trace 2 (Layer 02 upper-right -> Tier 2) -->
+            <path d="M 504 190 L 438 190 Q 418 190 408 198 L 380 198" fill="none" stroke="#a8d506" stroke-width="1.8" stroke-opacity="0.85"/>
+            <circle cx="500" cy="190" r="3.5" fill="#a8d506" filter="url(#dot-glow)"/>
+            <circle cx="380" cy="198" r="4" fill="#d8ff36" filter="url(#dot-glow)"/>
+            <circle cx="438" cy="190" r="2" fill="#a8d506"/>
+
+            <!-- Trace 3 (Layer 03 lower-left -> Tier 3) -->
+            <path d="M -44 270 L 22 270 Q 42 270 52 278 L 80 278" fill="none" stroke="#a8d506" stroke-width="1.8" stroke-opacity="0.85"/>
+            <circle cx="-40" cy="270" r="3.5" fill="#a8d506" filter="url(#dot-glow)"/>
+            <circle cx="80" cy="278" r="4" fill="#d8ff36" filter="url(#dot-glow)"/>
+            <circle cx="22" cy="270" r="2" fill="#a8d506"/>
+
+            <!-- Trace 4 (Layer 04 lower-right -> Tier 4) -->
+            <path d="M 504 350 L 438 350 Q 418 350 408 358 L 380 358" fill="none" stroke="#a8d506" stroke-width="1.8" stroke-opacity="0.85"/>
+            <circle cx="500" cy="350" r="3.5" fill="#a8d506" filter="url(#dot-glow)"/>
+            <circle cx="380" cy="358" r="4" fill="#d8ff36" filter="url(#dot-glow)"/>
+            <circle cx="438" cy="350" r="2" fill="#a8d506"/>
+          </g>
+
+          <!-- Stepped Base Pedestal Beneath Tier 4 -->
+          <g class="stack-base">
+            <ellipse cx="230" cy="424" rx="142" ry="38" fill="#060a05" stroke="rgba(168,213,6,0.2)" stroke-width="1"/>
+            <ellipse cx="230" cy="416" rx="114" ry="30" fill="#080f07" stroke="rgba(168,213,6,0.32)" stroke-width="1.1"/>
+            <ellipse cx="230" cy="408" rx="80" ry="21" fill="#0e170c" stroke="#a8d506" stroke-width="1.3"/>
+            <ellipse cx="230" cy="402" rx="46" ry="12" fill="#142211" stroke="#d8ff36" stroke-width="1.2"/>
+          </g>
+
+          <!-- TIER 4 (cy = 350) - Compliance Slab -->
+          <g class="stack-tier tier-4">
+            <!-- Front-Left Beveled Thickness -->
+            <polygon points="80,350 230,388 230,404 80,366" fill="url(#tier-left-bevel)" stroke="rgba(168,213,6,0.45)" stroke-width="1"/>
+            <!-- Front-Right Beveled Thickness -->
+            <polygon points="230,388 380,350 380,366 230,404" fill="url(#tier-right-bevel)" stroke="rgba(168,213,6,0.45)" stroke-width="1"/>
+            <!-- Top Glass Face -->
+            <polygon points="80,350 230,312 380,350 230,388" fill="url(#tier-top-grad)" stroke="#a8d506" stroke-width="1.5"/>
+            <polygon points="120,350 230,323 340,350 230,377" fill="none" stroke="rgba(168,213,6,0.24)" stroke-width="0.9"/>
+            <ellipse cx="230" cy="350" rx="28" ry="9" fill="none" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+
+            <!-- Tier 4 Front Plaque & L4 Label -->
+            <g class="tier-plaque" transform="translate(216, 374)">
+              <rect x="0" y="0" width="28" height="28" rx="6" fill="#080e07" stroke="#a8d506" stroke-width="1.6" filter="url(#plaque-glow)"/>
+              <!-- Compliance Document Icon -->
+              <path d="M 8 6 L 15 6 L 20 11 L 20 22 L 8 22 Z" fill="none" stroke="#a8d506" stroke-width="1.3" stroke-linejoin="round"/>
+              <polyline points="15,6 15,11 20,11" fill="none" stroke="#a8d506" stroke-width="1.2"/>
+              <line x1="11" y1="14" x2="17" y2="14" stroke="#a8d506" stroke-width="1"/>
+              <line x1="11" y1="17" x2="15" y2="17" stroke="#a8d506" stroke-width="1"/>
+            </g>
+            <g class="tier-label-badge" transform="translate(248, 381)">
+              <rect x="0" y="0" width="18" height="13" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.6)" stroke-width="0.8"/>
+              <text x="9" y="9.5" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#a8d506" text-anchor="middle">L4</text>
+            </g>
+          </g>
+
+          <!-- TIER 3 (cy = 270) - Crew App Slab -->
+          <g class="stack-tier tier-3">
+            <!-- Front-Left Beveled Thickness -->
+            <polygon points="80,270 230,308 230,324 80,286" fill="url(#tier-left-bevel)" stroke="rgba(168,213,6,0.45)" stroke-width="1"/>
+            <!-- Front-Right Beveled Thickness -->
+            <polygon points="230,308 380,270 380,286 230,324" fill="url(#tier-right-bevel)" stroke="rgba(168,213,6,0.45)" stroke-width="1"/>
+            <!-- Top Glass Face -->
+            <polygon points="80,270 230,232 380,270 230,308" fill="url(#tier-top-grad)" stroke="#a8d506" stroke-width="1.5"/>
+            <polygon points="120,270 230,243 340,270 230,297" fill="none" stroke="rgba(168,213,6,0.24)" stroke-width="0.9"/>
+            <ellipse cx="230" cy="270" rx="28" ry="9" fill="none" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+
+            <!-- Tier 3 Front Plaque & L3 Label (Clear 3-person team icon, NO emoticon) -->
+            <g class="tier-plaque" transform="translate(216, 294)">
+              <rect x="0" y="0" width="28" height="28" rx="6" fill="#080e07" stroke="#a8d506" stroke-width="1.6" filter="url(#plaque-glow)"/>
+              <!-- Center Person in Front -->
+              <circle cx="14" cy="9" r="2.6" fill="#d8ff36"/>
+              <path d="M 9.5 21 C 9.5 16.5 11.5 14.5 14 14.5 C 16.5 14.5 18.5 16.5 18.5 21" fill="none" stroke="#d8ff36" stroke-width="1.3"/>
+              <!-- Left Person Behind -->
+              <circle cx="8" cy="11" r="2" fill="rgba(168,213,6,0.7)"/>
+              <path d="M 5 21 C 5 17.5 6.5 16 8 16" fill="none" stroke="rgba(168,213,6,0.7)" stroke-width="1.1"/>
+              <!-- Right Person Behind -->
+              <circle cx="20" cy="11" r="2" fill="rgba(168,213,6,0.7)"/>
+              <path d="M 23 21 C 23 17.5 21.5 16 20 16" fill="none" stroke="rgba(168,213,6,0.7)" stroke-width="1.1"/>
+            </g>
+            <g class="tier-label-badge" transform="translate(248, 301)">
+              <rect x="0" y="0" width="18" height="13" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.6)" stroke-width="0.8"/>
+              <text x="9" y="9.5" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#a8d506" text-anchor="middle">L3</text>
+            </g>
+          </g>
+
+          <!-- TIER 2 (cy = 190) - M-SOC Slab -->
+          <g class="stack-tier tier-2">
+            <!-- Front-Left Beveled Thickness -->
+            <polygon points="80,190 230,228 230,244 80,206" fill="url(#tier-left-bevel)" stroke="rgba(168,213,6,0.45)" stroke-width="1"/>
+            <!-- Front-Right Beveled Thickness -->
+            <polygon points="230,228 380,190 380,206 230,244" fill="url(#tier-right-bevel)" stroke="rgba(168,213,6,0.45)" stroke-width="1"/>
+            <!-- Top Glass Face -->
+            <polygon points="80,190 230,152 380,190 230,228" fill="url(#tier-top-grad)" stroke="#a8d506" stroke-width="1.5"/>
+            <polygon points="120,190 230,163 340,190 230,217" fill="none" stroke="rgba(168,213,6,0.24)" stroke-width="0.9"/>
+            <ellipse cx="230" cy="190" rx="28" ry="9" fill="none" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+
+            <!-- Tier 2 Front Plaque & L2 Label (Shield motif) -->
+            <g class="tier-plaque" transform="translate(216, 214)">
+              <rect x="0" y="0" width="28" height="28" rx="6" fill="#080e07" stroke="#a8d506" stroke-width="1.6" filter="url(#plaque-glow)"/>
+              <path d="M 7 8 L 14 5 L 21 8 L 21 14 C 21 18.5 14 22 14 22 C 14 22 7 18.5 7 14 Z" fill="rgba(168,213,6,0.18)" stroke="#a8d506" stroke-width="1.4"/>
+              <circle cx="14" cy="12.5" r="2" fill="#d8ff36"/>
+            </g>
+            <g class="tier-label-badge" transform="translate(248, 221)">
+              <rect x="0" y="0" width="18" height="13" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.6)" stroke-width="0.8"/>
+              <text x="9" y="9.5" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#a8d506" text-anchor="middle">L2</text>
+            </g>
+          </g>
+
+          <!-- TIER 1 (cy = 110) - Watchtower / Top Network Emitter Slab -->
+          <g class="stack-tier tier-1">
+            <!-- Front-Left Beveled Thickness -->
+            <polygon points="80,110 230,148 230,164 80,126" fill="url(#tier-left-bevel)" stroke="rgba(168,213,6,0.55)" stroke-width="1.2"/>
+            <!-- Front-Right Beveled Thickness -->
+            <polygon points="230,148 380,110 380,126 230,164" fill="url(#tier-right-bevel)" stroke="rgba(168,213,6,0.55)" stroke-width="1.2"/>
+            <!-- Top Glass Face with Constellation Grid -->
+            <polygon points="80,110 230,72 380,110 230,148" fill="url(#tier-t1-top)" stroke="#c4e832" stroke-width="1.8"/>
+
+            <!-- Dotted World Map & Constellation Network on Top Face -->
+            <g class="tier-mesh">
+              <path d="M 120 110 Q 170 90 230 82 T 340 110" fill="none" stroke="rgba(168,213,6,0.3)" stroke-width="0.8" stroke-dasharray="3 3"/>
+              <path d="M 100 106 Q 160 120 230 132 T 360 106" fill="none" stroke="rgba(168,213,6,0.3)" stroke-width="0.8" stroke-dasharray="3 3"/>
+              <polyline points="135,104 165,92 205,95 255,90 295,98 325,108" fill="none" stroke="#a8d506" stroke-width="1.1"/>
+              <polyline points="145,118 185,122 220,128 275,122 315,114" fill="none" stroke="#a8d506" stroke-width="1.1"/>
+              <line x1="165" y1="92" x2="185" y2="122" stroke="rgba(168,213,6,0.5)" stroke-width="0.9"/>
+              <line x1="295" y1="98" x2="275" y2="122" stroke="rgba(168,213,6,0.5)" stroke-width="0.9"/>
+
+              <circle cx="135" cy="104" r="2.2" fill="#d8ff36" filter="url(#dot-glow)"/>
+              <circle cx="165" cy="92" r="2.5" fill="#ffffff" filter="url(#dot-glow)"/>
+              <circle cx="205" cy="95" r="2" fill="#d8ff36"/>
+              <circle cx="255" cy="90" r="2.2" fill="#d8ff36"/>
+              <circle cx="295" cy="98" r="2.5" fill="#ffffff" filter="url(#dot-glow)"/>
+              <circle cx="325" cy="108" r="2.2" fill="#d8ff36" filter="url(#dot-glow)"/>
+              <circle cx="145" cy="118" r="2" fill="#a8d506"/>
+              <circle cx="185" cy="122" r="2.4" fill="#d8ff36"/>
+              <circle cx="275" cy="122" r="2.4" fill="#d8ff36"/>
+              <circle cx="315" cy="114" r="2" fill="#a8d506"/>
+            </g>
+
+            <!-- Vertical Energy Flare -->
+            <polygon points="224,110 236,110 233,18 227,18" fill="url(#beacon-flare-grad)"/>
+
+            <!-- Center Emitter Node -->
+            <g class="stack-emitter" transform="translate(0, 110)">
+              <ellipse cx="230" cy="0" rx="34" ry="11" fill="#0e170c" stroke="#a8d506" stroke-width="1.5"/>
+              <ellipse cx="230" cy="-3" rx="24" ry="8" fill="#142211" stroke="#d8ff36" stroke-width="1.3"/>
+              <ellipse cx="230" cy="-5" rx="13" ry="4.5" fill="url(#emitter-lens)" filter="url(#core-glow)"/>
+              <circle cx="230" cy="-5" r="2.8" fill="#ffffff"/>
+            </g>
+
+            <!-- Tier 1 Front Plaque & L1 Label (Recognizable Watchtower / Monitor motif) -->
+            <g class="tier-plaque" transform="translate(216, 134)">
+              <rect x="0" y="0" width="28" height="28" rx="6" fill="#080e07" stroke="#c4e832" stroke-width="1.6" filter="url(#plaque-glow)"/>
+              <!-- Watchtower Motif Icon -->
+              <line x1="8" y1="23" x2="11" y2="12" stroke="#a8d506" stroke-width="1.3"/>
+              <line x1="20" y1="23" x2="17" y2="12" stroke="#a8d506" stroke-width="1.3"/>
+              <line x1="10" y1="18" x2="18" y2="18" stroke="#a8d506" stroke-width="1"/>
+              <rect x="10" y="9" width="8" height="4" rx="1" fill="#d8ff36" stroke="#11170f" stroke-width="0.8"/>
+              <polygon points="14,5 9,9 19,9" fill="#a8d506"/>
+            </g>
+            <g class="tier-label-badge" transform="translate(248, 141)">
+              <rect x="0" y="0" width="18" height="13" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.6)" stroke-width="0.8"/>
+              <text x="9" y="9.5" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#a8d506" text-anchor="middle">L1</text>
+            </g>
+          </g>
+
+          <!-- HARIS / PROTECT EVERY NODE Badge (Resting on Base Pedestal) -->
+          <g class="stack-haris-badge" transform="translate(230, 470)">
+            <g stroke="#a8d506" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M -80 -13 L -88 -13 L -88 -5"/>
+              <path d="M 80 -13 L 88 -13 L 88 -5"/>
+              <path d="M -88 5 L -88 13 L -80 13"/>
+              <path d="M 88 5 L 88 13 L 80 13"/>
+            </g>
+            <rect x="-84" y="-11" width="168" height="22" rx="5" fill="#080e07" fill-opacity="0.9" stroke="rgba(168,213,6,0.35)" stroke-width="0.8"/>
+            <text x="0" y="-0.5" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" letter-spacing="0.32em" fill="#eef3ea" text-anchor="middle">HARIS</text>
+            <text x="0" y="9.5" font-family="'JetBrains Mono', monospace" font-size="6.2" font-weight="600" letter-spacing="0.22em" fill="#a8d506" text-anchor="middle">PROTECT EVERY NODE</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Layer 02 & Layer 04 -->
+    <div class="hpa-col hpa-col-right">
+      <!-- CARD LAYER 02: M-SOC ANALYSTS -->
+      <div class="hpa-card hpa-card-l2" data-tilt data-spot>
+        <div class="hpa-card-body">
+          <span class="hpa-card-layer">LAYER 02</span>
+          <h3 class="hpa-card-title">M-SOC analysts</h3>
+          <p class="hpa-card-desc">The 24/7 operations center reads Haris telemetry for GPS spoofing, bridge OT anomalies, and link attacks.</p>
+          <div class="hpa-card-meta">
+            <span class="hpa-meta-tag">&rarr; 24/7 WATCH</span>
+          </div>
+        </div>
+        <div class="hpa-card-art hpa-art-msoc">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="M-SOC operations console and analyst">
+            <defs>
+              <filter id="ms-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <radialGradient id="ms-ambience" cx="50%" cy="38%" r="60%">
+                <stop offset="0%" stop-color="#a8d506" stop-opacity="0.25"/>
+                <stop offset="50%" stop-color="#a8d506" stop-opacity="0.06"/>
+                <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="ms-screen-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#142211"/>
+                <stop offset="100%" stop-color="#080e07"/>
+              </linearGradient>
+              <linearGradient id="ms-radar-sweep" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a8d506" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="ms-desk-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#152013"/>
+                <stop offset="100%" stop-color="#080d07"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Screen Light Ambience -->
+            <ellipse cx="110" cy="85" rx="100" ry="65" fill="url(#ms-ambience)"/>
+
+            <!-- Upper Wide Panoramic Display (Global Maritime Threat Heatmap) -->
+            <g class="ms-screen-top">
+              <polygon points="46,16 174,16 170,72 50,72" fill="url(#ms-screen-grad)" stroke="#a8d506" stroke-width="1.4"/>
+              <line x1="48" y1="24" x2="172" y2="24" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+              <circle cx="54" cy="20" r="1.5" fill="#a8d506"/>
+              <text x="60" y="21.5" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a8d506" letter-spacing="0.1em">GLOBAL M-SOC VECTOR RADAR</text>
+
+              <!-- World Coastlines & Maritime Routes -->
+              <g stroke="rgba(168,213,6,0.5)" stroke-width="0.9" fill="rgba(168,213,6,0.18)">
+                <path d="M 62 34 Q 70 32 74 38 Q 70 44 72 50 Q 64 54 60 46 Z"/>
+                <path d="M 90 28 Q 102 26 106 32 Q 102 40 106 48 Q 98 52 92 46 Z"/>
+                <path d="M 120 26 Q 144 24 154 32 Q 158 44 144 48 Q 132 44 126 36 Z"/>
+                <path d="M 142 52 Q 150 50 152 58 Q 146 62 142 52 Z"/>
+              </g>
+              <path d="M 68 40 Q 94 32 108 36 T 146 34" fill="none" stroke="#d8ff36" stroke-width="1.1" stroke-dasharray="2 2"/>
+              <circle cx="68" cy="40" r="2" fill="#ffffff" filter="url(#ms-glow)"/>
+              <circle cx="108" cy="36" r="2.2" fill="#d8ff36" filter="url(#ms-glow)"/>
+              <circle cx="146" cy="34" r="2" fill="#ffffff" filter="url(#ms-glow)"/>
+            </g>
+
+            <!-- Lower Left Screen: OT Telemetry Stream -->
+            <g class="ms-screen-left">
+              <polygon points="14,48 44,42 44,104 14,110" fill="url(#ms-screen-grad)" stroke="#a8d506" stroke-width="1.2"/>
+              <line x1="18" y1="52" x2="40" y2="47" stroke="rgba(168,213,6,0.8)" stroke-width="0.9"/>
+              <line x1="18" y1="58" x2="36" y2="54" stroke="rgba(168,213,6,0.5)" stroke-width="0.8"/>
+              <line x1="18" y1="64" x2="42" y2="60" stroke="rgba(168,213,6,0.8)" stroke-width="0.9"/>
+              <line x1="18" y1="70" x2="34" y2="67" stroke="rgba(168,213,6,0.5)" stroke-width="0.8"/>
+              <line x1="18" y1="76" x2="40" y2="73" stroke="rgba(168,213,6,0.8)" stroke-width="0.9"/>
+              <polyline points="18,98 24,92 30,96 36,88 42,91" fill="none" stroke="#c4e832" stroke-width="1.2"/>
+            </g>
+
+            <!-- Lower Right Screen: Anomaly Matrix & Threat Scores -->
+            <g class="ms-screen-right">
+              <polygon points="176,42 206,48 206,110 176,104" fill="url(#ms-screen-grad)" stroke="#a8d506" stroke-width="1.2"/>
+              <rect x="181" y="58" width="5" height="16" fill="rgba(168,213,6,0.6)"/>
+              <rect x="188" y="52" width="5" height="22" fill="#a8d506"/>
+              <rect x="195" y="64" width="5" height="10" fill="rgba(168,213,6,0.5)"/>
+              <line x1="180" y1="84" x2="202" y2="88" stroke="rgba(168,213,6,0.6)" stroke-width="0.9"/>
+              <circle cx="183" cy="98" r="2" fill="#e88c7a"/>
+              <line x1="188" y1="98" x2="202" y2="101" stroke="rgba(238,243,234,0.7)" stroke-width="0.9"/>
+            </g>
+
+            <!-- Lower Center Display: Circular Radar Scope & Depth -->
+            <g class="ms-screen-center" transform="translate(110, 78)">
+              <rect x="-42" y="-2" width="84" height="42" rx="4" fill="url(#ms-screen-grad)" stroke="#a8d506" stroke-width="1.4"/>
+              <circle cx="0" cy="19" r="18" fill="#060d05" stroke="#a8d506" stroke-width="1" stroke-dasharray="3 2"/>
+              <circle cx="0" cy="19" r="11" fill="none" stroke="rgba(168,213,6,0.4)" stroke-width="0.8"/>
+              <circle cx="0" cy="19" r="4" fill="none" stroke="rgba(168,213,6,0.6)" stroke-width="0.8"/>
+              <line x1="-18" y1="19" x2="18" y2="19" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+              <line x1="0" y1="1" x2="0" y2="37" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+              <path d="M 0 19 L 13 6 A 18 18 0 0 1 18 19 Z" fill="url(#ms-radar-sweep)"/>
+              <circle cx="9" cy="11" r="1.8" fill="#d8ff36" filter="url(#ms-glow)"/>
+            </g>
+
+            <!-- Console Desk Surface (Isometric Perspective) -->
+            <path d="M 22 126 C 22 118, 198 118, 198 126 L 204 158 C 204 170, 16 170, 16 158 Z" fill="url(#ms-desk-grad)" stroke="rgba(168,213,6,0.35)" stroke-width="1.2"/>
+            <!-- Keyboard with glowing backlit keys -->
+            <g class="ms-keyboard" transform="translate(76, 132)">
+              <polygon points="2,0 66,0 68,14 0,14" fill="#101a0f" stroke="rgba(168,213,6,0.6)" stroke-width="0.8"/>
+              <line x1="6" y1="4" x2="62" y2="4" stroke="#a8d506" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+              <line x1="6" y1="7.5" x2="62" y2="7.5" stroke="#a8d506" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+              <line x1="8" y1="11" x2="60" y2="11" stroke="#d8ff36" stroke-width="0.8" stroke-dasharray="3 2"/>
+            </g>
+            <!-- Mouse pad & mouse -->
+            <ellipse cx="156" cy="140" rx="6" ry="4" fill="#142211" stroke="rgba(168,213,6,0.4)" stroke-width="0.8"/>
+            <ellipse cx="156" cy="139" rx="3" ry="2" fill="#20331a"/>
+
+            <!-- Human Analyst Silhouette at Workstation (Head, Shoulders, Body, Arms) -->
+            <g class="ms-analyst">
+              <!-- Chair backrest outline behind analyst -->
+              <path d="M 84 192 Q 80 152 85 140 Q 110 136 135 140 Q 140 152 136 192 Z" fill="#070c06" stroke="#1c2b18" stroke-width="1.5"/>
+
+              <!-- Analyst Torso & Back -->
+              <path d="M 88 186 C 88 156 95 144 110 144 C 125 144 132 156 132 186 Z" fill="#091008"/>
+
+              <!-- Left Arm reaching to keyboard -->
+              <path d="M 94 146 C 86 150 78 158 76 166 L 84 167 C 86 160 92 154 98 151 Z" fill="#0c160a"/>
+              <ellipse cx="88" cy="148" rx="4.5" ry="3" fill="#142211" stroke="rgba(168,213,6,0.5)" stroke-width="0.8"/>
+
+              <!-- Right Arm resting near mouse -->
+              <path d="M 126 146 C 134 150 142 158 144 166 L 136 167 C 134 160 128 154 122 151 Z" fill="#0c160a"/>
+              <ellipse cx="132" cy="148" rx="4.5" ry="3" fill="#142211"/>
+
+              <!-- Analyst Neck -->
+              <path d="M 104 134 L 104 144 L 116 144 L 116 134 Z" fill="#091008"/>
+
+              <!-- Analyst Head & Hair (Viewing screens) -->
+              <ellipse cx="110" cy="122" rx="11" ry="13" fill="#080e07"/>
+              <!-- Tactical Headset on Analyst -->
+              <path d="M 97 122 C 97 111 123 111 123 122" fill="none" stroke="#a8d506" stroke-width="1.6"/>
+              <rect x="95" y="119" width="3.5" height="7" rx="1.5" fill="#a8d506"/>
+              <rect x="121.5" y="119" width="3.5" height="7" rx="1.5" fill="#a8d506"/>
+              <path d="M 98 125 L 105 131" stroke="#a8d506" stroke-width="1.1" stroke-linecap="round"/>
+
+              <!-- Green Screen Illumination Rim on Analyst -->
+              <path d="M 100 113 C 97 120 97 127 101 134" stroke="#a8d506" stroke-width="1.5" fill="none" opacity="0.85"/>
+              <path d="M 82 154 C 85 148 90 146 96 145" stroke="#a8d506" stroke-width="1.2" fill="none" opacity="0.75"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- CARD LAYER 04: COMPLIANCE REPORTING -->
+      <div class="hpa-card hpa-card-l4" data-tilt data-spot>
+        <div class="hpa-card-body">
+          <span class="hpa-card-layer">LAYER 04</span>
+          <h3 class="hpa-card-title">Compliance reporting</h3>
+          <p class="hpa-card-desc">Deterministic telemetry structured for IACS UR E26/E27 and IMO MSC.428(98), ready when the inspector asks.</p>
+          <div class="hpa-card-meta">
+            <span class="hpa-meta-tag">&rarr; E26/E27 &middot; MSC.428</span>
+          </div>
+        </div>
+        <div class="hpa-card-art hpa-art-compliance">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="IACS UR E26 and E27 compliance technical dossier">
+            <defs>
+              <filter id="cp-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <filter id="cp-seal-glow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <linearGradient id="cp-cover-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1c2b1a"/>
+                <stop offset="50%" stop-color="#111a10"/>
+                <stop offset="100%" stop-color="#080e07"/>
+              </linearGradient>
+              <linearGradient id="cp-spine-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0c140a"/>
+                <stop offset="50%" stop-color="#182715"/>
+                <stop offset="100%" stop-color="#0e170c"/>
+              </linearGradient>
+              <linearGradient id="cp-pages-top" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2d3f28"/>
+                <stop offset="100%" stop-color="#152013"/>
+              </linearGradient>
+              <linearGradient id="cp-pages-edge" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#1c2a18"/>
+                <stop offset="100%" stop-color="#0d140b"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Base Plinth & Shadow -->
+            <ellipse cx="114" cy="188" rx="82" ry="24" fill="rgba(168,213,6,0.07)" filter="url(#cp-glow)"/>
+            <ellipse cx="114" cy="188" rx="76" ry="21" fill="#090f07" stroke="rgba(168,213,6,0.3)" stroke-width="1.2"/>
+            <ellipse cx="114" cy="188" rx="54" ry="15" fill="none" stroke="rgba(168,213,6,0.2)" stroke-width="0.8" stroke-dasharray="2 3"/>
+
+            <!-- Thick Angled Dossier / Binder in 3D Isometric View -->
+            <g class="cp-binder">
+              <!-- Top Page Rim (Visible Thickness at Top) -->
+              <polygon points="46,30 160,44 140,56 34,42" fill="url(#cp-pages-top)" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+              <line x1="42" y1="35" x2="152" y2="48" stroke="rgba(168,213,6,0.22)" stroke-width="0.7"/>
+              <line x1="38" y1="39" x2="146" y2="52" stroke="rgba(168,213,6,0.22)" stroke-width="0.7"/>
+
+              <!-- Thick Stack of Pages (Right Side Edge with 24px Depth) -->
+              <polygon points="160,44 160,158 140,172 140,56" fill="url(#cp-pages-edge)" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+              <!-- Distinct Horizontal Page Striation Lines -->
+              <line x1="142" y1="68" x2="158" y2="58" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+              <line x1="142" y1="80" x2="158" y2="70" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+              <line x1="142" y1="92" x2="158" y2="82" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+              <line x1="142" y1="104" x2="158" y2="94" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+              <line x1="142" y1="116" x2="158" y2="106" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+              <line x1="142" y1="128" x2="158" y2="118" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+              <line x1="142" y1="140" x2="158" y2="130" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+              <line x1="142" y1="152" x2="158" y2="142" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+              <line x1="142" y1="164" x2="158" y2="154" stroke="rgba(168,213,6,0.28)" stroke-width="0.8"/>
+
+              <!-- Back Cover Edge Underneath -->
+              <polygon points="160,158 166,160 146,174 140,172" fill="#080e07" stroke="rgba(168,213,6,0.4)" stroke-width="0.9"/>
+
+              <!-- Front Heavy Binder Cover -->
+              <polygon points="34,42 140,56 140,174 34,160" fill="url(#cp-cover-grad)" stroke="#a8d506" stroke-width="1.8"/>
+              <!-- Debossed Border Groove -->
+              <polygon points="40,48 134,60 134,168 40,156" fill="none" stroke="rgba(168,213,6,0.35)" stroke-width="1"/>
+
+              <!-- Thick Binder Spine on Left -->
+              <polygon points="24,47 34,42 34,160 24,165" fill="url(#cp-spine-grad)" stroke="#a8d506" stroke-width="1.3"/>
+              <!-- Binding Ribs on Spine -->
+              <line x1="24" y1="62" x2="34" y2="57" stroke="#a8d506" stroke-width="1.5"/>
+              <line x1="24" y1="88" x2="34" y2="83" stroke="#a8d506" stroke-width="1.5"/>
+              <line x1="24" y1="120" x2="34" y2="115" stroke="#a8d506" stroke-width="1.5"/>
+              <line x1="24" y1="146" x2="34" y2="141" stroke="#a8d506" stroke-width="1.5"/>
+
+              <!-- Crisp Readable Typography on Cover -->
+              <g class="cp-typography">
+                <text x="48" y="74" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#eef3ea" letter-spacing="0.04em">IACS UR</text>
+                <text x="48" y="96" font-family="'Inter', sans-serif" font-size="17" font-weight="800" fill="#a8d506" letter-spacing="0.02em">E26/E27</text>
+                <line x1="48" y1="106" x2="114" y2="112" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+                <text x="48" y="124" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#a7b0a3" letter-spacing="0.05em">IMO</text>
+                <text x="48" y="137" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="500" fill="#eef3ea" letter-spacing="0.02em">MSC.428(98)</text>
+              </g>
+
+              <!-- Verified Checkmark Seal Badge in Circle -->
+              <g class="cp-seal" transform="translate(116, 146)">
+                <circle cx="0" cy="0" r="14" fill="rgba(168,213,6,0.22)" filter="url(#cp-seal-glow)"/>
+                <circle cx="0" cy="0" r="13" fill="#0d150c" stroke="#a8d506" stroke-width="1.6"/>
+                <circle cx="0" cy="0" r="10" fill="none" stroke="rgba(168,213,6,0.6)" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+                <path d="M -4.5 0 L -1 3.5 L 5.5 -3.5" fill="none" stroke="#d8ff36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE DOCK -->
+  <div class="hpa-dock reveal">
+    <div class="hpa-dock-col">
+      <div class="hpa-dock-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M12 7.5 L13.2 10.8 L16.5 12 L13.2 13.2 L12 16.5 L10.8 13.2 L7.5 12 L10.8 10.8 Z" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="1.3"/>
+        </svg>
+      </div>
+      <div class="hpa-dock-text">
+        <strong class="hpa-dock-title">Unified Protection</strong>
+        <span class="hpa-dock-desc">One platform. Four pillars. Complete coverage.</span>
+      </div>
+    </div>
+
+    <div class="hpa-dock-col">
+      <div class="hpa-dock-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+      </div>
+      <div class="hpa-dock-text">
+        <strong class="hpa-dock-title">Real-time Awareness</strong>
+        <span class="hpa-dock-desc">From device to decision. Always one step ahead.</span>
+      </div>
+    </div>
+
+    <div class="hpa-dock-col">
+      <div class="hpa-dock-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Center Person in Front -->
+          <circle cx="12" cy="7" r="3.2"/>
+          <path d="M6.5 19.5 C6.5 15.8 8.8 14 12 14 C15.2 14 17.5 15.8 17.5 19.5"/>
+          <!-- Left Person Behind -->
+          <circle cx="5" cy="9.5" r="2.4"/>
+          <path d="M1.5 20 C1.5 17.6 3 16.2 5.5 16"/>
+          <!-- Right Person Behind -->
+          <circle cx="19" cy="9.5" r="2.4"/>
+          <path d="M22.5 20 C22.5 17.6 21 16.2 18.5 16"/>
+        </svg>
+      </div>
+      <div class="hpa-dock-text">
+        <strong class="hpa-dock-title">Built for Crews</strong>
+        <span class="hpa-dock-desc">Tools for analysts. Guidance for crews.</span>
+      </div>
+    </div>
+
+    <div class="hpa-dock-col">
+      <div class="hpa-dock-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <circle cx="12" cy="15" r="4" fill="none"/>
+          <polyline points="10.5 15 11.5 16 13.5 14"/>
+        </svg>
+      </div>
+      <div class="hpa-dock-text">
+        <strong class="hpa-dock-title">Audit Ready</strong>
+        <span class="hpa-dock-desc">Compliance by design. Evidence on demand.</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+
+
+<!-- 03. CREW APP -->
+<section class="sec" style="border-top:1px solid var(--line)" id="crew-app"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 03 · The crew app</div>
+    <h2>Haris on the bridge, <em>in the crew's hands.</em></h2>
+    <p>The node collects. The app acts. Haris Crew App is a Flutter application that gives bridge officers plain-language, offline steps when something on board looks wrong.</p>
+  </div>
+  <div class="crew-showcase-grid">
+    <!-- Left Column: 3 Foundational Pillars -->
+    <div class="crew-pillars-col">
+      <div class="crew-pillar-card reveal" data-tilt data-spot>
+        <div class="crew-pillar-head">
+          <span class="crew-pillar-num">01</span>
+          <h3>Offline by design</h3>
+        </div>
+        <p>The playbooks live locally on the device. Zero cloud dependency and zero satellite link needed when the communication link itself is the primary target under attack.</p>
+        <div class="crew-pillar-chip">&rarr; Works 100% Offline &middot; Local Encrypted Store</div>
+      </div>
+
+      <div class="crew-pillar-card reveal d1" data-tilt data-spot>
+        <div class="crew-pillar-head">
+          <span class="crew-pillar-num">02</span>
+          <h3>Plain language steps</h3>
+        </div>
+        <p>Written for officers who have a vessel to steer: isolate this device, disconnect that trunk, switch to secondary compass. Zero jargon, maximum actionable clarity under sea stress.</p>
+        <div class="crew-pillar-chip">&rarr; No Cyber Jargon &middot; Action-Oriented Steps</div>
+      </div>
+
+      <div class="crew-pillar-card reveal d2" data-tilt data-spot>
+        <div class="crew-pillar-head">
+          <span class="crew-pillar-num">03</span>
+          <h3>Backed by a 24/7 desk</h3>
+        </div>
+        <p>The moment the bridge team opens an incident playbook, the shore operations desk is notified. Maritime security analysts join via secure satellite channel or phone bridge until your watch is clear.</p>
+        <div class="crew-pillar-chip">&rarr; 24/7 Watch Desk &middot; Tallinn HQ &middot; Al Khobar</div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Bridge Playbook Cockpit Console Preview -->
+    <div class="crew-console-card reveal d1" data-tilt data-spot>
+      <div class="crew-console-header">
+        <div class="crew-console-title">
+          <div class="crew-console-dot"></div>
+          <span>BRIDGE INCIDENT PLAYBOOK // SEV-1 ACTIVE</span>
+        </div>
+        <span class="crew-console-status">OFFLINE COCKPIT</span>
+      </div>
+
+      <!-- Tactical Tablet SVG Screen -->
+      <svg class="crew-console-svg" viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris Crew App tactical bridge tablet interface">
+        <defs>
+          <filter id="c-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+          <linearGradient id="tab-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0e170d"/>
+            <stop offset="100%" stop-color="#060a05"/>
+          </linearGradient>
+          <linearGradient id="alert-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(232,140,122,0.2)"/>
+            <stop offset="100%" stop-color="rgba(232,140,122,0.05)"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Tablet Outer Chassis Bezel -->
+        <rect x="6" y="6" width="408" height="268" rx="14" fill="url(#tab-glass)" stroke="#a8d506" stroke-width="1.5"/>
+        <rect x="12" y="12" width="396" height="256" rx="10" fill="#050905"/>
+
+        <!-- Top Instrument Telemetry Strip -->
+        <g transform="translate(20, 20)">
+          <rect x="0" y="0" width="380" height="22" rx="4" fill="#0b140a" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+          <circle cx="10" cy="11" r="2.2" fill="#a8d506" filter="url(#c-glow)"/>
+          <text x="18" y="14" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#a8d506">VESSEL: MV CAPE VALIANT</text>
+          <text x="180" y="14" font-family="'JetBrains Mono', monospace" font-size="6" fill="#a7b0a3">ZONE: BAB-EL-MANDEB</text>
+          <text x="370" y="14" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#eef3ea" text-anchor="end">SIGNAL: LOCAL ONLY</text>
+        </g>
+
+        <!-- Incident Anomaly Alert Banner -->
+        <g transform="translate(20, 48)">
+          <rect x="0" y="0" width="380" height="34" rx="6" fill="url(#alert-grad)" stroke="#e88c7a" stroke-width="1.2"/>
+          <polygon points="16,10 22,22 10,22" fill="#e88c7a" fill-opacity="0.2" stroke="#e88c7a" stroke-width="1"/>
+          <text x="16" y="20" font-family="'Inter', sans-serif" font-size="7" font-weight="800" fill="#e88c7a" text-anchor="middle">!</text>
+          <text x="30" y="16" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#eef3ea">ANOMALY: GPS POSITION SPOOFING DETECTED</text>
+          <text x="30" y="27" font-family="'Inter', sans-serif" font-size="6.8" fill="#a7b0a3">Pseudorange variance > 420m detected on NMEA 0183 port. Follow protocol below.</text>
+        </g>
+
+        <!-- Action Step 01 (Completed) -->
+        <g transform="translate(20, 90)">
+          <rect x="0" y="0" width="380" height="36" rx="5" fill="#080e07" stroke="rgba(168,213,6,0.25)" stroke-width="0.9"/>
+          <!-- Checkmark Box -->
+          <rect x="10" y="9" width="18" height="18" rx="4" fill="rgba(168,213,6,0.18)" stroke="#a8d506" stroke-width="1.2"/>
+          <path d="M 14 18 L 17 21 L 24 14" stroke="#d8ff36" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="36" y="18" font-family="'Inter', sans-serif" font-size="7.8" font-weight="700" fill="#eef3ea">STEP 01: SWITCH PRIMARY ECDIS TO GYRO &amp; DEAD RECKONING</text>
+          <text x="36" y="28" font-family="'Inter', sans-serif" font-size="6.5" fill="#a7b0a3">Navigational fix transitioned to inertial gyro. Sensor drift logged.</text>
+          <text x="370" y="23" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#a8d506" text-anchor="end">RESOLVED ✓</text>
+        </g>
+
+        <!-- Action Step 02 (Active Urgent Target) -->
+        <g transform="translate(20, 134)">
+          <rect x="0" y="0" width="380" height="52" rx="5" fill="rgba(168,213,6,0.08)" stroke="#a8d506" stroke-width="1.4" filter="url(#c-glow)"/>
+          <!-- Current Step Number -->
+          <circle cx="19" cy="26" r="9" fill="#142412" stroke="#d8ff36" stroke-width="1.2"/>
+          <text x="19" y="29.5" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" fill="#d8ff36" text-anchor="middle">02</text>
+          <text x="36" y="20" font-family="'Inter', sans-serif" font-size="8.2" font-weight="700" fill="#ffffff">STEP 02: AIR-GAP HARIS NODE NMEA 0183 BUS</text>
+          <text x="36" y="31" font-family="'Inter', sans-serif" font-size="6.8" fill="#eef3ea">Electrically isolate corrupted GNSS receiver feed from the bridge data bus.</text>
+          <!-- Tactical Action Pill Button -->
+          <g transform="translate(250, 24)">
+            <rect x="0" y="0" width="118" height="20" rx="4" fill="#a8d506" stroke="#ffffff" stroke-width="0.8"/>
+            <text x="59" y="13" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#080e07" text-anchor="middle">EXECUTE ISOLATION &rarr;</text>
+          </g>
+        </g>
+
+        <!-- Action Step 03 (Pending) -->
+        <g transform="translate(20, 194)">
+          <rect x="0" y="0" width="380" height="34" rx="5" fill="#080e07" stroke="rgba(238,243,234,0.12)" stroke-width="0.9"/>
+          <circle cx="19" cy="17" r="8" fill="#0c140a" stroke="rgba(238,243,234,0.3)" stroke-width="1"/>
+          <text x="19" y="20" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#a7b0a3" text-anchor="middle">03</text>
+          <text x="36" y="16" font-family="'Inter', sans-serif" font-size="7.8" font-weight="600" fill="#a7b0a3">STEP 03: GENERATE FORENSIC DOSSIER FOR M-SOC DESK</text>
+          <text x="36" y="26" font-family="'Inter', sans-serif" font-size="6.5" fill="#667262">Structured per IACS UR E26 incident evidence standard.</text>
+          <text x="370" y="22" font-family="'JetBrains Mono', monospace" font-size="6" fill="#a7b0a3" text-anchor="end">PENDING</text>
+        </g>
+
+        <!-- Bottom Tablet Status Bar -->
+        <g transform="translate(20, 238)">
+          <line x1="0" y1="0" x2="380" y2="0" stroke="rgba(168,213,6,0.2)" stroke-width="0.8"/>
+          <text x="0" y="14" font-family="'JetBrains Mono', monospace" font-size="6.2" fill="#a7b0a3">HARIS DESK CHANNEL: STANDBY</text>
+          <text x="380" y="14" font-family="'JetBrains Mono', monospace" font-size="6.2" font-weight="700" fill="#a8d506" text-anchor="end">PSC AUDIT CHAIN SECURED ●</text>
+        </g>
+      </svg>
+
+      <div class="crew-console-footer">
+        <span style="font-family:var(--mono);font-size:.68rem;color:var(--mut)">FLUTTER RUNTIME &middot; ZERO CLOUD DEPENDENCY</span>
+        <a href="contact.html" class="crew-console-action">REQUEST APP DEMO &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 5. CTA -->
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <div class="coord" style="margin-bottom:14px"><b>HARIS GEN-2</b> Ready for Fleet Deployment</div>
+    <h3>Put a node on the bridge. <em>Let the data speak.</em></h3>
+    <p>Hardware, deployment, and the shore side that reads it. We handle the whole loop, from rack to watch across commercial fleets.</p>
+  </div>
+  <div class="cta-row">
+    <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Deploy Haris →</a>
+    <a href="free-scan.html" class="btn ghost magnetic" style="font-size:.95rem;padding:16px 28px">Scan 3 Vessels Free</a>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="M-SOC.html">M-SOC</a><a href="haris.html">Haris Edge</a><a href="watchtower.html">Watchtower</a></div>
+    <div><h4>Blog</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
+    <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Designed & Developed by Oversight</span></div>
+</div></footer>
+
+</body>
+</html>

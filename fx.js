@@ -1,5 +1,5 @@
 /**
- * Cyber Oversight — High-Performance Motion & FX Engine (fx.js)
+ * Oversight — High-Performance Motion & FX Engine (fx.js)
  * Zero-dependency, 60/120fps requestAnimationFrame animations,
  * scroll progress, 3D card physics, magnetic interactions,
  * scroll reveals, counter telemetry, and marquee cloning.
@@ -46,7 +46,7 @@
 
   // 3. Magnetic Hover Physics on Interactive Elements
   if (window.matchMedia('(pointer: fine)').matches) {
-    const magneticElements = document.querySelectorAll('.magnetic, .btn, .nav-cta, .theme-toggle-btn');
+    const magneticElements = document.querySelectorAll('.magnetic, .btn, .nav-cta');
     magneticElements.forEach(el => {
       el.addEventListener('mousemove', (e) => {
         const rect = el.getBoundingClientRect();
@@ -135,9 +135,33 @@
     counters.forEach(el => counterObserver.observe(el));
   }
 
-  // 7. Infinite Marquee Ticker Track Duplication
-  const track = document.getElementById('tickTrack');
-  if (track && track.children.length > 0) {
-    track.innerHTML += track.innerHTML;
-  }
+  // 7. Smooth Gliding Scroll for Anchor Links with Header Offset
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    const targetId = anchor.getAttribute('href');
+    if (!targetId || targetId === '#' || targetId.length < 2) return;
+
+    let targetEl = null;
+    try {
+      targetEl = document.querySelector(targetId);
+    } catch (_) {}
+
+    if (targetEl) {
+      e.preventDefault();
+      const navEl = document.getElementById('nav') || document.querySelector('nav');
+      const offset = (navEl ? navEl.offsetHeight : 0) + 20;
+      const targetY = targetEl.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: 'smooth'
+      });
+
+      if (history.pushState) {
+        history.pushState(null, null, targetId);
+      }
+    }
+  });
 })();
+

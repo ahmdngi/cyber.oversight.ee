@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مركز العمليات البحرية M-SOC · حماية الأسطول على مدار الساعة 24/7 | أوفرسايت (Oversight)</title>
+<meta name="description" content="مركز عمليات الأمن السيبراني البحري التجاري (M-SOC): مراقبة مستمرة على مدار الساعة من محللين متخصصين لحماية شبكات IT وOT، رصد تزييف إشارات GPS، وتصيد التهديدات البحرية. المقر الرئيسي في تالين ومكتب المملكة العربية السعودية.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="مركز العمليات البحرية M-SOC · حماية الأسطول على مدار الساعة 24/7 | أوفرسايت (Oversight)">
+<meta property="og:description" content="مراقبة مستمرة على مدار الساعة من محللين متخصصين لحماية شبكات السفن IT وOT ورصد تزييف إشارات GPS.">
+<meta property="og:url" content="https://www.oversight.ee/ar/M-SOC">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="مركز العمليات البحرية M-SOC · أوفرسايت (Oversight)">
+<meta name="twitter:description" content="مراقبة مستمرة على مدار الساعة من محللين متخصصين لحماية شبكات السفن IT وOT.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+<link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="alternate" hreflang="en" href="https://www.oversight.ee/M-SOC">
+<link rel="alternate" hreflang="ar" href="https://www.oversight.ee/ar/M-SOC">
+<link rel="alternate" hreflang="x-default" href="https://www.oversight.ee/M-SOC">
+<link rel="canonical" href="https://www.oversight.ee/ar/M-SOC">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../mobile.css" media="screen and (max-width: 1024px)">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="v2-aurora-glow"></div>
+<div class="brand-grid-bg"></div>
+
+<button class="theme-toggle-btn" aria-label="تبديل المظهر" title="تبديل المظهر"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html" class="active">مركز العمليات (M-SOC)</a>
+    <a href="shipcrawler.html">شيب كراولر</a>
+    <a href="haris.html">حارس (Haris)</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">خدمات أخرى <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">تطوير الويب والمنصات</a>
+        <a href="networking.html">هندسة الشبكات والربط</a>
+        <a href="mobile-app.html">تطبيقات الجوال</a>
+      </div>
+    </div>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="blog.html">المدونة والبحوث</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta">فحص مجاني للأسطول</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="تبديل القائمة"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">الرئيسية</a>
+  <a href="M-SOC.html" class="active">مركز العمليات (M-SOC)</a>
+  <a href="shipcrawler.html">شيب كراولر</a>
+  <a href="haris.html">حارس (Haris)</a>
+  <div class="drawer-group">
+    <span class="drawer-label">خدمات أخرى</span>
+    <a href="web-design.html">تطوير الويب</a>
+    <a href="networking.html">هندسة الشبكات</a>
+    <a href="mobile-app.html">تطبيقات الجوال</a>
+  </div>
+  <a href="contact.html">تواصل معنا</a>
+  <a href="blog.html">المدونة والبحوث</a>
+  <a href="free-scan.html" class="drawer-cta">فحص مجاني للأسطول</a>
+</div>
+
+<!-- ═══ 1. HERO WITH TACTICAL COMMAND RADAR CONSOLE ═══ -->
+<section class="hero hero-evidence">
+  <div class="wrap hero-evidence-grid">
+    <div>
+      <div class="coord"><b>مركز M-SOC</b> مقر تالين (59.4°N) · مكتب الخبر (26.2°N)</div>
+      <h1>
+        <span class="h1-line">هناك دائماً من</span>
+        <span class="h1-line">يراقب <em class="lime">أسطولك.</em></span>
+      </h1>
+      <p class="sub">مركز عمليات الأمن السيبراني البحري: فريق من المحللين والمهندسين المتخصصين يراقبون شبكات الملاحة IT وOT على مدار الساعة. رصد بصمات تزييف GPS، محاولات اختراق خطوط النواقل في غرفة القيادة، واختراق روابط الأقمار الصناعية يتم فرزها والاستجابة لها خلال ثوانٍ معدودة.</p>
+      <div class="cta-row">
+        <a href="contact.html" class="btn primary magnetic">تحدث مع فريق المراقبة &larr;</a>
+        <a href="shipcrawler.html" class="btn ghost magnetic">افحص 3 سفن مجاناً</a>
+      </div>
+    </div>
+    <div>
+      <div class="tactical-card reveal" data-tilt data-spot>
+        <div class="tactical-card-topbar">
+          <div class="tactical-unit-tag"><i></i><span>قيادة M-SOC // مراقبة نشطة</span></div>
+          <div class="tactical-unit-status" style="direction:ltr">Tallinn · Al Khobar Sync [OK]</div>
+        </div>
+
+        <!-- M-SOC 24/7 Global Maritime Command Radar SVG -->
+        <svg viewBox="0 0 460 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="M-SOC 24/7 global maritime radar and threat intelligence console">
+          <defs>
+            <filter id="msoc-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <radialGradient id="radar-sweep-grad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#a8d506" stop-opacity="0.32"/>
+              <stop offset="65%" stop-color="#a8d506" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="screen-edge-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#121f11"/>
+              <stop offset="100%" stop-color="#070c06"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Outer Display Frame -->
+          <rect x="4" y="4" width="452" height="202" rx="10" fill="url(#screen-edge-grad)" stroke="#a8d506" stroke-width="1.3"/>
+          <rect x="10" y="10" width="440" height="190" rx="7" fill="#040804"/>
+
+          <!-- Top Status Header Strip -->
+          <line x1="10" y1="28" x2="450" y2="28" stroke="rgba(168,213,6,0.25)" stroke-width="0.8"/>
+          <circle cx="22" cy="19" r="2.2" fill="#a8d506" filter="url(#msoc-glow)"/>
+          <text x="32" y="22" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#a8d506" letter-spacing="0.14em">GLOBAL AIS VECTOR RADAR // DUAL-DESK WATCH</text>
+          <text x="438" y="22" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="700" fill="#eef3ea" text-anchor="end">24/7/365 REAL-TIME</text>
+
+          <!-- Left Radar Scope Section -->
+          <g transform="translate(84, 114)">
+            <circle cx="0" cy="0" r="68" fill="#050a04" stroke="#a8d506" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="0" cy="0" r="48" fill="none" stroke="rgba(168,213,6,0.35)" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="26" fill="none" stroke="rgba(168,213,6,0.45)" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="6" fill="#122010" stroke="#a8d506" stroke-width="1"/>
+            <line x1="-68" y1="0" x2="68" y2="0" stroke="rgba(168,213,6,0.25)" stroke-width="0.8"/>
+            <line x1="0" y1="-68" x2="0" y2="68" stroke="rgba(168,213,6,0.25)" stroke-width="0.8"/>
+
+            <!-- Rotating Radar Sweep Cone -->
+            <path d="M 0 0 L 48 -48 A 68 68 0 0 1 68 0 Z" fill="url(#radar-sweep-grad)"/>
+            <line x1="0" y1="0" x2="68" y2="0" stroke="#d8ff36" stroke-width="1.3" filter="url(#msoc-glow)"/>
+
+            <!-- Monitored Vessel Vectors -->
+            <circle cx="-32" cy="-24" r="2.8" fill="#a8d506" filter="url(#msoc-glow)"/>
+            <text x="-32" y="-30" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a8d506" text-anchor="middle">MV BALTIC</text>
+
+            <circle cx="28" cy="34" r="2.8" fill="#d8ff36" filter="url(#msoc-glow)"/>
+            <text x="28" y="44" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#d8ff36" text-anchor="middle">MV RED SEA</text>
+
+            <!-- Active Anomaly Incident Target -->
+            <circle cx="36" cy="-28" r="3.2" fill="#e88c7a" filter="url(#msoc-glow)"/>
+            <circle cx="36" cy="-28" r="7" fill="none" stroke="#e88c7a" stroke-width="0.8" stroke-dasharray="2 2"/>
+            <text x="36" y="-36" font-family="'JetBrains Mono', monospace" font-size="4.8" font-weight="700" fill="#e88c7a" text-anchor="middle">SPOOF DETECTED</text>
+          </g>
+
+          <!-- Right Telemetry Diagnostics & Stream -->
+          <g transform="translate(176, 38)">
+            <!-- Incident 1: GPS Spoofing bab-el-mandeb -->
+            <rect x="0" y="0" width="262" height="34" rx="4" fill="rgba(232,140,122,0.08)" stroke="rgba(232,140,122,0.35)" stroke-width="0.9"/>
+            <circle cx="12" cy="17" r="2.4" fill="#e88c7a"/>
+            <text x="22" y="14" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="700" fill="#e88c7a">SEV-1 ALERT // BAB-EL-MANDEB</text>
+            <text x="22" y="24" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#eef3ea">Pseudorange drift +340ns &gt; threshold · Auto-mitigated to Inertial</text>
+            <text x="252" y="19" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506" text-anchor="end">ISOLATED ✓</text>
+
+            <!-- Incident 2: VSAT Egress Alert -->
+            <rect x="0" y="40" width="262" height="34" rx="4" fill="#080e07" stroke="rgba(168,213,6,0.25)" stroke-width="0.8"/>
+            <circle cx="12" cy="57" r="2.4" fill="#ebb432"/>
+            <text x="22" y="54" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="700" fill="#ebb432">SEV-2 NOTICE // STRAIT OF MALACCA</text>
+            <text x="22" y="64" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#a7b0a3">Port 23 Telnet probe isolated by Haris node · Inmarsat ASN OK</text>
+            <text x="252" y="59" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#d8ff36" text-anchor="end">GUARDED ●</text>
+
+            <!-- Tallinn ↔ Al Khobar Desk Latency Sync -->
+            <g transform="translate(0, 80)">
+              <rect x="0" y="0" width="126" height="32" rx="4" fill="#091208" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+              <text x="10" y="13" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3">TALLINN HQ WATCH</text>
+              <text x="10" y="24" font-family="'JetBrains Mono', monospace" font-size="6.8" font-weight="700" fill="#a8d506">59.4°N · ACTIVE</text>
+              <circle cx="114" cy="16" r="3" fill="#a8d506" filter="url(#msoc-glow)"/>
+
+              <rect x="136" y="0" width="126" height="32" rx="4" fill="#091208" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+              <text x="146" y="13" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3">AL KHOBAR DESK</text>
+              <text x="146" y="24" font-family="'JetBrains Mono', monospace" font-size="6.8" font-weight="700" fill="#d8ff36">26.2°N · ACTIVE</text>
+              <circle cx="250" cy="16" r="3" fill="#d8ff36" filter="url(#msoc-glow)"/>
+            </g>
+
+            <!-- Bottom Console Status -->
+            <g transform="translate(0, 122)">
+              <line x1="0" y1="0" x2="262" y2="0" stroke="rgba(168,213,6,0.2)" stroke-width="0.8"/>
+              <text x="0" y="16" font-family="'JetBrains Mono', monospace" font-size="5.5" fill="#a7b0a3">HANDOFF GAP: ZERO · FOLLOW-THE-SUN DUAL DESK</text>
+              <text x="262" y="16" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506" text-anchor="end">IACS UR E26 COMPLIANT ●</text>
+            </g>
+          </g>
+        </svg>
+
+        <!-- Dynamic Telemetry Readout Strip -->
+        <div class="tactical-telemetry-hud">
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">تغطية المحللين</span>
+            <span class="hud-telemetry-val">24/7/365 <em>مستمرة ●</em></span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">فرز تزييف GPS</span>
+            <span class="hud-telemetry-val">&lt; 45 ثانية <em>تلقائي ●</em></span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">بروتوكولات القيادة</span>
+            <span class="hud-telemetry-val">NMEA/N2K <em>أصلي ●</em></span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(168,213,6,.15)">
+          <p style="font-size:.82rem;color:var(--mut);line-height:1.6;max-width:280px;margin:0">مكتبا قيادة مزدوجان في تالين والخبر لمراقبة الأساطيل التجارية بدون أي فجوة في تسليم الورديات.</p>
+          <a href="contact.html" class="btn primary magnetic" style="font-size:.9rem;padding:12px 20px;white-space:nowrap">تواصل مع الفريق &larr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. THE 3-STAGE WATCH PIPELINE ═══ -->
+<section class="sec" id="pillars"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · ركائز المراقبة التكتيكية</div>
+    <h2>ما يراقبه مركز M-SOC <em>على مدار الساعة.</em></h2>
+    <p>سطح الهجوم السيبراني البحري لا يشبه مركز البيانات الأرضي. صممنا منظومة المراقبة لتلائم طبيعة السفن: نطاق ترددي ضيق، كمون متذبذب، وضباط قيادة تقع على عاتقهم سلامة الملاحة.</p>
+  </div>
+
+  <div class="pipe-wrap">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
+      <!-- STAGE 01: GPS SPOOFING -->
+      <div class="pipe-card reveal" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">الركيزة 01 // سلامة إشارات الملاحة GNSS</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="GPS spoofing detection Doppler and pseudorange vector scope">
+            <defs>
+              <filter id="p-gps-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+            <line x1="120" y1="10" x2="120" y2="140" stroke="rgba(168,213,6,0.15)" stroke-width="0.8"/>
+            <line x1="10" y1="75" x2="230" y2="75" stroke="rgba(168,213,6,0.15)" stroke-width="0.8"/>
+            <circle cx="120" cy="75" r="45" fill="none" stroke="rgba(168,213,6,0.25)" stroke-width="0.8" stroke-dasharray="3 3"/>
+            <circle cx="120" cy="75" r="25" fill="none" stroke="rgba(168,213,6,0.35)" stroke-width="0.8"/>
+
+            <path d="M 60 110 Q 95 60 150 45" fill="none" stroke="#e88c7a" stroke-width="1.6" stroke-dasharray="3 2"/>
+            <circle cx="150" cy="45" r="3.5" fill="#e88c7a" filter="url(#p-gps-glow)"/>
+            <text x="150" y="36" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="700" fill="#e88c7a" text-anchor="middle">SPOOFED FIX (420m ERR)</text>
+
+            <path d="M 60 110 Q 90 90 140 85 T 195 80" fill="none" stroke="#a8d506" stroke-width="2"/>
+            <circle cx="195" cy="80" r="3" fill="#d8ff36" filter="url(#p-gps-glow)"/>
+            <text x="195" y="93" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="700" fill="#a8d506" text-anchor="middle">INERTIAL GYRO FIX ✓</text>
+
+            <g transform="translate(20, 20)">
+              <rect x="0" y="0" width="70" height="20" rx="3" fill="#0b160a" stroke="rgba(168,213,6,0.35)" stroke-width="0.8"/>
+              <text x="6" y="13" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#a7b0a3">TIMING: <tspan fill="#d8ff36">0.0ns VERIFIED</tspan></text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="pipe-body">
+          <h3>كشف تزييف نظام الملاحة GPS</h3>
+          <p>رصد انحرافات التوقيت والإحداثيات الجغرافية في الوقت الفعلي. إشارة GPS المزيفة تختلف تصرفاتها عند سرعة 20 عقدة؛ وتطلق محركاتنا الآلية وفريق المراقبة تحذيراً فورياً لغرفة القيادة.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; تحليل المدى الزائف &middot; قياسات دوبلر &middot; استجابة فورية</span>
+        </div>
+      </div>
+
+      <!-- STAGE 02: SATELLITE MONITORING -->
+      <div class="pipe-card reveal d1" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">الركيزة 02 // روابط الأقمار الصناعية</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Satellite link RF monitoring and terminal firewall protection">
+            <defs>
+              <filter id="p-sat-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+
+            <g transform="translate(120, 26)">
+              <rect x="-18" y="-6" width="36" height="12" rx="2" fill="#0e1b0c" stroke="#a8d506" stroke-width="1.2"/>
+              <rect x="-30" y="-4" width="10" height="8" fill="#152613" stroke="#a8d506" stroke-width="0.8"/>
+              <rect x="20" y="-4" width="10" height="8" fill="#152613" stroke="#a8d506" stroke-width="0.8"/>
+              <circle cx="0" cy="0" r="2.2" fill="#ffffff" filter="url(#p-sat-glow)"/>
+            </g>
+
+            <polygon points="120,32 60,115 180,115" fill="rgba(168,213,6,0.06)"/>
+            <line x1="120" y1="32" x2="80" y2="115" stroke="#a8d506" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <line x1="120" y1="32" x2="160" y2="115" stroke="#d8ff36" stroke-width="1.4" stroke-dasharray="4 3"/>
+
+            <g transform="translate(120, 115)">
+              <path d="M -24 15 C -24 0 24 0 24 15 Z" fill="#0a1409" stroke="#a8d506" stroke-width="1.4"/>
+              <rect x="-14" y="15" width="28" height="8" fill="#060b05" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+              <circle cx="0" cy="7" r="2.5" fill="#a8d506" filter="url(#p-sat-glow)"/>
+            </g>
+
+            <g transform="translate(148, 64)">
+              <rect x="0" y="0" width="76" height="22" rx="3" fill="#070e06" stroke="rgba(168,213,6,0.4)" stroke-width="0.8"/>
+              <text x="6" y="14" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#eef3ea">LINK ENCLAVE: <tspan fill="#a8d506">OK</tspan></text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="pipe-body">
+          <h3>مراقبة روابط الأقمار الصناعية</h3>
+          <p>مراقبة مستمرة لروابط VSAT و Inmarsat لرصد حركة البيانات الخارجة الشاذة، هجمات القوة الغاشمة على حسابات المسؤول، ومحاولات السيطرة على المحطات قبل التوغل للشبكة الداخلية.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; VSAT &middot; Inmarsat &middot; عزل المحطات</span>
+        </div>
+      </div>
+
+      <!-- STAGE 03: BRIDGE OT ANOMALY TRIAGE -->
+      <div class="pipe-card reveal d2" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">الركيزة 03 // ناقل الملاحة OT</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="NMEA 2000 CAN bus firewall and ECDIS command verification">
+            <defs>
+              <filter id="p-ot-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.2" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+
+            <line x1="25" y1="75" x2="215" y2="75" stroke="#a8d506" stroke-width="2.2"/>
+
+            <g transform="translate(50, 40)">
+              <rect x="-24" y="-18" width="48" height="24" rx="3" fill="#0d180c" stroke="#a8d506" stroke-width="1.1"/>
+              <text x="0" y="-3" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506" text-anchor="middle">ECDIS</text>
+              <line x1="0" y1="6" x2="0" y2="35" stroke="#a8d506" stroke-width="1.3"/>
+              <circle cx="0" cy="35" r="2.5" fill="#d8ff36" filter="url(#p-ot-glow)"/>
+            </g>
+
+            <g transform="translate(120, 75)">
+              <rect x="-30" y="-22" width="60" height="44" rx="5" fill="#132412" stroke="#d8ff36" stroke-width="1.5" filter="url(#p-ot-glow)"/>
+              <text x="0" y="-6" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="800" fill="#ffffff" text-anchor="middle">OT FIREWALL</text>
+              <text x="0" y="6" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a8d506" text-anchor="middle">ZERO-LOSS CAN</text>
+              <circle cx="0" cy="14" r="2.5" fill="#a8d506"/>
+            </g>
+
+            <g transform="translate(190, 110)">
+              <rect x="-24" y="-6" width="48" height="24" rx="3" fill="#0d180c" stroke="#a8d506" stroke-width="1.1"/>
+              <text x="0" y="9" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506" text-anchor="middle">AUTOPILOT</text>
+              <line x1="0" y1="-6" x2="0" y2="-35" stroke="#a8d506" stroke-width="1.3"/>
+              <circle cx="0" cy="-35" r="2.5" fill="#d8ff36" filter="url(#p-ot-glow)"/>
+            </g>
+
+            <circle cx="95" cy="75" r="3" fill="#e88c7a" filter="url(#p-ot-glow)"/>
+            <text x="95" y="64" font-family="'JetBrains Mono', monospace" font-size="4.8" font-weight="700" fill="#e88c7a" text-anchor="middle">BLOCKED ✕</text>
+          </svg>
+        </div>
+
+        <div class="pipe-body">
+          <h3>فرز شذوذ أنظمة القيادة OT</h3>
+          <p>فحص تدفقات بيانات NMEA 0183/2000 و Signal K للتأكد من خلوها من أوامر توجيه الدفة غير المصرح بها، والتلاعب بخرائط ECDIS، قبل تعريض سلامة الإبحار للخطر.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; NMEA 2000 &middot; Signal K &middot; ناقل OT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 3. BY THE NUMBERS · 4 KEY METRICS ═══ -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="metrics">
+    <div class="met reveal">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>مقر تالين الرئيسي</span></div>
+      <div>
+        <div class="num" data-text="59.4°N" style="direction:ltr">59.4°N</div>
+        <div class="lbl">أوروبا · مراقبة البلطيق</div>
+      </div>
+      <div class="desc">مركز القيادة والأبحاث والتنسيق العالمي. يعمل بكفاءة تشغيلية منذ عام 2022.</div>
+    </div>
+    <div class="met reveal d1">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>مكتب الخبر</span></div>
+      <div>
+        <div class="num" data-text="26.2°N" style="direction:ltr">26.2°N</div>
+        <div class="lbl">الخليج · مراقبة البحر الأحمر</div>
+      </div>
+      <div class="desc">دعم متكامل باللغتين العربية والإنجليزية لأساطيل الخليج والبحر الأحمر متوائم مع الواقع الإقليمي.</div>
+    </div>
+    <div class="met reveal d2">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>مراقبة متواصلة</span></div>
+      <div>
+        <div class="num" data-text="24/7" style="direction:ltr">24/7</div>
+        <div class="lbl">فريق محللين متخصص</div>
+      </div>
+      <div class="desc">انعدام أي فجوة زمنية في تسليم الورديات؛ المراقبة نشطة وتتبادلها غرفتا العمليات بسلاسة تامة.</div>
+    </div>
+    <div class="met reveal d3">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>رقابة الموانئ PSC</span></div>
+      <div>
+        <div class="num" data-text="2026" style="direction:ltr">2026</div>
+        <div class="lbl">معايير IACS UR E26/E27</div>
+      </div>
+      <div class="desc">سجلات أدلة وتقارير حوادث مهيأة ومصممة لاجتياز تدقيق هيئات التصنيف وتفتيش الموانئ.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 4. CTA ═══ -->
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <div class="coord" style="margin-bottom:14px"><b>تفعيل المراقبة البحرية</b> مركز عمليات الأمن السيبراني البحري 24/7</div>
+    <h3>ضع أسطولك تحت أعين نخبة من خبراء الأمن البحري. <em>ليلاً ونهاراً.</em></h3>
+    <p>من لوحات تحكم VSAT المفتوحة وحتى تنبيهات تزييف إشارات GPS، نحن نفرز ما يهدد السفينة فعلياً ونخطر غرفة القيادة قبل أن تتحول الإشارة الشاذة إلى حادث بحري.</p>
+  </div>
+  <div class="cta-row">
+    <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">تحدث مع فريق المراقبة &larr;</a>
+    <a href="shipcrawler.html" class="btn ghost magnetic" style="font-size:.95rem;padding:16px 28px">افحص 3 سفن مجاناً</a>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a href="index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a>
+      <p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">الأمن السيبراني البحري، الحوسبة الطرفية بانعدام الثقة، وهندسة الشبكات والمنصات الرقمية. المقر الرئيسي في تالين، ومكتب المملكة العربية السعودية.</p>
+    </div>
+    <div><h4>المنتجات</h4><a href="shipcrawler.html">شيب كراولر (OSINT)</a><a href="M-SOC.html">مركز العمليات M-SOC</a><a href="haris.html">عقدة حارس الطرفية</a><a href="watchtower.html">برج المراقبة (Watchtower)</a></div>
+    <div><h4>المدونة والبحوث</h4><a href="../blog/how-attackers-find-ships-shodan.html">شيب كراولر وشودان</a><a href="../blog/vsat-security-fleet-managers.html">أمن محطات VSAT</a><a href="../blog/psc-cyber-requirements-2026.html">معايير PSC 2026</a></div>
+    <div><h4>الخدمات</h4><a href="web-design.html">تطوير الويب والمنصات</a><a href="networking.html">هندسة الشبكات</a><a href="mobile-app.html">تطبيقات الجوال</a></div>
+    <div><h4>التواصل</h4><a href="contact.html">تواصل مع الفريق</a><a href="mailto:contact@oversight.ee" style="direction:ltr;text-align:right">contact@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>تالين، إستونيا · &copy; 2026 شركة أوفرسايت (Oversight OÜ)</span><span>تصميم وتطوير بواسطة أوفرسايت (Oversight)</span></div>
+</div></footer>
+
+</body>
+</html>

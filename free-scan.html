@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Fleet Scan · 3-Vessel Exposure Report in 24h | Oversight</title>
+<meta name="description" content="Request a free 3-vessel exposure scan. Passive OSINT across Shodan, Censys and satellite ASN blocks. Confidential report in 24 hours. No agent installed.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="Free Fleet Scan · 3-Vessel Exposure Report in 24h | Oversight">
+<meta property="og:description" content="Request a free 3-vessel exposure scan. Passive OSINT across Shodan, Censys and satellite ASN blocks. Confidential report in 24 hours. No agent installed.">
+<meta property="og:url" content="https://www.oversight.ee/free-scan">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Fleet Scan · 3-Vessel Exposure Report in 24h | Oversight">
+<meta name="twitter:description" content="Request a free 3-vessel exposure scan. Passive OSINT across Shodan, Censys and satellite ASN blocks. Confidential report in 24 hours. No agent installed.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+  <link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="canonical" href="https://www.oversight.ee/free-scan">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="mobile.css" media="screen and (max-width: 1024px)">
+<script src="theme.js"></script>
+<script defer src="fx.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Confidential Vessel Cyber Exposure Audit",
+  "name": "Free 3-Vessel Fleet Attack Surface Scan",
+  "provider": {
+    "@type": "Organization",
+    "name": "Oversight",
+    "url": "https://www.oversight.ee"
+  },
+  "description": "Zero-touch, 100% passive OSINT audit of 3 fleet targets identifying unauthenticated satellite terminals, exposed management interfaces, and open bridge ports within 24 hours.",
+  "url": "https://www.oversight.ee/free-scan"
+}
+</script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<!-- monumental watermark -->
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+<div class="neural-mesh">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
+      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
+      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
+      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
+      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
+      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
+      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
+      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
+      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
+      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
+      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
+      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
+      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
+    </g>
+  </svg>
+</div>
+
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="haris.html">Haris</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">Web Development</a>
+        <a href="networking.html">Networking</a>
+        <a href="mobile-app.html">Mobile App Development</a>
+      </div>
+    </div>
+    <a href="contact.html">Contact</a><a href="blog.html">Blog</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta active">Free Fleet Scan</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a>
+  <a href="M-SOC.html">M-SOC</a>
+  <a href="shipcrawler.html">Shipcrawler</a>
+  <a href="haris.html">Haris</a>
+  <div class="drawer-group">
+    <span class="drawer-label">Other Services</span>
+    <a href="web-design.html">Web Development</a>
+    <a href="networking.html">Networking</a>
+    <a href="mobile-app.html">Mobile App Development</a>
+  </div>
+  <a href="contact.html">Contact</a>
+  <a href="blog.html">Blog</a>
+  <a href="free-scan.html" class="drawer-cta">Free Fleet Scan</a>
+</div>
+
+<!-- ══════════════════════ 1. HERO ══════════════════════ -->
+<section class="hero hero-evidence">
+  <div class="wrap hero-evidence-grid">
+    <div>
+      <div class="coord"><b>FREE 3-VESSEL EXPOSURE SCAN</b> Passive OSINT · No Agent · 24h Report</div>
+      <h1>
+        <span class="h1-line"><span class="w">See</span> <span class="w">your</span> <span class="w">fleet</span></span>
+        <span class="h1-line"><span class="w">the</span> <span class="w">way</span> <span class="w">an</span> <span class="w"><em class="lime">attacker</em> <em class="lime">does.</em></span></span>
+      </h1>
+      <p class="sub">Free exposure scan for three commercial vessels. We query public search indexes and satellite ASN ranges to surface what is exposed on your fleet: unauthenticated VSAT terminals, open Telnet ports, bridge camera feeds. 100% passive. No agent. No shipboard access.</p>
+      <div class="cta-row">
+        <a href="#scan-form" class="btn primary magnetic">Request 3-Vessel Report →</a>
+        <a href="blog/how-attackers-find-ships-shodan.html" class="btn ghost magnetic">Read Shodan Brief</a>
+      </div>
+    </div>
+    <div>
+      <div class="tactical-card reveal" id="scan-form" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div class="tactical-header" style="margin-bottom:16px">
+          <div>
+            <div class="tactical-title">FREE RECON SCAN REQUEST <span class="slash">//</span> 24H DELIVERABLE</div>
+            <div class="tactical-sub">PASSIVE SHODAN / CENSYS RECONNAISSANCE</div>
+          </div>
+          <span class="tactical-status status-online"><i></i> ZERO-TOUCH</span>
+        </div>
+
+        <form id="shipcrawlerScanForm" onsubmit="handleScanSubmit(event)" style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <label for="scanTargets" class="bl" style="display:block;margin-bottom:6px">Vessel targets (IMO numbers or names)</label>
+            <input type="text" id="scanTargets" placeholder="e.g. IMO 0097421, M/V ARCTIC LEADER" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.82rem">
+          </div>
+          <div class="form-row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label for="scanEmail" class="bl" style="display:block;margin-bottom:6px">Superintendent email</label>
+              <input type="email" id="scanEmail" placeholder="superintendent@fleet.com" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.82rem">
+            </div>
+            <div>
+              <label for="scanCompany" class="bl" style="display:block;margin-bottom:6px">Company / fleet</label>
+              <input type="text" id="scanCompany" placeholder="Shipping Co." style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.82rem">
+            </div>
+          </div>
+          <div>
+            <label for="scanMessage" class="bl" style="display:block;margin-bottom:6px">Notes / Port calls (optional)</label>
+            <textarea id="scanMessage" rows="3" placeholder="Fleet size, upcoming routes, specific terminals to check..." style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.82rem;resize:vertical"></textarea>
+          </div>
+          <button type="submit" class="btn primary magnetic" style="justify-content:center;font-size:.95rem;padding:15px 24px;border:none;cursor:pointer">Generate Exposure Report →</button>
+          <div id="scanFormStatus" style="display:none;font-size:.88rem;padding:12px 16px;border-radius:10px;font-family:var(--mono)"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 2. HOW IT WORKS PIPELINE ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · How the scan works</div>
+    <h2>From request to report <em>in 24 hours.</em></h2>
+    <p>Three vessels, one confidential report, zero commitment. The scan is fully passive and runs without touching the ship.</p>
+  </div>
+
+  <div class="pipe-wrap reveal">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
+
+      <!-- Stage 01 -->
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">STAGE 01</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">REGISTRY SYNC</span>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">1. We identify</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">Your IMO numbers resolve to MMSI, flag state, AIS tracking history, and recent port calls from open global registries. The vessel we scan is verified.</p>
+        <span class="qm-chip">Identity check · Open data</span>
+      </div>
+
+      <!-- Stage 02 -->
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">STAGE 02</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">PASSIVE RECON</span>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">2. We sweep</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">Passive queries across Shodan, Censys, and satellite ASN blocks (Inmarsat, Marlink, Speedcast). No active probing of your ship, no traffic, zero risk to voyage.</p>
+        <span class="qm-chip">Shodan · Censys · ASN</span>
+      </div>
+
+      <!-- Stage 03 -->
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">STAGE 03</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">ACTION ORDER</span>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">3. You receive</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">One confidential PDF report per fleet: identity, exposure perimeter map, open doors, and a plain-language fix order. In your inbox within 24 hours.</p>
+        <span class="qm-chip">Confidential · 24h</span>
+      </div>
+
+    </div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ 3. WHAT WE CHECK ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · What the scan checks</div>
+    <h2>Four layers. Four places <em>the internet can reach.</em></h2>
+    <p>Every commercial vessel carries four distinct network layers. The scan checks all four, from the mast to the engine room.</p>
+  </div>
+  <div class="bento">
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Layer 01 · Mast</div><h3>Satellite uplink</h3><p>Inmarsat and VSAT terminals answering on public satellite IP ranges, often with default factory credentials.</p><span class="chip">Inmarsat · VSAT · ASN</span></div>
+    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Layer 02 · Bridge</div><h3>VSAT web consoles</h3><p>Terminal management panels left open on public IPs, giving remote access to reboot, detune or reconfigure the link.</p><span class="chip">Web GUI · Default creds</span></div>
+    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Layer 03 · Navigation</div><h3>Bridge OT</h3><p>ECDIS, AIS and CCTV on flat unsegmented networks, with camera feeds and console streams reachable from outside.</p><span class="chip">ECDIS · AIS · RTSP</span></div>
+    <div class="tile med reveal" data-tilt data-spot><div class="tref">Layer 04 · Engine</div><h3>Engine SCADA</h3><p>Propulsion and ballast PLCs reachable over legacy industrial protocols such as Telnet, Modbus and unencrypted serial.</p><span class="chip">PLC · Modbus · Telnet</span></div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ 4. REPORT CONTENTS ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 03 · The deliverable</div>
+    <h2>What the report carries, <em>page by page.</em></h2>
+    <p>No data dump. Every finding is prioritized and explained in plain language, with the fix order marked.</p>
+  </div>
+  <div class="metrics">
+    <div class="met reveal">
+      <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
+      <div class="met-tag"><i></i><span>Identity &amp; movement</span></div>
+      <div><div class="num" data-text="IMO">IMO</div><div class="lbl">MMSI · AIS · Port calls</div></div>
+      <div class="desc">The vessel we scanned is the vessel you own, verified against open registries.</div>
+    </div>
+    <div class="met reveal d1">
+      <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
+      <div class="met-tag"><i></i><span>Exposure map</span></div>
+      <div><div class="num" data-text="ASN">ASN</div><div class="lbl">Terminal · IP · Indexed</div></div>
+      <div class="desc">Which open databases index your vessel, and what they show an attacker.</div>
+    </div>
+    <div class="met reveal d2">
+      <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
+      <div class="met-tag"><i></i><span>Open doors</span></div>
+      <div><div class="num" data-text="Ports">Ports</div><div class="lbl">Protocols · Severity</div></div>
+      <div class="desc">Ports and protocols found open across the four layers, graded by reachability.</div>
+    </div>
+    <div class="met reveal d3">
+      <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
+      <div class="met-tag"><i></i><span>Fix order</span></div>
+      <div><div class="num" data-text="Fix">Fix</div><div class="lbl">Plain-language steps</div></div>
+      <div class="desc">What to close, what to segment, and what to do before the next port call.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ 5. CTA ══════════════════════ -->
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <h3>Free scan. Real findings. <em>No obligation.</em></h3>
+    <p>Three vessels, one confidential report, zero commitment. It is also the honest way to evaluate whether we are the right team for your fleet.</p>
+  </div>
+  <a href="#scan-form" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Start the Scan →</a>
+</div></div>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="free-scan.html">Free Fleet Scan</a><a href="shipcrawler.html">Shipcrawler</a><a href="M-SOC.html">M-SOC</a><a href="haris.html">Haris Edge</a><a href="watchtower.html">Watchtower</a></div>
+    <div><h4>Blog</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
+    <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
+    <div><h4>Contact</h4><a href="contact.html">Contact Us</a><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Designed & Developed by Oversight</span></div>
+</div></footer>
+
+<script>
+async function handleScanSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('shipcrawlerScanForm');
+  const btn = form.querySelector('button[type="submit"]');
+  const targets = document.getElementById('scanTargets').value.trim();
+  const email = document.getElementById('scanEmail').value.trim();
+  const company = document.getElementById('scanCompany').value.trim();
+  const status = document.getElementById('scanFormStatus');
+
+  btn.disabled = true;
+  btn.style.opacity = '0.75';
+  btn.textContent = 'Requesting scan...';
+
+  status.style.display = 'block';
+  status.style.background = 'rgba(168,213,6,.08)';
+  status.style.border = '1px solid rgba(168,213,6,.3)';
+  status.style.color = 'var(--lime)';
+  status.innerHTML = 'Preparing your scan request...';
+
+  const payload = {
+    targets: targets,
+    email: email,
+    company: company || 'Not specified'
+  };
+
+  let sent = false;
+
+  // 1. Direct contact.php (Resend API backend)
+  try {
+    const res = await fetch('contact.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      const data = await res.json().catch(() => null);
+      if (data && data.success) sent = true;
+    }
+  } catch (err) {}
+
+  // 2. Serverless /api/contact (Vercel / Netlify)
+  if (!sent) {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        const data = await res.json().catch(() => null);
+        if (data && data.success) sent = true;
+      }
+    } catch (err) {}
+  }
+
+  // 3. Fallback endpoint
+  if (!sent) {
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/contact@oversight.ee', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `Free Fleet Scan: ${targets}`,
+          _template: 'table',
+          _captcha: 'false',
+          'Fleet targets': targets,
+          'Email': email,
+          'Company / Fleet': company || 'Not specified'
+        })
+      });
+      const data = await res.json().catch(() => null);
+      if (res.ok || (data && (data.success === 'true' || data.success === true))) {
+        sent = true;
+      }
+    } catch (err) {}
+  }
+
+  if (sent) {
+    status.style.background = 'rgba(168,213,6,.15)';
+    status.style.color = 'var(--lime)';
+    status.style.border = '1px solid var(--lime)';
+    status.innerHTML = '✓ <strong>Request received.</strong> Your 3-vessel exposure scan is queued. The confidential report lands in your inbox within 24 hours.';
+    form.reset();
+  } else {
+    status.style.background = 'rgba(232,140,122,.12)';
+    status.style.color = 'var(--alert-red)';
+    status.style.border = '1px solid var(--alert-red)';
+    status.innerHTML = 'Direct sending failed. Email us instead at <a href="mailto:contact@oversight.ee?subject=Free%20Fleet%20Scan" style="color:var(--lime);font-weight:700">contact@oversight.ee</a>.';
+  }
+
+  btn.disabled = false;
+  btn.style.opacity = '1';
+  btn.textContent = 'Generate Exposure Report →';
+}
+</script>
+</body>
+</html>

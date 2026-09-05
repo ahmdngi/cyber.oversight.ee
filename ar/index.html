@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوفرسايت (Oversight) · الأمن السيبراني البحري للأساطيل التجارية</title>
+<meta name="description" content="تحمي أوفرسايت (Oversight) الأساطيل التجارية من ثغرات محطات الأقمار الصناعية، وهجمات أنظمة القيادة OT، وتزييف إشارات GPS. تدقيق OSINT، أجهزة طرفية، ومركز M-SOC على مدار الساعة. المقر الرئيسي في تالين ومكتب المملكة العربية السعودية.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="أوفرسايت (Oversight) · الأمن السيبراني البحري للأساطيل التجارية">
+<meta property="og:description" content="تحمي أوفرسايت (Oversight) الأساطيل التجارية من ثغرات محطات الأقمار الصناعية، وهجمات أنظمة القيادة OT، وتزييف إشارات GPS. تدقيق OSINT، أجهزة طرفية، ومركز M-SOC على مدار الساعة.">
+<meta property="og:url" content="https://www.oversight.ee/ar/">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="أوفرسايت (Oversight) · الأمن السيبراني البحري للأساطيل التجارية">
+<meta name="twitter:description" content="حماية متكاملة للأساطيل البحرية التجارية من الهجمات السيبرانية وانكشاف أنظمة الأقمار الصناعية وOT.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+<link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="alternate" hreflang="en" href="https://www.oversight.ee/">
+<link rel="alternate" hreflang="ar" href="https://www.oversight.ee/ar/">
+<link rel="alternate" hreflang="x-default" href="https://www.oversight.ee/">
+<link rel="canonical" href="https://www.oversight.ee/ar/">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../mobile.css" media="screen and (max-width: 1024px)">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
+<style>
+/* ── Hero: Compact Depth Sonar ── */
+.sonar-compact-hero{min-height:calc(100vh - 72px);padding:96px 0 56px;position:relative;overflow:hidden;background:var(--void);display:flex;align-items:center}
+.sonar-bg-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 25% 50%,rgba(168,213,6,.07),transparent 45%),radial-gradient(circle at 80% 40%,rgba(168,213,6,.03),transparent 35%);transition:background .8s ease}
+.sonar-compact-hero[data-active-depth="3"] .sonar-bg-glow{background:radial-gradient(circle at 25% 50%,rgba(255,61,61,.09),transparent 45%),radial-gradient(circle at 80% 40%,rgba(255,184,0,.04),transparent 35%)}
+.sonar-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,5vw,70px);align-items:center;position:relative;z-index:2;width:100%}
+.sonar-copy{max-width:650px}
+.sonar-copy .coord{margin-bottom:22px}
+.sonar-copy h1{font-family:var(--sans);font-size:clamp(2.3rem,4.8vw,4.4rem);font-weight:600;line-height:1.15;letter-spacing:-.03em;color:var(--text);margin-bottom:20px}
+.sonar-copy h1 em{font-style:normal;color:var(--lime);transition:color .4s}
+.sonar-compact-hero[data-active-depth="3"] .sonar-copy h1 em{color:#ff5252}
+.sonar-copy .sub{max-width:580px;color:var(--mut);font-size:1.02rem;line-height:1.8;margin:0 0 26px}
+.depth-selector-wrap{margin-bottom:28px;background:rgba(17,23,15,.7);border:1px solid var(--line);border-radius:12px;padding:8px;backdrop-filter:blur(12px)}
+.depth-selector-label{display:flex;justify-content:space-between;align-items:center;padding:4px 10px 8px;font:.62rem var(--mono);letter-spacing:.08em;color:var(--dim)}
+.depth-selector-label b{color:var(--lime);font-family:var(--mono)}
+.depth-nav-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.depth-btn{background:rgba(255,255,255,.02);border:1px solid transparent;border-radius:8px;padding:10px 8px;cursor:pointer;text-align:right;transition:all .25s var(--ease-spring);color:var(--mut);position:relative;overflow:hidden}
+.depth-btn:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.depth-btn.active{background:rgba(168,213,6,.12);border-color:rgba(168,213,6,.4);color:var(--text);box-shadow:inset 0 0 16px rgba(168,213,6,.1)}
+.depth-btn.active.crit{background:rgba(255,61,61,.14);border-color:rgba(255,61,61,.5);box-shadow:inset 0 0 16px rgba(255,61,61,.15)}
+.depth-btn-level{font:.58rem var(--mono);letter-spacing:.08em;display:block;margin-bottom:2px;color:var(--dim)}
+.depth-btn.active .depth-btn-level{color:var(--lime)}
+.depth-btn.active.crit .depth-btn-level{color:#ff5252}
+.depth-btn-name{font:600 .8rem var(--sans);display:block;white-space:nowrap}
+.sonar-cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.sonar-console{position:relative;background:#090e09;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.03);overflow:hidden;min-height:480px;display:flex;flex-direction:column;justify-content:space-between}
+.sonar-console-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line);font:.65rem var(--mono);color:var(--dim)}
+.sonar-live-indicator{display:flex;align-items:center;gap:8px;color:var(--lime)}
+.sonar-live-dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulseDot 1.5s infinite}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+.sonar-stage{position:relative;display:flex;align-items:center;justify-content:center;margin:16px 0}
+.sonar-scope{position:relative;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(168,213,6,.06) 0%,rgba(6,12,6,.95) 80%);border:1px solid rgba(168,213,6,.25);box-shadow:0 0 30px rgba(0,0,0,.8),inset 0 0 20px rgba(168,213,6,.05);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sonar-scope::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 49.5%,rgba(168,213,6,.15) 50%,transparent 50.5%),linear-gradient(to bottom,transparent 49.5%,rgba(168,213,6,.15) 50%,transparent 50.5%);pointer-events:none}
+.depth-circle{position:absolute;border-radius:50%;border:1px dashed rgba(238,243,234,.14);pointer-events:none}
+.depth-circle.c1{width:60px;height:60px}
+.depth-circle.c2{width:115px;height:115px}
+.depth-circle.c3{width:170px;height:170px}
+.depth-circle.c4{width:220px;height:220px}
+.sonar-beam{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 270deg, rgba(168,213,6,.04) 295deg, rgba(168,213,6,.22) 335deg, rgba(168,213,6,.58) 360deg);animation:radarSweep 3.5s linear infinite;transform-origin:50% 50%;pointer-events:none;z-index:4;will-change:transform}
+.sonar-beam::after{content:'';position:absolute;top:0;left:50%;width:1.5px;height:50%;background:linear-gradient(to top, var(--lime), #ffffff);box-shadow:0 0 10px var(--lime);transform-origin:bottom center}
+@keyframes radarSweep{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.sonar-ping-wave{position:absolute;width:20px;height:20px;border-radius:50%;border:2px solid var(--lime);opacity:0;pointer-events:none}
+.sonar-ping-wave.firing{animation:pingPop 1.5s cubic-bezier(0.1,0.8,0.3,1) forwards}
+@keyframes pingPop{0%{transform:scale(0.5);opacity:.9}100%{transform:scale(11.5);opacity:0}}
+.sonar-center-target{position:relative;z-index:5;width:38px;height:38px;border-radius:50%;background:var(--void);border:1.5px solid var(--lime);display:flex;align-items:center;justify-content:center;color:var(--lime);box-shadow:0 0 16px rgba(168,213,6,.35);transition:all .4s}
+.target-blip{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);z-index:6;opacity:.35;transform:scale(.8);transition:all .35s var(--ease-spring)}
+.target-blip.active{opacity:1;transform:scale(1.4);box-shadow:0 0 16px var(--lime),0 0 0 3px rgba(168,213,6,.25);animation:blipGlow 1.2s infinite alternate}
+.target-blip.crit{background:#ff3d3d;box-shadow:0 0 10px #ff3d3d}
+.target-blip.crit.active{box-shadow:0 0 20px #ff3d3d,0 0 0 3px rgba(255,61,61,.3)}
+@keyframes blipGlow{from{transform:scale(1.2)}to{transform:scale(1.6)}}
+.target-blip.b-tier0{top:40px;left:40px}
+.target-blip.b-tier1{bottom:48px;right:46px}
+.target-blip.b-tier2{bottom:78px;left:76px}
+.target-blip.b-tier3{top:98px;right:96px}
+.sonar-range-label{position:absolute;left:8px;top:50%;transform:translateY(-50%);font:.54rem var(--mono);color:rgba(168,213,6,.4);pointer-events:none}
+.sonar-card-details{background:rgba(7,17,10,.85);border:1px solid var(--line);border-radius:12px;padding:16px;position:relative;min-height:140px}
+.card-layer-badge{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.card-layer-num{font:.6rem var(--mono);color:var(--lime)}
+.card-severity{font:.58rem var(--mono);padding:2px 8px;border-radius:4px;font-weight:600}
+.severity-warn{background:rgba(255,184,0,.15);color:#ffb800;border:1px solid rgba(255,184,0,.3)}
+.severity-crit{background:rgba(255,61,61,.18);color:#ff5252;border:1px solid rgba(255,61,61,.4)}
+.severity-safe{background:rgba(168,213,6,.15);color:var(--lime);border:1px solid rgba(168,213,6,.3)}
+.card-title{font:600 1.1rem var(--sans);color:var(--text);margin-bottom:6px;line-height:1.4}
+.card-desc{font-size:.88rem;line-height:1.65;color:var(--mut);margin-bottom:12px}
+.card-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip-item{font:.58rem var(--mono);direction:ltr;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--dim)}
+.chip-item.highlight{border-color:rgba(168,213,6,.4);color:var(--lime)}
+.chip-item.danger{border-color:rgba(255,61,61,.4);color:#ff5252}
+.console-corner{position:absolute;width:14px;height:14px;border:1px solid rgba(168,213,6,.4);pointer-events:none}
+.console-corner.tl{top:10px;right:10px;border-left:none;border-bottom:none}
+.console-corner.tr{top:10px;left:10px;border-right:none;border-bottom:none}
+.console-corner.bl{bottom:10px;right:10px;border-left:none;border-top:none}
+.console-corner.br{bottom:10px;left:10px;border-right:none;border-top:none}
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<!-- stepped logo blocks watermark -->
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+
+<button class="theme-toggle-btn" aria-label="تبديل المظهر" title="تبديل المظهر"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+    <a href="shipcrawler.html">شيب كراولر</a>
+    <a href="haris.html">حارس (Haris)</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">خدمات أخرى <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">تطوير الويب والمنصات</a>
+        <a href="networking.html">هندسة الشبكات والربط</a>
+        <a href="mobile-app.html">تطبيقات الجوال</a>
+      </div>
+    </div>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="blog.html">المدونة والبحوث</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta">فحص مجاني للأسطول</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="تبديل القائمة"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">الرئيسية</a>
+  <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+  <a href="shipcrawler.html">شيب كراولر</a>
+  <a href="haris.html">حارس (Haris)</a>
+  <div class="drawer-group">
+    <span class="drawer-label">خدمات أخرى</span>
+    <a href="web-design.html">تطوير الويب</a>
+    <a href="networking.html">هندسة الشبكات</a>
+    <a href="mobile-app.html">تطبيقات الجوال</a>
+  </div>
+  <a href="contact.html">تواصل معنا</a>
+  <a href="blog.html">المدونة والبحوث</a>
+  <a href="free-scan.html" class="drawer-cta">فحص مجاني للأسطول</a>
+</div>
+
+<!-- ═══ 1. HERO SONAR ═══ -->
+<section class="hero sonar-compact-hero" id="home-hero" data-active-depth="0">
+  <div class="sonar-bg-glow" aria-hidden="true"></div>
+  <div class="wrap sonar-grid">
+    <div class="sonar-copy">
+      <div class="coord"><b>الأمن السيبراني البحري</b><span>فحص قياسات عن بُعد حي · 4 طبقات شبكية</span></div>
+      <h1>إلى أي عمق يصل <em>انكشاف سفينتك؟</em></h1>
+      <p class="sub">تحمل كل سفينة تجارية 4 طبقات شبكية متباينة. اختر طبقة شبكية أو دع مسح السونار يكتشف ما يعثر عليه المهاجمون خلال أقل من 24 ساعة من الإبحار.</p>
+      
+      <div class="depth-selector-wrap">
+        <div class="depth-selector-label">
+          <span>عمق الطبقة النشطة</span>
+          <b id="depthMeter">الطبقة 01 · الاتصال الفضائي السطحي</b>
+        </div>
+        <div class="depth-nav-btns" id="depthNav">
+          <button class="depth-btn active" data-tier="0" type="button">
+            <span class="depth-btn-level">الطبقة 01</span>
+            <span class="depth-btn-name">الاتصال الفضائي</span>
+          </button>
+          <button class="depth-btn" data-tier="1" type="button">
+            <span class="depth-btn-level">الطبقة 02</span>
+            <span class="depth-btn-name">لوحة VSAT</span>
+          </button>
+          <button class="depth-btn" data-tier="2" type="button">
+            <span class="depth-btn-level">الطبقة 03</span>
+            <span class="depth-btn-name">ملاحة OT</span>
+          </button>
+          <button class="depth-btn crit" data-tier="3" type="button">
+            <span class="depth-btn-level">الطبقة 04</span>
+            <span class="depth-btn-name">محركات SCADA</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="sonar-cta-row">
+        <a href="shipcrawler.html" class="btn primary magnetic">افحص أسطولك مجاناً</a>
+        <a href="M-SOC.html" class="btn ghost magnetic">استكشف مركز M-SOC</a>
+      </div>
+    </div>
+
+    <div class="sonar-console" aria-label="M-SOC Live Sonar Scanner">
+      <div class="console-corner tl"></div><div class="console-corner tr"></div>
+      <div class="console-corner bl"></div><div class="console-corner br"></div>
+
+      <div class="sonar-console-header">
+        <div class="sonar-live-indicator">
+          <span class="sonar-live-dot"></span>
+          <b>سونار فحص شبكات M-SOC</b>
+        </div>
+        <div style="font-family:var(--mono); color:var(--text); direction:ltr" id="sonarFrequency">1525.0 MHz · L-BAND</div>
+      </div>
+
+      <div class="sonar-stage">
+        <div class="sonar-scope">
+          <div class="depth-circle c1"></div>
+          <div class="depth-circle c2"></div>
+          <div class="depth-circle c3"></div>
+          <div class="depth-circle c4"></div>
+
+          <div class="sonar-beam" id="sonarBeam"></div>
+          <div class="sonar-ping-wave" id="sonarPing"></div>
+
+          <div class="sonar-center-target" id="sonarCenter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+
+          <div class="target-blip b-tier0 active" id="blip0" title="Satellite Uplink"></div>
+          <div class="target-blip b-tier1" id="blip1" title="VSAT Web GUI"></div>
+          <div class="target-blip b-tier2 crit" id="blip2" title="Bridge OT Network"></div>
+          <div class="target-blip b-tier3 crit" id="blip3" title="Engine SCADA PLC"></div>
+
+          <span class="sonar-range-label" style="direction:ltr">100 NM</span>
+        </div>
+      </div>
+
+      <div class="sonar-card-details" id="telemetryCard">
+        <div class="card-layer-badge">
+          <span class="card-layer-num" id="cardLayerNum">الطبقة 01 · رابط القمر الصناعي</span>
+          <span class="card-severity severity-safe" id="cardSeverity">تم رصد انكشاف</span>
+        </div>
+        <div class="card-title" id="cardTitle">محطة Inmarsat متاحة على الإنترنت العام</div>
+        <div class="card-desc" id="cardDesc">عنوان IP الفضائي للسفينة مفهرس في قواعد بيانات الاستخبارات المفتوحة. ترويسات المحطة تؤكد هوية الاتصالات البحرية النشطة.</div>
+        <div class="card-chips" id="cardChips">
+          <span class="chip-item highlight">INMARSAT ASN</span>
+          <span class="chip-item">PUBLIC IP</span>
+          <span class="chip-item danger">INDEXED IN SHODAN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. WHAT IT IS · 3-COLUMN CARDS ═══ -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · ماهية المنظومة</div>
+    <h2>الأمن السيبراني البحري، <em>مصمم خصيصاً لغرفة القيادة.</em></h2>
+    <p>ثلاث قدرات تكتيكية صُممت لمواءمة واقع العمليات البحرية: قيود النطاق الترددي الفضائي، الاتصالات المتقطعة، واشتراطات السلامة الصارمة.</p>
+  </div>
+  <div class="pipe-wrap">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
+      <!-- PRODUCT 01: SHIPCRAWLER OSINT -->
+      <a href="shipcrawler.html" class="pipe-card reveal" data-tilt data-spot style="text-decoration:none;color:inherit">
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">المنتج 01 // استطلاع سلبي OSINT</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Shipcrawler satellite ASN recon art">
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+            <circle cx="120" cy="75" r="46" fill="none" stroke="rgba(168,213,6,0.35)" stroke-width="0.8" stroke-dasharray="3 3"/>
+            <circle cx="120" cy="75" r="24" fill="none" stroke="rgba(168,213,6,0.45)" stroke-width="0.8"/>
+            <line x1="120" y1="20" x2="120" y2="130" stroke="rgba(168,213,6,0.2)" stroke-width="0.8"/>
+            <line x1="20" y1="75" x2="220" y2="75" stroke="rgba(168,213,6,0.2)" stroke-width="0.8"/>
+            <circle cx="85" cy="50" r="3.2" fill="#e88c7a"/>
+            <text x="85" y="42" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="700" fill="#e88c7a" text-anchor="middle">VSAT EXPOSED</text>
+            <circle cx="155" cy="95" r="3" fill="#ebb432"/>
+            <text x="155" y="107" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="700" fill="#ebb432" text-anchor="middle">TELNET :23</text>
+            <circle cx="120" cy="75" r="3" fill="#d8ff36"/>
+          </svg>
+        </div>
+
+        <div class="pipe-body">
+          <h3>شيب كراولر (Shipcrawler)</h3>
+          <p>مسح استطلاعي سلبي لنطاقات ASN الفضائية ومحركات البحث لكشف أجهزة التوجيه والمنافذ المفتوحة قبل أن يكتشفها المهاجمون.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; بدون برمجيات &middot; ملف تنفيذي خلال 24 ساعة</span>
+        </div>
+      </a>
+
+      <!-- PRODUCT 02: HARIS EDGE NODE -->
+      <a href="haris.html" class="pipe-card reveal d1" data-tilt data-spot style="text-decoration:none;color:inherit">
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">المنتج 02 // جهاز الملاحة الطرفي</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris 1U rack edge node art">
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+            <rect x="25" y="45" width="190" height="54" rx="4" fill="#0c180b" stroke="#a8d506" stroke-width="1.3"/>
+            <text x="40" y="66" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#ffffff">HARIS // GEN-2</text>
+            <text x="40" y="78" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506">19" 1U Bridge Rack Node</text>
+            <circle cx="160" cy="65" r="2.5" fill="#d8ff36"/>
+            <circle cx="172" cy="65" r="2.5" fill="#a8d506"/>
+            <circle cx="184" cy="65" r="2.5" fill="#ffffff"/>
+            <g transform="translate(40, 114)">
+              <text x="0" y="8" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#a7b0a3">NMEA 2000 &middot; 30-DAY SOLID STATE VAULT</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="pipe-body">
+          <h3>عقدة حارس (Haris Edge Node)</h3>
+          <p>جهاز صلب معتمد لرفوف غرفة القيادة بمقاس 1U. يجمع بيانات NMEA 0183/2000 و Signal K مع ذاكرة تخزين مؤقتة لمدة 30 يوماً عند انقطاع الاتصال.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; N2K &middot; معيار UR E26 &middot; تخزين 30 يوماً</span>
+        </div>
+      </a>
+
+      <!-- PRODUCT 03: M-SOC 24/7 WATCH -->
+      <a href="M-SOC.html" class="pipe-card reveal d2" data-tilt data-spot style="text-decoration:none;color:inherit">
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">المنتج 03 // مركز العمليات 24/7</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="M-SOC naval operations radar console art">
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+            <circle cx="120" cy="75" r="42" fill="#091208" stroke="#a8d506" stroke-width="1.2"/>
+            <circle cx="120" cy="75" r="22" fill="none" stroke="rgba(168,213,6,0.4)" stroke-width="0.8"/>
+            <line x1="120" y1="33" x2="120" y2="117" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+            <line x1="78" y1="75" x2="162" y2="75" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+            <circle cx="104" cy="62" r="2.8" fill="#a8d506"/>
+            <circle cx="138" cy="88" r="2.8" fill="#d8ff36"/>
+            <circle cx="134" cy="58" r="3.2" fill="#e88c7a"/>
+            <g transform="translate(30, 24)">
+              <text x="0" y="6" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#a7b0a3">TALLINN 59.4°N · AL KHOBAR 26.2°N</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="pipe-body">
+          <h3>مركز العمليات البحرية (M-SOC)</h3>
+          <p>مراقبة بشرية متخصصة ومستمرة على مدار الساعة من تالين والخبر لكشف تزييف GPS، ومحاولات السيطرة على روابط الأقمار الصناعية، وشذوذ OT.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; مقر تالين &middot; مكتب الخبر &middot; مراقبة 24/7</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 3. BY THE NUMBERS · 4 KEY METRICS ═══ -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="metrics">
+    <div class="met reveal">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>مراقبة متواصلة</span></div>
+      <div>
+        <div class="num" data-text="24/7" style="direction:ltr">24/7</div>
+        <div class="lbl">فريق محللين متخصص</div>
+      </div>
+      <div class="desc">مراقبة مستمرة على مدار الساعة عبر مكتبين: المقر الأوروبي في تالين والمكتب الإقليمي بالخبر.</div>
+    </div>
+    <div class="met reveal d1">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>ممرات الملاحة العالمية</span></div>
+      <div>
+        <div class="num" data-text="100%" style="direction:ltr">100%</div>
+        <div class="lbl">استطلاع سلبي بالكامل</div>
+      </div>
+      <div class="desc">رسم خرائط غير اقتحامي لشبكات الأقمار الصناعية وحماية ثنائية بدون برمجيات دخيلة.</div>
+    </div>
+    <div class="met reveal d2">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>رقابة دولة الميناء PSC</span></div>
+      <div>
+        <div class="num" data-text="E26" style="direction:ltr">E26</div>
+        <div class="lbl">جاهزية كاملة للامتثال</div>
+      </div>
+      <div class="desc">سجلات قياسات دقيقة متوافقة مع متطلبات IACS UR E26/E27 وقرار IMO MSC.428(98).</div>
+    </div>
+    <div class="met reveal d3">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>أبحاث محكّمة</span></div>
+      <div>
+        <div class="num" data-count="2022" style="direction:ltr">0</div>
+        <div class="lbl">سنة التأسيس والعمليات</div>
+      </div>
+      <div class="desc">مركز عمليات تالين ومنهجية رصد منشورة وموثقة في مجلة IEEE Access 2026.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 4. LIVE THREAT FEED & INTERACTIVE MAP ═══ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · موجز التهديدات المباشر</div>
+    <h2>قياسات فورية، <em>ورقابة على مدار الساعة.</em></h2>
+    <p>عرض حي للإشارات الشاذة في غرف القيادة، وانكشاف محطات الأقمار الصناعية، ومحاولات تزييف GPS عبر خطوط الشحن الملاحية المراقبة.</p>
+  </div>
+  <div class="tracking-shell reveal">
+    <div class="tracking-toolbar">
+      <div><span class="tracking-live-dot"></span><b>لوحة دفاع الأسطول M-SOC</b><small>مراقبة مستمرة للأقمار الصناعية وغرف القيادة</small></div>
+      <div class="tracking-actions"><button type="button" class="map-btn active" data-map-layer="dark">الخريطة التكتيكية</button><button type="button" class="map-btn" data-map-layer="sat">الأقمار الصناعية</button></div>
+    </div>
+    <div class="tracking-grid">
+      <div class="tracking-map-wrap">
+        <div class="map-hud-tl"><i></i> <span>درع الدفاع السيبراني: مفعل · 4 سفن</span></div>
+        <div class="map-hud-scanline" aria-hidden="true"></div>
+        <div id="fleet-map" class="fleet-map" aria-label="خريطة تتبع الأسطول التفاعلية"></div>
+        <div class="map-scale" style="direction:ltr">100 NM · RADAR AIS</div>
+        <div class="map-coordinates" style="direction:ltr">TALLINN HQ · AL KHOBAR DESK</div>
+      </div>
+      <aside class="vessel-panel">
+        <div class="panel-heading"><span>الأسطول المراقب</span><b>04 / 04 نشط</b></div>
+        <button class="vessel-row active" data-vessel="atlantic"><span class="vessel-status"></span><span><b>M/V DEMO BALTIC</b><small>IMO 0097421 · ناقلة بضائع صب · تجريبي</small></span><strong style="direction:ltr">12.4 kn</strong></button>
+        <button class="vessel-row" data-vessel="redsea"><span class="vessel-status"></span><span><b>M/V SIM RED SEA</b><small>IMO 0094102 · ناقلة نفط خام · تجريبي</small></span><strong style="direction:ltr">16.8 kn</strong></button>
+        <button class="vessel-row" data-vessel="gulf"><span class="vessel-status warning"></span><span><b>M/V TEST GULF</b><small>IMO 0098110 · سفينة حاويات · تجريبي</small></span><strong style="direction:ltr">11.2 kn</strong></button>
+        <button class="vessel-row" data-vessel="northsea"><span class="vessel-status warning"></span><span><b>M/V LAB NORTHSTAR</b><small>IMO 0096541 · ناقلة غاز مسال · تجريبي</small></span><strong style="direction:ltr">18.1 kn</strong></button>
+        
+        <div class="vessel-detail">
+          <div class="detail-label-row">
+            <span class="detail-label">حالة الدرع السيبراني</span>
+            <span class="cyber-badge safe" id="selected-shield">طبيعي · 0 انكشاف</span>
+          </div>
+          <h3 id="selected-vessel">M/V DEMO BALTIC</h3>
+          <div class="vessel-preview-box">
+            <img id="selected-photo" src="../vessel-bulk.jpg" alt="M/V DEMO BALTIC" class="vessel-thumb-preview">
+          </div>
+          
+          <div class="cyber-spec-grid">
+            <div class="cyber-spec-item">
+              <span>جهاز الحماية الطرفي</span>
+              <b id="selected-edge">عقدة حارس v2.4 (نشط)</b>
+            </div>
+            <div class="cyber-spec-item">
+              <span>انحراف توقيت GPS</span>
+              <b id="selected-gps" style="direction:ltr">0.0 ns (موثق)</b>
+            </div>
+            <div class="cyber-spec-item full">
+              <span>رابط القمر الصناعي</span>
+              <b id="selected-uplink">Inmarsat L-Band · المنطقة معزولة</b>
+            </div>
+            <div class="cyber-spec-item">
+              <span>الاتجاه</span>
+              <b id="selected-heading" style="direction:ltr">074°</b>
+            </div>
+            <div class="cyber-spec-item">
+              <span>الغاطس</span>
+              <b id="selected-draft" style="direction:ltr">9.7 m</b>
+            </div>
+          </div>
+
+          <div class="detail-route"><span>روتردام</span><i></i><span>بحر الشمال</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="threat-feed-card reveal" data-tilt style="margin-top:28px">
+    <div class="threat-feed-header">
+      <div class="threat-feed-title"><i></i> سجل قياسات M-SOC (محاكاة حية)</div>
+      <div class="threat-feed-live">بث حي فوري</div>
+    </div>
+    <div class="threat-feed-scroll">
+      <div class="threat-feed-track">
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id" style="direction:ltr">14:22 UTC · <b>IMO 0097421</b> · Bulk Carrier · Baltic Sea</div>
+            <div class="threat-desc">لوحة تحكم VSAT Web متاحة بدون مصادقة عبر مزود Inmarsat</div>
+          </div>
+          <span class="badge-severity badge-red">حرج جداً</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id" style="direction:ltr">11:05 UTC · <b>IMO 0094120</b> · Container Ship · Red Sea</div>
+            <div class="threat-desc">فقدان تزامن توقيت GPS · رصد انحراف بمقدار 340 نانوثانية يشير لتزييف إشارة</div>
+          </div>
+          <span class="badge-severity badge-amber">تحذير</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id" style="direction:ltr">08:41 UTC · <b>IMO 0098110</b> · Product Tanker · Arabian Gulf</div>
+            <div class="threat-desc">منفذ إدارة Telnet مفتوح (منفذ 23) تم عزله فورياً بواسطة عقدة حارس</div>
+          </div>
+          <span class="badge-severity badge-lime">تم الحل</span>
+        </div>
+        <div class="threat-item">
+          <div class="threat-meta">
+            <div class="threat-time-id" style="direction:ltr">04:19 UTC · <b>IMO 0096541</b> · LNG Carrier · North Sea</div>
+            <div class="threat-desc">برمجيات قديمة على جهاز Sailor 900 مصابة بثغرة أمنية معروفة CVE</div>
+          </div>
+          <span class="badge-severity badge-amber">تحذير</span>
+        </div>
+      </div>
+    </div>
+    <div class="threat-feed-cta">
+      <span style="font-family:var(--mono);font-size:.7rem;color:var(--dim)">قياسات مستمرة يتم فرزها بواسطة محللي الأمن البحري</span>
+      <a href="M-SOC.html">راقب أسطولك 24/7 &larr;</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 5. PRODUCTS · THE TACTICAL FLEET STACK ═══ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 03 · حزمة الأسطول التكتيكية</div>
+    <h2>كل ما يحتاجه الأسطول، <em>دون تعقيد أو إبطاء.</em></h2>
+    <p>ست وحدات هندسية متكاملة تغطي حزمة السفن التجارية من الاتصال الفضائي حتى أنظمة التحكم OT. بدون برمجيات خارجية بطيئة، وبدون اعتمادية على السحابة.</p>
+  </div>
+
+  <div class="tactical-stack-grid">
+
+    <!-- MODULE 01: SHIPCRAWLER OSINT -->
+    <a href="shipcrawler.html" class="tactical-card stack-card reveal" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i></i> الوحدة 01 // استطلاع OSINT</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">مسح سلبي</span>
+        </div>
+
+        <div class="stack-micro-art">
+          <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Shipcrawler OSINT satellite scan micro schematic">
+            <line x1="10" y1="40" x2="270" y2="40" stroke="rgba(168,213,6,.15)" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="45" cy="40" r="16" fill="#0c170b" stroke="#a8d506" stroke-width="1.2"/>
+            <path d="M 37 36 Q 45 28 53 36" stroke="#a8d506" stroke-width="1.2" fill="none"/>
+            <circle cx="45" cy="40" r="2.5" fill="#a8d506"/>
+            <path d="M 61 40 L 190 20 L 190 60 Z" fill="rgba(168,213,6,.06)" stroke="rgba(168,213,6,.25)" stroke-width="0.8" stroke-dasharray="4 2"/>
+            <circle cx="190" cy="40" r="18" fill="#111c0f" stroke="#ffb800" stroke-width="1.2"/>
+            <circle cx="190" cy="40" r="8" fill="none" stroke="rgba(255,184,0,.4)" stroke-width="0.8"/>
+            <circle cx="190" cy="40" r="2.5" fill="#ffb800"/>
+            <line x1="190" y1="18" x2="190" y2="62" stroke="rgba(255,184,0,.3)" stroke-width="0.8"/>
+            <line x1="168" y1="40" x2="212" y2="40" stroke="rgba(255,184,0,.3)" stroke-width="0.8"/>
+            <text x="218" y="38" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#a8d506">IMO 974210</text>
+            <text x="218" y="48" font-family="'JetBrains Mono', monospace" font-size="5.5" fill="#a7b0a3">EXPOSED :80</text>
+          </svg>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">شيب كراولر (Shipcrawler)</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">استطلاع بحري ذاتي ومستقل. يتعرف على أرقام IMO/MMSI، ويتتبع رحلات الموانئ، ويمسح نطاقات ASN للأقمار الصناعية لكشف محطات VSAT المكشوفة على الإنترنت.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">الهدف</span><span class="stack-tel-v" style="direction:ltr">IMO / MMSI</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الفحص</span><span class="stack-tel-v">100% سلبي</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">التقرير</span><span class="stack-tel-v">خلال 24 ساعة</span></div>
+        </div>
+      </div>
+
+      <div class="stack-card-bottom">
+        <span class="stack-card-chip">فحص مجاني لـ 3 سفن</span>
+        <span class="stack-card-action">استكشف الوحدة &larr;</span>
+      </div>
+    </a>
+
+    <!-- MODULE 02: HARIS EDGE NODE -->
+    <a href="haris.html" class="tactical-card stack-card reveal d1" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i></i> الوحدة 02 // جهاز الملاحة</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">معيار UR E26</span>
+        </div>
+
+        <div class="stack-micro-art">
+          <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris Edge Node 1U rack chassis micro schematic">
+            <rect x="18" y="22" width="244" height="36" rx="4" fill="#0a1409" stroke="#a8d506" stroke-width="1.3"/>
+            <circle cx="26" cy="30" r="2" fill="none" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="26" cy="50" r="2" fill="none" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="254" cy="30" r="2" fill="none" stroke="#a8d506" stroke-width="0.8"/>
+            <circle cx="254" cy="50" r="2" fill="none" stroke="#a8d506" stroke-width="0.8"/>
+            <text x="40" y="44" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" fill="#ffffff" letter-spacing="1">HARIS // 1U EDGE</text>
+            <rect x="156" y="28" width="24" height="24" rx="2" fill="#040803" stroke="rgba(168,213,6,.4)" stroke-width="0.8"/>
+            <text x="168" y="43" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506" text-anchor="middle">N2K</text>
+            <rect x="186" y="28" width="24" height="24" rx="2" fill="#040803" stroke="rgba(168,213,6,.4)" stroke-width="0.8"/>
+            <text x="198" y="43" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506" text-anchor="middle">CAN</text>
+            <circle cx="224" cy="40" r="2" fill="#a8d506"/>
+            <circle cx="232" cy="40" r="2" fill="#ffffff"/>
+            <circle cx="240" cy="40" r="2" fill="#d8ff36"/>
+          </svg>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">عقدة حارس (Haris Edge)</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">عتاد صلب مقاوم للاهتزاز والحرارة لغرفة القيادة. يجمع بيانات NMEA 0183/2000 و Signal K، ويخزنها محلياً طوال فترات انقطاع الأقمار الصناعية، ويزامنها مشفرة.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">المنافذ</span><span class="stack-tel-v" style="direction:ltr">N2K · CAN · ETH</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الذاكرة</span><span class="stack-tel-v">تخزين 30 يوماً</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">المعيار</span><span class="stack-tel-v" style="direction:ltr">IACS UR E26</span></div>
+        </div>
+      </div>
+
+      <div class="stack-card-bottom">
+        <span class="stack-card-chip">تخزين محلي 30 يوماً</span>
+        <span class="stack-card-action">استكشف الوحدة &larr;</span>
+      </div>
+    </a>
+
+    <!-- MODULE 03: WATCHTOWER MANAGEMENT -->
+    <a href="watchtower.html" class="tactical-card stack-card reveal d2" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i></i> الوحدة 03 // منصة الإدارة</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">شبكة الأسطول</span>
+        </div>
+
+        <div class="stack-micro-art">
+          <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Watchtower fleet orchestrator micro schematic">
+            <circle cx="140" cy="40" r="14" fill="#0f1f0e" stroke="#a8d506" stroke-width="1.5"/>
+            <circle cx="140" cy="40" r="4" fill="#a8d506"/>
+            <line x1="140" y1="40" x2="50" y2="28" stroke="rgba(168,213,6,.3)" stroke-width="1" stroke-dasharray="3 2"/>
+            <line x1="140" y1="40" x2="50" y2="52" stroke="rgba(168,213,6,.3)" stroke-width="1" stroke-dasharray="3 2"/>
+            <line x1="140" y1="40" x2="230" y2="28" stroke="rgba(168,213,6,.3)" stroke-width="1" stroke-dasharray="3 2"/>
+            <line x1="140" y1="40" x2="230" y2="52" stroke="rgba(168,213,6,.3)" stroke-width="1" stroke-dasharray="3 2"/>
+            <circle cx="50" cy="28" r="8" fill="#081007" stroke="#a8d506" stroke-width="1"/>
+            <circle cx="50" cy="52" r="8" fill="#081007" stroke="#a8d506" stroke-width="1"/>
+            <circle cx="230" cy="28" r="8" fill="#081007" stroke="#a8d506" stroke-width="1"/>
+            <circle cx="230" cy="52" r="8" fill="#081007" stroke="#a8d506" stroke-width="1"/>
+            <text x="140" y="70" font-family="'JetBrains Mono', monospace" font-size="6" fill="#a7b0a3" text-anchor="middle">CENTRAL DISPATCH · ZERO-TOUCH OTA</text>
+          </svg>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">برج المراقبة (Watchtower)</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">إدارة مركزية ومراقبة شاملة لأجهزة الأسطول الطرفية. تحديث البرمجيات عن بُعد، متابعة المؤشرات التشغيلية، وقياسات غير قابلة للتلاعب من شاشة واحدة.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">التحديث</span><span class="stack-tel-v">عن بُعد OTA</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">النبض</span><span class="stack-tel-v">كل 60 ثانية</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الأسطول</span><span class="stack-tel-v">أجهزة غير محدودة</span></div>
+        </div>
+      </div>
+
+      <div class="stack-card-bottom">
+        <span class="stack-card-chip">إدارة الأسطول عن بُعد</span>
+        <span class="stack-card-action">استكشف الوحدة &larr;</span>
+      </div>
+    </a>
+
+    <!-- MODULE 04: M-SOC CONTINUOUS WATCH -->
+    <a href="M-SOC.html" class="tactical-card stack-card reveal" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i style="background:#ff5252;box-shadow:0 0 8px #ff5252"></i> الوحدة 04 // مركز M-SOC</span>
+          <span class="pipe-status-tag" style="background:rgba(255,82,82,.12);color:#ff5252;border:1px solid rgba(255,82,82,.3)">مراقبة نشطة 24/7</span>
+        </div>
+
+        <div class="stack-micro-art">
+          <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="M-SOC naval command radar micro schematic">
+            <circle cx="140" cy="40" r="32" fill="#081007" stroke="#a8d506" stroke-width="1.2"/>
+            <circle cx="140" cy="40" r="18" fill="none" stroke="rgba(168,213,6,.3)" stroke-width="0.8"/>
+            <line x1="140" y1="8" x2="140" y2="72" stroke="rgba(168,213,6,.2)" stroke-width="0.8"/>
+            <line x1="108" y1="40" x2="172" y2="40" stroke="rgba(168,213,6,.2)" stroke-width="0.8"/>
+            <line x1="140" y1="40" x2="162" y2="18" stroke="#a8d506" stroke-width="1.5"/>
+            <circle cx="126" cy="30" r="2.5" fill="#a8d506"/>
+            <circle cx="152" cy="48" r="2.5" fill="#d8ff36"/>
+            <circle cx="158" cy="26" r="3" fill="#ff5252"/>
+            <text x="32" y="44" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#a8d506">TLL 59.4°N</text>
+            <text x="216" y="44" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#a8d506">KSA 26.2°N</text>
+          </svg>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">مركز العمليات البحرية (M-SOC)</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">مراقبة بشرية مستمرة من محللين متخصصين، تصيد استباقي للتهديدات، وإنذار فوري للحوادث البحرية المصممة لسلامة الملاحة وسلامة أنظمة OT.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">المراكز</span><span class="stack-tel-v">تالين (HQ) · السعودية</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">التزييف</span><span class="stack-tel-v">رادار دوبلر الملاحي</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الاستجابة</span><span class="stack-tel-v">&lt; 15 دقيقة تصعيد</span></div>
+        </div>
+      </div>
+
+      <div class="stack-card-bottom">
+        <span class="stack-card-chip">تصيد التهديدات 24/7</span>
+        <span class="stack-card-action">استكشف الوحدة &larr;</span>
+      </div>
+    </a>
+
+    <!-- MODULE 05: HARIS CREW APP -->
+    <a href="mobile-app.html" class="tactical-card stack-card reveal d1" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i></i> الوحدة 05 // تطبيق القيادة</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">يعمل بدون إنترنت</span>
+        </div>
+
+        <div class="stack-micro-art">
+          <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris Crew App tactical bridge tablet micro schematic">
+            <rect x="70" y="14" width="140" height="52" rx="6" fill="#070e06" stroke="#a8d506" stroke-width="1.3"/>
+            <rect x="76" y="20" width="128" height="40" rx="3" fill="#0f1e0e"/>
+            <rect x="82" y="25" width="116" height="14" rx="2" fill="rgba(255,82,82,.2)" stroke="#ff5252" stroke-width="0.8"/>
+            <text x="140" y="35" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#ff5252" text-anchor="middle">TAP TO ISOLATE AUTOPILOT</text>
+            <circle cx="88" cy="49" r="2" fill="#a8d506"/>
+            <text x="94" y="52" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506">OFFLINE ENGINE SYNC</text>
+          </svg>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">تطبيق الطاقم (Haris App)</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">تطبيق تكتيكي للأجهزة اللوحية يعمل بدون إنترنت. يزود الضباط بخطوات واضحة وحاسمة لعزل الأنظمة المخترقة فوراً، مصمم خصيصاً للبحارة في عرض البحر.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">التقنية</span><span class="stack-tel-v" style="direction:ltr">Flutter Hybrid</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">أدلة العمل</span><span class="stack-tel-v">100% بدون إنترنت</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الإجراء</span><span class="stack-tel-v">عزل / قطع فوري</span></div>
+        </div>
+      </div>
+
+      <div class="stack-card-bottom">
+        <span class="stack-card-chip">أدلة استجابة بدون إنترنت</span>
+        <span class="stack-card-action">استكشف الوحدة &larr;</span>
+      </div>
+    </a>
+
+    <!-- MODULE 06: ENTERPRISE NETWORKING -->
+    <a href="networking.html" class="tactical-card stack-card reveal d2" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i></i> الوحدة 06 // شبكات عالية التوافر</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">انعدام الثقة ZTNA</span>
+        </div>
+
+        <div class="stack-micro-art">
+          <svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Enterprise Networking HA dual firewall micro schematic">
+            <rect x="35" y="24" width="70" height="32" rx="4" fill="#0c170b" stroke="#a8d506" stroke-width="1.2"/>
+            <text x="70" y="38" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#ffffff" text-anchor="middle">FW-01 (ACTIVE)</text>
+            <text x="70" y="48" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506" text-anchor="middle">FORTINET HA</text>
+            <line x1="105" y1="40" x2="175" y2="40" stroke="#a8d506" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <polygon points="140,36 146,40 140,44" fill="#a8d506"/>
+            <rect x="175" y="24" width="70" height="32" rx="4" fill="#0c170b" stroke="rgba(168,213,6,.5)" stroke-width="1"/>
+            <text x="210" y="38" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#a7b0a3" text-anchor="middle">FW-02 (STANDBY)</text>
+            <text x="210" y="48" font-family="'JetBrains Mono', monospace" font-size="5" fill="#697762" text-anchor="middle">WIREGUARD ZTNA</text>
+          </svg>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">هندسة الشبكات السحابية</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">عناقيد جدران الحماية عالية التوافر، شبكات WireGuard ZTNA المعزولة، وتوجيه SD-WAN متعدد الخطوط. بنية أمنية بحرية تمتد لمقرات الشركات والموانئ.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">التحويل</span><span class="stack-tel-v" style="direction:ltr">Active-Passive</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الأمان</span><span class="stack-tel-v" style="direction:ltr">WireGuard ZTNA</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">التوافر</span><span class="stack-tel-v" style="direction:ltr">99.99% SLA</span></div>
+        </div>
+      </div>
+
+      <div class="stack-card-bottom">
+        <span class="stack-card-chip">Cisco · Fortinet</span>
+        <span class="stack-card-action">استكشف الوحدة &larr;</span>
+      </div>
+    </a>
+
+  </div>
+</div></section>
+
+<!-- ═══ 6. CTA ═══ -->
+<div class="wrap"><div class="cta reveal" style="position:relative;overflow:hidden">
+  <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
+  <div>
+    <div class="coord" style="margin-bottom:14px"><b>فحص استطلاعي سلبي للانكشاف</b> تقرير سري خلال 24 ساعة · بدون تثبيت أي برمجيات</div>
+    <h3>اكتشف ما يعرفه الإنترنت عن <em>أسطولك</em> اليوم.</h3>
+    <p>فحص مجاني لثلاث سفن تجارية، مع تقرير تحليلي وافٍ خلال 24 ساعة. لا نطلب تثبيت أي برامج على السفينة، ولا الوصول إليها، وبدون أي التزام مسبق — فقط ما يمكن للمهاجم الوصول إليه فعلياً.</p>
+  </div>
+  <a href="free-scan.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">ابدأ الفحص المجاني &larr;</a>
+</div></div>
+
+<!-- ═══ 7. FOOTER ═══ -->
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a href="index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a>
+      <p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">الأمن السيبراني البحري، الحوسبة الطرفية بانعدام الثقة، وهندسة الشبكات والمنصات الرقمية. المقر الرئيسي في تالين، ومكتب المملكة العربية السعودية.</p>
+    </div>
+    <div><h4>المنتجات</h4><a href="shipcrawler.html">شيب كراولر (OSINT)</a><a href="M-SOC.html">مركز العمليات M-SOC</a><a href="haris.html">عقدة حارس الطرفية</a><a href="watchtower.html">برج المراقبة (Watchtower)</a></div>
+    <div><h4>المدونة والبحوث</h4><a href="../blog/how-attackers-find-ships-shodan.html">شيب كراولر وشودان</a><a href="../blog/vsat-security-fleet-managers.html">أمن محطات VSAT</a><a href="../blog/psc-cyber-requirements-2026.html">معايير PSC 2026</a></div>
+    <div><h4>الخدمات</h4><a href="web-design.html">تطوير الويب والمنصات</a><a href="networking.html">هندسة الشبكات</a><a href="mobile-app.html">تطبيقات الجوال</a></div>
+    <div><h4>التواصل</h4><a href="contact.html">تواصل مع الفريق</a><a href="mailto:contact@oversight.ee" style="direction:ltr;text-align:right">contact@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>تالين، إستونيا · &copy; 2026 شركة أوفرسايت (Oversight OÜ)</span><span>تصميم وتطوير بواسطة أوفرسايت (Oversight)</span></div>
+</div></footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../tracking-map.js"></script>
+  <script>
+/* M-SOC Compact Depth Sonar interactive controller (Arabic) */
+(function(){
+  const tiers = [
+    {
+      num: "الطبقة 01 · رابط القمر الصناعي",
+      meter: "الطبقة 01 · الاتصال الفضائي السطحي",
+      freq: "1525.0 MHz · L-BAND",
+      title: "محطة Inmarsat متاحة على الإنترنت العام",
+      desc: "عنوان IP الفضائي للسفينة مفهرس ومتاح للجميع في Shodan و Censys. يمكن تحديد طراز المحطة ونطاق ASN في أقل من 0.3 ثانية.",
+      severity: "تم رصد انكشاف",
+      sevClass: "severity-safe",
+      chips: ["INMARSAT ASN", "PUBLIC IP", "INDEXED IN SHODAN"],
+      color: "var(--lime)"
+    },
+    {
+      num: "الطبقة 02 · واجهة إدارة محطة VSAT",
+      meter: "الطبقة 02 · لوحة تحكم VSAT",
+      freq: "PORT 80 / 23 · TCP",
+      title: "لوحة تحكم Sailor / Cobham مفتوحة للعامة",
+      desc: "واجهة الإدارة تعمل على منفذ HTTP الافتراضي بدون تشفير وببيانات دخول المصنع الافتراضية. إمكانية إعادة التشغيل وتغيير توجيه الحزمة مكشوفة.",
+      severity: "مستوى خطر مرتفع",
+      sevClass: "severity-warn",
+      chips: ["PORT 80 HTTP", "TELNET 23 OPEN", "DEFAULT CREDS", "SNMP PUBLIC"],
+      color: "var(--amber, #ffb800)"
+    },
+    {
+      num: "الطبقة 03 · شبكة الملاحة وغرفة القيادة",
+      meter: "الطبقة 03 · شبكة ملاحية مسطحة بدون عزل",
+      freq: "NMEA 0183 / 2000",
+      title: "شاشات ECDIS ونظام AIS وكاميرات المراقبة على نفس الشبكة",
+      desc: "انعدام العزل الشبكي بين كاميرات المراقبة والشاشات الملاحية. تيار توقيت GPS عرضة لحقن جمل NMEA غير موثقة للتلاعب بمسار السفينة.",
+      severity: "اكتشاف حرج جداً",
+      sevClass: "severity-crit",
+      chips: ["UNSEGMENTED VLAN", "ECDIS EXPOSED", "RTSP CAMERA OPEN", "NMEA INJECTION"],
+      color: "var(--alert-red, #ff5252)"
+    },
+    {
+      num: "الطبقة 04 · محركات الدفع والتحكم الصناعي SCADA",
+      meter: "الطبقة 04 · الدفع وأنظمة التحكم OT",
+      freq: "MODBUS / CAN BUS",
+      title: "التحكم في المحركات ومضخات الاتزان متاح من شبكة Wi-Fi الطاقم",
+      desc: "جهاز توجيه Wi-Fi الطاقم متصل مباشرة بمتحكمات PLC الصناعية التي تدير توازن السفينة والمحرك الرئيسي. خطر السيطرة التامة على السفينة.",
+      severity: "خطر جسيم وشديد",
+      sevClass: "severity-crit",
+      chips: ["SCADA NO AUTH", "CREW WI-FI BRIDGE", "PLC CONTROL OPEN", "ZERO ENCRYPTION"],
+      color: "var(--alert-red, #ff3d3d)"
+    }
+  ];
+
+  let currentTier = 0;
+  let autoTimer = null;
+
+  const hero = document.getElementById('home-hero');
+  const buttons = document.querySelectorAll('.depth-btn');
+  const blips = [
+    document.getElementById('blip0'),
+    document.getElementById('blip1'),
+    document.getElementById('blip2'),
+    document.getElementById('blip3')
+  ];
+  const depthMeter = document.getElementById('depthMeter');
+  const sonarFreq = document.getElementById('sonarFrequency');
+  const cardLayerNum = document.getElementById('cardLayerNum');
+  const cardSeverity = document.getElementById('cardSeverity');
+  const cardTitle = document.getElementById('cardTitle');
+  const cardDesc = document.getElementById('cardDesc');
+  const cardChips = document.getElementById('cardChips');
+  const sonarPing = document.getElementById('sonarPing');
+  const sonarCenter = document.getElementById('sonarCenter');
+
+  if (!hero || !buttons.length) return;
+
+  function triggerPing() {
+    if (!sonarPing) return;
+    sonarPing.classList.remove('firing');
+    void sonarPing.offsetWidth;
+    sonarPing.classList.add('firing');
+  }
+
+  function setTier(idx) {
+    currentTier = idx;
+    const data = tiers[idx];
+
+    hero.setAttribute('data-active-depth', idx);
+
+    buttons.forEach((btn, i) => {
+      btn.classList.toggle('active', i === idx);
+    });
+
+    blips.forEach((blip, i) => {
+      if (blip) blip.classList.toggle('active', i === idx);
+    });
+
+    triggerPing();
+
+    if (depthMeter) depthMeter.textContent = data.meter;
+    if (sonarFreq) sonarFreq.textContent = data.freq;
+
+    if (cardLayerNum) {
+      cardLayerNum.textContent = data.num;
+      cardLayerNum.style.color = data.color;
+    }
+    if (cardSeverity) {
+      cardSeverity.textContent = data.severity;
+      cardSeverity.className = `card-severity ${data.sevClass}`;
+    }
+    if (cardTitle) cardTitle.textContent = data.title;
+    if (cardDesc) cardDesc.textContent = data.desc;
+
+    if (cardChips) {
+      cardChips.innerHTML = data.chips.map(c => {
+        const isDanger = c.includes('EXPOSED') || c.includes('DANGER') || c.includes('NO AUTH') || c.includes('ZERO');
+        const isHigh = c.includes('PORT') || c.includes('INMARSAT');
+        return `<span class="chip-item ${isDanger ? 'danger' : isHigh ? 'highlight' : ''}">${c}</span>`;
+      }).join('');
+    }
+
+    if (sonarCenter) {
+      sonarCenter.style.borderColor = data.color;
+      sonarCenter.style.color = data.color;
+    }
+    if (sonarPing) {
+      sonarPing.style.borderColor = data.color;
+    }
+  }
+
+  buttons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      clearInterval(autoTimer);
+      setTier(idx);
+      startAutoCycle();
+    });
+  });
+
+  blips.forEach((blip, idx) => {
+    if (blip) {
+      blip.style.cursor = 'pointer';
+      blip.addEventListener('click', () => {
+        clearInterval(autoTimer);
+        setTier(idx);
+        startAutoCycle();
+      });
+    }
+  });
+
+  function startAutoCycle() {
+    autoTimer = setInterval(() => {
+      currentTier = (currentTier + 1) % tiers.length;
+      setTier(currentTier);
+    }, 4500);
+  }
+
+  setTier(0);
+  startAutoCycle();
+})();
+</script>
+</body>
+</html>

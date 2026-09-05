@@ -3,24 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Networking · Cyber Oversight</title>
-<meta name="description" content="Enterprise network engineering: firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring. Cisco, Fortinet, and clean architecture.">
+<title>Enterprise Maritime Networking · HA & ZTNA Architecture | Oversight</title>
+<meta name="description" content="Enterprise maritime networking: dual firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring for shipping fleets and critical infrastructure.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Cyber Oversight">
-<meta property="og:title" content="Networking · Cyber Oversight">
-<meta property="og:description" content="Enterprise network engineering: firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring. Cisco, Fortinet, and clean architecture.">
-<meta property="og:url" content="https://cyber.oversight.ee/networking">
-<meta property="og:image" content="https://cyber.oversight.ee/og-image.png">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="Enterprise Maritime Networking · HA & ZTNA Architecture | Oversight">
+<meta property="og:description" content="Enterprise maritime networking: dual firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring.">
+<meta property="og:url" content="https://www.oversight.ee/networking">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Networking · Cyber Oversight">
-<meta name="twitter:description" content="Enterprise network engineering: firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring. Cisco, Fortinet, and clean architecture.">
-<meta name="twitter:image" content="https://cyber.oversight.ee/og-image.png">
-<link rel="canonical" href="https://cyber.oversight.ee/networking">
+<meta name="twitter:title" content="Enterprise Maritime Networking · HA & ZTNA Architecture | Oversight">
+<meta name="twitter:description" content="Enterprise maritime networking: dual firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+  <link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="canonical" href="https://www.oversight.ee/networking">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="mobile.css" media="screen and (max-width: 1024px)">
 <script src="theme.js"></script>
 <script defer src="fx.js"></script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Enterprise Networking & Security Hardening",
+  "name": "Enterprise Networking & Zero-Trust Infrastructure",
+  "provider": {
+    "@type": "Organization",
+    "name": "Oversight",
+    "url": "https://www.oversight.ee"
+  },
+  "description": "Enterprise LAN/WAN architecture, SD-WAN failover, next-gen firewall hardening, and redundant site-to-site VPN tunnels for corporate and maritime infrastructure.",
+  "url": "https://www.oversight.ee/networking"
+}
+</script>
 </head>
 <body>
 
@@ -39,239 +57,416 @@
   <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
 </svg>
 <div class="ambient-aurora-orb"></div>
+<div class="v2-aurora-glow"></div>
 <div class="brand-grid-bg"></div>
-<div class="neural-mesh">
-  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <g>
-      <path d="M 200 300 Q 380 220 560 280 T 920 240 T 1280 300"/>
-      <path d="M 180 480 Q 400 560 640 500 T 1080 540 T 1380 480"/>
-      <path d="M 240 640 Q 460 580 700 640 T 1120 600 T 1360 660"/>
-      <path d="M 320 160 Q 500 240 700 180 T 1100 220"/>
-      <path d="M 100 720 Q 340 660 580 720 T 1000 680 T 1300 740"/>
-      <path d="M 600 100 Q 680 260 640 420 T 720 620 T 680 820"/>
-      <path d="M 980 120 Q 1020 300 960 460 T 1040 660 T 1000 840"/>
-      <circle cx="560" cy="280" r="3"/><circle cx="920" cy="240" r="3"/>
-      <circle cx="640" cy="500" r="3"/><circle cx="1080" cy="540" r="3"/>
-      <circle cx="700" cy="640" r="3"/><circle cx="1120" cy="600" r="3"/>
-      <circle cx="700" cy="180" r="3"/><circle cx="1100" cy="220" r="3"/>
-      <circle cx="580" cy="720" r="3"/><circle cx="1000" cy="680" r="3"/>
-      <circle cx="640" cy="420" r="3"/><circle cx="1040" cy="660" r="3"/>
-    </g>
-  </svg>
-</div>
 
 <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
 
 <nav id="nav"><div class="wrap">
-  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Oversight" class="brand-logo-img"></a>
   <div class="nav-links">
-    <a href="capabilities.html">Capabilities</a><a href="architecture.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Blog</a>
+    <a href="M-SOC.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="haris.html">Haris</a>
     <div class="nav-drop">
-      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#" class="drop-toggle active" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="drop-menu">
         <a href="web-design.html">Web Development</a>
         <a href="networking.html" class="active">Networking</a>
         <a href="mobile-app.html">Mobile App Development</a>
       </div>
     </div>
+    <a href="contact.html">Contact</a><a href="blog.html">Blog</a>
   </div>
-  <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
+  <a href="free-scan.html" class="nav-cta">Free Fleet Scan</a>
   <div class="nav-right">
     <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </div></nav>
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="index.html">Home</a>
-  <a href="capabilities.html">Capabilities</a>
-  <a href="architecture.html">M-SOC</a>
+  <a href="M-SOC.html">M-SOC</a>
   <a href="shipcrawler.html">Shipcrawler</a>
-  <a href="blog.html">Blog</a>
+  <a href="haris.html">Haris</a>
   <div class="drawer-group">
     <span class="drawer-label">Other Services</span>
     <a href="web-design.html">Web Development</a>
     <a href="networking.html" class="active">Networking</a>
     <a href="mobile-app.html">Mobile App Development</a>
   </div>
-  <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
+  <a href="contact.html">Contact</a>
+  <a href="blog.html">Blog</a>
+  <a href="free-scan.html" class="drawer-cta">Free Fleet Scan</a>
 </div>
+
+<!-- ═══ 1. HERO WITH ENTERPRISE TOPOLOGY BLUEPRINT ═══ -->
 <section class="hero hero-evidence">
   <div class="wrap hero-evidence-grid">
     <div>
-      <div class="coord"><b>ENTERPRISE NETWORKING</b> Zero-Trust ZTNA · High-Availability HA</div>
+      <div class="coord"><b>ENTERPRISE NETWORKING</b> Zero-Trust ZTNA · Sub-Second HA Failover</div>
       <h1>
         <span class="h1-line"><span class="w">Networks</span> <span class="w">built</span> <span class="w">to</span></span>
         <span class="h1-line"><span class="w">stay</span> <span class="w"><em class="lime">up.</em></span></span>
       </h1>
-      <p class="sub">Enterprise network engineering: firewall clustering, WireGuard ZTNA meshes, SD-WAN, and 24/7 uptime monitoring. Cisco, Fortinet, and clean architecture.</p>
+      <p class="sub">Production-grade enterprise network engineering for fleet operators and maritime logistics: active-passive firewall clustering, WireGuard ZTNA meshes, multi-trunk SD-WAN, and sub-second path switching across satellite and shore links.</p>
       <div class="cta-row">
         <a href="contact.html" class="btn primary magnetic">Design My Network →</a>
-        <a href="#services" class="btn ghost magnetic">Network Services</a>
+        <a href="#architecture" class="btn ghost magnetic">View Architecture</a>
       </div>
     </div>
     <div>
-      <div class="evidence-card reveal" data-tilt data-spot>
-        <div class="evidence-header">
-          <span class="evidence-tag"><i></i> Network SLA</span>
-          <span class="evidence-title">Infrastructure Reliability Profile</span>
+      <div class="tactical-card reveal" data-tilt data-spot>
+        <div class="tactical-card-topbar">
+          <div class="tactical-unit-tag"><i></i><span>Network Topology // HA Mesh</span></div>
+          <div class="tactical-unit-status">Sub-Second Convergence &lt; 1.2s</div>
         </div>
-        <div class="evidence-bars">
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">Production infrastructure uptime target</span>
-              <span class="evidence-bar-pct">99.99%</span>
-            </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:99%"></div>
-            </div>
+
+        <!-- High-Availability Topology Blueprint SVG -->
+        <svg viewBox="0 0 460 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="High availability enterprise maritime network architecture schematic">
+          <defs>
+            <filter id="net-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <linearGradient id="net-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#121f11"/>
+              <stop offset="100%" stop-color="#060a05"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Frame -->
+          <rect x="4" y="4" width="452" height="202" rx="10" fill="url(#net-bg)" stroke="#a8d506" stroke-width="1.3"/>
+          <rect x="10" y="10" width="440" height="190" rx="7" fill="#040804"/>
+
+          <!-- Header Bar -->
+          <line x1="10" y1="28" x2="450" y2="28" stroke="rgba(168,213,6,0.25)" stroke-width="0.8"/>
+          <circle cx="22" cy="19" r="2.2" fill="#a8d506" filter="url(#net-glow)"/>
+          <text x="32" y="22" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#a8d506" letter-spacing="0.14em">PRODUCTION HA CLUSTER // ZTNA ENCLAVE MESH</text>
+          <text x="438" y="22" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="700" fill="#eef3ea" text-anchor="end">SLA: 99.99% UP</text>
+
+          <!-- Upstream WAN Links: VSAT / LEO / 4G -->
+          <g transform="translate(30, 42)">
+            <!-- VSAT Primary Trunk -->
+            <rect x="0" y="0" width="76" height="26" rx="3" fill="#0b160a" stroke="#a8d506" stroke-width="1"/>
+            <text x="10" y="12" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506">VSAT KU-BAND</text>
+            <text x="10" y="20" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#eef3ea">PRI WAN · 20 Mbps</text>
+            <circle cx="68" cy="13" r="2" fill="#a8d506"/>
+
+            <!-- LEO Secondary Trunk -->
+            <rect x="88" y="0" width="76" height="26" rx="3" fill="#0b160a" stroke="rgba(168,213,6,0.5)" stroke-width="0.9"/>
+            <text x="98" y="12" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#d8ff36">LEO SATELLITE</text>
+            <text x="98" y="20" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#a7b0a3">SEC WAN · 100 Mbps</text>
+            <circle cx="156" cy="13" r="2" fill="#d8ff36"/>
+
+            <!-- 4G/5G In-Port Trunk -->
+            <rect x="176" y="0" width="76" height="26" rx="3" fill="#0b160a" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+            <text x="186" y="12" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a7b0a3">4G/5G CELLULAR</text>
+            <text x="186" y="20" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#a7b0a3">PORT FAILOVER</text>
+            <circle cx="244" cy="13" r="2" fill="#ebb432"/>
+          </g>
+
+          <!-- Connecting Bus to Dual Firewalls -->
+          <path d="M 68 68 L 68 84 L 140 84" stroke="#a8d506" stroke-width="1.4" fill="none"/>
+          <path d="M 156 68 L 156 84" stroke="#d8ff36" stroke-width="1.2" fill="none"/>
+          <path d="M 244 68 L 244 84 L 180 84" stroke="rgba(168,213,6,0.5)" stroke-width="1" fill="none"/>
+
+          <!-- Central Dual Active-Passive HA Firewall Cluster -->
+          <g transform="translate(30, 96)">
+            <!-- FW 01 Active -->
+            <rect x="20" y="0" width="100" height="42" rx="4" fill="#0f1f0e" stroke="#a8d506" stroke-width="1.4" filter="url(#net-glow)"/>
+            <text x="30" y="15" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="800" fill="#ffffff">FORTIGATE HA // PRI</text>
+            <text x="30" y="26" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506">State: ACTIVE · Synced</text>
+            <text x="30" y="35" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#eef3ea">WireGuard ZTNA Mesh [UP]</text>
+            <circle cx="110" cy="14" r="2.5" fill="#d8ff36"/>
+
+            <!-- Inter-Chassis Heartbeat Cable -->
+            <line x1="120" y1="21" x2="150" y2="21" stroke="#d8ff36" stroke-width="2" stroke-dasharray="3 2"/>
+            <text x="135" y="16" font-family="'JetBrains Mono', monospace" font-size="4.5" font-weight="700" fill="#d8ff36" text-anchor="middle">SYNC</text>
+
+            <!-- FW 02 Passive Standby -->
+            <rect x="150" y="0" width="100" height="42" rx="4" fill="#080f07" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+            <text x="160" y="15" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="800" fill="#a7b0a3">FORTIGATE HA // SEC</text>
+            <text x="160" y="26" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3">State: STANDBY · Hot</text>
+            <text x="160" y="35" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#667262">Sub-second failover ready</text>
+            <circle cx="240" cy="14" r="2.5" fill="#a8d506"/>
+          </g>
+
+          <!-- Right: Zero-Trust Enclave & Downstream LANs -->
+          <g transform="translate(300, 42)">
+            <rect x="0" y="0" width="138" height="138" rx="4" fill="#070c06" stroke="rgba(168,213,6,0.35)" stroke-width="0.9"/>
+            <text x="12" y="20" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="700" fill="#a8d506">ZTNA SECURE ZONES</text>
+            <line x1="12" y1="28" x2="126" y2="28" stroke="rgba(168,213,6,0.2)" stroke-width="0.8"/>
+
+            <!-- Zone 1: Bridge OT VLAN -->
+            <rect x="12" y="36" width="114" height="24" rx="2" fill="#0d180c" stroke="#a8d506" stroke-width="0.8"/>
+            <text x="20" y="47" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a8d506">VLAN 10: BRIDGE OT</text>
+            <text x="20" y="55" font-family="'JetBrains Mono', monospace" font-size="4.5" fill="#eef3ea">Isolated Air-Gap · Zero Internet</text>
+
+            <!-- Zone 2: Ship Admin VLAN -->
+            <rect x="12" y="66" width="114" height="24" rx="2" fill="#0d180c" stroke="rgba(168,213,6,0.5)" stroke-width="0.8"/>
+            <text x="20" y="77" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#d8ff36">VLAN 20: VESSEL ADMIN</text>
+            <text x="20" y="85" font-family="'JetBrains Mono', monospace" font-size="4.5" fill="#a7b0a3">MFA Protected · SSO Enclave</text>
+
+            <!-- Zone 3: Crew Wi-Fi Isolated -->
+            <rect x="12" y="96" width="114" height="24" rx="2" fill="#0d180c" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+            <text x="20" y="107" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a7b0a3">VLAN 30: CREW INTERNET</text>
+            <text x="20" y="115" font-family="'JetBrains Mono', monospace" font-size="4.5" fill="#667262">Strict QoS · No Route to OT</text>
+          </g>
+
+          <!-- Bottom Status Line -->
+          <g transform="translate(18, 184)">
+            <text x="0" y="12" font-family="'JetBrains Mono', monospace" font-size="5.4" fill="#a7b0a3">FAILOVER CONVERGENCE: &lt; 1.2s · ZERO SESSION DROPS</text>
+            <text x="420" y="12" font-family="'JetBrains Mono', monospace" font-size="5.4" font-weight="700" fill="#a8d506" text-anchor="end">CISCO · FORTINET · WIREGUARD ●</text>
+          </g>
+        </svg>
+
+        <!-- Dynamic Telemetry Readout Strip -->
+        <div class="tactical-telemetry-hud">
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">Uptime SLA</span>
+            <span class="hud-telemetry-val">99.99% <em>PRODUCTION ●</em></span>
           </div>
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">HA firewall failover convergence time</span>
-              <span class="evidence-bar-pct">&lt; 1.2s</span>
-            </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:95%"></div>
-            </div>
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">HA Failover</span>
+            <span class="hud-telemetry-val">&lt; 1.2s <em>SUB-SECOND ●</em></span>
           </div>
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">Exposed management ports after ZTNA</span>
-              <span class="evidence-bar-pct">0 (Zero-Trust)</span>
-            </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:100%"></div>
-            </div>
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">Exposed Ports</span>
+            <span class="hud-telemetry-val">0 Ports <em>ZTNA ENCLAVE ●</em></span>
           </div>
         </div>
-        <div class="evidence-footer">
-          <p class="evidence-note">Production networks engineered with Cisco and Fortinet clusters.</p>
-          <a href="contact.html" class="btn primary magnetic" style="justify-content:center;font-size:.92rem;padding:14px 22px">Request Assessment →</a>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(168,213,6,.15)">
+          <p style="font-size:.78rem;color:var(--mut);line-height:1.45;max-width:280px;margin:0">Engineering mission-critical enterprise maritime infrastructure with Cisco, Fortinet, and zero-trust WireGuard architecture.</p>
+          <a href="contact.html" class="btn primary magnetic" style="font-size:.9rem;padding:12px 20px;white-space:nowrap">Request Assessment →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ticker -->
-<div class="ticker"><div class="track" id="tickTrack">
-  <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
-</div></div>
-
-<!-- ═══ 2. WHAT IT IS · 3-COLUMN CARDS ═══ -->
-<section class="sec" id="services"><div class="wrap">
+<!-- ═══ 2. 3-STAGE NETWORK ARCHITECTURE PIPELINE ═══ -->
+<section class="sec" id="architecture"><div class="wrap">
   <div class="sec-head reveal">
-    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · Network Pillars</div>
-    <h2>The same discipline on shore <em>as at sea.</em></h2>
-    <p>Enterprise network engineering for corporate offices, ports, and industrial sites that cannot afford downtime.</p>
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · Network engineering</div>
+    <h2>Engineered for extreme reliability, <em>at sea and on shore.</em></h2>
+    <p>High availability, automated link steering, and cryptographic network isolation designed for commercial fleets.</p>
   </div>
-  <div class="qm-grid-3">
-    <div class="qm-card reveal" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+
+  <div class="pipe-wrap">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
+      <!-- PILLAR 01: HA CLUSTER -->
+      <div class="pipe-card reveal" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">STAGE 01 // HA CLUSTERING</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
         </div>
-        <h3>Firewall Clustering &amp; HA</h3>
-        <p>Fortinet and Cisco clusters configured for true stateful failover. Clean rulesets, documented configurations, and zero orphaned access rules.</p>
-      </div>
-      <a href="contact.html" class="qm-chip">Fortinet &amp; Cisco HA →</a>
-    </div>
-    <div class="qm-card reveal d1" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Active passive dual firewall failover architecture">
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+            <rect x="30" y="35" width="70" height="50" rx="4" fill="#0f200d" stroke="#a8d506" stroke-width="1.3"/>
+            <text x="65" y="55" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#ffffff" text-anchor="middle">NODE 01</text>
+            <text x="65" y="67" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506" text-anchor="middle">ACTIVE · UP</text>
+
+            <line x1="100" y1="60" x2="140" y2="60" stroke="#d8ff36" stroke-width="2" stroke-dasharray="3 2"/>
+            <text x="120" y="52" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#d8ff36" text-anchor="middle">HEARTBEAT</text>
+
+            <rect x="140" y="35" width="70" height="50" rx="4" fill="#081007" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+            <text x="175" y="55" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#a7b0a3" text-anchor="middle">NODE 02</text>
+            <text x="175" y="67" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3" text-anchor="middle">STANDBY</text>
+
+            <g transform="translate(45, 102)">
+              <rect x="0" y="0" width="150" height="22" rx="3" fill="#0b160b" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+              <text x="75" y="14" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a8d506" text-anchor="middle">FAILOVER: &lt; 1.2s CONVERGENCE</text>
+            </g>
+          </svg>
         </div>
-        <h3>WireGuard ZTNA Meshes</h3>
-        <p>Global zero-trust overlays connecting headquarters, branch offices, and field units without exposing management ports to the public internet.</p>
-      </div>
-      <a href="contact.html" class="qm-chip">Zero-Trust Meshes →</a>
-    </div>
-    <div class="qm-card reveal d2" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+
+        <div class="pipe-body">
+          <h3>Dual Firewall HA Clusters</h3>
+          <p>Stateful active-passive clustering with synchronized connection tables. When one chassis suffers a power loss, traffic shifts sub-second without dropping active sessions.</p>
         </div>
-        <h3>SD-WAN &amp; 24/7 Watch</h3>
-        <p>Transport-agnostic WAN architecture that routes critical traffic across fiber, cellular, and satellite with sub-second path switching.</p>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&rarr; Fortinet &middot; Cisco &middot; Sub-Second</span>
+        </div>
       </div>
-      <a href="contact.html" class="qm-chip">SD-WAN Design →</a>
+
+      <!-- PILLAR 02: SD-WAN STEERING -->
+      <div class="pipe-card reveal d1" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">STAGE 02 // MULTI-LINK SD-WAN</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Maritime multi-WAN packet steering architecture">
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+
+            <g transform="translate(25, 30)">
+              <rect x="0" y="0" width="55" height="22" rx="2" fill="#0b160a" stroke="#a8d506" stroke-width="0.8"/>
+              <text x="27" y="14" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506" text-anchor="middle">VSAT (PRI)</text>
+
+              <rect x="0" y="32" width="55" height="22" rx="2" fill="#0b160a" stroke="#d8ff36" stroke-width="0.8"/>
+              <text x="27" y="46" font-family="'JetBrains Mono', monospace" font-size="5" fill="#d8ff36" text-anchor="middle">LEO (SEC)</text>
+
+              <rect x="0" y="64" width="55" height="22" rx="2" fill="#0b160a" stroke="rgba(168,213,6,0.4)" stroke-width="0.8"/>
+              <text x="27" y="78" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3" text-anchor="middle">4G (PORT)</text>
+            </g>
+
+            <!-- Central SD-WAN Multiplexer -->
+            <rect x="110" y="45" width="55" height="50" rx="4" fill="#122211" stroke="#a8d506" stroke-width="1.3"/>
+            <text x="137" y="68" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="800" fill="#ffffff" text-anchor="middle">SD-WAN</text>
+            <text x="137" y="78" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#a8d506" text-anchor="middle">POLICY MUX</text>
+
+            <path d="M 80 41 L 110 60" stroke="#a8d506" stroke-width="1.2"/>
+            <path d="M 80 73 L 110 73" stroke="#d8ff36" stroke-width="1.2"/>
+            <path d="M 80 105 L 110 85" stroke="rgba(168,213,6,0.4)" stroke-width="1.2"/>
+
+            <line x1="165" y1="70" x2="205" y2="70" stroke="#a8d506" stroke-width="2"/>
+            <circle cx="205" cy="70" r="3" fill="#d8ff36"/>
+          </svg>
+        </div>
+
+        <div class="pipe-body">
+          <h3>Dynamic Multi-WAN Steering</h3>
+          <p>Continuous jitter, loss, and latency monitoring across VSAT, Starlink, and in-port cellular. High-priority bridge traffic always gets the best available path.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&rarr; BGP &middot; OSPF &middot; Sub-Second Routing</span>
+        </div>
+      </div>
+
+      <!-- PILLAR 03: WIREGUARD ZTNA -->
+      <div class="pipe-card reveal d2" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">STAGE 03 // ZERO-TRUST ZTNA</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="WireGuard zero trust cryptographic tunnel mesh">
+            <rect x="10" y="10" width="220" height="130" rx="6" fill="#060c05" stroke="rgba(168,213,6,0.3)" stroke-width="1"/>
+
+            <!-- Center Cryptographic Shield -->
+            <g transform="translate(120, 70)">
+              <path d="M 0 -35 L 30 -22 L 30 10 C 30 28 0 40 0 40 C 0 40 -30 28 -30 10 L -30 -22 Z" fill="#0c180b" stroke="#a8d506" stroke-width="1.6"/>
+              <circle cx="0" cy="5" r="10" fill="#132412" stroke="#d8ff36" stroke-width="1.2"/>
+              <path d="M -4 5 L -1 8 L 5 1" stroke="#d8ff36" stroke-width="1.6" stroke-linecap="round"/>
+              <text x="0" y="24" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="700" fill="#a8d506" text-anchor="middle">WIREGUARD</text>
+            </g>
+
+            <!-- Incoming Encrypted Peer Trunks -->
+            <line x1="30" y1="40" x2="90" y2="60" stroke="#a8d506" stroke-width="1.3" stroke-dasharray="3 2"/>
+            <circle cx="30" cy="40" r="2.5" fill="#a8d506"/>
+            <text x="30" y="32" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3">TALLINN HQ</text>
+
+            <line x1="30" y1="100" x2="90" y2="80" stroke="#d8ff36" stroke-width="1.3" stroke-dasharray="3 2"/>
+            <circle cx="30" cy="100" r="2.5" fill="#d8ff36"/>
+            <text x="30" y="112" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3">AL KHOBAR</text>
+
+            <line x1="210" y1="70" x2="150" y2="70" stroke="#a8d506" stroke-width="1.5"/>
+            <circle cx="210" cy="70" r="3" fill="#a8d506"/>
+            <text x="210" y="62" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a8d506">VESSEL OT</text>
+          </svg>
+        </div>
+
+        <div class="pipe-body">
+          <h3>WireGuard ZTNA Enclave</h3>
+          <p>Zero exposed ports on public IP ranges. Every superintendent, analyst, and bridge node communicates exclusively over cryptographically authenticated WireGuard tunnels.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&rarr; WireGuard &middot; Noise Protocol &middot; ChaCha20</span>
+        </div>
+      </div>
     </div>
   </div>
 </div></section>
 
-<!-- ═══ 3. BY THE NUMBERS · 4 KEY METRICS ═══ -->
+<!-- ═══ 3. BY THE NUMBERS ═══ -->
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="metrics">
     <div class="met reveal">
-      <div class="met-tag"><i></i><span>Uptime SLA</span></div>
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>Uptime Target</span></div>
       <div>
         <div class="num" data-text="99.99%">99.99%</div>
-        <div class="lbl">Production SLA</div>
+        <div class="lbl">Production Infrastructure</div>
       </div>
-      <div class="desc">High-availability topology with stateful synchronization and automated failover.</div>
+      <div class="desc">Engineered for five-nines continuity across enterprise data centers and offshore vessels.</div>
     </div>
     <div class="met reveal d1">
-      <div class="met-tag"><i></i><span>Convergence</span></div>
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>HA Convergence</span></div>
       <div>
-        <div class="num" data-text="&lt;1.2s">&lt;1.2s</div>
-        <div class="lbl">Failover Time</div>
+        <div class="num" data-text="<1.2s">&lt;1.2s</div>
+        <div class="lbl">Failover Transition</div>
       </div>
-      <div class="desc">BGP and OSPF fast reroute with sub-second link degradation mitigation.</div>
+      <div class="desc">Active-passive stateful synchronization ensures zero dropped VoIP or telemetry sessions.</div>
     </div>
     <div class="met reveal d2">
-      <div class="met-tag"><i></i><span>Zero Trust</span></div>
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>Zero-Trust</span></div>
       <div>
         <div class="num" data-text="0">0</div>
-        <div class="lbl">Exposed Ports</div>
+        <div class="lbl">Exposed Management Ports</div>
       </div>
-      <div class="desc">Encrypted WireGuard mesh eliminating exposed management planes and RDP endpoints.</div>
+      <div class="desc">Complete isolation of admin interfaces from public internet scanners via WireGuard mesh.</div>
     </div>
     <div class="met reveal d3">
-      <div class="met-tag"><i></i><span>Operating Since</span></div>
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>SLA Support</span></div>
       <div>
-        <div class="num" data-count="2022">0</div>
-        <div class="lbl">Enterprise Watch</div>
+        <div class="num" data-text="24/7">24/7</div>
+        <div class="lbl">NOC Engineering</div>
       </div>
-      <div class="desc">Hardening, deploying, and operating critical network infrastructure since 2022.</div>
+      <div class="desc">Continuous network operations support from Tallinn HQ and Al Khobar desk engineers.</div>
     </div>
   </div>
 </div></section>
 
-<!-- ═══ 4. 6-SERVICE OPERATIONAL BENTO ═══ -->
-<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
-  <div class="sec-head reveal">
-    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · Full Lifecycle Scope</div>
-    <h2>Engineered for resilience. <em>Documented for operation.</em></h2>
-    <p>From initial hardening audits to 24/7 NOC telemetry for mission-critical operations.</p>
-  </div>
-  <div class="bento">
-    <div class="tile med reveal" data-tilt data-spot><div class="tref">Service 01</div><h3>Firewall clustering</h3><p>Fortinet and Cisco clusters configured for failover, not just for show. Configs are documented, tested, and someone knows why each rule exists.</p><span class="chip">Cisco · Fortinet</span></div>
-    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Service 02</div><h3>WireGuard ZTNA meshes</h3><p>Global zero-trust meshes that connect offices, vessels, and remote engineers without exposing a single management port to the internet.</p><span class="chip">Zero-trust</span></div>
-    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Service 03</div><h3>SD-WAN</h3><p>Transport-agnostic WAN design that keeps business-critical traffic on the best path, even when the best path changes mid-voyage.</p><span class="chip">Transport-agnostic</span></div>
-    <div class="tile med reveal" data-tilt data-spot><div class="tref">Service 04</div><h3>24/7 uptime monitoring</h3><p>Proactive monitoring of links, devices, and services. Alerts go to engineers who can actually do something about them.</p><span class="chip">24/7 watch</span></div>
-    <div class="tile med reveal d1" data-tilt data-spot><div class="tref">Service 05</div><h3>Hardening reviews</h3><p>Full audit of existing infrastructure: exposed services, weak configs, credential hygiene, and a prioritized fix list.</p><span class="chip">Prioritized fixes</span></div>
-    <div class="tile med reveal d2" data-tilt data-spot><div class="tref">Service 06</div><h3>Documentation &amp; handover</h3><p>Networks that depend on one engineer are a liability. Every build ships with documentation your team can actually operate from.</p><span class="chip">Operable docs</span></div>
-  </div>
-</div></section>
-
-<!-- ═══ 5. CTA ═══ -->
+<!-- ═══ 4. CTA ═══ -->
 <div class="wrap"><div class="cta reveal">
   <div>
-    <h3>Not sure where your network leaks? <em>We will show you.</em></h3>
-    <p>A network hardening review gives you a prioritized list of what to fix, and a straight answer about what is already fine.</p>
+    <div class="coord" style="margin-bottom:14px"><b>COMMISSION AN ARCHITECTURE</b> High-Availability Networking</div>
+    <h3>Engineered to stay connected. <em>Every ocean, every port.</em></h3>
+    <p>Whether modernizing fleet satellite routers or building carrier-grade ZTNA enclaves on shore, our network team designs, tests, and certifies the complete loop.</p>
   </div>
-  <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Request an Assessment →</a>
+  <div class="cta-row">
+    <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Design My Network →</a>
+    <a href="free-scan.html" class="btn ghost magnetic" style="font-size:.95rem;padding:16px 28px">Scan 3 Vessels Free</a>
+  </div>
 </div></div>
 
-<!-- ═══ 6. FOOTER ═══ -->
 <footer><div class="wrap">
   <div class="foot-grid">
-    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
-    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="architecture.html">M-SOC</a><a href="architecture.html">Haris Edge</a><a href="architecture.html">Watchtower</a></div>
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="M-SOC.html">M-SOC</a><a href="haris.html">Haris Edge</a><a href="watchtower.html">Watchtower</a></div>
     <div><h4>Blog</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
     <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
-    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
   </div>
-  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Designed & Developed by Oversight</span></div>
 </div></footer>
 
 </body>

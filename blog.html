@@ -3,30 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research &amp; Intelligence · Cyber Oversight</title>
-<meta name="description" content="Maritime and OT cybersecurity research from Cyber Oversight: Shodan exposure of ships, VSAT security, ECDIS vulnerabilities, and PSC 2026 compliance.">
+<title>Research &amp; Intelligence · Oversight</title>
+<meta name="description" content="Maritime and OT cybersecurity research from Oversight: Shodan exposure of ships, VSAT security, ECDIS vulnerabilities, and PSC 2026 compliance.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Cyber Oversight">
-<meta property="og:title" content="Research &amp; Intelligence · Cyber Oversight">
-<meta property="og:description" content="Maritime and OT cybersecurity research from Cyber Oversight: Shodan exposure of ships, VSAT security, ECDIS vulnerabilities, and PSC 2026 compliance.">
-<meta property="og:url" content="https://cyber.oversight.ee/blog">
-<meta property="og:image" content="https://cyber.oversight.ee/og-image.png">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="Research &amp; Intelligence · Oversight">
+<meta property="og:description" content="Maritime and OT cybersecurity research from Oversight: Shodan exposure of ships, VSAT security, ECDIS vulnerabilities, and PSC 2026 compliance.">
+<meta property="og:url" content="https://www.oversight.ee/blog">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Research &amp; Intelligence · Cyber Oversight">
-<meta name="twitter:description" content="Maritime and OT cybersecurity research from Cyber Oversight: Shodan exposure of ships, VSAT security, ECDIS vulnerabilities, and PSC 2026 compliance.">
-<meta name="twitter:image" content="https://cyber.oversight.ee/og-image.png">
-<link rel="canonical" href="https://cyber.oversight.ee/blog">
+<meta name="twitter:title" content="Research &amp; Intelligence · Oversight">
+<meta name="twitter:description" content="Maritime and OT cybersecurity research from Oversight: Shodan exposure of ships, VSAT security, ECDIS vulnerabilities, and PSC 2026 compliance.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+  <link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="canonical" href="https://www.oversight.ee/blog">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="mobile.css" media="screen and (max-width: 1024px)">
 <script src="theme.js"></script>
 <script defer src="fx.js"></script>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Oversight Maritime Cybersecurity Research & Intelligence",
+  "description": "Technical briefs and empirical analyses on maritime cyber defense, VSAT vulnerabilities, ECDIS security, and PSC 2026 regulations.",
+  "url": "https://www.oversight.ee/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Oversight",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.oversight.ee/logo-full.png"
+    }
+  }
+}
+</script>
 </head>
 <body>
 
 <div class="grain"></div>
 <div class="progress" id="progress"></div>
 
+<!-- monumental watermark -->
 <svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
   <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
@@ -63,9 +83,9 @@
 <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
 
 <nav id="nav"><div class="wrap">
-  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Oversight" class="brand-logo-img"></a>
   <div class="nav-links">
-    <a href="capabilities.html">Capabilities</a><a href="architecture.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html" class="active">Blog</a>
+    <a href="M-SOC.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="haris.html">Haris</a>
     <div class="nav-drop">
       <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="drop-menu">
@@ -74,27 +94,31 @@
         <a href="mobile-app.html">Mobile App Development</a>
       </div>
     </div>
+    <a href="contact.html">Contact</a><a href="blog.html" class="active">Blog</a>
   </div>
-  <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
+  <a href="free-scan.html" class="nav-cta">Free Fleet Scan</a>
   <div class="nav-right">
     <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </div></nav>
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="index.html">Home</a>
-  <a href="capabilities.html">Capabilities</a>
-  <a href="architecture.html">M-SOC</a>
+  <a href="M-SOC.html">M-SOC</a>
   <a href="shipcrawler.html">Shipcrawler</a>
-  <a href="blog.html" class="active">Blog</a>
+  <a href="haris.html">Haris</a>
   <div class="drawer-group">
     <span class="drawer-label">Other Services</span>
     <a href="web-design.html">Web Development</a>
     <a href="networking.html">Networking</a>
     <a href="mobile-app.html">Mobile App Development</a>
   </div>
-  <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
+  <a href="contact.html">Contact</a>
+  <a href="blog.html" class="active">Blog</a>
+  <a href="free-scan.html" class="drawer-cta">Free Fleet Scan</a>
 </div>
-    <section class="hero hero-evidence">
+
+<!-- ══════════════════════ 1. HERO ══════════════════════ -->
+<section class="hero hero-evidence">
   <div class="wrap hero-evidence-grid">
     <div>
       <div class="coord"><b>MARITIME THREAT INTELLIGENCE</b> Peer-Reviewed in IEEE Access 2026</div>
@@ -104,104 +128,128 @@
       </h1>
       <p class="sub">Plain-language briefings on how commercial ships get found, exposed, and attacked online, grounded in our own scans and peer-reviewed methodology, not vendor marketing.</p>
       <div class="cta-row">
-        <a href="shipcrawler.html" class="btn primary magnetic">Scan 3 Vessels Free →</a>
+        <a href="free-scan.html" class="btn primary magnetic">Scan 3 Vessels Free →</a>
         <a href="blog/how-attackers-find-ships-shodan.html" class="btn ghost magnetic">Read Featured Brief</a>
       </div>
     </div>
     <div>
-      <div class="evidence-card reveal" data-tilt data-spot>
-        <div class="evidence-header">
-          <span class="evidence-tag"><i></i> Research Dataset</span>
-          <span class="evidence-title">Published Empirical Evidence</span>
+      <div class="tactical-card reveal" data-tilt data-spot style="padding:28px">
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div class="tactical-header" style="margin-bottom:18px">
+          <div>
+            <div class="tactical-title">RESEARCH DATASET <span class="slash">//</span> FIELD INTELLIGENCE</div>
+            <div class="tactical-sub">EMPIRICAL EVIDENCE · ACTIVE SATELLITE BLOCKS</div>
+          </div>
+          <span class="tactical-status status-online"><i></i> IEEE 2026</span>
         </div>
-        <div class="evidence-bars">
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">Commercial ships scanned in dataset</span>
-              <span class="evidence-bar-pct">47</span>
+
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:.78rem;font-family:var(--mono);color:var(--text);margin-bottom:6px">
+              <span>Commercial ships scanned in dataset</span>
+              <span style="color:var(--lime);font-weight:700">47 Vessels</span>
             </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:100%"></div>
-            </div>
-          </div>
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">Vessels with exposed management terminals</span>
-              <span class="evidence-bar-pct">73%</span>
-            </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:73%"></div>
+            <div style="height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden">
+              <div style="width:100%;height:100%;background:var(--lime)"></div>
             </div>
           </div>
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">Peer-reviewed methodology verification</span>
-              <span class="evidence-bar-pct">IEEE 2026</span>
+
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:.78rem;font-family:var(--mono);color:var(--text);margin-bottom:6px">
+              <span>Vessels with exposed management terminals</span>
+              <span style="color:#ffb800;font-weight:700">73% Exposed</span>
             </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:100%"></div>
+            <div style="height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden">
+              <div style="width:73%;height:100%;background:#ffb800"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:.78rem;font-family:var(--mono);color:var(--text);margin-bottom:6px">
+              <span>Peer-reviewed methodology verification</span>
+              <span style="color:var(--lime);font-weight:700">IEEE Access</span>
+            </div>
+            <div style="height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden">
+              <div style="width:100%;height:100%;background:var(--lime)"></div>
             </div>
           </div>
         </div>
-        <div class="evidence-footer">
-          <p class="evidence-note">Empirical findings verified against active satellite ASN ranges.</p>
-          <a href="shipcrawler.html" class="btn primary magnetic" style="justify-content:center;font-size:.92rem;padding:14px 22px">Scan 3 Vessels Free →</a>
+
+        <div style="border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:.74rem;color:var(--mut);font-family:var(--mono)">Direct telemetry analysis</span>
+          <a href="free-scan.html" class="btn primary magnetic" style="font-size:.85rem;padding:10px 18px">Scan Fleet →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ticker -->
-<div class="ticker"><div class="track" id="tickTrack">
-  <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
-</div></div>
-
-<!-- ═══ 2. WHAT IT IS · 3-COLUMN CARDS ═══ -->
-<section class="sec"><div class="wrap">
+<!-- ══════════════════════ 2. RESEARCH PIPELINE ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
   <div class="sec-head reveal">
     <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · Research areas</div>
     <h2>Core focus areas <em>in maritime cybersecurity.</em></h2>
     <p>We analyze the realities of shipboard connectivity, satellite terminal hygiene, and bridge OT resilience.</p>
   </div>
-  <div class="qm-grid-3">
-    <div class="qm-card reveal" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+  <div class="pipe-wrap reveal">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">AREA 01</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">RECON</span>
         </div>
-        <h3>OSINT &amp; Reconnaissance</h3>
-        <p>How threat actors use Shodan, Censys, and public ASN databases to discover commercial vessels, port calls, and terminal IPs.</p>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">OSINT &amp; Reconnaissance</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">How threat actors use Shodan, Censys, and public ASN databases to discover commercial vessels, port calls, and terminal IPs.</p>
+        <span class="qm-chip">Passive OSINT · Scanning</span>
       </div>
-      <span class="qm-chip">Passive OSINT · Scanning</span>
-    </div>
-    <div class="qm-card reveal d1" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">AREA 02</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">SATELLITE RF</span>
         </div>
-        <h3>Satellite &amp; VSAT Security</h3>
-        <p>Terminal firmware flaws, default credentials, exposed web interfaces, and uplink traffic analysis across major satellite operators.</p>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">Satellite &amp; VSAT Security</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">Terminal firmware flaws, default credentials, exposed web interfaces, and uplink traffic analysis across major satellite operators.</p>
+        <span class="qm-chip">VSAT · Inmarsat · Iridium</span>
       </div>
-      <span class="qm-chip">VSAT · Inmarsat · Iridium</span>
-    </div>
-    <div class="qm-card reveal d2" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">AREA 03</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">BRIDGE OT</span>
         </div>
-        <h3>Bridge OT &amp; ECDIS</h3>
-        <p>Navigation system hardening, NMEA sentence spoofing, USB malware propagation, and Port State Control compliance evidence.</p>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">Bridge OT &amp; ECDIS</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">Navigation system hardening, NMEA sentence spoofing, USB malware propagation, and Port State Control compliance evidence.</p>
+        <span class="qm-chip">ECDIS · NMEA · IACS E26</span>
       </div>
-      <span class="qm-chip">ECDIS · NMEA · IACS E26</span>
+
     </div>
   </div>
 </div></section>
 
-<!-- ═══ 3. BY THE NUMBERS · 4 KEY METRICS ═══ -->
+<!-- ══════════════════════ 3. BY THE NUMBERS ══════════════════════ -->
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="metrics">
     <div class="met reveal">
+      <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
       <div class="met-tag"><i></i><span>Maritime Research</span></div>
       <div>
         <div class="num" data-text="2026">2026</div>
@@ -210,6 +258,7 @@
       <div class="desc">Empirical analysis on satellite link vulnerabilities and bridge OT attack surfaces.</div>
     </div>
     <div class="met reveal d1">
+      <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
       <div class="met-tag"><i></i><span>Continuous Watch</span></div>
       <div>
         <div class="num" data-text="24/7">24/7</div>
@@ -218,6 +267,7 @@
       <div class="desc">Direct operational threat analysis from Tallinn HQ and Al Khobar desk.</div>
     </div>
     <div class="met reveal d2">
+      <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
       <div class="met-tag"><i></i><span>Peer-Reviewed</span></div>
       <div>
         <div class="num" data-text="IEEE">IEEE</div>
@@ -226,9 +276,10 @@
       <div class="desc">Detection methodology published in IEEE Access 2026 for commercial maritime.</div>
     </div>
     <div class="met reveal d3">
+      <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
       <div class="met-tag"><i></i><span>Field Briefings</span></div>
       <div>
-        <div class="num" data-count="5">0</div>
+        <div class="num" data-text="5">5</div>
         <div class="lbl">Published Briefs</div>
       </div>
       <div class="desc">Operational guides and threat breakdowns for superintendents and fleet managers.</div>
@@ -236,7 +287,7 @@
   </div>
 </div></section>
 
-<!-- ═══ 4. BRIEFINGS · BENTO GRID ═══ -->
+<!-- ══════════════════════ 4. BRIEFINGS ══════════════════════ -->
 <section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
   <div class="sec-head reveal">
     <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · Briefings</div>
@@ -252,25 +303,25 @@
   </div>
 </div></section>
 
-<!-- ═══ 5. CTA ═══ -->
+<!-- ══════════════════════ 5. CTA ══════════════════════ -->
 <div class="wrap"><div class="cta reveal">
   <div>
     <h3>Research-backed, then <em>verified on your vessels.</em></h3>
     <p>Our detection methodology is published in IEEE Access 2026. The free scan is how you verify it on your fleet.</p>
   </div>
-  <a href="shipcrawler.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Scan 3 Vessels Free →</a>
+  <a href="free-scan.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">Scan 3 Vessels Free →</a>
 </div></div>
 
-<!-- ═══ 6. FOOTER ═══ -->
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
 <footer><div class="wrap">
   <div class="foot-grid">
-    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
-    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="architecture.html">M-SOC</a><a href="architecture.html">Haris Edge</a><a href="architecture.html">Watchtower</a></div>
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="M-SOC.html">M-SOC</a><a href="haris.html">Haris Edge</a><a href="watchtower.html">Watchtower</a></div>
     <div><h4>Blog</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
     <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
-    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a></div>
+    <div><h4>Contact</h4><a href="contact.html">Contact Us</a><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
   </div>
-  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Designed & Developed by Oversight</span></div>
 </div></footer>
 
 </body>

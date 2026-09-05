@@ -1,5 +1,8 @@
-.git/
-.gitignore
-README.md
-*.md
-!sitemap.xml
+# OS
+.DS_Store
+Thumbs.db
+
+# Scratch/dev tools (not part of the site)
+find_repo.py
+find_repo2.py
+_backup-*/

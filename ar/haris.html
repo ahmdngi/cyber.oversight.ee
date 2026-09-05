@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حارس (Haris) · عقدة القياسات الطرفية والدفاع السيبراني لغرفة القيادة | أوفرسايت (Oversight)</title>
+<meta name="description" content="عقدة حارس (Haris) الطرفية: عتاد صلب معتمد لرفوف غرفة القيادة 1U. يجمع بيانات NMEA 0183/2000 و Signal K مع ذاكرة تخزين مؤقتة لـ 30 يوماً وتزامن مشفر مع مركز العمليات. مقرا تالين والخبر.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="حارس (Haris) · عقدة القياسات الطرفية لغرفة القيادة | أوفرسايت (Oversight)">
+<meta property="og:description" content="عتاد صلب معتمد لرفوف غرفة القيادة 1U يجمع بيانات NMEA 0183/2000 و Signal K مع ذاكرة تخزين مؤقتة لـ 30 يوماً.">
+<meta property="og:url" content="https://www.oversight.ee/ar/haris">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="حارس (Haris) · أوفرسايت (Oversight)">
+<meta name="twitter:description" content="عقدة حماية طرفية وقياسات ملاحة لغرفة القيادة بالسفن التجارية.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+<link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="alternate" hreflang="en" href="https://www.oversight.ee/haris">
+<link rel="alternate" hreflang="ar" href="https://www.oversight.ee/ar/haris">
+<link rel="alternate" hreflang="x-default" href="https://www.oversight.ee/haris">
+<link rel="canonical" href="https://www.oversight.ee/ar/haris">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../mobile.css" media="screen and (max-width: 1024px)">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+
+<button class="theme-toggle-btn" aria-label="تبديل المظهر" title="تبديل المظهر"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+    <a href="shipcrawler.html">شيب كراولر</a>
+    <a href="haris.html" class="active">حارس (Haris)</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">خدمات أخرى <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">تطوير الويب والمنصات</a>
+        <a href="networking.html">هندسة الشبكات والربط</a>
+        <a href="mobile-app.html">تطبيقات الجوال</a>
+      </div>
+    </div>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="blog.html">المدونة والبحوث</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta">فحص مجاني للأسطول</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="تبديل القائمة"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">الرئيسية</a>
+  <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+  <a href="shipcrawler.html">شيب كراولر</a>
+  <a href="haris.html" class="active">حارس (Haris)</a>
+  <div class="drawer-group">
+    <span class="drawer-label">خدمات أخرى</span>
+    <a href="web-design.html">تطوير الويب</a>
+    <a href="networking.html">هندسة الشبكات</a>
+    <a href="mobile-app.html">تطبيقات الجوال</a>
+  </div>
+  <a href="contact.html">تواصل معنا</a>
+  <a href="blog.html">المدونة والبحوث</a>
+  <a href="free-scan.html" class="drawer-cta">فحص مجاني للأسطول</a>
+</div>
+
+<!-- ═══ 1. HERO WITH DETAILED 1U RACK HARDWARE ═══ -->
+<section class="hero hero-evidence">
+  <div class="wrap hero-evidence-grid">
+    <div>
+      <div class="coord"><b>عقدة حارس الطرفية</b> قياسات الملاحة · NMEA 0183/2000 · Signal K</div>
+      <h1>
+        <span class="h1-line">غرفة القيادة،</span>
+        <span class="h1-line">تتحدث <em class="lime">عن نفسها.</em></span>
+      </h1>
+      <p class="sub">عقدة حارس (Haris) هي عتاد صلب معتمد لرفوف غرفة القيادة بمقاس 1U. تجمع بيانات NMEA 0183/2000 و Signal K، وتخزن 30 يوماً من القياسات بأمان أثناء انقطاع الأقمار الصناعية، وتزامنها مشفرة مع الشاطئ بأعلى درجات الانضباط في استهلاك النطاق الترددي.</p>
+      <div class="cta-row">
+        <a href="contact.html" class="btn primary magnetic">تثبيت عقدة حارس &larr;</a>
+        <a href="free-scan.html" class="btn ghost magnetic">افحص 3 سفن مجاناً</a>
+      </div>
+    </div>
+    <div>
+      <div class="haris-hero-card reveal" data-tilt data-spot>
+        <div class="haris-card-topbar">
+          <div class="haris-unit-tag"><i></i><span>حارس Gen-2 // العقدة الطرفية</span></div>
+          <div class="haris-unit-status" style="direction:ltr">19" 1U Bridge Rack</div>
+        </div>
+
+        <!-- Detailed 1U Rack Hardware Faceplate SVG -->
+        <svg class="haris-chassis-svg" viewBox="0 0 460 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris Gen-2 1U ruggedized bridge rack hardware unit">
+          <defs>
+            <filter id="chassis-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <linearGradient id="chassis-face" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1c2c1a"/>
+              <stop offset="25%" stop-color="#121e10"/>
+              <stop offset="70%" stop-color="#0a1209"/>
+              <stop offset="100%" stop-color="#050804"/>
+            </linearGradient>
+            <linearGradient id="oled-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#081408"/>
+              <stop offset="100%" stop-color="#020602"/>
+            </linearGradient>
+          </defs>
+
+          <!-- 1U Chassis Faceplate -->
+          <rect x="20" y="10" width="420" height="120" rx="8" fill="url(#chassis-face)" stroke="#a8d506" stroke-width="1.6"/>
+          
+          <!-- Rack Ears & Mounting Holes -->
+          <rect x="8" y="10" width="16" height="120" rx="2" fill="#0c180b" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+          <circle cx="16" cy="28" r="4" fill="#040804" stroke="#a8d506" stroke-width="1.2"/>
+          <circle cx="16" cy="112" r="4" fill="#040804" stroke="#a8d506" stroke-width="1.2"/>
+          
+          <rect x="436" y="10" width="16" height="120" rx="2" fill="#0c180b" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+          <circle cx="444" cy="28" r="4" fill="#040804" stroke="#a8d506" stroke-width="1.2"/>
+          <circle cx="444" cy="112" r="4" fill="#040804" stroke="#a8d506" stroke-width="1.2"/>
+
+          <!-- OLED Display Section -->
+          <g transform="translate(42, 24)">
+            <rect x="0" y="0" width="158" height="92" rx="5" fill="url(#oled-bg)" stroke="#a8d506" stroke-width="1.4" filter="url(#chassis-glow)"/>
+            <rect x="3" y="3" width="152" height="86" rx="3" fill="#030703"/>
+
+            <line x1="6" y1="18" x2="152" y2="18" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+            <circle cx="12" cy="11" r="1.8" fill="#a8d506"/>
+            <text x="18" y="13" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506" letter-spacing="0.1em">LIVE STREAM // BUS LOCKED</text>
+            <text x="146" y="13" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#eef3ea" text-anchor="end">24V DC</text>
+
+            <text x="10" y="30" font-family="'JetBrains Mono', monospace" font-size="5.8" fill="#eef3ea">NMEA 0183 <tspan fill="#a8d506">4,800 BPS [OK]</tspan></text>
+            <text x="10" y="42" font-family="'JetBrains Mono', monospace" font-size="5.8" fill="#eef3ea">N2K CAN <tspan fill="#a8d506">250 KBPS · 14 DEV</tspan></text>
+            <text x="10" y="54" font-family="'JetBrains Mono', monospace" font-size="5.8" fill="#eef3ea">BUFFER <tspan fill="#d8ff36">30-DAY FLASH [SYNCED]</tspan></text>
+            <text x="10" y="66" font-family="'JetBrains Mono', monospace" font-size="5.8" fill="#eef3ea">LINK DRAIN <tspan fill="#a8d506">~0 KB/S [BURST DELTA]</tspan></text>
+
+            <g stroke="#a8d506" stroke-width="1.1" fill="none">
+              <path d="M 10 78 L 30 78 L 36 72 L 42 84 L 48 78 L 70 78 L 76 70 L 82 86 L 88 78 L 120 78 L 126 73 L 132 83 L 148 78"/>
+            </g>
+          </g>
+
+          <!-- Center Ports Block (NMEA / CAN / ETH) -->
+          <g transform="translate(220, 36)">
+            <rect x="0" y="0" width="38" height="34" rx="4" fill="#070e06" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+            <text x="19" y="18" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#a8d506" text-anchor="middle">N2K</text>
+            <text x="19" y="28" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3" text-anchor="middle">CAN-01</text>
+            
+            <rect x="46" y="0" width="38" height="34" rx="4" fill="#070e06" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+            <text x="65" y="18" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#a8d506" text-anchor="middle">0183</text>
+            <text x="65" y="28" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3" text-anchor="middle">RS-422</text>
+
+            <rect x="92" y="0" width="38" height="34" rx="4" fill="#070e06" stroke="rgba(168,213,6,0.5)" stroke-width="1"/>
+            <text x="111" y="18" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#d8ff36" text-anchor="middle">ETH</text>
+            <text x="111" y="28" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3" text-anchor="middle">ISOLATED</text>
+            
+            <!-- LED indicators -->
+            <circle cx="160" cy="14" r="3" fill="#a8d506" filter="url(#chassis-glow)"/>
+            <text x="170" y="17" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506">PWR</text>
+            <circle cx="160" cy="28" r="3" fill="#d8ff36" filter="url(#chassis-glow)"/>
+            <text x="170" y="31" font-family="'JetBrains Mono', monospace" font-size="5" fill="#d8ff36">SYNC</text>
+          </g>
+
+          <text x="320" y="105" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="800" fill="#ffffff" letter-spacing="1">HARIS // 1U EDGE</text>
+        </svg>
+
+        <!-- Dynamic Telemetry Readout Strip -->
+        <div class="haris-telemetry-hud">
+          <div class="haris-hud-item">
+            <span class="haris-hud-lbl">ربط النواقل</span>
+            <span class="haris-hud-val">NMEA/N2K <em>مغلق بإحكام ●</em></span>
+          </div>
+          <div class="haris-hud-item">
+            <span class="haris-hud-lbl">تخزين بدون إنترنت</span>
+            <span class="haris-hud-val">30 يوماً <em>ذاكرة صلبة ●</em></span>
+          </div>
+          <div class="haris-hud-item">
+            <span class="haris-hud-lbl">استهلاك الأقمار الصناعية</span>
+            <span class="haris-hud-val">شبه معدوم <em>مضغوط فائقاً ●</em></span>
+          </div>
+        </div>
+
+        <div class="haris-hero-footer">
+          <p class="haris-hero-note">إدارة شاملة لصحة الأجهزة، تدفق القياسات، والتحديثات البرمجية عبر منصة <a href="watchtower.html" style="color:var(--lime);text-decoration:underline;text-underline-offset:3px">برج المراقبة (Watchtower)</a>.</p>
+          <a href="#haris-detail" class="btn primary magnetic" style="white-space:nowrap;flex-shrink:0;justify-content:center;font-size:.9rem;padding:12px 20px">كيف يعمل حارس &larr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. WHAT HARIS DOES (3 STAGES) ═══ -->
+<section class="sec" id="haris-detail"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · وظائف العقدة الطرفية</div>
+    <h2>صُمم لرفوف غرفة القيادة، <em>وليس لمراكز البيانات الأرضية.</em></h2>
+    <p>تعمل السفن التجارية بنطاق ترددي منخفض، وروابط أقمار صناعية متقطعة، واشتراطات سلامة ملاحية بالغة الصرامة. وبُني حارس للتعامل مع هذه التحديات الثلاثة منذ اللوحة الإلكترونية الأولى.</p>
+  </div>
+  <div class="haris-pipe-wrap">
+    <div class="haris-pipe-conduit" aria-hidden="true"></div>
+    <div class="haris-pipe-grid">
+      <!-- STAGE 01: COLLECTS -->
+      <div class="haris-pipe-card reveal" data-tilt data-spot>
+        <div class="haris-pipe-top">
+          <span class="haris-stage-badge">المرحلة 01 // جمع القياسات</span>
+          <div class="haris-pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/><path d="M8 4H4v16h16V4h-4"/></svg>
+          </div>
+        </div>
+
+        <div class="haris-pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris bridge instrument multi-protocol multiplexer">
+            <defs>
+              <filter id="p1-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <rect x="14" y="16" width="58" height="26" rx="4" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="1"/>
+            <text x="22" y="28" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506">GPS/GNSS</text>
+            <text x="22" y="37" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3">4,800 BPS</text>
+            <circle cx="64" cy="24" r="2" fill="#a8d506" filter="url(#p1-glow)"/>
+
+            <rect x="14" y="60" width="58" height="26" rx="4" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="1"/>
+            <text x="22" y="72" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506">GYROCOMPASS</text>
+            <text x="22" y="81" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3">N2K CAN</text>
+            <circle cx="64" cy="68" r="2" fill="#d8ff36" filter="url(#p1-glow)"/>
+
+            <rect x="14" y="104" width="58" height="26" rx="4" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="1"/>
+            <text x="22" y="116" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506">AIS &amp; ENGINES</text>
+            <text x="22" y="125" font-family="'JetBrains Mono', monospace" font-size="4.8" fill="#a7b0a3">SIGNAL K</text>
+            <circle cx="64" cy="112" r="2" fill="#a8d506" filter="url(#p1-glow)"/>
+
+            <path d="M 72 29 L 102 29 Q 112 29 116 48 L 126 62" fill="none" stroke="#a8d506" stroke-width="1.3" stroke-dasharray="3 2"/>
+            <path d="M 72 73 L 124 73" fill="none" stroke="#d8ff36" stroke-width="1.3"/>
+            <path d="M 72 117 L 102 117 Q 112 117 116 98 L 126 84" fill="none" stroke="#a8d506" stroke-width="1.3" stroke-dasharray="3 2"/>
+
+            <circle cx="94" cy="29" r="2" fill="#ffffff" filter="url(#p1-glow)"/>
+            <circle cx="106" cy="73" r="2.2" fill="#ffffff" filter="url(#p1-glow)"/>
+            <circle cx="94" cy="117" r="2" fill="#ffffff" filter="url(#p1-glow)"/>
+
+            <rect x="126" y="44" width="76" height="58" rx="6" fill="#0d180c" stroke="#a8d506" stroke-width="1.5" filter="url(#p1-glow)"/>
+            <rect x="131" y="49" width="66" height="48" rx="4" fill="#050a04"/>
+            <text x="164" y="67" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#eef3ea" text-anchor="middle">HARIS MUX</text>
+            <text x="164" y="78" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="600" fill="#a8d506" text-anchor="middle">ZERO-LOSS INGEST</text>
+            <circle cx="164" cy="87" r="2.2" fill="#a8d506"/>
+
+            <path d="M 202 73 L 236 73" stroke="#a8d506" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="230" cy="73" r="3" fill="#d8ff36" filter="url(#p1-glow)"/>
+          </svg>
+        </div>
+
+        <div class="haris-pipe-body">
+          <h3>يجمع القياسات</h3>
+          <p>يجمع بيانات NMEA 0183/2000 و Signal K مباشرة من أجهزة غرفة القيادة: الإحداثيات، زاوية البوصلة، قياسات المحرك، وأجهزة الاستشعار الحيوية للسفينة.</p>
+        </div>
+
+        <div class="haris-pipe-footer">
+          <span class="haris-pipe-chip">&larr; NMEA 0183 &middot; N2K &middot; Signal K</span>
+        </div>
+      </div>
+
+      <!-- STAGE 02: BUFFERS -->
+      <div class="haris-pipe-card reveal d1" data-tilt data-spot>
+        <div class="haris-pipe-top">
+          <span class="haris-stage-badge">المرحلة 02 // تخزين محلي معزول</span>
+          <div class="haris-pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+          </div>
+        </div>
+
+        <div class="haris-pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris 30-day solid state offline buffer vault">
+            <defs>
+              <filter id="p2-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <radialGradient id="ring-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#a8d506" stop-opacity="0.25"/>
+                <stop offset="70%" stop-color="#a8d506" stop-opacity="0.04"/>
+                <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <circle cx="120" cy="74" r="58" fill="url(#ring-glow)"/>
+            <circle cx="120" cy="74" r="52" fill="#070c06" stroke="rgba(168,213,6,0.3)" stroke-width="1.2"/>
+            <circle cx="120" cy="74" r="45" fill="none" stroke="#a8d506" stroke-width="6" stroke-dasharray="6 3" stroke-linecap="round" opacity="0.85"/>
+            <circle cx="120" cy="74" r="34" fill="#0c160b" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+
+            <circle cx="120" cy="74" r="24" fill="#122010" stroke="#a8d506" stroke-width="1.4" filter="url(#p2-glow)"/>
+            <path d="M 114 74 L 118 78 L 127 69" fill="none" stroke="#d8ff36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="120" y="87" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="700" fill="#a8d506" text-anchor="middle">30 DAYS</text>
+
+            <g transform="translate(14, 20)">
+              <rect x="0" y="0" width="60" height="20" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.3)" stroke-width="0.9"/>
+              <text x="6" y="13" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#eef3ea">SAT OUTAGE: <tspan fill="#ebb432">0% LOSS</tspan></text>
+            </g>
+
+            <g transform="translate(166, 110)">
+              <rect x="0" y="0" width="62" height="20" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.3)" stroke-width="0.9"/>
+              <text x="6" y="13" font-family="'JetBrains Mono', monospace" font-size="5.2" fill="#eef3ea">TAMPER-PROOF <tspan fill="#a8d506">✓</tspan></text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="haris-pipe-body">
+          <h3>يخزن محلياً</h3>
+          <p>ذاكرة تخزين صلبة مؤقتة لمدة ثلاثين يوماً كاملة. عند انقطاع الاتصال الفضائي تماماً في عرض المحيط، لا يُفقد أي بايت؛ وعند عودة الرابط تتزامن البيانات بسلاسة.</p>
+        </div>
+
+        <div class="haris-pipe-footer">
+          <span class="haris-pipe-chip">&larr; تخزين 30 يوماً &middot; عتاد صلب</span>
+        </div>
+      </div>
+
+      <!-- STAGE 03: SYNCS -->
+      <div class="haris-pipe-card reveal d2" data-tilt data-spot>
+        <div class="haris-pipe-top">
+          <span class="haris-stage-badge">المرحلة 03 // تزامن تكيفي ذكي</span>
+          <div class="haris-pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          </div>
+        </div>
+
+        <div class="haris-pipe-art">
+          <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris bandwidth-disciplined compressed satellite uplink">
+            <defs>
+              <filter id="p3-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+              <linearGradient id="beam-cone" x1="50%" y1="100%" x2="50%" y2="0%">
+                <stop offset="0%" stop-color="#a8d506" stop-opacity="0.35"/>
+                <stop offset="60%" stop-color="#a8d506" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#a8d506" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+
+            <polygon points="120,105 84,20 156,20" fill="url(#beam-cone)"/>
+            <line x1="120" y1="105" x2="120" y2="18" stroke="#d8ff36" stroke-width="1.6" stroke-dasharray="4 3" filter="url(#p3-glow)"/>
+
+            <g transform="translate(105, 12)">
+              <rect x="0" y="4" width="30" height="10" rx="2" fill="#0a1409" stroke="#a8d506" stroke-width="1"/>
+              <rect x="-10" y="6" width="8" height="6" fill="#132412" stroke="#a8d506" stroke-width="0.8"/>
+              <rect x="32" y="6" width="8" height="6" fill="#132412" stroke="#a8d506" stroke-width="0.8"/>
+              <circle cx="15" cy="9" r="2" fill="#ffffff" filter="url(#p3-glow)"/>
+            </g>
+
+            <g transform="translate(92, 94)">
+              <rect x="14" y="24" width="28" height="14" rx="2" fill="#070c06" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+              <path d="M 4 24 C 4 6 52 6 52 24 Z" fill="#0f1a0e" stroke="#a8d506" stroke-width="1.5"/>
+              <circle cx="28" cy="14" r="3" fill="#a8d506" filter="url(#p3-glow)"/>
+            </g>
+
+            <g transform="translate(14, 52)">
+              <rect x="0" y="0" width="62" height="22" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="0.9"/>
+              <text x="6" y="11" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3">BANDWIDTH DRAIN</text>
+              <text x="6" y="18" font-family="'JetBrains Mono', monospace" font-size="6.2" font-weight="700" fill="#a8d506">~0 KB/S DRAIN</text>
+            </g>
+
+            <g transform="translate(164, 52)">
+              <rect x="0" y="0" width="62" height="22" rx="3" fill="#080e07" stroke="rgba(168,213,6,0.35)" stroke-width="0.9"/>
+              <text x="6" y="11" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3">BURST ENGINE</text>
+              <text x="6" y="18" font-family="'JetBrains Mono', monospace" font-size="6.2" font-weight="700" fill="#d8ff36">DELTA-SYNC ✓</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="haris-pipe-body">
+          <h3>يزامن مشفراً</h3>
+          <p>تُرسل القياسات مشفرة ومضغوطة عبر أي رابط متاح: VSAT، Inmarsat، أو شبكات 4G/5G داخل الميناء، بدون استنزاف تكاليف النطاق الترددي للاتصال الفضائي.</p>
+        </div>
+
+        <div class="haris-pipe-footer">
+          <span class="haris-pipe-chip">&larr; Webhook &middot; تزامن نقطي &middot; ضغط عالٍ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 3. SPEC METRICS ═══ -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="metrics">
+    <div class="met reveal">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>تخزين محلي معزول</span></div>
+      <div><div class="num" data-text="30d" style="direction:ltr">30d</div><div class="lbl">ذاكرة إلكترونية صلبة</div></div>
+      <div class="desc">تنجو القياسات من أطول فترات انقطاع الأقمار الصناعية دون أي فقدان، وتتزامن فور عودة الرابط.</div>
+    </div>
+    <div class="met reveal d1">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>بروتوكولات الملاحة</span></div>
+      <div><div class="num" data-text="N2K" style="direction:ltr">N2K</div><div class="lbl">NMEA 2000 · 0183 · Signal K</div></div>
+      <div class="desc">ربط وقراءة أصلية لكافة المعايير القياسية التي تتحدث بها أجهزة الملاحة في غرفة القيادة.</div>
+    </div>
+    <div class="met reveal d2">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>النطاق الترددي</span></div>
+      <div><div class="num" data-text="~0" style="direction:ltr">~0</div><div class="lbl">استنزاف شبه معدوم للرابط</div></div>
+      <div class="desc">بث مضغوط على دفعات صُمم هندسياً لمراعاة تكلفة زمن استجابة الاتصالات الفضائية البحرية.</div>
+    </div>
+    <div class="met reveal d3">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>الامتثال التنظيمي</span></div>
+      <div><div class="num" data-text="E26" style="direction:ltr">E26</div><div class="lbl">جاهز لمعايير IACS UR E26/E27</div></div>
+      <div class="desc">سجلات قياسات دقيقة مهيأة لتلبية اشتراطات ومتطلبات المرونة السيبرانية البحرية.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 4. HARIS PROTECTION ARCHITECTURE ═══ -->
+<section class="sec sec-arch" id="architecture"><div class="wrap wrap-arch">
+  <div class="hpa-bg-decor" aria-hidden="true">
+    <div class="hpa-glow"></div>
+  </div>
+
+  <div class="hpa-head reveal">
+    <div class="hpa-eyebrow">هندسة حماية حارس (HARIS ARCHITECTURE)</div>
+    <h2 class="hpa-title">منظومة متكاملة. <em>إشراف ورقابة شاملة.</em></h2>
+    <p class="hpa-subtitle">أربع طبقات أمنية متراصة تعمل بتناغم تام لحماية وتأمين كل عقدة حارس.</p>
+  </div>
+
+  <div class="hpa-stage reveal">
+    <!-- RIGHT COLUMN IN RTL (Originally Left in LTR) -->
+    <div class="hpa-col hpa-col-left">
+      <!-- CARD LAYER 01: WATCHTOWER -->
+      <div class="hpa-card hpa-card-l1" data-tilt data-spot>
+        <div class="hpa-card-body">
+          <span class="hpa-card-layer">الطبقة 01</span>
+          <h3 class="hpa-card-title"><a href="watchtower.html" style="color:inherit;text-decoration:none">برج المراقبة (Watchtower) &larr;</a></h3>
+          <p class="hpa-card-desc">إدارة أجهزة الأسطول بالكامل: البرمجيات، المؤشرات الصحية، والربط الشبكي لكل عقدة حارس من شاشة واحدة موحدة.</p>
+          <div class="hpa-card-meta">
+            <a href="watchtower.html" class="hpa-meta-tag" style="text-decoration:none;color:inherit">&larr; استكشف برج المراقبة</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD LAYER 03: HARIS CREW APP -->
+      <div class="hpa-card hpa-card-l3" data-tilt data-spot>
+        <div class="hpa-card-body">
+          <span class="hpa-card-layer">الطبقة 03</span>
+          <h3 class="hpa-card-title">تطبيق الطاقم (Haris Crew App)</h3>
+          <p class="hpa-card-desc">أدلة استجابة واضحة وتكتيكية تعمل بدون إنترنت لعزل أي جهاز مخترق في غرفة القيادة فوراً بالتكامل مع العقدة.</p>
+          <div class="hpa-card-meta">
+            <span class="hpa-meta-tag">&larr; للطاقم &middot; بدون إنترنت</span>
+          </div>
+          <a href="#crew-app" class="hpa-card-action">استعرض التطبيق &larr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEFT COLUMN IN RTL (Originally Right in LTR) -->
+    <div class="hpa-col hpa-col-right">
+      <!-- CARD LAYER 02: M-SOC ANALYSTS -->
+      <div class="hpa-card hpa-card-l2" data-tilt data-spot>
+        <div class="hpa-card-body">
+          <span class="hpa-card-layer">الطبقة 02</span>
+          <h3 class="hpa-card-title">محللو مركز M-SOC</h3>
+          <p class="hpa-card-desc">مركز العمليات 24/7 يحلل قياسات حارس لرصد تزييف GPS، وشذوذ شبكة OT، ومحاولات اختراق روابط الأقمار الصناعية.</p>
+          <div class="hpa-card-meta">
+            <span class="hpa-meta-tag">&larr; مراقبة 24/7</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD LAYER 04: COMPLIANCE REPORTING -->
+      <div class="hpa-card hpa-card-l4" data-tilt data-spot>
+        <div class="hpa-card-body">
+          <span class="hpa-card-layer">الطبقة 04</span>
+          <h3 class="hpa-card-title">تقارير الامتثال البحري</h3>
+          <p class="hpa-card-desc">سجلات قياسات دقيقة مهيكلة وفق معايير IACS UR E26/E27 وقرار IMO MSC.428(98)، جاهزة فور طلب المفتش.</p>
+          <div class="hpa-card-meta">
+            <span class="hpa-meta-tag" style="direction:ltr">&rarr; E26/E27 &middot; MSC.428</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE DOCK -->
+  <div class="hpa-dock reveal">
+    <div class="hpa-dock-col">
+      <div class="hpa-dock-text">
+        <strong class="hpa-dock-title">حماية موحدة وشاملة</strong>
+        <span class="hpa-dock-desc">منظومة واحدة، أربع ركائز، تغطية دفاعية كاملة.</span>
+      </div>
+    </div>
+    <div class="hpa-dock-col">
+      <div class="hpa-dock-text">
+        <strong class="hpa-dock-title">إدراك فوري للوضع الأمني</strong>
+        <span class="hpa-dock-desc">من الجهاز وحتى اتخاذ القرار، دائماً متقدمون بخطوة.</span>
+      </div>
+    </div>
+    <div class="hpa-dock-col">
+      <div class="hpa-dock-text">
+        <strong class="hpa-dock-title">مخصص لطواقم القيادة</strong>
+        <span class="hpa-dock-desc">أدوات متطورة للمحللين، وإرشادات مبسطة للبحارة.</span>
+      </div>
+    </div>
+    <div class="hpa-dock-col">
+      <div class="hpa-dock-text">
+        <strong class="hpa-dock-title">جاهزية كاملة للتدقيق</strong>
+        <span class="hpa-dock-desc">امتثال مبني في صميم النظام، وسجلات جاهزة للموانئ.</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 5. THE CREW APP SECTION ═══ -->
+<section class="sec" style="border-top:1px solid var(--line)" id="crew-app"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · تطبيق طاقم القيادة</div>
+    <h2>حارس في غرفة القيادة، <em>بين أيدي الضباط.</em></h2>
+    <p>العقدة الطرفية تجمع البيانات، والتطبيق ينفذ الإجراء. تطبيق Haris Crew المبني بإطار عمل Flutter يمنح الضباط خطوات واضحة ومباشرة بدون إنترنت عند رصد أي مؤشر شاذ على متن السفينة.</p>
+  </div>
+  <div class="crew-showcase-grid">
+    <div class="crew-pillars-col">
+      <div class="crew-pillar-card reveal" data-tilt data-spot>
+        <div class="crew-pillar-head">
+          <span class="crew-pillar-num">01</span>
+          <h3>يعمل بدون إنترنت بالكامل</h3>
+        </div>
+        <p>أدلة الإجراءات مخزنة محلياً بالكامل على الجهاز. صفر اعتمادية على السحابة، وبدون حاجة لرابط القمر الصناعي عندما يكون رابط الاتصال نفسه هدفاً للهجوم.</p>
+        <div class="crew-pillar-chip">&larr; يعمل 100% بدون إنترنت &middot; تخزين محلي مشفر</div>
+      </div>
+
+      <div class="crew-pillar-card reveal d1" data-tilt data-spot>
+        <div class="crew-pillar-head">
+          <span class="crew-pillar-num">02</span>
+          <h3>خطوات بلغة بحرية واضحة ومباشرة</h3>
+        </div>
+        <p>مكتوب للضباط الذين تقع على عاتقهم قيادة السفينة: اعزل هذا الجهاز، افصل هذا الناقل، تحول للبوصلة الاحتياطية. بلا مصطلحات تقنية معقدة، وبأعلى وضوح عملي تحت ضغط البحر.</p>
+        <div class="crew-pillar-chip">&larr; بدون تعقيد تقني &middot; خطوات إجرائية حاسمة</div>
+      </div>
+
+      <div class="crew-pillar-card reveal d2" data-tilt data-spot>
+        <div class="crew-pillar-head">
+          <span class="crew-pillar-num">03</span>
+          <h3>مدعوم بمركز عمليات على مدار الساعة</h3>
+        </div>
+        <p>فور فتح الطاقم لدليل التعامل مع حادث، يُخطر مركز العمليات فورياً. وينضم مهندسو الأمن البحري عبر قناة فضائية آمنة للمساندة حتى تأمين النوبة بالكامل.</p>
+        <div class="crew-pillar-chip">&larr; مركز مراقبة 24/7 &middot; مقرا تالين والخبر</div>
+      </div>
+    </div>
+
+    <div class="crew-console-card reveal d1" data-tilt data-spot>
+      <div class="crew-console-header">
+        <div class="crew-console-title">
+          <div class="crew-console-dot"></div>
+          <span>دليل حوادث غرفة القيادة // حالة طارئة نشطة SEV-1</span>
+        </div>
+        <span class="crew-console-status">لوحة تحكم بدون إنترنت</span>
+      </div>
+
+      <svg class="crew-console-svg" viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Haris Crew App tactical bridge tablet interface">
+        <rect x="6" y="6" width="408" height="268" rx="14" fill="#0c150b" stroke="#a8d506" stroke-width="1.5"/>
+        <rect x="12" y="12" width="396" height="256" rx="10" fill="#050905"/>
+
+        <g transform="translate(20, 20)">
+          <rect x="0" y="0" width="380" height="22" rx="4" fill="#0b140a" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+          <circle cx="10" cy="11" r="2.2" fill="#a8d506"/>
+          <text x="18" y="14" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#a8d506">السفينة: MV CAPE VALIANT</text>
+          <text x="180" y="14" font-family="'JetBrains Mono', monospace" font-size="6" fill="#a7b0a3">المنطقة: مضيق باب المندب</text>
+          <text x="370" y="14" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#eef3ea" text-anchor="end">الإشارة: محلي فقط</text>
+        </g>
+
+        <g transform="translate(20, 48)">
+          <rect x="0" y="0" width="380" height="34" rx="6" fill="rgba(232,140,122,0.15)" stroke="#e88c7a" stroke-width="1.2"/>
+          <text x="16" y="20" font-family="'Inter', sans-serif" font-size="7" font-weight="800" fill="#e88c7a" text-anchor="middle">!</text>
+          <text x="30" y="16" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" fill="#eef3ea">إنذار: رصد تزييف في إحداثيات وموقع نظام GPS</text>
+          <text x="30" y="27" font-family="'Inter', sans-serif" font-size="6.8" fill="#a7b0a3">انحراف المدى الزائف يتجاوز 420 متراً على منفذ NMEA 0183. اتبع البروتوكول أدناه.</text>
+        </g>
+
+        <g transform="translate(20, 90)">
+          <rect x="0" y="0" width="380" height="36" rx="5" fill="#080e07" stroke="rgba(168,213,6,0.25)" stroke-width="0.9"/>
+          <rect x="10" y="9" width="18" height="18" rx="4" fill="rgba(168,213,6,0.18)" stroke="#a8d506" stroke-width="1.2"/>
+          <path d="M 14 18 L 17 21 L 24 14" stroke="#d8ff36" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="36" y="18" font-family="'Inter', sans-serif" font-size="7.8" font-weight="700" fill="#eef3ea">الخطوة 01: تحويل شاشة ECDIS الأساسية للبوصلة والملاحة التقديرية</text>
+          <text x="36" y="28" font-family="'Inter', sans-serif" font-size="6.5" fill="#a7b0a3">تم الانتقال للملاحة بالقصور الذاتي وتسجيل انحراف المستشعرات.</text>
+          <text x="370" y="23" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#a8d506" text-anchor="end">تم الحل ✓</text>
+        </g>
+
+        <g transform="translate(20, 134)">
+          <rect x="0" y="0" width="380" height="52" rx="5" fill="rgba(168,213,6,0.08)" stroke="#a8d506" stroke-width="1.4"/>
+          <circle cx="19" cy="26" r="9" fill="#142412" stroke="#d8ff36" stroke-width="1.2"/>
+          <text x="19" y="29.5" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800" fill="#d8ff36" text-anchor="middle">02</text>
+          <text x="36" y="20" font-family="'Inter', sans-serif" font-size="8.2" font-weight="700" fill="#ffffff">الخطوة 02: عزل ناقل NMEA 0183 في عقدة حارس كهربائياً</text>
+          <text x="36" y="31" font-family="'Inter', sans-serif" font-size="6.8" fill="#eef3ea">فصل تدفق بيانات مستقبل GNSS المشبوه تماماً عن ناقل بيانات غرفة القيادة.</text>
+          <g transform="translate(250, 24)">
+            <rect x="0" y="0" width="118" height="20" rx="4" fill="#a8d506" stroke="#ffffff" stroke-width="0.8"/>
+            <text x="59" y="13" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#080e07" text-anchor="middle">تنفيذ العزل &larr;</text>
+          </g>
+        </g>
+
+        <g transform="translate(20, 194)">
+          <rect x="0" y="0" width="380" height="34" rx="5" fill="#080e07" stroke="rgba(238,243,234,0.12)" stroke-width="0.9"/>
+          <circle cx="19" cy="17" r="8" fill="#0c140a" stroke="rgba(238,243,234,0.3)" stroke-width="1"/>
+          <text x="19" y="20" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#a7b0a3" text-anchor="middle">03</text>
+          <text x="36" y="16" font-family="'Inter', sans-serif" font-size="7.8" font-weight="600" fill="#a7b0a3">الخطوة 03: توليد ملف أدلة جنائية رقمية لمركز عمليات M-SOC</text>
+          <text x="36" y="26" font-family="'Inter', sans-serif" font-size="6.5" fill="#667262">مهيكل وفق متطلبات الأدلة الجنائية لمعيار IACS UR E26.</text>
+          <text x="370" y="22" font-family="'JetBrains Mono', monospace" font-size="6" fill="#a7b0a3" text-anchor="end">قيد الانتظار</text>
+        </g>
+      </svg>
+
+      <div class="crew-console-footer">
+        <span style="font-family:var(--mono);font-size:.68rem;color:var(--mut)">بيئة عمل FLUTTER &middot; صفر اعتمادية على السحابة</span>
+        <a href="contact.html" class="crew-console-action">طلب عرض تجريبي للتطبيق &larr;</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 6. CTA ═══ -->
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <div class="coord" style="margin-bottom:14px"><b>عقدة حارس الجيل الثاني (GEN-2)</b> جاهزة للنشر على أسطولك التجاري</div>
+    <h3>ثبّت عقدة حارس في غرفة القيادة. <em>ودع البيانات تتحدث وتدافع.</em></h3>
+    <p>العتاد، التثبيت والتهيئة، والمراقبة الشاطئية المستمرة. نحن نتولى المنظومة بالكامل من الرف وحتى مركز المراقبة عبر أسطولك التجاري.</p>
+  </div>
+  <div class="cta-row">
+    <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">تثبيت عقدة حارس &larr;</a>
+    <a href="free-scan.html" class="btn ghost magnetic" style="font-size:.95rem;padding:16px 28px">افحص 3 سفن مجاناً</a>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a href="index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a>
+      <p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">الأمن السيبراني البحري، الحوسبة الطرفية بانعدام الثقة، وهندسة الشبكات والمنصات الرقمية. المقر الرئيسي في تالين، ومكتب المملكة العربية السعودية.</p>
+    </div>
+    <div><h4>المنتجات</h4><a href="shipcrawler.html">شيب كراولر (OSINT)</a><a href="M-SOC.html">مركز العمليات M-SOC</a><a href="haris.html">عقدة حارس الطرفية</a><a href="watchtower.html">برج المراقبة (Watchtower)</a></div>
+    <div><h4>المدونة والبحوث</h4><a href="../blog/how-attackers-find-ships-shodan.html">شيب كراولر وشودان</a><a href="../blog/vsat-security-fleet-managers.html">أمن محطات VSAT</a><a href="../blog/psc-cyber-requirements-2026.html">معايير PSC 2026</a></div>
+    <div><h4>الخدمات</h4><a href="web-design.html">تطوير الويب والمنصات</a><a href="networking.html">هندسة الشبكات</a><a href="mobile-app.html">تطبيقات الجوال</a></div>
+    <div><h4>التواصل</h4><a href="contact.html">تواصل مع الفريق</a><a href="mailto:contact@oversight.ee" style="direction:ltr;text-align:right">contact@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>تالين، إستونيا · &copy; 2026 شركة أوفرسايت (Oversight OÜ)</span><span>تصميم وتطوير بواسطة أوفرسايت (Oversight)</span></div>
+</div></footer>
+
+</body>
+</html>

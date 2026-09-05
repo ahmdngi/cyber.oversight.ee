@@ -122,10 +122,6 @@
       el.classList.toggle('map-light', isLight);
       el.classList.toggle('map-dark', !isLight);
       setTileLayer(getThemeTileUrl());
-
-      // update polyline colors
-      const lineColor = isLight ? '#5d8200' : '#a8d506';
-      routes.forEach(r => r.setStyle({ color: lineColor }));
     }
 
     new MutationObserver(syncMapTheme).observe(document.documentElement, {
@@ -134,7 +130,6 @@
     });
 
     const markers = {};
-    const routes = [];
     const geofences = [];
 
     vessels.forEach(v => {
@@ -152,15 +147,6 @@
         fillOpacity: .05
       }).addTo(map);
       geofences.push(fence);
-
-      // Route lane
-      const r = L.polyline(v.route, {
-        color: isLight ? '#5d8200' : '#a8d506',
-        weight: 2,
-        opacity: .8,
-        dashArray: '6 8'
-      }).addTo(map);
-      routes.push(r);
 
       const isWarn = v.shieldClass === 'warn';
       const icon = L.divIcon({
@@ -233,7 +219,8 @@
       if(gps) gps.textContent = v.gpsDrift;
       if(uplink) uplink.textContent = v.uplink;
       if(photo && v.photo) {
-        photo.src = v.photo;
+        const prefix = window.location.pathname.includes('/ar/') ? '../' : '';
+        photo.src = prefix + v.photo;
         photo.alt = v.name;
       }
 
@@ -835,16 +822,6 @@
       .leaflet-control-zoom {
         margin-right: 10px !important;
         margin-bottom: 10px !important;
-      }
-      .leaflet-popup-content {
-        min-width: 160px !important;
-        max-width: 210px !important;
-      }
-      .hud-tag-name {
-        font-size: 11px;
-      }
-      .hud-tag-bot {
-        font-size: .50rem;
       }
     }
   `;

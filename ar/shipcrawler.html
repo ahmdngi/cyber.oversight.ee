@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shipcrawler · Maritime OSINT Attack Surface Intelligence | Oversight</title>
-<meta name="description" content="Shipcrawler queries public search indexes and satellite ASN ranges to reveal what is exposed on commercial vessels: unauthenticated VSAT, open Telnet, CCTV. 100% passive.">
+<title>شيب كراولر (Shipcrawler) · استطلاع الهجمات البحرية بالأقمار الصناعية | Oversight</title>
+<meta name="description" content="منصة شيب كراولر تستطلع فهارس الإنترنت ونطاقات ASN للأقمار الصناعية لكشف ما هو مكشوف على السفن التجارية: محطات VSAT مفتوحة، منافذ Telnet، وبث الكاميرات. سلبي 100%.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Oversight">
 <meta property="og:title" content="Shipcrawler · Maritime OSINT Attack Surface Intelligence | Oversight">
@@ -16,12 +16,15 @@
 <meta name="twitter:description" content="Shipcrawler queries public search indexes and satellite ASN ranges to reveal what is exposed on commercial vessels.">
 <meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
   <link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
-<link rel="canonical" href="https://www.oversight.ee/shipcrawler">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="tokens.css">
-<link rel="stylesheet" href="mobile.css" media="screen and (max-width: 1024px)">
-<script src="theme.js"></script>
-<script defer src="fx.js"></script>
+<link rel="canonical" href="https://www.oversight.ee/ar/shipcrawler">
+<link rel="alternate" hreflang="en" href="https://www.oversight.ee/shipcrawler">
+<link rel="alternate" hreflang="ar" href="https://www.oversight.ee/ar/shipcrawler">
+<link rel="alternate" hreflang="x-default" href="https://www.oversight.ee/shipcrawler">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../mobile.css" media="screen and (max-width: 1024px)">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
 
 <script type="application/ld+json">
@@ -65,38 +68,38 @@
 <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
 
 <nav id="nav"><div class="wrap">
-  <a href="index.html" class="logo"><img src="logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <a href="index.html" class="logo"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img"></a>
   <div class="nav-links">
-    <a href="M-SOC.html">M-SOC</a><a href="shipcrawler.html" class="active">Shipcrawler</a><a href="haris.html">Haris</a>
+    <a href="M-SOC.html">مركز M-SOC</a><a href="shipcrawler.html" class="active">شيب كراولر</a><a href="haris.html">حارس إيدج</a>
     <div class="nav-drop">
-      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">خدمات متخصصة <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="drop-menu">
-        <a href="web-design.html">Web Development</a>
-        <a href="networking.html">Networking</a>
-        <a href="mobile-app.html">Mobile App Development</a>
+        <a href="web-design.html">المنصات والبوابات الرقمية</a>
+        <a href="networking.html">هندسة الشبكات والجدران النارية</a>
+        <a href="mobile-app.html">تطبيقات الملاحة والطاقم</a>
       </div>
     </div>
-    <a href="contact.html">Contact</a><a href="blog.html">Blog</a>
+    <a href="contact.html">تواصل معنا</a><a href="blog.html">الأبحاث والمدونة</a>
   </div>
-  <a href="free-scan.html" class="nav-cta">Free Fleet Scan</a>
+  <a href="free-scan.html" class="nav-cta">فحص الأسطول مجاناً</a>
   <div class="nav-right">
     <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </div></nav>
 <div class="mobile-drawer" id="mobileDrawer">
-  <a href="index.html">Home</a>
-  <a href="M-SOC.html">M-SOC</a>
-  <a href="shipcrawler.html" class="active">Shipcrawler</a>
-  <a href="haris.html">Haris</a>
+  <a href="index.html">الرئيسية</a>
+  <a href="M-SOC.html">مركز M-SOC</a>
+  <a href="shipcrawler.html" class="active">شيب كراولر</a>
+  <a href="haris.html">حارس إيدج</a>
   <div class="drawer-group">
     <span class="drawer-label">Other Services</span>
-    <a href="web-design.html">Web Development</a>
-    <a href="networking.html">Networking</a>
-    <a href="mobile-app.html">Mobile App Development</a>
+    <a href="web-design.html">المنصات والبوابات الرقمية</a>
+    <a href="networking.html">هندسة الشبكات والجدران النارية</a>
+    <a href="mobile-app.html">تطبيقات الملاحة والطاقم</a>
   </div>
-  <a href="contact.html">Contact</a>
-  <a href="blog.html">Blog</a>
-  <a href="free-scan.html" class="drawer-cta">Free Fleet Scan</a>
+  <a href="contact.html">تواصل معنا</a>
+  <a href="blog.html">الأبحاث والمدونة</a>
+  <a href="free-scan.html" class="drawer-cta">فحص الأسطول مجاناً</a>
 </div>
 
 <!-- ═══ 1. HERO WITH OSINT SATELLITE RECON CONSOLE ═══ -->
@@ -105,13 +108,13 @@
     <div>
       <div class="coord"><b>PASSIVE OSINT AUDIT</b> Shodan · Censys · Satellite ASN Blocks</div>
       <h1>
-        <span class="h1-line"><span class="w">See</span> <span class="w">your</span> <span class="w">fleet</span></span>
-        <span class="h1-line"><span class="w">the</span> <span class="w">way</span> <span class="w">an</span> <span class="w"><em class="lime">attacker</em> <em class="lime">does.</em></span></span>
+        <span class="h1-line">شاهد أسطولك البحري</span>
+        <span class="h1-line">كما يراه <em class="lime">المخترق تماماً.</em></span>
       </h1>
-      <p class="sub">Shipcrawler queries public search indexes and satellite ASN ranges to reveal what is exposed on commercial vessels: unauthenticated VSAT terminals, open Telnet ports, and bridge camera feeds. 100% passive. No agent. No shipboard access needed.</p>
+      <p class="sub">تستعلم منصة Shipcrawler عبر فهارس الإنترنت ونطاقات ASN للأقمار الصناعية لكشف ما هو مكشوف على السفن التجارية: لوحات تحكم VSAT دون مصادقة، منافذ Telnet، وبث كاميرات قمرة القيادة. استطلاع سلبي 100% دون الحاجة لأي جهاز على السفينة أو زيارة ميدانية.</p>
       <div class="cta-row">
-        <a href="#request-scan" class="btn primary magnetic">Request 3-Vessel Report →</a>
-        <a href="blog/how-attackers-find-ships-shodan.html" class="btn ghost magnetic">Read Shodan Brief</a>
+        <a href="#request-scan" class="btn primary magnetic">طلب تقرير الـ 3 سفن ←</a>
+        <a href="blog.html#shodan" class="btn ghost magnetic">قراءة دراسة محرك Shodan</a>
       </div>
     </div>
     <div>
@@ -228,7 +231,7 @@
             <span class="hud-telemetry-val">Zero <em>NO ACCESS NEEDED ●</em></span>
           </div>
           <div class="hud-telemetry-item">
-            <span class="hud-telemetry-lbl">Turnaround</span>
+            <span class="hud-telemetry-lbl">سرعة التسليم</span>
             <span class="hud-telemetry-val">24 Hours <em>CONFIDENTIAL ●</em></span>
           </div>
         </div>
@@ -376,8 +379,8 @@
         </div>
 
         <div class="pipe-body">
-          <h3>Unprotected Bridge Cameras</h3>
-          <p>IP surveillance streams forwarded without authentication, enabling external threat actors to visually confirm ship coordinates, weather, and crew watch patterns.</p>
+          <h3>بث مباشر لكاميرات قمرة القيادة (CCTV)</h3>
+          <p>بث كاميرات المراقبة بتقنية IP المنقول دون مصادقة، مما يتيح للأطراف المهاجمة التحقق بصرياً من إحداثيات السفينة والطقس وورديات الطاقم الملاحي.</p>
         </div>
 
         <div class="pipe-footer">
@@ -396,48 +399,48 @@
       <div class="met-corner met-corner-tr"></div>
       <div class="met-corner met-corner-bl"></div>
       <div class="met-corner met-corner-br"></div>
-      <div class="met-tag"><i></i><span>Recon Scope</span></div>
+      <div class="met-tag"><i></i><span>نطاق الاستطلاع</span></div>
       <div>
         <div class="num" data-text="100%">100%</div>
-        <div class="lbl">Passive Intelligence</div>
+        <div class="lbl">استخبارات سلبية 100%</div>
       </div>
-      <div class="desc">Queries only public satellite ASN subnets and indexes. No intrusive packet probes.</div>
+      <div class="desc">يستعلم فقط عبر نطاقات الأقمار الصناعية وفهارس الإنترنت العامة دون إرسال حزم تداخلية للسفينة.</div>
     </div>
     <div class="met reveal d1">
       <div class="met-corner met-corner-tl"></div>
       <div class="met-corner met-corner-tr"></div>
       <div class="met-corner met-corner-bl"></div>
       <div class="met-corner met-corner-br"></div>
-      <div class="met-tag"><i></i><span>Installation</span></div>
+      <div class="met-tag"><i></i><span>التثبيت البرمجي</span></div>
       <div>
         <div class="num" data-text="0">0</div>
-        <div class="lbl">Software Required</div>
+        <div class="lbl">بدون أي برامج على متن السفينة</div>
       </div>
-      <div class="desc">Requires zero crew intervention, zero onboard hardware, and zero ship visits.</div>
+      <div class="desc">لا يتطلب أي تدخل من الطاقم البحري، ولا أجهزة إضافية، ولا أي زيارة لميناء الرسو.</div>
     </div>
     <div class="met reveal d2">
       <div class="met-corner met-corner-tl"></div>
       <div class="met-corner met-corner-tr"></div>
       <div class="met-corner met-corner-bl"></div>
       <div class="met-corner met-corner-br"></div>
-      <div class="met-tag"><i></i><span>Turnaround</span></div>
+      <div class="met-tag"><i></i><span>سرعة التسليم</span></div>
       <div>
         <div class="num" data-text="24h">24h</div>
-        <div class="lbl">Executive Delivery</div>
+        <div class="lbl">تسليم خلال 24 ساعة</div>
       </div>
-      <div class="desc">Confidential report with verified IP findings sent directly to your fleet manager.</div>
+      <div class="desc">تقرير سري موثق بالنتائج وعناوين الـ IP يرسل مباشرة إلى مدير أسطولك الملاحي.</div>
     </div>
     <div class="met reveal d3">
       <div class="met-corner met-corner-tl"></div>
       <div class="met-corner met-corner-tr"></div>
       <div class="met-corner met-corner-bl"></div>
       <div class="met-corner met-corner-br"></div>
-      <div class="met-tag"><i></i><span>Free Fleet Audit</span></div>
+      <div class="met-tag"><i></i><span>فحص أسطول مجاني</span></div>
       <div>
         <div class="num" data-text="3">3</div>
-        <div class="lbl">Vessels Tested Free</div>
+        <div class="lbl">3 سفن تفحص مجاناً</div>
       </div>
-      <div class="desc">Identify your fleet's external attack surface with no commitment or NDA overhead.</div>
+      <div class="desc">اكتشف مساحة الهجوم الخارجية لأسطولك البحري دون التزامات تعاقدية مسبقة.</div>
     </div>
   </div>
 </div></section>
@@ -446,32 +449,32 @@
 <section class="sec" id="request-scan"><div class="wrap">
   <div class="sec-head reveal">
     <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · Fleet report</div>
-    <h2>Request a free 3-vessel exposure report.</h2>
-    <p>Provide 3 vessel names or IMO numbers. Our OSINT team will generate a confidential vulnerability assessment delivered within 24 hours.</p>
+    <h2>طلب تقرير كشف الثغرات المجاني لـ 3 سفن.</h2>
+    <p>أدخل أسماء 3 سفن أو أرقام الـ IMO. سيقوم فريق الاستخبارات الملاحية بإعداد تقييم سري شامل يُسلم خلال 24 ساعة.</p>
   </div>
 
   <div class="tactical-card reveal" style="max-width:760px;margin:0 auto">
     <div class="tactical-card-topbar">
-      <div class="tactical-unit-tag"><i></i><span>Confidential Fleet Audit Request</span></div>
+      <div class="tactical-unit-tag"><i></i><span>طلب فحص الأسطول السري</span></div>
       <div class="tactical-unit-status">Encrypted Dispatch · Tallinn / Al Khobar</div>
     </div>
 
     <form id="v2ScanForm" onsubmit="handleShipcrawlerSubmit(event)" style="display:flex;flex-direction:column;gap:16px">
       <div>
-        <label for="vessels" class="bl" style="display:block;margin-bottom:6px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--text)">Vessel targets (IMO numbers or names)</label>
+        <label for="vessels" class="bl" style="display:block;margin-bottom:6px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--text)">السفن المستهدفة (أرقام IMO أو أسماء السفن)</label>
         <input type="text" id="vessels" placeholder="e.g. IMO 0097421, IMO 0094102, IMO 0098110" required style="width:100%;padding:12px 16px;background:rgba(5,9,5,.85);border:1px solid rgba(168,213,6,.35);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.84rem;box-sizing:border-box">
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         <div>
-          <label for="email" class="bl" style="display:block;margin-bottom:6px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--text)">Superintendent / IT Manager Email</label>
+          <label for="email" class="bl" style="display:block;margin-bottom:6px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--text)">البريد الإلكتروني لمدير الأسطول / المشرف</label>
           <input type="email" id="email" placeholder="name@fleet-operator.com" required style="width:100%;padding:12px 16px;background:rgba(5,9,5,.85);border:1px solid rgba(168,213,6,.35);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.84rem;box-sizing:border-box">
         </div>
         <div>
-          <label for="company" class="bl" style="display:block;margin-bottom:6px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--text)">Fleet Operator / Management</label>
+          <label for="company" class="bl" style="display:block;margin-bottom:6px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--text)">الشركة / إدارة الأسطول الملاحي</label>
           <input type="text" id="company" placeholder="Company Name" style="width:100%;padding:12px 16px;background:rgba(5,9,5,.85);border:1px solid rgba(168,213,6,.35);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.84rem;box-sizing:border-box">
         </div>
       </div>
-      <button type="submit" class="btn primary magnetic" style="justify-content:center;font-size:1rem;padding:16px 28px;border:none;cursor:pointer;margin-top:8px">Generate 3-Vessel Exposure Report →</button>
+      <button type="submit" class="btn primary magnetic" style="justify-content:center;font-size:1rem;padding:16px 28px;border:none;cursor:pointer;margin-top:8px">إصدار تقرير كشف الثغرات التكتيكي ←</button>
       <div id="scanFormStatus" style="display:none;font-size:.88rem;padding:12px 16px;border-radius:10px;font-family:var(--mono)"></div>
     </form>
   </div>
@@ -507,7 +510,7 @@ async function handleShipcrawlerSubmit(e) {
 
   // 1. Direct contact.php
   try {
-    const res = await fetch('contact.php', {
+    const res = await fetch('../contact.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
@@ -521,7 +524,7 @@ async function handleShipcrawlerSubmit(e) {
   // 2. Serverless /api/contact
   if (!sent) {
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('../api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
@@ -570,19 +573,19 @@ async function handleShipcrawlerSubmit(e) {
 
   btn.disabled = false;
   btn.style.opacity = '1';
-  btn.textContent = 'Generate 3-Vessel Exposure Report →';
+  btn.textContent = 'إصدار تقرير كشف الثغرات التكتيكي ←';
 }
 </script>
 
 <footer><div class="wrap">
   <div class="foot-grid">
-    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
-    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="M-SOC.html">M-SOC</a><a href="haris.html">Haris Edge</a><a href="watchtower.html">Watchtower</a></div>
-    <div><h4>Blog</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
-    <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
-    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>المنتجات</h4><a href="shipcrawler.html">شيب كراولر</a><a href="M-SOC.html">مركز M-SOC</a><a href="haris.html">Haris Edge</a><a href="watchtower.html">Watchtower</a></div>
+    <div><h4>الأبحاث والمدونة</h4><a href="blog.html#shodan">محرك Shodan والسفن</a><a href="blog.html#vsat">موجز أمن VSAT</a><a href="blog.html#psc">متطلبات PSC لعام 2026</a></div>
+    <div><h4>Services</h4><a href="web-design.html">المنصات والبوابات الرقمية</a><a href="networking.html">هندسة الشبكات والجدران النارية</a><a href="mobile-app.html">Mobile Apps</a></div>
+    <div><h4>تواصل معنا</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
   </div>
-  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Designed & Developed by Oversight</span></div>
+  <div class="foot-bottom"><span>تالين، إستونيا · © 2026 Oversight OÜ</span><span>بحث محكم في IEEE Access 2026 · تصميم وهندسة Oversight</span></div>
 </div></footer>
 
 </body>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برج المراقبة (Watchtower) · إدارة وتنسيق الأجهزة الطرفية للأسطول البحري | أوفرسايت (Oversight)</title>
+<meta name="description" content="ينسق برج المراقبة (Watchtower) أجهزة الأسطول البحري التجاري الطرفية. تحديثات برمجية موقعة ومشفرة OTA، متابعة المؤشرات الحيوية للعقد، وعزل أنظمة غرفة القيادة عن بُعد عبر الأقمار الصناعية.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="برج المراقبة (Watchtower) · إدارة وتنسيق أجهزة الأسطول الطرفية | أوفرسايت (Oversight)">
+<meta property="og:description" content="إدارة مركزية وتحديثات برمجية OTA موقعة رقمياً ومراقبة المؤشرات الحيوية لعقد حارس عبر الأسطول التجاري.">
+<meta property="og:url" content="https://www.oversight.ee/ar/watchtower">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="برج المراقبة (Watchtower) · أوفرسايت (Oversight)">
+<meta name="twitter:description" content="إدارة مركزية وتنسيق متكامل للأجهزة الطرفية للأسطول التجاري البحري.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+<link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="alternate" hreflang="en" href="https://www.oversight.ee/watchtower">
+<link rel="alternate" hreflang="ar" href="https://www.oversight.ee/ar/watchtower">
+<link rel="alternate" hreflang="x-default" href="https://www.oversight.ee/watchtower">
+<link rel="canonical" href="https://www.oversight.ee/ar/watchtower">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../mobile.css" media="screen and (max-width: 1024px)">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+
+<button class="theme-toggle-btn" aria-label="تبديل المظهر" title="تبديل المظهر"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+    <a href="shipcrawler.html">شيب كراولر</a>
+    <a href="haris.html">حارس (Haris)</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">خدمات أخرى <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">تطوير الويب والمنصات</a>
+        <a href="networking.html">هندسة الشبكات والربط</a>
+        <a href="mobile-app.html">تطبيقات الجوال</a>
+      </div>
+    </div>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="blog.html">المدونة والبحوث</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta">فحص مجاني للأسطول</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="تبديل القائمة"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">الرئيسية</a>
+  <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+  <a href="shipcrawler.html">شيب كراولر</a>
+  <a href="haris.html">حارس (Haris)</a>
+  <div class="drawer-group">
+    <span class="drawer-label">خدمات أخرى</span>
+    <a href="web-design.html">تطوير الويب</a>
+    <a href="networking.html">هندسة الشبكات</a>
+    <a href="mobile-app.html">تطبيقات الجوال</a>
+  </div>
+  <a href="contact.html">تواصل معنا</a>
+  <a href="blog.html">المدونة والبحوث</a>
+  <a href="free-scan.html" class="drawer-cta">فحص مجاني للأسطول</a>
+</div>
+
+<!-- ══════════════════════ 1. HERO ══════════════════════ -->
+<section class="hero hero-evidence">
+  <div class="wrap hero-evidence-grid">
+    <div>
+      <div class="coord"><b>إدارة وتنسيق أجهزة الأسطول الطرفية</b> تحديثات OTA بدون تدخل · برمجيات موقعة · عزل أنظمة القيادة</div>
+      <h1>
+        <span class="h1-line">إدارة الأسطول</span>
+        <span class="h1-line">من شاشة <em class="lime">واحدة موحدة.</em></span>
+      </h1>
+      <p class="sub">انشر التحديثات البرمجية الموقعة رقمياً، وراقب المؤشرات الحيوية للعتاد، واعزل أنظمة غرفة القيادة المخترقة عبر مئات السفن التجارية دون الحاجة لملامسة رف واحد على متن السفن.</p>
+      <div class="cta-row">
+        <a href="contact.html" class="btn primary magnetic">تفعيل برج المراقبة &larr;</a>
+        <a href="#topology" class="btn ghost magnetic">طوبولوجيا الأسطول</a>
+      </div>
+    </div>
+    <div>
+      <div class="tactical-card reveal" style="padding:24px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div class="tactical-header" style="margin-bottom:14px">
+          <div>
+            <div class="tactical-title">نواة برج المراقبة // شبكة الطوبولوجيا العالمية</div>
+            <div class="tactical-sub">إدارة وتنسيق أجهزة حارس الطرفية عبر الأسطول</div>
+          </div>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">شبكة نشطة</span>
+        </div>
+
+        <svg viewBox="0 0 460 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+          <circle cx="230" cy="110" r="28" fill="#0c180b" stroke="#a8d506" stroke-width="1.6"/>
+          <circle cx="230" cy="110" r="8" fill="#a8d506"/>
+          <text x="230" y="148" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="800" fill="#ffffff" text-anchor="middle">WATCHTOWER CORE</text>
+          <text x="230" y="157" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506" text-anchor="middle">TLL / KSA CLOUD DISPATCH</text>
+
+          <g stroke="rgba(168,213,6,0.35)" stroke-width="1" stroke-dasharray="3 3">
+            <line x1="206" y1="94" x2="80" y2="48"/>
+            <line x1="254" y1="94" x2="380" y2="48"/>
+            <line x1="206" y1="126" x2="80" y2="172"/>
+            <line x1="254" y1="126" x2="380" y2="172"/>
+          </g>
+
+          <g transform="translate(80, 48)">
+            <circle cx="0" cy="0" r="16" fill="#081007" stroke="#a8d506" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="3" fill="#d8ff36"/>
+            <text x="0" y="24" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3" text-anchor="middle">BALTIC // HARIS-01</text>
+          </g>
+
+          <g transform="translate(380, 48)">
+            <circle cx="0" cy="0" r="16" fill="#081007" stroke="#a8d506" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="3" fill="#d8ff36"/>
+            <text x="0" y="24" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3" text-anchor="middle">RED SEA // HARIS-02</text>
+          </g>
+
+          <g transform="translate(80, 172)">
+            <circle cx="0" cy="0" r="16" fill="#081007" stroke="#ebb432" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="3" fill="#ebb432"/>
+            <text x="0" y="24" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3" text-anchor="middle">GULF // HARIS-03</text>
+          </g>
+
+          <g transform="translate(380, 172)">
+            <circle cx="0" cy="0" r="16" fill="#081007" stroke="#a8d506" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="3" fill="#d8ff36"/>
+            <text x="0" y="24" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3" text-anchor="middle">NORTH SEA // HARIS-04</text>
+          </g>
+        </svg>
+
+        <div class="tactical-telemetry-hud">
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">الأجهزة المتصلة</span>
+            <span class="hud-telemetry-val" style="direction:ltr">100% ONLINE</span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">حجم التحديث الفرقي</span>
+            <span class="hud-telemetry-val" style="direction:ltr">&lt; 15 KB</span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">زمن العزل الفوري</span>
+            <span class="hud-telemetry-val" style="direction:ltr">&lt; 3 SECONDS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 2. THREE CORE PILLARS ══════════════════════ -->
+<section class="sec" id="topology"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · ركائز تنسيق الأسطول</div>
+    <h2>إدارة أجهزة الأسطول، <em>دون تعقيد أو مخاطرة.</em></h2>
+    <p>ثلاث وظائف تشغيلية محورية تجعل إدارة الأجهزة الطرفية عبر مئات السفن التجارية أمراً سلساً وآمناً تماماً.</p>
+  </div>
+
+  <div class="tactical-stack-grid">
+    <!-- Stage 01 -->
+    <div class="tactical-card stack-card" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i></i> المرحلة 01 // التحديثات</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">تحديثات OTA</span>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">1. تحديثات فرقية بدون تدخل</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">تحديثات ثنائية فارقة مضغوطة لأقل من 15 كيلوبايت. تنتقل بسلاسة تامة عبر روابط الأقمار الصناعية عالية التكلفة مع استرجاع تلقائي إذا فشل التحقق التشفيري.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">الحجم</span><span class="stack-tel-v" style="direction:ltr">&lt; 15KB Binary</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الأمان</span><span class="stack-tel-v" style="direction:ltr">Ed25519 Signed</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الرجوع</span><span class="stack-tel-v" style="direction:ltr">A/B Dual Boot</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 02 -->
+    <div class="tactical-card stack-card" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i></i> المرحلة 02 // القياسات</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">نبض كل 60 ثانية</span>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">2. صحة العتاد وناقل البيانات</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">مراقبة مستمرة لصحة أجهزة غرفة القيادة: سعة الذاكرة التخزينية المؤقتة، استهلاك المعالج، حرارة الرف، ومعدلات فقدان حزم NMEA 2000.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">الفترة</span><span class="stack-tel-v">نبضة 60 ثانية</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الذاكرة</span><span class="stack-tel-v">تخزين 30 يوماً</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">التشخيص</span><span class="stack-tel-v">سلامة N2K Bus</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 03 -->
+    <div class="tactical-card stack-card" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div>
+        <div class="tactical-card-topbar">
+          <span class="tactical-unit-tag"><i style="background:#ff5252;box-shadow:0 0 8px #ff5252"></i> المرحلة 03 // الاستجابة</span>
+          <span class="pipe-status-tag" style="background:rgba(255,82,82,.12);color:#ff5252;border:1px solid rgba(255,82,82,.3)">عزل فوري</span>
+        </div>
+
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:8px">3. عزل أنظمة القيادة عن بُعد</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.7;margin-bottom:12px">عند تأكيد محللي مركز M-SOC لوجود حادث أو اختراق، يمكنك إطلاق أمر عزل فوري للأجهزة المصابة أو منافذ إدارة الأقمار الصناعية بنقرة مشفرة واحدة.</p>
+
+        <div class="stack-telemetry-row">
+          <div class="stack-tel-item"><span class="stack-tel-k">السرعة</span><span class="stack-tel-v" style="direction:ltr">&lt; 3 ثوانٍ</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الإجراء</span><span class="stack-tel-v">عزل الناقل</span></div>
+          <div class="stack-tel-item"><span class="stack-tel-k">الصلاحية</span><span class="stack-tel-v">M-SOC / DPA</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ 3. BY THE NUMBERS ══════════════════════ -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="metrics">
+    <div class="met reveal">
+      <div class="met-tag"><i></i><span>التثبيت والنشر</span></div>
+      <div>
+        <div class="num" data-text="100%" style="direction:ltr">100%</div>
+        <div class="lbl">تحديثات OTA بدون لمس</div>
+      </div>
+      <div class="desc">انشر التحديثات عبر كامل الأسطول دون الحاجة لإرسال مهندسين إلى الموانئ أو انتظار دخول الحوض الجاف.</div>
+    </div>
+    <div class="met reveal d1">
+      <div class="met-tag"><i></i><span>النطاق الترددي</span></div>
+      <div>
+        <div class="num" data-text="&lt;15KB" style="direction:ltr">&lt;15KB</div>
+        <div class="lbl">حزم تحديث فرقية صغرى</div>
+      </div>
+      <div class="desc">تحديثات ثنائية فارقة مصممة خصيصاً لروابط Inmarsat و Iridium و VSAT الملاحية المقيدة.</div>
+    </div>
+    <div class="met reveal d2">
+      <div class="met-tag"><i></i><span>المرونة التشغيلية</span></div>
+      <div>
+        <div class="num" data-text="30 Days" style="direction:ltr">30 Days</div>
+        <div class="lbl">تخزين مؤقت بدون إنترنت</div>
+      </div>
+      <div class="desc">يخزن العتاد القياسات أثناء العبور في المناطق القطبية وانقطاع الاتصال، ثم يتزامن تلقائياً فور عودة الرابط.</div>
+    </div>
+    <div class="met reveal d3">
+      <div class="met-tag"><i></i><span>جذر الثقة الأمني</span></div>
+      <div>
+        <div class="num" data-text="TPM 2.0" style="direction:ltr">TPM 2.0</div>
+        <div class="lbl">توثيق تشفيري بالعتاد</div>
+      </div>
+      <div class="desc">هوية تشفيرية مدعومة بعتاد TPM في كل عقدة حارس لمنع أي تزييف أو حقن للقياسات عن بُعد.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ 4. CTA ══════════════════════ -->
+<div class="wrap"><div class="cta reveal" style="position:relative;overflow:hidden">
+  <span class="met-corner tl"></span><span class="met-corner tr"></span><span class="met-corner bl"></span><span class="met-corner br"></span>
+  <div>
+    <div class="coord" style="margin-bottom:14px"><b>نواة برج المراقبة (WATCHTOWER)</b> جاهزة لتنسيق أسطولك التجاري</div>
+    <h3>أحكم السيطرة على <em>أجهزة أسطولك الطرفية.</em></h3>
+    <p>تثبيت بدون تدخل، تحديثات فرقية موقعة، ومراقبة فورية لصحة شبكة الملاحة بالسفن التجارية. تحدث مباشرة مع مسؤولي هندسة الأنظمة لدينا.</p>
+  </div>
+  <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">تفعيل برج المراقبة &larr;</a>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a href="index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a>
+      <p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">الأمن السيبراني البحري، الحوسبة الطرفية بانعدام الثقة، وهندسة الشبكات والمنصات الرقمية. المقر الرئيسي في تالين، ومكتب المملكة العربية السعودية.</p>
+    </div>
+    <div><h4>المنتجات</h4><a href="shipcrawler.html">شيب كراولر (OSINT)</a><a href="M-SOC.html">مركز العمليات M-SOC</a><a href="haris.html">عقدة حارس الطرفية</a><a href="watchtower.html">برج المراقبة (Watchtower)</a></div>
+    <div><h4>المدونة والبحوث</h4><a href="../blog/how-attackers-find-ships-shodan.html">شيب كراولر وشودان</a><a href="../blog/vsat-security-fleet-managers.html">أمن محطات VSAT</a><a href="../blog/psc-cyber-requirements-2026.html">معايير PSC 2026</a></div>
+    <div><h4>الخدمات</h4><a href="web-design.html">تطوير الويب والمنصات</a><a href="networking.html">هندسة الشبكات</a><a href="mobile-app.html">تطبيقات الجوال</a></div>
+    <div><h4>التواصل</h4><a href="contact.html">تواصل مع الفريق</a><a href="mailto:contact@oversight.ee" style="direction:ltr;text-align:right">contact@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>تالين، إستونيا · &copy; 2026 شركة أوفرسايت (Oversight OÜ)</span><span>تصميم وتطوير بواسطة أوفرسايت (Oversight)</span></div>
+</div></footer>
+
+</body>
+</html>

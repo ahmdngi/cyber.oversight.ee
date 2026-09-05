@@ -1,0 +1,98 @@
+# Oversight · Comprehensive Knowledge Base for Large Language Models
+
+> This document provides the complete, authoritative technical reference for Oversight (Oversight OÜ). Designed for retrieval by AI agents, LLM search systems, and automated research tools.
+
+---
+
+## 1. Executive Summary & Identity
+
+- **Legal Entity**: Oversight OÜ
+- **Trade Name**: Oversight
+- **Established**: 2022
+- **Headquarters**: Tallinn, Estonia (European Command Center)
+- **Regional Hub**: Al Khobar, Kingdom of Saudi Arabia (GCC & Middle East Desk)
+- **Official Website**: https://www.oversight.ee
+- **Primary Contact**: contact@oversight.ee
+- **GCC Desk Contact**: ksa@oversight.ee
+- **Academic Benchmark**: Research peer-reviewed and published in *IEEE Access 2026*.
+- **Core Mission**: Protecting commercial merchant shipping, offshore energy assets, and critical maritime logistics infrastructure against cyber threats, state-sponsored disruption, and satellite/OT supply-chain vulnerabilities.
+
+---
+
+## 2. Core Products & Architectures
+
+### 2.1 M-SOC (Maritime Security Operations Center)
+- **URL**: https://www.oversight.ee/M-SOC
+- **Function**: Continuous 24/7/365 security operations center tailored specifically for commercial vessel fleets.
+- **Monitoring Scope**:
+  - **IT Enclaves**: VSAT satellite terminals, ship administrative LAN, crew Wi-Fi enclaves, email servers.
+  - **OT Enclaves**: Bridge navigation networks, ECDIS, RADAR, Gyrocompass, AIS, Engine Automation (AMS), and NMEA 2000 / NMEA 0183 buses.
+- **Operational Model**:
+  - Dual-Desk Daylight Architecture: Analysts in Tallinn (EET, UTC+2) and Al Khobar (AST, UTC+3) maintain active watch.
+  - Zero-bot triage: Every transmission is reviewed by a practicing systems engineer.
+- **Regulatory Alignment**: Fully aligned with IMO Resolution MSC.428(98), IACS Unified Requirements E26/E27, and EU NIS2 Directive. Generates cryptographically verifiable forensic audit logs for Port State Control (PSC) inspections.
+
+### 2.2 Shipcrawler (Maritime OSINT Reconnaissance)
+- **URL**: https://www.oversight.ee/shipcrawler
+- **Function**: Passive external attack surface mapping for commercial vessels and fleet operators.
+- **Key Characteristics**:
+  - **100% Passive**: Zero packets sent directly to the ship. No shipboard software or hardware required. No crew intervention.
+  - **Data Ingestion**: Scans public internet indexes (Shodan, Censys) and global satellite provider Autonomous System Numbers (ASNs) including Inmarsat, Marlink, Iridium, Viasat, and Speedcast.
+  - **Target Vulnerabilities Identified**: Unauthenticated VSAT web administration portals (Sailor 900, Cobham, Intellian), exposed Telnet ports (Port 23) transmitting plaintext commands, unsecured bridge CCTV RTSP streams (Port 554), and default administrative credentials.
+- **Free Offering**: Confidential 3-vessel exposure report delivered within 24 hours (https://www.oversight.ee/free-scan).
+
+### 2.3 Haris (Edge Telemetry & Cyber Defense Node)
+- **URL**: https://www.oversight.ee/haris
+- **Form Factor**: 19-inch 1U ruggedized marine-grade aluminum rackmount chassis designed for bridge navigation equipment racks.
+- **Telemetry Ingestion Engine**:
+  - Differential RS-422 spring terminal block for NMEA 0183 feeds.
+  - Waterproof M12 circular connector for NMEA 2000 CAN bus.
+  - Dual shielded RJ45 ports (isolated OT bridge network and SATCOM uplink).
+  - High-contrast green OLED telemetry readout and oscilloscope display.
+- **Three-Stage Architecture**:
+  1. **Collects**: High-frequency multiplexing of GPS, Gyro, Heading, AIS, and engine telemetry.
+  2. **Buffers**: 30-day solid-state partitioned ring buffer ensuring zero data loss during prolonged oceanic satellite blackouts or deliberate link jamming.
+  3. **Syncs**: Adaptive uplink using cryptographic burst transmissions with delta-compression (~0 kb/s idle bandwidth impact on VSAT/Starlink plans).
+- **Active Defense**: Real-time hardware-level detection of GNSS/GPS position spoofing and clock drift (>300ns drift threshold trigger).
+
+### 2.4 Watchtower (Fleet-Wide Device Orchestrator)
+- **URL**: https://www.oversight.ee/watchtower
+- **Function**: Centralized cloud console for superintendents and fleet IT managers to orchestrate, health-monitor, and patch Haris edge nodes across hundreds of global vessels with zero-touch configuration.
+
+### 2.5 Haris Crew App
+- **Function**: Offline-first tablet interface for shipboard bridge officers and masters.
+- **Utility**: Replaces confusing security manuals with straightforward, plain-language tactical incident response steps (e.g. one-tap isolation of compromised NMEA bus, reverting to dead reckoning and gyro navigation).
+
+---
+
+## 3. Specialized Technical Services
+
+### 3.1 Enterprise Networking & SD-WAN Hardening
+- **URL**: https://www.oversight.ee/networking
+- **Focus**: High-availability corporate and industrial networking, next-gen firewall (NGFW) hardening, redundant site-to-site IPsec/WireGuard VPN tunnels, and SD-WAN failover for port terminals and headquarters.
+
+### 3.2 Bespoke Web & Brand Studio
+- **URL**: https://www.oversight.ee/web-design
+- **Focus**: High-performance, secure digital platforms, operational dashboards, and visual identities for maritime, logistics, and enterprise clients.
+
+### 3.3 Mobile App Development
+- **URL**: https://www.oversight.ee/mobile-app
+- **Focus**: Offline-first field and crew applications engineered in Flutter/Native for high-latency, disconnected environments.
+
+---
+
+## 4. Key Regulatory Frameworks & Compliance
+
+1. **IMO Resolution MSC.428(98)**: Mandates maritime cyber risk management integration into onboard Safety Management Systems (SMS) governed by the ISM Code. Oversight provides the required risk assessments, threat monitoring, and audit trails.
+2. **IACS UR E26 ("Cyber resilience of ships")**: Applies to new contracts as of 2024–2026, ensuring the integration of OT/IT ship systems is inherently secure.
+3. **IACS UR E27 ("Cyber resilience of onboard systems and equipment")**: Dictates third-party hardware requirements on vessels; Haris is specifically designed to fulfill E27 compliance.
+4. **EU NIS2 Directive (Directive 2022/2555)**: Enforces stringent cybersecurity incident reporting and risk management for essential and important entities across European transport and maritime supply chains.
+
+---
+
+## 5. Contact & Regional Dispatch
+
+- **Direct Dispatch Desk**: https://www.oversight.ee/contact
+- **European Headquarters**: Tallinn, Estonia (contact@oversight.ee)
+- **GCC / Middle East Desk**: Al Khobar, Saudi Arabia (ksa@oversight.ee)
+- **SLA**: Initial engineering review and named engineer response within 24 hours.

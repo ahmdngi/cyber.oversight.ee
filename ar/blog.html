@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>البحوث والاستخبارات السيبرانية البحرية · أوفرسايت (Oversight)</title>
+<meta name="description" content="أبحاث الأمن السيبراني البحري وأنظمة OT من أوفرسايت (Oversight): انكشاف السفن عبر Shodan، أمن محطات VSAT، ثغرات ECDIS، والامتثال لمعايير PSC 2026. مقرا تالين والخبر.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="البحوث والاستخبارات السيبرانية البحرية · أوفرسايت (Oversight)">
+<meta property="og:description" content="دراسات وأبحاث تقنية ميدانية ومحكّمة في الأمن السيبراني البحري وانكشاف محطات الأقمار الصناعية وأنظمة OT.">
+<meta property="og:url" content="https://www.oversight.ee/ar/blog">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="البحوث والاستخبارات السيبرانية البحرية · أوفرسايت (Oversight)">
+<meta name="twitter:description" content="دراسات وأبحاث تقنية ميدانية ومحكّمة في الأمن السيبراني البحري.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+<link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="alternate" hreflang="en" href="https://www.oversight.ee/blog">
+<link rel="alternate" hreflang="ar" href="https://www.oversight.ee/ar/blog">
+<link rel="alternate" hreflang="x-default" href="https://www.oversight.ee/blog">
+<link rel="canonical" href="https://www.oversight.ee/ar/blog">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../mobile.css" media="screen and (max-width: 1024px)">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+
+<button class="theme-toggle-btn" aria-label="تبديل المظهر" title="تبديل المظهر"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+    <a href="shipcrawler.html">شيب كراولر</a>
+    <a href="haris.html">حارس (Haris)</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">خدمات أخرى <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">تطوير الويب والمنصات</a>
+        <a href="networking.html">هندسة الشبكات والربط</a>
+        <a href="mobile-app.html">تطبيقات الجوال</a>
+      </div>
+    </div>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="blog.html" class="active">المدونة والبحوث</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta">فحص مجاني للأسطول</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="تبديل القائمة"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">الرئيسية</a>
+  <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+  <a href="shipcrawler.html">شيب كراولر</a>
+  <a href="haris.html">حارس (Haris)</a>
+  <div class="drawer-group">
+    <span class="drawer-label">خدمات أخرى</span>
+    <a href="web-design.html">تطوير الويب</a>
+    <a href="networking.html">هندسة الشبكات</a>
+    <a href="mobile-app.html">تطبيقات الجوال</a>
+  </div>
+  <a href="contact.html">تواصل معنا</a>
+  <a href="blog.html" class="active">المدونة والبحوث</a>
+  <a href="free-scan.html" class="drawer-cta">فحص مجاني للأسطول</a>
+</div>
+
+<!-- ══════════════════════ 1. HERO ══════════════════════ -->
+<section class="hero hero-evidence">
+  <div class="wrap hero-evidence-grid">
+    <div>
+      <div class="coord"><b>استخبارات التهديدات البحرية</b> أبحاث محكّمة في IEEE Access 2026</div>
+      <h1>
+        <span class="h1-line">ملاحظات ميدانية من</span>
+        <span class="h1-line">سطح <em class="lime">الهجوم البحري.</em></span>
+      </h1>
+      <p class="sub">دراسات وتقارير واضحة تشرح كيف يتم اكتشاف السفن التجارية وانكشافها واستهدافها عبر الإنترنت، مستندة إلى مسوحاتنا الميدانية ومنهجيتنا العلمية المحكّمة، بعيداً عن مبالغات الموردين التسويقية.</p>
+      <div class="cta-row">
+        <a href="free-scan.html" class="btn primary magnetic">فحص 3 سفن مجاناً &larr;</a>
+        <a href="../blog/how-attackers-find-ships-shodan.html" class="btn ghost magnetic">قراءة التقرير المميز</a>
+      </div>
+    </div>
+    <div>
+      <div class="tactical-card reveal" data-tilt data-spot style="padding:28px">
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div class="tactical-header" style="margin-bottom:18px">
+          <div>
+            <div class="tactical-title">بيانات الأبحاث // الاستخبارات الميدانية</div>
+            <div class="tactical-sub">أدلة واقعية · نطاقات الأقمار الصناعية النشطة</div>
+          </div>
+          <span class="tactical-status status-online" style="direction:ltr"><i></i> IEEE 2026</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:.8rem;font-family:var(--mono);color:var(--text);margin-bottom:6px">
+              <span>السفن التجارية المفحوصة في الدراسة</span>
+              <span style="color:var(--lime);font-weight:700">47 سفينة</span>
+            </div>
+            <div style="height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden">
+              <div style="width:100%;height:100%;background:var(--lime)"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:.8rem;font-family:var(--mono);color:var(--text);margin-bottom:6px">
+              <span>نسبة السفن التي تحمل محطات إدارة مكشوفة</span>
+              <span style="color:#ffb800;font-weight:700" style="direction:ltr">73% مكشوفة</span>
+            </div>
+            <div style="height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden">
+              <div style="width:73%;height:100%;background:#ffb800"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:.8rem;font-family:var(--mono);color:var(--text);margin-bottom:6px">
+              <span>التحقق من المنهجية البحثية المحكمة</span>
+              <span style="color:var(--lime);font-weight:700" style="direction:ltr">IEEE Access</span>
+            </div>
+            <div style="height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden">
+              <div style="width:100%;height:100%;background:var(--lime)"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:.78rem;color:var(--mut);font-family:var(--mono)">تحليل قياسات مباشر</span>
+          <a href="free-scan.html" class="btn primary magnetic" style="font-size:.85rem;padding:10px 18px">فحص الأسطول &larr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 2. RESEARCH PIPELINE ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · مجالات البحث الأمني</div>
+    <h2>محاور التركيز الرئيسية <em>في الأمن السيبراني البحري.</em></h2>
+    <p>نحلل الواقع الفعلي لشبكات السفن، وانكشاف أجهزة الأقمار الصناعية، ومرونة أنظمة الملاحة في غرفة القيادة.</p>
+  </div>
+
+  <div class="pipe-wrap reveal">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">المحور 01</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">استطلاع OSINT</span>
+        </div>
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:10px">الاستطلاع واستخبارات المصادر المفتوحة</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">كيف يستغل المهاجمون محركات Shodan و Censys وقواعد بيانات ASN العامة لرصد السفن التجارية وعناوين IP للمحطات.</p>
+        <span class="qm-chip">مسح سلبي · OSINT</span>
+      </div>
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">المحور 02</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">اتصالات فضائية</span>
+        </div>
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:10px">أمن الأقمار الصناعية ومحطات VSAT</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">ثغرات البرمجيات الثابتة للمحطات، بيانات الاعتماد الافتراضية، واجهات الويب المكشوفة، وتحليل حركة البيانات الصاعدة عبر المزودين.</p>
+        <span class="qm-chip">VSAT · Inmarsat · Iridium</span>
+      </div>
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">المحور 03</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">أنظمة OT</span>
+        </div>
+        <h3 style="font-family:var(--sans);font-size:1.3rem;font-weight:600;margin-bottom:10px">أنظمة القيادة OT وشاشات ECDIS</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65;margin-bottom:16px">تحصين أنظمة الملاحة، كشف تزييف جمل NMEA، منع انتقال البرمجيات الخبيثة عبر USB، وأدلة الامتثال لرقابة الموانئ PSC.</p>
+        <span class="qm-chip">ECDIS · NMEA · IACS E26</span>
+      </div>
+
+    </div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ 3. BRIEFINGS ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · التقارير والدراسات</div>
+    <h2>اقرأ النتائج الميدانية، <em>ثم اختبرها على أسطولك.</em></h2>
+    <p>أبحاث وتقارير عملية مكتوبة للمديرين الفنيين، وضباط DPA، وفرق الأمن البحري.</p>
+  </div>
+  <div class="bento">
+    <div class="tile med reveal" data-tilt data-spot>
+      <div class="tref">تقرير 01 · استطلاع OSINT</div>
+      <h3>كيف يعثر المهاجمون على السفن عبر Shodan</h3>
+      <p>تفصيل واقعي للاستعلامات والفلاتر ونطاقات ASN الفضائية التي تكشف السفن المعرضة، وما تعنيه هذه النتائج للملاحة.</p>
+      <span class="chip">قراءة 6 دقائق</span>
+      <a href="../blog/how-attackers-find-ships-shodan.html" class="tile-link">قراءة التقرير &larr;</a>
+      <a href="../blog/how-attackers-find-ships-shodan.html" class="tile-overlay" aria-label="قراءة التقرير"></a>
+    </div>
+
+    <div class="tile med reveal d1" data-tilt data-spot>
+      <div class="tref">تقرير 02 · اتصالات الأقمار الصناعية</div>
+      <h3>أساسيات وإرشادات أمن محطات VSAT</h3>
+      <p>ما هي محطة VSAT، ولماذا تستمر في الظهور في عمليات المسح الخارجي، وقائمة التحقق التي يجب على كل مدير أسطول إجراؤها.</p>
+      <span class="chip">قراءة 5 دقائق</span>
+      <a href="../blog/vsat-security-fleet-managers.html" class="tile-link">قراءة التقرير &larr;</a>
+      <a href="../blog/vsat-security-fleet-managers.html" class="tile-overlay" aria-label="قراءة التقرير"></a>
+    </div>
+
+    <div class="tile med reveal d2" data-tilt data-spot>
+      <div class="tref">تقرير 03 · أنظمة القيادة OT</div>
+      <h3>ثغرات شاشات الخرائط ECDIS بلغة واضحة</h3>
+      <p>مخاطر شاشات الملاحة الإلكترونية بعيداً عن المصطلحات المعقدة: ما الذي يمكن أن يحدث، ومعدل تكراره، وما يجب أن يعرفه الضباط.</p>
+      <span class="chip">قراءة 5 دقائق</span>
+      <a href="../blog/ecdis-vulnerabilities-fleet-managers.html" class="tile-link">قراءة التقرير &larr;</a>
+      <a href="../blog/ecdis-vulnerabilities-fleet-managers.html" class="tile-overlay" aria-label="قراءة التقرير"></a>
+    </div>
+
+    <div class="tile med reveal" data-tilt data-spot>
+      <div class="tref">تقرير 04 · الامتثال التنظيمي</div>
+      <h3>الاستعداد لمتطلبات التفتيش المينائي PSC في 2026</h3>
+      <p>ما الذي سيتحقق منه مفتشو رقابة دولة الميناء فعلياً، وما هي الأدلة المقبولة، وكيف تبنيها دون مشروع امتثال طويل ومكلف.</p>
+      <span class="chip">قراءة 6 دقائق</span>
+      <a href="../blog/psc-cyber-requirements-2026.html" class="tile-link">قراءة التقرير &larr;</a>
+      <a href="../blog/psc-cyber-requirements-2026.html" class="tile-overlay" aria-label="قراءة التقرير"></a>
+    </div>
+
+    <div class="tile med reveal d1" data-tilt data-spot>
+      <div class="tref">تقرير 05 · دراسة حالة واقعية</div>
+      <h3>دراسة حالة: فحص استطلاعي لأسطول تجاري</h3>
+      <p>فحص واقعي لانكشاف ثلاث سفن تجارية، والنتائج التي ظهرت، ومسار المعالجة مع الحفاظ على سرية الهوية والأرقام الميدانية.</p>
+      <span class="chip">قراءة 5 دقائق</span>
+      <a href="../blog/fleet-scan-case-study.html" class="tile-link">قراءة التقرير &larr;</a>
+      <a href="../blog/fleet-scan-case-study.html" class="tile-overlay" aria-label="قراءة التقرير"></a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ 4. CTA ══════════════════════ -->
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <h3>أبحاث موثقة، <em>يتم تأكيدها عملياً على أسطولك.</em></h3>
+    <p>منهجية الفحص والرصد لدينا منشورة ومحكّمة في مجلة IEEE Access 2026. الفحص المجاني هو وسيلتك للتحقق منها على سفنك.</p>
+  </div>
+  <a href="free-scan.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">افحص 3 سفن مجاناً &larr;</a>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a href="index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a>
+      <p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">الأمن السيبراني البحري، الحوسبة الطرفية بانعدام الثقة، وهندسة الشبكات والمنصات الرقمية. المقر الرئيسي في تالين، ومكتب المملكة العربية السعودية.</p>
+    </div>
+    <div><h4>المنتجات</h4><a href="shipcrawler.html">شيب كراولر (OSINT)</a><a href="M-SOC.html">مركز العمليات M-SOC</a><a href="haris.html">عقدة حارس الطرفية</a><a href="watchtower.html">برج المراقبة (Watchtower)</a></div>
+    <div><h4>المدونة والبحوث</h4><a href="../blog/how-attackers-find-ships-shodan.html">شيب كراولر وشودان</a><a href="../blog/vsat-security-fleet-managers.html">أمن محطات VSAT</a><a href="../blog/psc-cyber-requirements-2026.html">معايير PSC 2026</a></div>
+    <div><h4>الخدمات</h4><a href="web-design.html">تطوير الويب والمنصات</a><a href="networking.html">هندسة الشبكات</a><a href="mobile-app.html">تطبيقات الجوال</a></div>
+    <div><h4>التواصل</h4><a href="contact.html">تواصل مع الفريق</a><a href="mailto:contact@oversight.ee" style="direction:ltr;text-align:right">contact@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>تالين، إستونيا · &copy; 2026 شركة أوفرسايت (Oversight OÜ)</span><span>تصميم وتطوير بواسطة أوفرسايت (Oversight)</span></div>
+</div></footer>
+
+</body>
+</html>

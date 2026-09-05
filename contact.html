@@ -3,30 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact · Cyber Oversight</title>
-<meta name="description" content="Contact Cyber Oversight in Tallinn, Estonia or Al Khobar, Saudi Arabia. Direct engineering desk replies within 24 hours.">
+<title>Contact · Talk to an Engineer | Oversight</title>
+<meta name="description" content="Contact Oversight directly. Tallinn HQ and Al Khobar desk, engineering response within 24 hours. No bots, no ticket queues.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Cyber Oversight">
-<meta property="og:title" content="Contact · Cyber Oversight">
-<meta property="og:description" content="Contact Cyber Oversight in Tallinn, Estonia or Al Khobar, Saudi Arabia. Direct engineering desk replies within 24 hours.">
-<meta property="og:url" content="https://cyber.oversight.ee/contact">
-<meta property="og:image" content="https://cyber.oversight.ee/og-image.png">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="Contact · Talk to an Engineer | Oversight">
+<meta property="og:description" content="Contact Oversight directly. Tallinn HQ and Al Khobar desk, engineering response within 24 hours. No bots, no ticket queues.">
+<meta property="og:url" content="https://www.oversight.ee/contact">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact · Cyber Oversight">
-<meta name="twitter:description" content="Contact Cyber Oversight in Tallinn, Estonia or Al Khobar, Saudi Arabia. Direct engineering desk replies within 24 hours.">
-<meta name="twitter:image" content="https://cyber.oversight.ee/og-image.png">
-<link rel="canonical" href="https://cyber.oversight.ee/contact">
+<meta name="twitter:title" content="Contact · Talk to an Engineer | Oversight">
+<meta name="twitter:description" content="Contact Oversight directly. Tallinn HQ and Al Khobar desk, engineering response within 24 hours. No bots, no ticket queues.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+  <link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="canonical" href="https://www.oversight.ee/contact">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="mobile.css" media="screen and (max-width: 1024px)">
 <script src="theme.js"></script>
 <script defer src="fx.js"></script>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="1d6824ca-10a4-46fe-aa2b-8860ebf2dc76"></script>
+<style>
+/* custom dropdown - brand identity */
+.co-select{position:relative}
+.co-select-trigger{width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;transition:border-color .2s}
+.co-select-trigger:hover{border-color:var(--lime-dim)}
+.co-select-trigger[aria-expanded="true"]{border-color:var(--lime);background:rgba(168,213,6,.05)}
+.co-caret{flex:none;opacity:.6;transition:transform .2s}
+.co-select-trigger[aria-expanded="true"] .co-caret{transform:rotate(180deg);opacity:1}
+.co-select-menu{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;list-style:none;margin:0;padding:6px;background:var(--bg-elevated,#161f13);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.55);display:none;max-height:280px;overflow-y:auto}
+.co-select-menu.open{display:block}
+.co-option{padding:10px 12px;border-radius:8px;color:var(--text);font-family:var(--sans);font-size:.85rem;cursor:pointer;transition:background .15s,color .15s}
+.co-option:hover{background:var(--lime-dim);color:var(--text)}
+.co-option.selected{background:var(--lime);color:#0a0f06;font-weight:600}
+:root[data-theme="light"] .co-select-menu{background:var(--panel2,#f0f3e9);border-color:rgba(20,23,19,.12);box-shadow:0 18px 50px rgba(0,0,0,.18)}
+:root[data-theme="light"] .co-option:hover{background:var(--lime-dim);color:var(--text)}
+:root[data-theme="light"] .co-option.selected{background:var(--lime);color:#fff}
+
+.direct-lines{margin-top:26px;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:12px}
+.direct-line{display:flex;align-items:baseline;gap:14px;font-size:.85rem}
+.dl-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;color:var(--dim);flex:none;min-width:110px;text-transform:uppercase}
+.direct-line a{color:var(--lime);text-decoration:none;font-family:var(--mono);font-size:.78rem;border-bottom:1px solid rgba(168,213,6,.3);padding-bottom:1px;transition:border-color .2s}
+.direct-line a:hover{border-bottom-color:var(--lime)}
+.dl-val{color:var(--mut);font-family:var(--mono);font-size:.72rem}
+@media(max-width:640px){.direct-line{flex-direction:column;gap:2px;align-items:flex-start}}
+.contact-panel{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:1000px){.contact-panel{grid-template-columns:1fr}}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Oversight · Operational Dual-Desk Dispatch",
+  "description": "Direct communication with practicing maritime systems engineers. European HQ in Tallinn and GCC Desk in Al Khobar. Guaranteed response within 24 hours.",
+  "url": "https://www.oversight.ee/contact"
+}
+</script>
 </head>
 <body>
 
 <div class="grain"></div>
 <div class="progress" id="progress"></div>
 
+<!-- monumental watermark -->
 <svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
   <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
@@ -63,9 +102,9 @@
 <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
 
 <nav id="nav"><div class="wrap">
-  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Oversight" class="brand-logo-img"></a>
   <div class="nav-links">
-    <a href="capabilities.html">Capabilities</a><a href="architecture.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Blog</a>
+    <a href="M-SOC.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="haris.html">Haris</a>
     <div class="nav-drop">
       <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="drop-menu">
@@ -74,246 +113,284 @@
         <a href="mobile-app.html">Mobile App Development</a>
       </div>
     </div>
+    <a href="contact.html" class="active">Contact</a><a href="blog.html">Blog</a>
   </div>
-  <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
+  <a href="free-scan.html" class="nav-cta">Free Fleet Scan</a>
   <div class="nav-right">
     <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </div></nav>
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="index.html">Home</a>
-  <a href="capabilities.html">Capabilities</a>
-  <a href="architecture.html">M-SOC</a>
+  <a href="M-SOC.html">M-SOC</a>
   <a href="shipcrawler.html">Shipcrawler</a>
-  <a href="blog.html">Blog</a>
+  <a href="haris.html">Haris</a>
   <div class="drawer-group">
     <span class="drawer-label">Other Services</span>
     <a href="web-design.html">Web Development</a>
     <a href="networking.html">Networking</a>
     <a href="mobile-app.html">Mobile App Development</a>
   </div>
-  <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
+  <a href="contact.html" class="active">Contact</a>
+  <a href="blog.html">Blog</a>
+  <a href="free-scan.html" class="drawer-cta">Free Fleet Scan</a>
 </div>
-    <section class="hero hero-evidence">
+
+<!-- ══════════════════════ 1. HERO ══════════════════════ -->
+<section class="hero hero-evidence">
   <div class="wrap hero-evidence-grid">
     <div>
-      <div class="coord"><b>DIRECT DESK RESPONSE</b> Tallinn HQ · Al Khobar Command Desk</div>
+      <div class="coord"><b>DIRECT DESK RESPONSE</b> Tallinn HQ · Al Khobar Desk</div>
       <h1>
         <span class="h1-line"><span class="w">Talk</span> <span class="w">to</span> <span class="w">an</span></span>
         <span class="h1-line"><span class="w"><em class="lime">engineer,</em></span> <span class="w">not</span> <span class="w">a</span> <span class="w">bot.</span></span>
       </h1>
-      <p class="sub">Direct engineering desk replies within 24 hours. Tell us about your fleet, your technical requirements, or your operational questions.</p>
-      <div class="cta-row">
-        <a href="#contact-console" class="btn primary magnetic">Send Message →</a>
-        <a href="shipcrawler.html" class="btn ghost magnetic">Scan 3 Vessels Free</a>
+      <p class="sub">One message. A named engineer replies within 24 hours, from the desk that owns your topic. No ticket black hole, no support queue.</p>
+      
+      <div class="direct-lines">
+        <div class="direct-line"><span class="dl-label">DIRECT EMAIL</span><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
+        <div class="direct-line"><span class="dl-label">RESPONSE SLA</span><span class="dl-val">&lt; 24 hours · direct lead engineer review</span></div>
       </div>
     </div>
     <div>
-      <div class="evidence-card reveal" data-tilt data-spot>
-        <div class="evidence-header">
-          <span class="evidence-tag"><i></i> Desk Commitments</span>
-          <span class="evidence-title">Engineering Response SLA</span>
+      <div class="tactical-card reveal" data-tilt data-spot id="contact-form" style="padding:28px">
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div class="tactical-header" style="margin-bottom:16px">
+          <div>
+            <div class="tactical-title">DISPATCH TERMINAL <span class="slash">//</span> DIRECT ROUTING</div>
+            <div class="tactical-sub">OPERATIONAL DUAL-DESK ARCHITECTURE</div>
+          </div>
+          <span class="tactical-status status-online"><i></i> DESKS ACTIVE</span>
         </div>
-        <div class="evidence-bars">
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">First response SLA by technical engineer</span>
-              <span class="evidence-bar-pct">&lt; 24h</span>
-            </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:100%"></div>
+
+        <form id="contactDirectForm" onsubmit="handleContactSubmit(event)" style="display:flex;flex-direction:column;gap:13px">
+          <div>
+            <label for="inquiryDomain" class="bl" style="display:block;margin-bottom:6px">Topic</label>
+            <div class="co-select" id="topicSelectWrap">
+              <button type="button" class="co-select-trigger" id="topicSelectTrigger" aria-haspopup="listbox" aria-expanded="false">
+                <span id="topicSelectValue">Choose the closest match</span>
+                <svg class="co-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <input type="hidden" id="inquiryDomain" value="" required>
+              <ul class="co-select-menu" id="topicSelectMenu" role="listbox" tabindex="-1">
+                <li role="option" data-val="Free 3-Vessel Exposure Scan" class="co-option">Free 3-vessel exposure scan</li>
+                <li role="option" data-val="M-SOC Continuous Fleet Monitoring" class="co-option">M-SOC · 24/7 fleet monitoring</li>
+                <li role="option" data-val="Haris Edge Telemetry Hardware" class="co-option">Haris · edge hardware &amp; NMEA telemetry</li>
+                <li role="option" data-val="Enterprise Networking & SD-WAN" class="co-option">Enterprise networking &amp; firewall hardening</li>
+                <li role="option" data-val="Web Design & Brand Studio" class="co-option">Web studio · corporate platform &amp; identity</li>
+                <li role="option" data-val="General Technical Consultation" class="co-option">General technical consultation</li>
+              </ul>
             </div>
           </div>
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">Direct human engineer assignment</span>
-              <span class="evidence-bar-pct">100%</span>
+          <div class="form-row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label for="clientName" class="bl" style="display:block;margin-bottom:6px">Name</label>
+              <input type="text" id="clientName" placeholder="Your name" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem">
             </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:100%"></div>
-            </div>
-          </div>
-          <div class="evidence-bar-row">
-            <div class="evidence-bar-meta">
-              <span class="evidence-bar-label">Regional coverage: Europe, Baltic &amp; GCC</span>
-              <span class="evidence-bar-pct">Active</span>
-            </div>
-            <div class="evidence-bar-track">
-              <div class="evidence-bar-fill" style="width:100%"></div>
+            <div>
+              <label for="clientEmail" class="bl" style="display:block;margin-bottom:6px">Email</label>
+              <input type="email" id="clientEmail" placeholder="name@company.com" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem">
             </div>
           </div>
-        </div>
-        <div class="evidence-footer">
-          <p class="evidence-note">Messages routed directly to watch leads in Tallinn and Al Khobar.</p>
-          <a href="#contact-console" class="btn primary magnetic" style="justify-content:center;font-size:.92rem;padding:14px 22px">Contact Engineers →</a>
-        </div>
+          <div>
+            <label for="clientCompany" class="bl" style="display:block;margin-bottom:6px">Company / fleet (optional)</label>
+            <input type="text" id="clientCompany" placeholder="Fleet operator / company" style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem">
+          </div>
+          <div>
+            <label for="clientMessage" class="bl" style="display:block;margin-bottom:6px">Message</label>
+            <textarea id="clientMessage" rows="4" placeholder="Tell us about your fleet, timeline, or technical requirement..." required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem;resize:vertical"></textarea>
+          </div>
+          <button type="submit" class="btn primary magnetic" style="justify-content:center;font-size:.95rem;padding:15px 26px;border:none;cursor:pointer">Send Message →</button>
+          <div id="contactFormStatus" style="display:none;font-size:.88rem;padding:11px 15px;border-radius:10px;font-family:var(--mono)"></div>
+        </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ticker -->
-<div class="ticker"><div class="track" id="tickTrack">
-  <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
-</div></div>
-
-<!-- ═══ 2. WHAT IT IS · 3-COLUMN CARDS ═══ -->
-<section class="sec"><div class="wrap">
+<!-- ══════════════════════ 2. THE DESKS ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
   <div class="sec-head reveal">
-    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · Regional desks</div>
-    <h2>Two hubs, <em>direct engineering communication.</em></h2>
-    <p>Talk directly with engineers who design and maintain maritime and enterprise infrastructure.</p>
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · The desks</div>
+    <h2>Write to the desk <em>in your daylight.</em></h2>
+    <p>Two offices, live local time. Between them, someone is always working.</p>
   </div>
-  <div class="qm-grid-3">
-    <div class="qm-card reveal" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-        </div>
-        <h3>Tallinn HQ · Estonia</h3>
-        <p>Global coordination, maritime SOC operations, software development, and peer-reviewed security research.</p>
+  
+  <div class="contact-panel">
+    <!-- Tallinn Desk -->
+    <div class="tactical-card reveal" style="padding:32px 28px" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div class="tref" style="color:var(--lime)">Tallinn · European HQ</div>
+        <span class="tactical-status status-online"><i></i> LIVE</span>
       </div>
-      <span class="qm-chip">contact@oversight.ee</span>
+      <h3 style="font-family:var(--serif);font-size:1.4rem;margin-bottom:8px">Estonia</h3>
+      <p style="font-size:.88rem;color:var(--mut);line-height:1.65;margin-bottom:20px">Maritime SOC command, vulnerability research, and passive scan operations. Operational since 2022.</p>
+      <div style="font-size:1.1rem;font-family:var(--mono);color:var(--text);margin-bottom:18px;background:rgba(255,255,255,.02);padding:10px 14px;border-radius:8px;border:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+        <span id="contactTallinnClock" style="color:var(--lime);font-weight:700">12:00:00 UTC</span>
+        <span style="color:var(--dim);font-size:.7rem">EET (UTC+2)</span>
+      </div>
+      <a href="mailto:contact@oversight.ee" style="color:var(--text);text-decoration:none;font-family:var(--mono);font-size:.82rem;border-bottom:1px solid rgba(168,213,6,.4);padding-bottom:2px">contact@oversight.ee →</a>
     </div>
-    <div class="qm-card reveal d1" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3>Al Khobar Desk · GCC</h3>
-        <p>Regional coordination for Saudi Arabia, Arabian Gulf, and Red Sea fleets with bilingual Arabic and English support.</p>
+
+    <!-- Al Khobar Desk -->
+    <div class="tactical-card reveal d1" style="padding:32px 28px" data-tilt data-spot>
+      <span class="tactical-reticle r-tl"></span>
+      <span class="tactical-reticle r-tr"></span>
+      <span class="tactical-reticle r-bl"></span>
+      <span class="tactical-reticle r-br"></span>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div class="tref" style="color:var(--lime)">Al Khobar · GCC Desk</div>
+        <span class="tactical-status status-online"><i></i> LIVE</span>
       </div>
-      <span class="qm-chip">ksa@oversight.ee</span>
-    </div>
-    <div class="qm-card reveal d2" data-tilt data-spot>
-      <div>
-        <div class="qm-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <h3>Technical Support Desk</h3>
-        <p>Direct access for urgent fleet inquiries, active incident response, and scheduled technical consultations.</p>
+      <h3 style="font-family:var(--serif);font-size:1.4rem;margin-bottom:8px">Saudi Arabia</h3>
+      <p style="font-size:.88rem;color:var(--mut);line-height:1.65;margin-bottom:20px">GCC, Red Sea, and Arabian Gulf fleet operations. Bilingual technical support in Arabic and English.</p>
+      <div style="font-size:1.1rem;font-family:var(--mono);color:var(--text);margin-bottom:18px;background:rgba(255,255,255,.02);padding:10px 14px;border-radius:8px;border:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+        <span id="contactRiyadhClock" style="color:var(--lime);font-weight:700">13:00:00 UTC</span>
+        <span style="color:var(--dim);font-size:.7rem">AST (UTC+3)</span>
       </div>
-      <span class="qm-chip">contact@oversight.ee</span>
+      <a href="mailto:contact@oversight.ee" style="color:var(--text);text-decoration:none;font-family:var(--mono);font-size:.82rem;border-bottom:1px solid rgba(168,213,6,.4);padding-bottom:2px">contact@oversight.ee →</a>
     </div>
   </div>
 </div></section>
 
-<!-- ═══ 3. BY THE NUMBERS · 4 KEY METRICS ═══ -->
-<section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="metrics">
-    <div class="met reveal">
-      <div class="met-tag"><i></i><span>Response Time</span></div>
-      <div>
-        <div class="num" data-text="&lt;24h">&lt;24h</div>
-        <div class="lbl">Engineering SLA</div>
-      </div>
-      <div class="desc">Every technical inquiry is reviewed and answered by an active engineer.</div>
-    </div>
-    <div class="met reveal d1">
-      <div class="met-tag"><i></i><span>Command Hubs</span></div>
-      <div>
-        <div class="num" data-count="2">0</div>
-        <div class="lbl">Regional Desks</div>
-      </div>
-      <div class="desc">Tallinn HQ and Al Khobar desk covering European and Middle Eastern timezones.</div>
-    </div>
-    <div class="met reveal d2">
-      <div class="met-tag"><i></i><span>Human Triage</span></div>
-      <div>
-        <div class="num" data-text="100%">100%</div>
-        <div class="lbl">Direct Engineers</div>
-      </div>
-      <div class="desc">No automated ticket queues or chatbot walls. Direct technical discussion.</div>
-    </div>
-    <div class="met reveal d3">
-      <div class="met-tag"><i></i><span>Operating Since</span></div>
-      <div>
-        <div class="num" data-count="2022">0</div>
-        <div class="lbl">Operational Desk</div>
-      </div>
-      <div class="desc">Providing cybersecurity, networking, and platform engineering since 2022.</div>
-    </div>
-  </div>
-</div></section>
-
-<!-- ═══ 4. FORM & DESK CONSOLE ═══ -->
-<section class="sec" id="contact-console" style="border-top:1px solid var(--line)"><div class="wrap">
+<!-- ══════════════════════ 3. AFTER YOU SEND ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
   <div class="sec-head reveal">
-    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · Direct message</div>
-    <h2>Send us a message, <em>we route it right.</em></h2>
-    <p>Tell us what you need. Your message goes straight to the relevant engineering desk.</p>
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 02 · Dispatch protocol</div>
+    <h2>What happens next. <em>Direct and transparent.</em></h2>
+    <p>Zero automation runarounds. Every inquiry is handled by a practicing systems engineer.</p>
   </div>
-  <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel)">
 
-    <div style="padding:40px;border-right:1px solid var(--line)">
-      <form id="contactDirectForm" onsubmit="handleContactSubmit(event)" style="display:flex;flex-direction:column;gap:16px">
-        <div>
-          <label for="inquiryDomain" class="bl" style="display:block;margin-bottom:6px">Topic</label>
-          <select id="inquiryDomain" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem">
-            <option value="Shipcrawler Free 3-Vessel Exposure Scan">Shipcrawler · free 3-vessel exposure scan</option>
-            <option value="M-SOC Continuous Fleet Monitoring">M-SOC · 24/7 fleet monitoring</option>
-            <option value="Project Haris Edge Telemetry">Project Haris · edge hardware &amp; NMEA telemetry</option>
-            <option value="Enterprise Networking & SD-WAN">Enterprise networking &amp; firewall hardening</option>
-            <option value="Bespoke Web Design & Brand Studio">Web studio · corporate platform &amp; identity</option>
-            <option value="General Technical Consultation">General technical consultation</option>
-          </select>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-          <div>
-            <label for="clientName" class="bl" style="display:block;margin-bottom:6px">Name</label>
-            <input type="text" id="clientName" placeholder="Your name" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem">
-          </div>
-          <div>
-            <label for="clientEmail" class="bl" style="display:block;margin-bottom:6px">Email</label>
-            <input type="email" id="clientEmail" placeholder="name@company.com" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem">
-          </div>
-        </div>
-        <div>
-          <label for="clientCompany" class="bl" style="display:block;margin-bottom:6px">Company (optional)</label>
-          <input type="text" id="clientCompany" placeholder="Fleet operator / company" style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem">
-        </div>
-        <div>
-          <label for="clientMessage" class="bl" style="display:block;margin-bottom:6px">Message</label>
-          <textarea id="clientMessage" rows="5" placeholder="Tell us about your fleet, timeline, or question" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.85rem;resize:vertical"></textarea>
-        </div>
-        <button type="submit" class="btn primary magnetic" style="justify-content:center;font-size:1rem;padding:16px 34px;border:none;cursor:pointer">Send Message →</button>
-        <div id="contactFormStatus" style="display:none;font-size:.9rem;padding:12px 16px;border-radius:12px"></div>
-      </form>
-    </div>
+  <div class="pipe-wrap reveal">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
 
-    <div style="display:flex;flex-direction:column">
-      <div style="padding:34px 30px;border-bottom:1px solid var(--line)">
-        <div class="tref" style="margin-bottom:12px">Tallinn · HQ</div>
-        <h3 style="font-family:var(--serif);font-weight:500;font-size:1.4rem;margin-bottom:8px">Estonia</h3>
-        <p style="font-size:.88rem;color:var(--mut);line-height:1.7;margin-bottom:14px">Maritime SOC, research, and global coordination. Operational since 2022.</p>
-        <p style="font-size:.85rem;font-family:var(--mono);color:var(--text)"><strong style="color:var(--lime)">LOCAL TIME:</strong> <span id="contactTallinnClock">…</span></p>
-        <p style="margin-top:10px"><a href="mailto:contact@oversight.ee" style="color:var(--lime);text-decoration:none;font-weight:600">contact@oversight.ee →</a></p>
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">STEP 01</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">ROUTING</span>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">It is routed</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65">Your selected topic routes directly to the specialized desk: exposure scans to Tallinn, GCC fleets to Al Khobar, enterprise networking to our infrastructure lead.</p>
       </div>
-      <div style="padding:34px 30px">
-        <div class="tref" style="margin-bottom:12px">Al Khobar · GCC desk</div>
-        <h3 style="font-family:var(--serif);font-weight:500;font-size:1.4rem;margin-bottom:8px">Saudi Arabia</h3>
-        <p style="font-size:.88rem;color:var(--mut);line-height:1.7;margin-bottom:14px">GCC and Red Sea fleets, Arabic and English support.</p>
-        <p style="font-size:.85rem;font-family:var(--mono);color:var(--text)"><strong style="color:var(--lime)">LOCAL TIME:</strong> <span id="contactRiyadhClock">…</span></p>
-        <p style="margin-top:10px"><a href="mailto:ksa@oversight.ee" style="color:var(--lime);text-decoration:none;font-weight:600">ksa@oversight.ee →</a></p>
-      </div>
-    </div>
 
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">STEP 02</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">TRIAGE</span>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">An engineer reviews</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65">No scripted autoresponder or tiered helpdesk triage. A marine systems engineer reviews your operational requirements directly.</p>
+      </div>
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">STEP 03</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">&lt; 24H SLA</span>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:10px">Direct answer</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65">A clear, actionable technical answer or exposure report delivered within 24 hours. If we cannot fulfill your scope, we say so plainly without delays.</p>
+      </div>
+
+    </div>
   </div>
 </div></section>
 
-<!-- ═══ 5. FOOTER ═══ -->
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
 <footer><div class="wrap">
   <div class="foot-grid">
-    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
-    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="architecture.html">M-SOC</a><a href="architecture.html">Haris Edge</a><a href="architecture.html">Watchtower</a></div>
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="M-SOC.html">M-SOC</a><a href="haris.html">Haris Edge</a><a href="watchtower.html">Watchtower</a></div>
     <div><h4>Blog</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
     <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
-    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a></div>
+    <div><h4>Contact</h4><a href="contact.html">Contact Us</a><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
   </div>
-  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Designed & Developed by Oversight</span></div>
 </div></footer>
 
 <script>
+// Live Clocks for Tallinn and Al Khobar
+function updateClocks() {
+  const now = new Date();
+  const tallinnEl = document.getElementById('contactTallinnClock');
+  const riyadhEl = document.getElementById('contactRiyadhClock');
+  
+  if (tallinnEl) {
+    tallinnEl.textContent = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Tallinn', hour12: false });
+  }
+  if (riyadhEl) {
+    riyadhEl.textContent = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Riyadh', hour12: false });
+  }
+}
+setInterval(updateClocks, 1000);
+updateClocks();
+
+(function(){
+  var wrap = document.getElementById('topicSelectWrap');
+  if (!wrap) return;
+  var trigger = document.getElementById('topicSelectTrigger');
+  var menu = document.getElementById('topicSelectMenu');
+  var valueEl = document.getElementById('topicSelectValue');
+  var hidden = document.getElementById('inquiryDomain');
+  var options = menu.querySelectorAll('.co-option');
+
+  function select(opt){
+    options.forEach(function(o){ o.classList.remove('selected'); });
+    opt.classList.add('selected');
+    valueEl.textContent = opt.textContent;
+    hidden.value = opt.getAttribute('data-val');
+    close();
+  }
+  function open(){
+    menu.classList.add('open');
+    trigger.setAttribute('aria-expanded','true');
+  }
+  function close(){
+    menu.classList.remove('open');
+    trigger.setAttribute('aria-expanded','false');
+  }
+  trigger.addEventListener('click', function(e){
+    e.stopPropagation();
+    menu.classList.contains('open') ? close() : open();
+  });
+  options.forEach(function(opt){
+    opt.addEventListener('click', function(){ select(opt); });
+  });
+  document.addEventListener('click', function(e){
+    if (!wrap.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') close();
+  });
+
+  var form = document.getElementById('contactDirectForm');
+  form.addEventListener('submit', function(e){
+    if (!hidden.value){ e.preventDefault(); trigger.style.borderColor = 'var(--alert-red)'; trigger.focus(); return; }
+  });
+
+  var origReset = form.reset.bind(form);
+  form.reset = function(){ origReset(); options.forEach(function(o){o.classList.remove('selected');}); valueEl.textContent = 'Choose the closest match'; hidden.value=''; };
+})();
+
 async function handleContactSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactDirectForm');
@@ -327,68 +404,92 @@ async function handleContactSubmit(e) {
 
   btn.disabled = true;
   btn.style.opacity = '0.75';
-  btn.textContent = 'Sending directly...';
-
+  btn.textContent = 'Sending...';
   status.style.display = 'block';
   status.style.background = 'rgba(168,213,6,.08)';
   status.style.border = '1px solid rgba(168,213,6,.3)';
   status.style.color = 'var(--lime)';
-  status.innerHTML = 'Sending message directly to <strong>contact@oversight.ee</strong>...';
+  status.innerHTML = 'Routing to the desk...';
 
+  const payload = {
+    topic: domain,
+    name: name,
+    email: email,
+    company: company || 'Not specified',
+    message: msg
+  };
+
+  let sent = false;
+
+  // 1. Direct contact.php (Resend API backend)
   try {
-    const response = await fetch('https://formsubmit.co/ajax/contact@oversight.ee', {
+    const res = await fetch('contact.php', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        _subject: `[${domain}] Inquiry from ${name} (${company || 'Direct'})`,
-        _cc: 'ksa@oversight.ee',
-        _template: 'table',
-        _captcha: 'false',
-        'Topic / Domain': domain,
-        'Name': name,
-        'Email': email,
-        'Company / Fleet': company || 'Not specified',
-        'Message / Scope': msg
-      })
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
     });
-
-    const result = await response.json();
-
-    if (response.ok || result.success === "true" || result.success === true) {
-      status.style.background = 'rgba(168,213,6,.15)';
-      status.style.color = 'var(--lime)';
-      status.style.border = '1px solid var(--lime)';
-      status.innerHTML = '✓ <strong>Thank you!</strong> Your message has been sent directly to <strong>contact@oversight.ee</strong>. We will reply within 24 hours.';
-      form.reset();
-    } else {
-      throw new Error(result.message || 'Submission error');
+    if (res.ok) {
+      const data = await res.json().catch(() => null);
+      if (data && data.success) sent = true;
     }
-  } catch (err) {
+  } catch (err) {}
+
+  // 2. Serverless /api/contact (Vercel / Netlify)
+  if (!sent) {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        const data = await res.json().catch(() => null);
+        if (data && data.success) sent = true;
+      }
+    } catch (err) {}
+  }
+
+  // 3. Fallback endpoint if static host without PHP/serverless
+  if (!sent) {
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/contact@oversight.ee', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `[${domain}] Inquiry from ${name} (${company || 'Direct'})`,
+          _template: 'table',
+          _captcha: 'false',
+          'Topic / Domain': domain,
+          'Name': name,
+          'Email': email,
+          'Company / Fleet': company || 'Not specified',
+          'Message / Scope': msg
+        })
+      });
+      const data = await res.json().catch(() => null);
+      if (res.ok || (data && (data.success === 'true' || data.success === true))) {
+        sent = true;
+      }
+    } catch (err) {}
+  }
+
+  if (sent) {
+    status.style.background = 'rgba(168,213,6,.15)';
+    status.style.color = 'var(--lime)';
+    status.style.border = '1px solid var(--lime)';
+    status.innerHTML = '✓ <strong>Message transmitted.</strong> A named engineer replies within 24 hours.';
+    form.reset();
+  } else {
     status.style.background = 'rgba(232,140,122,.12)';
     status.style.color = 'var(--alert-red)';
     status.style.border = '1px solid var(--alert-red)';
-    status.innerHTML = 'Direct sending failed. Please email us directly at <a href="mailto:contact@oversight.ee" style="color:var(--lime);font-weight:700">contact@oversight.ee</a>.';
-  } finally {
-    btn.disabled = false;
-    btn.style.opacity = '1';
-    btn.textContent = 'Send Message →';
+    status.innerHTML = 'Transmission failed. Email us directly at <a href="mailto:contact@oversight.ee" style="color:var(--lime);font-weight:700">contact@oversight.ee</a>.';
   }
-}
-function updateClocks() {
-  const now = new Date();
-  const tallinn = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Tallinn', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(now);
-  const riyadh = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Riyadh', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(now);
-  const tEl = document.getElementById('contactTallinnClock');
-  const rEl = document.getElementById('contactRiyadhClock');
-  if (tEl) tEl.textContent = `${tallinn} EET (UTC+2)`;
-  if (rEl) rEl.textContent = `${riyadh} AST (UTC+3)`;
-}
-setInterval(updateClocks, 1000);
-updateClocks();
-</script>
 
+  btn.disabled = false;
+  btn.style.opacity = '1';
+  btn.textContent = 'Send Message →';
+}
+</script>
 </body>
 </html>

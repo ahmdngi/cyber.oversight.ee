@@ -1,48 +1,31 @@
 # cyber.oversight.ee
 
-**Cyber Oversight** — maritime & fleet cybersecurity. Free 3-vessel exposure scan, automated fleet-wide monitoring, and edge data collection. Built by maritime researchers, peer-reviewed in IEEE Access 2026.
+**Oversight** — maritime & fleet cybersecurity. Free vessel exposure scan, automated fleet-wide monitoring, and edge data collection.
 
-This is the company website.
-
-## Stack
-
-Vanilla HTML/CSS/JS — served via GitHub Pages.
-
-## Features
-
-- **Logo:** `logo-header.webp` in the site header, `favicon.png` (32×32)
-- **OG preview card:** `og-image.png` (1200×630) with the Cyber Oversight logo, for social link previews
-- Digital rain (RainingLetters) background effect
-- Hallmark design system with dark/light mode awareness (oklch tokens)
-- PWA: manifest.json, service worker, install banner on all pages
-- Sitemap.xml + robots.txt for SEO
-- 5 blog posts covering VSAT security, ECDIS, PSC, Shodan, and case studies
-- Zero-dependency static site
-
-## Design
-
-- **Fonts:** Inter + JetBrains Mono (Google Fonts)
-- Tokens-based CSS using oklch color space
-- Accent: green 160° hue
-- Paper/ink contrast for readability in both light and dark mode
+Company website — **https://www.oversight.ee** (GitHub Pages).
 
 ## Pages
 
-| Page | URL |
-|------|-----|
-| Home | `/` |
-| Capabilities | `/capabilities/` |
-| Architecture | `/architecture/` |
-| Shipcrawler (free scan) | `/shipcrawler/` |
-| Blog index | `/blog/` |
-| VSAT Security | `/blog/vsat-security-fleet-managers.html` |
-| ECDIS Vulnerabilities | `/blog/ecdis-vulnerabilities-fleet-managers.html` |
-| PSC Cyber Requirements | `/blog/psc-cyber-requirements-2026.html` |
-| Shodan Attack Surface | `/blog/how-attackers-find-ships-shodan.html` |
-| Fleet Scan Case Study | `/blog/fleet-scan-case-study.html` |
-| Contact | `/contact/` |
+| Page | File |
+| --- | --- |
+| Home | `index.html` |
+| M-SOC | `M-SOC.html` (old `architecture.html` redirects here) |
+| Shipcrawler (free scan) | `shipcrawler.html` / `free-scan.html` |
+| Web Development | `web-design.html` |
+| Mobile App Development | `mobile-app.html` |
+| Networking | `networking.html` |
+| Watchtower | `watchtower.html` |
+| Blog | `blog.html` |
+| Contact | `contact.html` |
+| Arabic mirror | `ar/` |
 
-## Deployment
+## Stack
 
-Published to **https://cyber.oversight.ee** via GitHub Pages.
-Push to `main` triggers automatic deploy via `.github/workflows/ci.yml`.
+Vanilla HTML/CSS/JS — zero-dependency static site, served via GitHub Pages (`.github/workflows/deploy.yml`). Push to `main` auto-deploys.
+
+## Design
+
+- Tokens-based CSS (`tokens.css`), dark void `#060608` + lime `#a8d506`
+- Fonts: Inter + JetBrains Mono
+- `theme.js` handles dark/light, `fx.js` background effects
+- Sitemap + robots.txt + 404 + `.htaccess` (SEO)

@@ -1,10 +1,10 @@
 /* ══════════════════════════════════════════════════════════════════════════
-   CYBER OVERSIGHT · THE LIVING CHART — SITE DESIGN SYSTEM
+   OVERSIGHT · THE LIVING CHART · SITE DESIGN SYSTEM
    Exact design language of the approved concept: void black, logo lime,
    Newsreader serif, living motion. Shared across every page.
    ══════════════════════════════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
 
 :root{
   --void:#07110a; --panel:#11170f; --panel2:#161f13; --charcoal:#1a1a1c; --muted:#6b6b6b;
@@ -40,7 +40,7 @@
   --brand-lime-border:rgba(107,141,0,.26); --brand-lime-bg:rgba(107,141,0,.10);
   --text-title:#141713; --text-body:#43483f; --text-muted:#6b7066; --text-faint:#959b8e; --text-pure:#f5f6f0;
   --border-subtle:rgba(20,23,19,.07); --border-card:rgba(20,23,19,.10); --border-hover:rgba(20,23,19,.20);
-  --watermark-stroke:#6b8d00; --watermark-fill:rgba(107,141,0,.10);
+  --watermark-opacity:.045; --watermark-stroke:rgba(107,141,0,.28); --watermark-fill:rgba(107,141,0,.05);
   --alert-red:#b3382e; --status-green:#6b8d00;
 }
 
@@ -48,8 +48,8 @@
 html{scroll-behavior:smooth}
 body{background:var(--void);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.78;transition:background-color .32s var(--ease-spring),color .32s var(--ease-spring)}
 ::selection{background:var(--lime);color:var(--void)}
-.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
-.container{max-width:1180px;margin:0 auto;padding:0 32px}
+.wrap{width:100%;max-width:100%;margin:0 auto;padding:0 clamp(24px, 8vw, 150px)}
+.container{width:100%;max-width:100%;margin:0 auto;padding:0 clamp(24px, 8vw, 150px)}
 
 /* film grain */
 .grain{position:fixed;inset:-100px;z-index:2000;pointer-events:none;opacity:.028;
@@ -68,7 +68,7 @@ nav .wrap{display:flex;align-items:center;height:72px}
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--text);flex:none;margin-right:auto}
 .logo .brand-logo-img{height:40px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 0 12px rgba(168,213,6,.35));transition:transform .2s ease}
 footer .logo .brand-logo-img{height:28px !important;filter:drop-shadow(0 0 10px rgba(168,213,6,.22))}
-:root[data-theme="light"] .logo .brand-logo-img{filter:invert(1) hue-rotate(180deg);opacity:.92}
+:root[data-theme="light"] .logo .brand-logo-img{filter:none;opacity:1}
 .logo .mark{width:30px;height:30px;background:var(--lime);display:grid;grid-template-columns:repeat(3,5.5px);grid-template-rows:repeat(3,5.5px);gap:1.5px;padding:5px;border-radius:4px;animation:markPulse 3.5s infinite}
 @keyframes markPulse{0%,100%{box-shadow:0 0 0 0 rgba(168,213,6,.35)}50%{box-shadow:0 0 0 9px rgba(168,213,6,0)}}
 .logo .mark i{background:var(--void);border-radius:.5px}
@@ -97,7 +97,7 @@ footer .logo .brand-logo-img{height:28px !important;filter:drop-shadow(0 0 10px 
 .drawer-group a{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-radius:10px;color:var(--mut);text-decoration:none;font-size:.95rem;font-weight:500}
 .drawer-group a.active{color:var(--lime)}
 .drawer-group a.active::after{content:'→';color:var(--lime)}
-.nav-cta{background:var(--lime);color:var(--void);font-weight:600;font-size:.85rem;padding:10px 22px;border-radius:999px;text-decoration:none;transition:.25s;box-shadow:0 0 24px rgba(168,213,6,.25);position:relative;overflow:hidden}
+.nav-cta{margin-left:24px;background:var(--lime);color:var(--void);font-weight:600;font-size:.85rem;padding:10px 22px;border-radius:999px;text-decoration:none;transition:.25s;box-shadow:0 0 24px rgba(168,213,6,.25);position:relative;overflow:hidden}
 .nav-cta:hover{background:var(--lime2);transform:translateY(-2px)}
 /* Floating Theme Toggle Widget (Center-Right of Screen) */
 .theme-toggle-btn{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:9999;width:44px;height:44px;border-radius:50%;background:rgba(18,21,16,.82);border:1px solid var(--line);color:var(--mut);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:transform .25s var(--ease-spring),background .25s,border-color .25s,color .25s,box-shadow .25s}
@@ -105,7 +105,52 @@ footer .logo .brand-logo-img{height:28px !important;filter:drop-shadow(0 0 10px 
 .theme-toggle-btn:active{transform:translateY(-50%) scale(.95)}
 :root[data-theme="light"] .theme-toggle-btn{background:rgba(251,252,247,.88);border-color:rgba(20,23,19,.12);box-shadow:0 10px 30px rgba(0,0,0,.10),0 0 0 1px rgba(0,0,0,.04)}
 :root[data-theme="light"] .theme-toggle-btn:hover{border-color:var(--lime-dim);color:var(--lime);background:var(--panel2);box-shadow:0 14px 36px rgba(0,0,0,.14),0 0 20px rgba(107,141,0,.20)}
-@media(max-width:768px){.theme-toggle-btn{right:12px;width:40px;height:40px}}
+
+@media(max-width:768px){
+  .theme-toggle-btn{right:12px;top:auto;bottom:16px;transform:none;width:40px;height:40px}
+  .theme-toggle-btn:hover{transform:none}
+  body.drawer-open .theme-toggle-btn{opacity:0 !important;pointer-events:none !important}
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   RTL & ARABIC ENGINE
+   ══════════════════════════════════════════════════════════════════════════ */
+html[dir="rtl"], html[lang="ar"], body.rtl{
+  direction: rtl;
+  text-align: right;
+  --sans: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] h4,
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4{
+  font-family: 'IBM Plex Sans Arabic', var(--sans);
+  font-weight: 700;
+  letter-spacing: 0 !important;
+}
+html[dir="rtl"] .nav-cta, html[lang="ar"] .nav-cta{
+  margin-left: 0;
+  margin-right: 24px;
+}
+html[dir="rtl"] .drop-caret, html[lang="ar"] .drop-caret{
+  margin-left: 0;
+  margin-right: 6px;
+}
+html[dir="rtl"] .nav-drop .drop-menu, html[lang="ar"] .nav-drop .drop-menu{
+  left: auto;
+  right: 0;
+  text-align: right;
+}
+html[dir="rtl"] .drawer-group a.active::after, html[lang="ar"] .drawer-group a.active::after{
+  content: '←';
+}
+html[dir="rtl"] code, html[dir="rtl"] pre, html[dir="rtl"] .mono, html[dir="rtl"] .tactical-title,
+html[lang="ar"] code, html[lang="ar"] pre, html[lang="ar"] .mono, html[lang="ar"] .tactical-title{
+  direction: ltr;
+  text-align: left;
+}
+html[dir="rtl"] .co-select-trigger, html[lang="ar"] .co-select-trigger{
+  text-align: right;
+}
 
 
 
@@ -114,7 +159,7 @@ footer .logo .brand-logo-img{height:28px !important;filter:drop-shadow(0 0 10px 
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 60px;overflow:hidden}
 .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%}
 
-/* ═══ THE BLIP · concept 5 — one light in the dark ═══ */
+/* ═══ THE BLIP · concept 5 · one light in the dark ═══ */
 .hero-blip{min-height:calc(100vh - 0px);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 0 80px;background:transparent}
 .blip-stage{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;width:100%}
 .blip-graticule{position:absolute;inset:0;pointer-events:none;opacity:.16;background-image:radial-gradient(circle at 50% 46%,transparent 0,rgba(168,213,6,.05) 1px,transparent 1px),linear-gradient(rgba(168,213,6,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(168,213,6,.09) 1px,transparent 1px);background-size:240px 240px,60px 60px,60px 60px;-webkit-mask-image:radial-gradient(ellipse at 50% 46%,black 0%,transparent 62%);mask-image:radial-gradient(ellipse at 50% 46%,black 0%,transparent 62%);animation:graticuleDrift 40s linear infinite}
@@ -148,7 +193,7 @@ footer .logo .brand-logo-img{height:28px !important;filter:drop-shadow(0 0 10px 
 .hero .sea{position:absolute;inset:0;pointer-events:none;will-change:transform}
 .hero .sea svg{width:100%;height:100%}
 
-/* ═══ NIGHT BRIDGE · concept sketch 005 — real helm photo, one lime leak ═══ */
+/* ═══ NIGHT BRIDGE · concept sketch 005 · real helm photo, one lime leak ═══ */
 .hero-night{min-height:100vh;min-height:100dvh;padding:0;background:var(--void)}
 .hero-night .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 48%;filter:brightness(.58) saturate(.5) contrast(1.12);transform:scale(1.04);z-index:0}
 .hero-night .grade{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(90deg,rgba(6,6,8,.9) 0%,rgba(6,6,8,.72) 30%,rgba(6,6,8,.18) 62%,rgba(6,6,8,.42) 100%),linear-gradient(180deg,rgba(6,6,8,.25) 0%,transparent 30%,transparent 60%,rgba(6,6,8,.45) 100%)}
@@ -208,7 +253,7 @@ h1 .lime{color:var(--lime)}
   .h1-line .w:nth-child(4){animation-delay:.24s}.h1-line .w:nth-child(5){animation-delay:.32s}
 }
 @keyframes wordUp{to{transform:translateY(0)}}
-.hero .sub{font-size:1.08rem;color:var(--mut);max-width:540px;margin:30px 0 40px;line-height:1.85}
+.hero .sub{font-size:1.08rem;color:var(--mut);max-width:640px;margin:30px 0 40px;line-height:1.85}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.98rem;padding:16px 30px;border-radius:12px;text-decoration:none;transition:transform .15s;position:relative;will-change:transform}
 .btn.primary{background:var(--lime);color:var(--void);box-shadow:0 0 30px rgba(168,213,6,.3);overflow:hidden}
@@ -217,6 +262,8 @@ h1 .lime{color:var(--lime)}
 .btn.primary:hover{background:var(--lime2)}
 .btn.ghost{border:1px solid rgba(255,255,255,.18);color:var(--text)}
 .btn.ghost:hover{border-color:var(--lime);color:var(--lime);box-shadow:0 0 24px rgba(168,213,6,.12)}
+:root[data-theme="light"] .btn.ghost{border-color:rgba(20,23,19,.22);color:var(--text)}
+:root[data-theme="light"] .btn.ghost:hover{border-color:var(--lime);color:var(--lime2);box-shadow:0 0 20px rgba(107,141,0,.12)}
 
 /* vessel board */
 .board{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden;transform-style:preserve-3d;will-change:transform}
@@ -255,7 +302,7 @@ h1 .lime{color:var(--lime)}
 
 /* sections */
 .sec{padding:110px 0;position:relative}
-.sec-head{max-width:640px;margin-bottom:60px}
+.sec-head{max-width:780px;margin-bottom:60px}
 .sec-head .no{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;color:var(--lime);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:18px}
 /* logo mark (9 stepped blocks) instead of § */
 .sec-mark{width:1.05em;height:1.05em;flex:none;display:inline-block}
@@ -306,7 +353,7 @@ h1 .lime{color:var(--lime)}
 .met .lbl{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:10px 0 8px}
 .met .desc{font-size:.82rem;color:var(--mut);line-height:1.6}
 
-/* reveal — content visible by default; animation only when JS is alive + motion allowed */
+/* reveal · content visible by default; animation only when JS is alive + motion allowed */
 .reveal{opacity:1;transform:none}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1,.reveal.d2,.reveal.d3{transition-delay:0s}
@@ -319,12 +366,12 @@ h1 .lime{color:var(--lime)}
 }
 
 /* cta */
-.cta{position:relative;margin:0 32px 110px;max-width:1180px;margin-left:auto;margin-right:auto;background:linear-gradient(140deg,rgba(168,213,6,.14),rgba(168,213,6,.02) 55%);border:1px solid var(--lime-dim);border-radius:22px;padding:72px 58px;display:flex;justify-content:space-between;align-items:center;gap:44px;flex-wrap:wrap;overflow:hidden}
+.cta{position:relative;width:100%;max-width:100%;margin:0 auto 110px;background:linear-gradient(140deg,rgba(168,213,6,.14),rgba(168,213,6,.02) 55%);border:1px solid var(--lime-dim);border-radius:22px;padding:clamp(36px,4vw,64px);display:flex;justify-content:space-between;align-items:center;gap:44px;flex-wrap:wrap;overflow:hidden}
 .cta::before{content:'';position:absolute;top:-140px;right:-100px;width:460px;height:460px;background:radial-gradient(circle,rgba(168,213,6,.16),transparent 60%);animation:ctaGlow 7s ease-in-out infinite alternate}
 @keyframes ctaGlow{0%{transform:translate(0,0) scale(1);opacity:.7}100%{transform:translate(-60px,30px) scale(1.15);opacity:1}}
-.cta h3{font-family:var(--serif);font-weight:400;font-size:2.3rem;line-height:1.08;max-width:520px;letter-spacing:-.01em}
+.cta h3{font-family:var(--serif);font-weight:400;font-size:2.3rem;line-height:1.08;max-width:650px;letter-spacing:-.01em}
 .cta h3 em{font-style:italic;color:var(--lime)}
-.cta p{color:var(--mut);margin-top:14px;font-size:1rem;max-width:470px;line-height:1.7}
+.cta p{color:var(--mut);margin-top:14px;font-size:1rem;max-width:580px;line-height:1.7}
 .cta .btn.primary{background:var(--lime);color:var(--void);font-size:1.02rem;padding:18px 36px}
 
 /* footer */
@@ -335,6 +382,7 @@ footer{position:relative;z-index:10;background:rgba(5,10,6,.30);backdrop-filter:
 .foot-grid a{display:block;color:var(--mut);text-decoration:none;font-size:.88rem;margin-bottom:10px;transition:color .2s,transform .2s var(--ease-spring)}
 .foot-grid a:hover{color:var(--lime);transform:translateX(3px)}
 .foot-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--dim);flex-wrap:wrap;gap:12px}
+.foot-credit{letter-spacing:normal;font-family:var(--sans),sans-serif;font-size:.74rem}
 
 /* ambient watermark (stepped logo blocks) */
 .monumental-bg-emblem{position:fixed;top:30px;right:-70px;width:680px;height:680px;pointer-events:none;z-index:0;opacity:var(--watermark-opacity);transition:opacity .32s}
@@ -524,7 +572,17 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 
 .studio-commission-grid{display:grid;grid-template-columns:1.22fr .78fr;gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow-card)}
 
-/* neural mesh — ambient axon network layer */
+/* contact page: form + offices panel (responsive) */
+.contact-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow-card)}
+.contact-form-side{padding:40px;border-right:1px solid var(--line)}
+.contact-offices-side{display:flex;flex-direction:column}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* dark-mode select dropdown options (native dropdown inherits OS colors otherwise) */
+select option{background:var(--bg-elevated,#161f13);color:var(--text)}
+:root[data-theme="light"] select option{background:var(--panel2,#f0f3e9);color:var(--text)}
+select option:disabled{color:var(--dim)}
+select option:checked{color:var(--lime)}
 .neural-mesh{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.3}
 .neural-mesh svg{width:100%;height:100%}
 .neural-mesh path{stroke:var(--lime);stroke-width:.5;fill:none;opacity:.07;stroke-linecap:round}
@@ -552,6 +610,8 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 @media(max-width:1000px){
   .studio-commission-grid{grid-template-columns:1fr}
   .studio-commission-grid > div:first-child{border-right:none !important;border-bottom:1px solid var(--line) !important}
+  .contact-panel{grid-template-columns:1fr}
+  .contact-form-side{border-right:none !important;border-bottom:1px solid var(--line) !important}
   .hero-inner,.hero-layout{grid-template-columns:1fr;gap:40px}
   .hero .radar{display:none}
   .bento{grid-template-columns:1fr}
@@ -573,6 +633,8 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
   .nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
   .mobile-toggle-btn{display:flex !important}
   .mobile-drawer{display:flex}
+  .mobile-drawer.open ~ .theme-toggle-btn,
+  body.drawer-open .theme-toggle-btn{opacity:0 !important;pointer-events:none !important;transform:translateY(10px) !important}
   .path-grid{grid-template-columns:repeat(2,1fr);row-gap:32px}
   .path-line{display:none !important}
   .axis{grid-template-columns:repeat(2,1fr);row-gap:10px}
@@ -654,7 +716,7 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 
 
 /* ══════════════════════════════════════════════════════════════════════════
-   VESSEL MAP (homepage board) — simplified continents, graticule, lanes
+   VESSEL MAP (homepage board) · simplified continents, graticule, lanes
    ══════════════════════════════════════════════════════════════════════════ */
 .route .mgrid line{stroke:rgba(238,243,234,.05);stroke-width:.6}
 .route .meq{stroke:rgba(168,213,6,.28);stroke-width:.8;stroke-dasharray:4 5}
@@ -666,7 +728,7 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 @keyframes laneDash{to{stroke-dashoffset:-9}}
 
 /* ══════════════════════════════════════════════════════════════════════════
-   LIVE MAP (Leaflet + CARTO dark tiles) — brand-styled
+   LIVE MAP (Leaflet + CARTO dark tiles) · brand-styled
    ══════════════════════════════════════════════════════════════════════════ */
 .route#vmap{width:100%;height:300px;border-radius:14px;overflow:hidden;background:#0b0d0b;z-index:1}
 .route#vmap .leaflet-tile-pane{filter:saturate(.65) contrast(1.08) brightness(.92)}
@@ -679,7 +741,7 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 .vptip{font-family:var(--mono);font-size:10px;letter-spacing:.12em;background:rgba(11,13,11,.92);border:1px solid var(--lime-dim);color:var(--text);border-radius:6px;padding:4px 8px;box-shadow:0 4px 18px rgba(0,0,0,.6)}
 .vptip::before{display:none}
 
-/* zoom controls (+ / -) — brand styled */
+/* zoom controls (+ / -) · brand styled */
 .route#vmap .leaflet-control-zoom{position:absolute;right:10px;bottom:10px;top:auto;left:auto;border:none;box-shadow:0 6px 20px rgba(0,0,0,.5)}
 .route#vmap .leaflet-control-zoom a{display:block;width:36px;height:36px;line-height:34px;text-align:center;background:rgba(11,13,11,.92);color:var(--lime);border:1px solid var(--lime-dim);font-size:20px;font-weight:600;font-family:var(--mono);transition:all .2s;cursor:pointer}
 .route#vmap .leaflet-control-zoom a:hover{background:var(--lime);color:var(--void)}
@@ -706,7 +768,7 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 
 
 /* ══════════════════════════════════════════════════════════════════════════
-   THE ATTACK PATH (index §01) — one line, six closed points
+   THE ATTACK PATH (index §01) · one line, six closed points
    ══════════════════════════════════════════════════════════════════════════ */
 .path{position:relative;padding:0 10px}
 .path-line{position:absolute;top:34px;left:60px;right:60px;height:2px;background:transparent;z-index:0}
@@ -732,7 +794,7 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 @media(max-width:1000px){.path-grid{grid-template-columns:repeat(2,1fr);row-gap:40px}.path-line{display:none}.axis{grid-template-columns:repeat(2,1fr);row-gap:10px}}
 
 /* ═══════════════════════════════════════════════════════════════
-   SHIPCRAWLER DUAL PATH (Concept A+) — attacker rail vs defense rail
+   SHIPCRAWLER DUAL PATH (Concept A+) · attacker rail vs defense rail
    ═══════════════════════════════════════════════════════════════ */
 /* ── DUAL ATTACK PATH ── */
 .ship-path{position:relative}
@@ -779,10 +841,17 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 .foot{text-align:center;padding:60px 0 10px;color:var(--dim);font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}
 .foot b{color:var(--lime);font-weight:500}
 /* ══════════════════════════════════════════════════════════════════════════
-   MOBILE POLISH — consistent, comfortable small screens
+   MOBILE POLISH · consistent, comfortable small screens
    (added last so it wins over earlier rules)
    ══════════════════════════════════════════════════════════════════════════ */
 @media(max-width:640px){
+
+  /* contact panel: single column, tighter padding */
+  .contact-form-side{padding:24px 20px !important}
+  .contact-form-side .form-row-2,
+  .form-row-2{grid-template-columns:1fr !important;gap:12px !important}
+  .contact-offices-side .office-block{padding:24px 20px !important}
+  .contact-panel{border-radius:14px !important}
 
   /* fluid type tuned for phones */
   h1{font-size:clamp(1.9rem,8vw,2.6rem);line-height:1.08}
@@ -796,7 +865,7 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
   .cta .btn.primary{font-size:1rem;padding:16px 30px}
   .hero .sub{font-size:1rem;line-height:1.75;margin:20px 0 26px}
 
-  /* tighten vertical rhythm — the big desktop gaps die here */
+  /* tighten vertical rhythm · the big desktop gaps die here */
   .sec{padding:56px 0}
   .sec-head{margin-bottom:36px}
   .hero{padding:100px 0 32px;min-height:auto}
@@ -849,7 +918,7 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
   .theme-toggle-btn:hover{transform:scale(1.08)}
 }
 /* ══════════════════════════════════════════════════════════════════════════
-   SMALL PHONES (<=480px) — single-column everything, no cramped halves
+   SMALL PHONES (<=480px) · single-column everything, no cramped halves
    ══════════════════════════════════════════════════════════════════════════ */
 @media(max-width:480px){
 
@@ -961,4 +1030,912 @@ label{font-size:.85rem;font-weight:600;color:var(--text);display:block;margin-bo
 /* Bento hover: glow without transform/scale */
 .bento .tile{transform:none !important;transition:border-color .25s,box-shadow .25s,background .25s}
 .bento .tile:hover{transform:none !important;border-color:var(--lime-dim);box-shadow:0 0 24px rgba(168,213,6,.12);background:var(--panel2)}
+
+
+
+
+/* ============ HARIS PROTECTION ARCHITECTURE ============ */
+.sec-arch{position:relative;border-top:1px solid var(--line);background:var(--void);padding:100px 0 80px;overflow:hidden}
+.wrap-arch{width:100%;max-width:100%;margin:0 auto;padding:0 clamp(24px, 8vw, 150px);position:relative;z-index:2}
+
+/* Ambient framework decor without ghost outline boxes */
+.hpa-bg-decor{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+  background:radial-gradient(ellipse 65% 55% at 50% 46%,rgba(168,213,6,.08) 0%,rgba(168,213,6,.02) 48%,transparent 72%),
+             radial-gradient(circle 320px at 15% 25%,rgba(168,213,6,.03) 0%,transparent 70%),
+             radial-gradient(circle 320px at 85% 25%,rgba(168,213,6,.03) 0%,transparent 70%)}
+.hpa-glow{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:780px;height:580px;
+  background:radial-gradient(ellipse at center,rgba(168,213,6,.13) 0%,rgba(168,213,6,.03) 50%,transparent 72%);pointer-events:none}
+
+/* Header */
+.hpa-head{text-align:center;max-width:780px;margin:0 auto 44px;position:relative;z-index:2}
+.hpa-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--lime);text-transform:uppercase;font-weight:500;margin-bottom:14px}
+.hpa-title{font-family:var(--serif);font-size:clamp(2.3rem,4.4vw,3.8rem);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:14px}
+.hpa-title em{font-style:italic;color:#a4e007;text-shadow:0 0 18px rgba(164,224,7,.45),0 0 38px rgba(168,213,6,.22)}
+.hpa-subtitle{font-family:var(--sans);font-size:1.02rem;color:var(--mut);line-height:1.65;max-width:620px;margin:0 auto}
+
+/* 3-column landscape stage */
+.hpa-stage{display:grid;grid-template-columns:1fr minmax(360px,420px) 1fr;gap:26px;align-items:center;position:relative;z-index:2}
+.hpa-col{display:flex;flex-direction:column;gap:22px;position:relative}
+.hpa-col-center{align-items:center;justify-content:center}
+
+/* Cards */
+.hpa-card{background:linear-gradient(155deg,rgba(17,26,16,.75) 0%,rgba(9,14,8,.9) 100%);
+  border:1px solid var(--line);border-radius:20px;padding:24px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;
+  box-shadow:0 24px 48px -18px rgba(0,0,0,.75),inset 0 1px 0 rgba(168,213,6,.07);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease}
+.hpa-card-l1,.hpa-card-l3{border-right-color:rgba(168,213,6,.32)}
+.hpa-card-l2,.hpa-card-l4{border-left-color:rgba(168,213,6,.32)}
+.hpa-card:hover{border-color:rgba(168,213,6,.45);box-shadow:0 28px 56px -16px rgba(0,0,0,.85),0 0 24px rgba(168,213,6,.12),inset 0 1px 0 rgba(168,213,6,.15);transform:translateY(-2px)}
+.hpa-card-body{flex:1 1 54%;min-width:0;z-index:2}
+.hpa-card-layer{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--lime);text-transform:uppercase;font-weight:500;display:block;margin-bottom:8px}
+.hpa-card-title{font-family:var(--serif);font-size:1.48rem;font-weight:500;color:var(--text);line-height:1.2;letter-spacing:-.01em;margin-bottom:10px;white-space:nowrap}
+.hpa-card-desc{font-family:var(--sans);font-size:.82rem;color:var(--mut);line-height:1.62;margin-bottom:14px}
+.hpa-card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hpa-meta-tag{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;color:var(--lime);text-transform:uppercase;font-weight:500}
+.hpa-card-action{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;
+  color:var(--lime);text-decoration:none;font-weight:600;margin-top:12px;padding-bottom:2px;
+  border-bottom:1px solid rgba(168,213,6,.35);transition:gap .2s ease,border-color .2s ease,color .2s ease}
+.hpa-card-action:hover{gap:10px;border-bottom-color:var(--lime);color:var(--lime2)}
+.hpa-card-art{flex:0 0 190px;width:190px;height:190px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+.hpa-card-art svg{width:100%;height:100%;display:block;overflow:visible}
+
+/* Central Stack */
+.hpa-stack-wrapper{width:100%;max-width:430px;position:relative;display:flex;align-items:center;justify-content:center}
+.hpa-stack-wrapper svg{width:100%;height:auto;max-height:560px;overflow:visible;display:block}
+
+/* Bottom Dock */
+.hpa-dock{margin-top:34px;background:rgba(17,23,15,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line);border-radius:20px;padding:24px 28px;display:grid;grid-template-columns:repeat(4,1fr);
+  gap:16px;position:relative;z-index:2;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+.hpa-dock-col{display:flex;align-items:flex-start;gap:16px;padding:0 16px;border-right:1px solid var(--line)}
+.hpa-dock-col:last-child{border-right:none}
+.hpa-dock-icon{width:36px;height:36px;flex-shrink:0;color:var(--lime);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.hpa-dock-icon svg{width:100%;height:100%;stroke:var(--lime);fill:none}
+.hpa-dock-text{display:flex;flex-direction:column;gap:3px}
+.hpa-dock-title{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--text);letter-spacing:-.01em}
+.hpa-dock-desc{font-size:.78rem;color:var(--mut);line-height:1.45}
+
+/* Responsive */
+@media(max-width:1240px){
+  .wrap-arch{padding:0 24px}
+  .hpa-stage{grid-template-columns:1fr minmax(300px,340px) 1fr;gap:16px}
+  .hpa-card{padding:20px;gap:12px}
+  .hpa-card-art{flex:0 0 145px;width:145px;height:145px}
+  .hpa-card-title{font-size:1.32rem;white-space:normal}
+  .hpa-dock{padding:20px 22px}
+  .hpa-dock-col{padding:0 12px;gap:12px}
+}
+@media(max-width:960px){
+  .sec-arch{padding:75px 0 55px}
+  .hpa-stage{display:flex;flex-direction:column;gap:18px}
+  .hpa-col-left,.hpa-col-right{display:contents}
+  .hpa-col-center{order:3;width:100%;max-width:380px;margin:16px auto}
+  .hpa-traces{display:none}
+  .hpa-card-l1{order:1}
+  .hpa-card-l2{order:2}
+  .hpa-card-l3{order:4}
+  .hpa-card-l4{order:5}
+  .hpa-dock{order:6;grid-template-columns:1fr 1fr;padding:18px;margin-top:24px}
+  .hpa-card{padding:20px}
+  .hpa-card-art{flex:0 0 160px;width:160px;height:160px}
+}
+@media(max-width:540px){
+  .wrap-arch{padding:0 16px}
+  .hpa-card{flex-direction:column-reverse;align-items:flex-start;gap:14px}
+  .hpa-card-art{width:160px;height:160px;margin:0 auto;align-self:center}
+  .hpa-dock{grid-template-columns:1fr;gap:16px;padding:18px}
+  .hpa-dock-col{border-right:none;border-bottom:1px solid var(--line);padding:0 0 14px 0}
+  .hpa-dock-col:last-child{border-bottom:none;padding-bottom:0}
+}
+
+/* ==========================================================================
+   HARIS PRODUCT PAGE ELEVATED TACTICAL DESIGN SYSTEM
+   ========================================================================== */
+
+/* --- Hero Haris 1U Rack Hardware Unit --- */
+.haris-hero-card{
+  background:linear-gradient(155deg,rgba(17,26,16,.85) 0%,rgba(8,13,8,.94) 100%);
+  border:1px solid rgba(168,213,6,.35);
+  border-radius:20px;
+  padding:24px;
+  position:relative;
+  box-shadow:0 24px 60px -15px rgba(0,0,0,.8),0 0 30px rgba(168,213,6,.1);
+  overflow:hidden;
+  transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease;
+}
+.haris-hero-card:hover{
+  border-color:rgba(168,213,6,.55);
+  box-shadow:0 30px 70px -15px rgba(0,0,0,.9),0 0 45px rgba(168,213,6,.2),inset 0 1px 0 rgba(168,213,6,.25);
+  transform:translateY(-2px);
+}
+.haris-card-topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;padding-bottom:12px;
+  border-bottom:1px solid rgba(168,213,6,.15);
+}
+.haris-unit-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.16em;
+  color:var(--lime);text-transform:uppercase;font-weight:600;
+}
+.haris-unit-tag i{
+  width:7px;height:7px;border-radius:50%;background:var(--lime);
+  box-shadow:0 0 8px var(--lime);animation:pulse-led 2s infinite;
+}
+@keyframes pulse-led{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.45;transform:scale(.85)}
+}
+.haris-unit-status{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
+  color:var(--mut);text-transform:uppercase;
+}
+.haris-chassis-svg{
+  width:100%;height:auto;display:block;margin:6px 0 18px;overflow:visible;
+}
+.haris-telemetry-hud{
+  background:rgba(5,9,5,.8);
+  border:1px solid rgba(168,213,6,.2);
+  border-radius:12px;
+  padding:14px 16px;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:18px;
+}
+.haris-hud-item{display:flex;flex-direction:column;gap:3px}
+.haris-hud-lbl{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;
+  color:var(--mut);text-transform:uppercase;
+}
+.haris-hud-val{
+  font-family:var(--mono);font-size:.82rem;font-weight:700;
+  color:#eef3ea;letter-spacing:.04em;display:flex;align-items:center;gap:5px;
+}
+.haris-hud-val em{font-style:normal;color:var(--lime);font-size:.7rem}
+.haris-hero-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding-top:14px;border-top:1px solid rgba(168,213,6,.15);
+}
+.haris-hero-footer .btn{
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.haris-hero-note{
+  font-size:.78rem;color:var(--mut);line-height:1.45;max-width:280px;
+}
+section[id], .sec[id]{
+  scroll-margin-top:90px;
+}
+
+/* --- 3-Stage Telemetry Pipeline Section --- */
+.haris-pipe-wrap{position:relative;margin-top:10px}
+.haris-pipe-conduit{
+  position:absolute;top:130px;left:5%;right:5%;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(168,213,6,.3) 20%,rgba(168,213,6,.6) 50%,rgba(168,213,6,.3) 80%,transparent);
+  z-index:1;pointer-events:none;
+}
+.haris-pipe-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  position:relative;z-index:2;
+}
+.haris-pipe-card{
+  background:linear-gradient(155deg,rgba(17,26,16,.75) 0%,rgba(9,14,8,.92) 100%);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px 22px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.haris-pipe-card:hover{
+  border-color:rgba(168,213,6,.45);
+  box-shadow:0 24px 50px -12px rgba(0,0,0,.85),0 0 28px rgba(168,213,6,.14),inset 0 1px 0 rgba(168,213,6,.15);
+  transform:translateY(-3px);
+}
+.haris-pipe-top{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;
+}
+.haris-stage-badge{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;
+  color:var(--lime);text-transform:uppercase;font-weight:600;
+  background:rgba(168,213,6,.1);border:1px solid rgba(168,213,6,.3);
+  padding:3px 8px;border-radius:4px;
+}
+.haris-pipe-icon-node{
+  width:28px;height:28px;border-radius:50%;
+  background:#091208;border:1px solid rgba(168,213,6,.4);
+  display:flex;align-items:center;justify-content:center;color:var(--lime);
+}
+.haris-pipe-art{
+  width:100%;height:160px;margin:8px 0 18px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.haris-pipe-art svg{width:100%;height:100%;display:block;overflow:visible}
+.haris-pipe-body h3{
+  font-family:var(--serif);font-size:1.42rem;font-weight:500;
+  color:var(--text);line-height:1.25;margin-bottom:10px;
+}
+.haris-pipe-body p{
+  font-family:var(--sans);font-size:.84rem;color:var(--mut);
+  line-height:1.6;margin-bottom:18px;
+}
+.haris-pipe-footer{
+  padding-top:14px;border-top:1px solid rgba(168,213,6,.12);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.haris-pipe-chip{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;
+  color:var(--lime);text-transform:uppercase;font-weight:500;
+}
+
+/* --- Elevated Metrics Styling --- */
+.metrics .met{
+  position:relative;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(155deg,rgba(17,26,16,.65) 0%,rgba(8,12,7,.85) 100%);
+  border-radius:14px;padding:26px 22px;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.metrics .met:hover{
+  border-color:rgba(168,213,6,.4);
+  box-shadow:0 18px 40px -10px rgba(0,0,0,.7),0 0 20px rgba(168,213,6,.1);
+  transform:translateY(-2px);
+}
+.met-corner{
+  position:absolute;width:6px;height:6px;border-color:var(--lime);pointer-events:none;
+}
+.met-corner-tl{top:6px;left:6px;border-top:1.5px solid;border-left:1.5px solid}
+.met-corner-tr{top:6px;right:6px;border-top:1.5px solid;border-right:1.5px solid}
+.met-corner-bl{bottom:6px;left:6px;border-bottom:1.5px solid;border-left:1.5px solid}
+.met-corner-br{bottom:6px;right:6px;border-bottom:1.5px solid;border-right:1.5px solid}
+
+/* --- Crew App Bridge Cockpit Showcase --- */
+.crew-showcase-grid{
+  display:grid;grid-template-columns:1fr 1.15fr;gap:28px;
+  align-items:stretch;margin-top:20px;
+}
+.crew-pillars-col{display:flex;flex-direction:column;gap:16px}
+.crew-pillar-card{
+  background:linear-gradient(155deg,rgba(17,26,16,.75) 0%,rgba(9,14,8,.9) 100%);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px 22px;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s;
+}
+.crew-pillar-card:hover{
+  border-color:rgba(168,213,6,.4);
+  transform:translateX(3px);
+}
+.crew-pillar-head{
+  display:flex;align-items:center;gap:12px;margin-bottom:8px;
+}
+.crew-pillar-num{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.16em;
+  color:var(--lime);font-weight:700;
+  background:rgba(168,213,6,.12);border:1px solid rgba(168,213,6,.3);
+  padding:2px 6px;border-radius:3px;
+}
+.crew-pillar-card h3{
+  font-family:var(--serif);font-size:1.24rem;font-weight:500;
+  color:var(--text);margin:0;
+}
+.crew-pillar-card p{
+  font-family:var(--sans);font-size:.82rem;color:var(--mut);
+  line-height:1.58;margin:0 0 10px 0;
+}
+.crew-pillar-chip{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
+  color:var(--lime);text-transform:uppercase;font-weight:500;
+}
+
+/* Cockpit Interactive Console Display */
+.crew-console-card{
+  background:linear-gradient(155deg,rgba(14,22,13,.9) 0%,rgba(6,10,6,.96) 100%);
+  border:1px solid rgba(168,213,6,.38);
+  border-radius:18px;
+  padding:24px;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  box-shadow:0 24px 60px -15px rgba(0,0,0,.8),0 0 35px rgba(168,213,6,.12);
+}
+.crew-console-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:14px;margin-bottom:18px;
+  border-bottom:1px solid rgba(168,213,6,.2);
+}
+.crew-console-title{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;
+  color:#eef3ea;font-weight:700;display:flex;align-items:center;gap:8px;
+}
+.crew-console-dot{
+  width:8px;height:8px;border-radius:50%;background:#e88c7a;
+  box-shadow:0 0 10px #e88c7a;animation:pulse-led 1.6s infinite;
+}
+.crew-console-status{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;
+  color:var(--lime);background:rgba(168,213,6,.1);
+  padding:3px 8px;border-radius:4px;border:1px solid rgba(168,213,6,.3);
+}
+.crew-console-svg{width:100%;height:auto;display:block;margin-bottom:14px}
+.crew-console-footer{
+  margin-top:auto;padding-top:14px;border-top:1px solid rgba(168,213,6,.15);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.crew-console-action{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;
+  color:var(--lime);text-transform:uppercase;font-weight:600;
+  background:rgba(168,213,6,.12);border:1px solid rgba(168,213,6,.4);
+  padding:7px 14px;border-radius:6px;transition:background .2s,border-color .2s;
+}
+.crew-console-action:hover{
+  background:rgba(168,213,6,.24);border-color:var(--lime);color:#ffffff;
+}
+
+/* Responsive adjustments for Haris elevated components */
+@media(max-width:1024px){
+  .haris-pipe-grid{grid-template-columns:1fr;gap:20px}
+  .haris-pipe-conduit{display:none}
+  .crew-showcase-grid{grid-template-columns:1fr;gap:22px}
+}
+@media(max-width:640px){
+  .haris-hero-card{padding:18px}
+  .haris-telemetry-hud{grid-template-columns:1fr;gap:10px}
+  .haris-hero-footer{flex-direction:column;align-items:flex-start}
+}
+
+/* ==========================================================================
+   UNIFIED TACTICAL MARITIME DESIGN SYSTEM EXTENSION
+   ========================================================================== */
+.v2-aurora-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 520px;
+  background: radial-gradient(ellipse at center, rgba(168,213,6,0.12) 0%, rgba(168,213,6,0.03) 55%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Universal Tactical Corner Reticles for Metrics */
+.metrics .met {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(155deg, rgba(17,26,16,.72) 0%, rgba(8,12,7,.90) 100%);
+  border-radius: 14px;
+  padding: 26px 22px;
+  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+
+.metrics .met:hover {
+  border-color: rgba(168,213,6,.45);
+  box-shadow: 0 20px 48px -12px rgba(0,0,0,.8), 0 0 24px rgba(168,213,6,.14), inset 0 1px 0 rgba(168,213,6,.15);
+  transform: translateY(-2px);
+}
+
+.met-corner {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-color: var(--lime);
+  pointer-events: none;
+  opacity: .85;
+}
+.met-corner-tl, .met-corner.tl { top: 7px; left: 7px; border-top: 1.5px solid; border-left: 1.5px solid; }
+.met-corner-tr, .met-corner.tr { top: 7px; right: 7px; border-top: 1.5px solid; border-right: 1.5px solid; }
+.met-corner-bl, .met-corner.bl { bottom: 7px; left: 7px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+.met-corner-br, .met-corner.br { bottom: 7px; right: 7px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+
+/* Tactical Card Master Primitive */
+.tactical-card {
+  background: linear-gradient(155deg, rgba(17,26,16,.85) 0%, rgba(8,13,8,.95) 100%);
+  border: 1px solid rgba(168,213,6,.32);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 24px 60px -15px rgba(0,0,0,.85), 0 0 28px rgba(168,213,6,.08);
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+
+.tactical-card:hover {
+  border-color: rgba(168,213,6,.55);
+  box-shadow: 0 30px 70px -15px rgba(0,0,0,.92), 0 0 42px rgba(168,213,6,.18), inset 0 1px 0 rgba(168,213,6,.2);
+  transform: translateY(-2px);
+}
+
+/* Tactical Reticle Crosshairs */
+.tactical-reticle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  border-color: rgba(168,213,6,.45);
+  z-index: 3;
+}
+.tactical-reticle.r-tl { top: 8px; left: 8px; border-top: 1.5px solid; border-left: 1.5px solid; }
+.tactical-reticle.r-tr { top: 8px; right: 8px; border-top: 1.5px solid; border-right: 1.5px solid; }
+.tactical-reticle.r-bl { bottom: 8px; left: 8px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+.tactical-reticle.r-br { bottom: 8px; right: 8px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+:root[data-theme="light"] .tactical-reticle { border-color: rgba(107,141,0,.40); }
+
+/* Tactical Header Component */
+.tactical-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(168,213,6,.15);
+  position: relative;
+  z-index: 2;
+}
+:root[data-theme="light"] .tactical-header { border-bottom-color: rgba(107,141,0,.15); }
+
+.tactical-title {
+  font-family: var(--mono);
+  font-size: .84rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  color: var(--text);
+  text-transform: uppercase;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tactical-title em, .tactical-title span.slash {
+  font-style: normal;
+  color: var(--lime);
+}
+
+.tactical-sub {
+  font-family: var(--mono);
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Tactical Status Pill & Live LED */
+.tactical-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.tactical-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tactical-status.status-online {
+  color: var(--lime);
+  background: rgba(168,213,6,.10);
+  border: 1px solid rgba(168,213,6,.32);
+  box-shadow: 0 0 14px rgba(168,213,6,.12);
+}
+
+.tactical-status.status-online i {
+  background: var(--lime);
+  box-shadow: 0 0 8px var(--lime);
+  animation: pulse-led 2s infinite;
+}
+
+:root[data-theme="light"] .tactical-status.status-online {
+  color: var(--lime);
+  background: rgba(107,141,0,.10);
+  border-color: rgba(107,141,0,.32);
+  box-shadow: 0 0 10px rgba(107,141,0,.10);
+}
+
+.tactical-card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(168,213,6,.15);
+}
+
+.tactical-unit-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .16em;
+  color: var(--lime);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.tactical-unit-tag i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 8px var(--lime);
+  animation: pulse-led 2s infinite;
+}
+
+.tactical-unit-tag i.alert-amber {
+  background: #ebb432;
+  box-shadow: 0 0 8px #ebb432;
+}
+
+.tactical-unit-tag i.alert-red {
+  background: var(--alert-red);
+  box-shadow: 0 0 8px var(--alert-red);
+}
+
+.tactical-unit-status {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+
+/* Telemetry HUD Grid Strip */
+.tactical-telemetry-hud {
+  background: rgba(5,9,5,.82);
+  border: 1px solid rgba(168,213,6,.2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.hud-telemetry-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hud-telemetry-lbl {
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .14em;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+
+.hud-telemetry-val {
+  font-family: var(--mono);
+  font-size: .80rem;
+  font-weight: 700;
+  color: #eef3ea;
+  letter-spacing: .04em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hud-telemetry-val em {
+  font-style: normal;
+  color: var(--lime);
+  font-size: .68rem;
+}
+
+/* Reusable Pipeline / Conduit System */
+.pipe-wrap {
+  position: relative;
+  margin-top: 14px;
+}
+
+.pipe-conduit {
+  position: absolute;
+  top: 130px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(168,213,6,.25) 15%, rgba(168,213,6,.65) 50%, rgba(168,213,6,.25) 85%, transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.pipe-card {
+  background: linear-gradient(155deg, rgba(17,26,16,.75) 0%, rgba(9,14,8,.94) 100%);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -15px rgba(0,0,0,.75);
+  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+
+.pipe-card:hover {
+  border-color: rgba(168,213,6,.45);
+  box-shadow: 0 26px 54px -12px rgba(0,0,0,.88), 0 0 30px rgba(168,213,6,.14), inset 0 1px 0 rgba(168,213,6,.15);
+  transform: translateY(-3px);
+}
+
+.pipe-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.pipe-stage-badge {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .18em;
+  color: var(--lime);
+  text-transform: uppercase;
+  font-weight: 600;
+  background: rgba(168,213,6,.1);
+  border: 1px solid rgba(168,213,6,.3);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pipe-icon-node {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #091208;
+  border: 1px solid rgba(168,213,6,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lime);
+}
+
+.pipe-art {
+  width: 100%;
+  height: 160px;
+  margin: 8px 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pipe-art svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.pipe-body h3 {
+  font-family: var(--serif);
+  font-size: 1.40rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.pipe-body p {
+  font-family: var(--sans);
+  font-size: .84rem;
+  color: var(--mut);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.pipe-footer {
+  padding-top: 14px;
+  border-top: 1px solid rgba(168,213,6,.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pipe-chip {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .12em;
+  color: var(--lime);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Tactical Fleet Architecture Matrix (The Stack) */
+.tactical-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+.stack-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 26px 24px;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+.stack-card:hover {
+  text-decoration: none;
+  color: inherit;
+}
+.stack-micro-art {
+  width: 100%;
+  height: 96px;
+  background: #060c05;
+  border: 1px solid rgba(168,213,6,.2);
+  border-radius: 10px;
+  margin: 12px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.stack-micro-art svg {
+  width: 100%;
+  height: 100%;
+}
+.stack-telemetry-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: rgba(5,9,5,.75);
+  border: 1px solid rgba(168,213,6,.18);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 14px 0 16px;
+  font-family: var(--mono);
+}
+.stack-tel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stack-tel-k {
+  font-size: .52rem;
+  letter-spacing: .12em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+.stack-tel-v {
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+.stack-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(168,213,6,.14);
+}
+.stack-card-chip {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  color: var(--lime);
+  background: rgba(168,213,6,.08);
+  border: 1px solid rgba(168,213,6,.25);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.stack-card-action {
+  font-family: var(--mono);
+  font-size: .74rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .2s ease, transform .2s ease;
+}
+.stack-card:hover .stack-card-action {
+  color: var(--lime);
+  transform: translateX(4px);
+}
+@media (max-width: 1024px) {
+  .tactical-stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .tactical-stack-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Light Theme Overrides */
+:root[data-theme="light"] .metrics .met {
+  background: linear-gradient(155deg, #f8fbf5 0%, #edf4e7 100%);
+  border-color: rgba(20,23,19,.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+}
+:root[data-theme="light"] .metrics .met:hover {
+  border-color: #5d8200;
+  box-shadow: 0 18px 40px rgba(93,130,0,.12);
+}
+:root[data-theme="light"] .met-corner {
+  border-color: #5d8200;
+}
+:root[data-theme="light"] .tactical-card {
+  background: linear-gradient(155deg, #ffffff 0%, #f4f9ee 100%);
+  border-color: rgba(93,130,0,.3);
+  box-shadow: 0 20px 50px rgba(0,0,0,.07);
+}
+:root[data-theme="light"] .tactical-telemetry-hud {
+  background: #e9f2df;
+  border-color: rgba(93,130,0,.25);
+}
+:root[data-theme="light"] .hud-telemetry-val {
+  color: #141713;
+}
+:root[data-theme="light"] .pipe-card {
+  background: linear-gradient(155deg, #ffffff 0%, #f5faef 100%);
+  border-color: rgba(20,23,19,.12);
+}
+:root[data-theme="light"] .pipe-conduit {
+  background: linear-gradient(90deg, transparent, rgba(93,130,0,.25) 15%, rgba(93,130,0,.65) 50%, rgba(93,130,0,.25) 85%, transparent);
+}
+:root[data-theme="light"] .pipe-icon-node {
+  background: #eef5e6;
+  border-color: #5d8200;
+}
+:root[data-theme="light"] .stack-micro-art {
+  background: #edf4e7;
+  border-color: rgba(93,130,0,.25);
+}
+:root[data-theme="light"] .stack-telemetry-row {
+  background: #e9f2df;
+  border-color: rgba(93,130,0,.2);
+}
+:root[data-theme="light"] .stack-tel-v {
+  color: #141713;
+}
+:root[data-theme="light"] .stack-card-chip {
+  background: rgba(93,130,0,.1);
+  border-color: rgba(93,130,0,.3);
+  color: #5d8200;
+}
+:root[data-theme="light"] .stack-card:hover .stack-card-action {
+  color: #5d8200;
+}
+
+
+
 

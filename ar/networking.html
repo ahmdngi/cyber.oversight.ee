@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>هندسة الشبكات السحابية والبحرية · بنية عالية التوافر HA وانعدام الثقة ZTNA | أوفرسايت (Oversight)</title>
+<meta name="description" content="هندسة الشبكات البحرية والمؤسسية: عناقيد جدران الحماية المزدوجة، شبكات WireGuard ZTNA المعزولة، وتوجيه SD-WAN متعدد الخطوط، ومراقبة التوافر 24/7 لأساطيل الشحن والبنى التحتية الحيوية.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="هندسة الشبكات البحرية والمؤسسية · أوفرسايت (Oversight)">
+<meta property="og:description" content="عناقيد جدران الحماية المزدوجة وشبكات WireGuard ZTNA المعزولة وتوجيه SD-WAN للأساطيل والمؤسسات.">
+<meta property="og:url" content="https://www.oversight.ee/ar/networking">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="هندسة الشبكات السحابية والبحرية · أوفرسايت (Oversight)">
+<meta name="twitter:description" content="هندسة شبكات متطورة عالية التوافر للأساطيل البحرية والمنشآت الحيوية.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+<link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="alternate" hreflang="en" href="https://www.oversight.ee/networking">
+<link rel="alternate" hreflang="ar" href="https://www.oversight.ee/ar/networking">
+<link rel="alternate" hreflang="x-default" href="https://www.oversight.ee/networking">
+<link rel="canonical" href="https://www.oversight.ee/ar/networking">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../mobile.css" media="screen and (max-width: 1024px)">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="v2-aurora-glow"></div>
+<div class="brand-grid-bg"></div>
+
+<button class="theme-toggle-btn" aria-label="تبديل المظهر" title="تبديل المظهر"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+    <a href="shipcrawler.html">شيب كراولر</a>
+    <a href="haris.html">حارس (Haris)</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle active" aria-haspopup="true" aria-expanded="false">خدمات أخرى <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">تطوير الويب والمنصات</a>
+        <a href="networking.html" class="active">هندسة الشبكات والربط</a>
+        <a href="mobile-app.html">تطبيقات الجوال</a>
+      </div>
+    </div>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="blog.html">المدونة والبحوث</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta">فحص مجاني للأسطول</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="تبديل القائمة"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">الرئيسية</a>
+  <a href="M-SOC.html">مركز العمليات (M-SOC)</a>
+  <a href="shipcrawler.html">شيب كراولر</a>
+  <a href="haris.html">حارس (Haris)</a>
+  <div class="drawer-group">
+    <span class="drawer-label">خدمات أخرى</span>
+    <a href="web-design.html">تطوير الويب</a>
+    <a href="networking.html" class="active">هندسة الشبكات</a>
+    <a href="mobile-app.html">تطبيقات الجوال</a>
+  </div>
+  <a href="contact.html">تواصل معنا</a>
+  <a href="blog.html">المدونة والبحوث</a>
+  <a href="free-scan.html" class="drawer-cta">فحص مجاني للأسطول</a>
+</div>
+
+<!-- ═══ 1. HERO WITH ENTERPRISE TOPOLOGY BLUEPRINT ═══ -->
+<section class="hero hero-evidence">
+  <div class="wrap hero-evidence-grid">
+    <div>
+      <div class="coord"><b>هندسة الشبكات السحابية والمؤسسية</b> انعدام الثقة ZTNA · تحويل مسار فوري في أجزاء من الثانية</div>
+      <h1>
+        <span class="h1-line">شبكات صُممت</span>
+        <span class="h1-line">لتبقى متصلة <em class="lime">بلا انقطاع.</em></span>
+      </h1>
+      <p class="sub">هندسة شبكات بمستوى الإنتاج الميداني لشركات تشغيل الأساطيل واللوجستيات البحرية: عناقيد جدران حماية نشطة/احتياطية، شبكات WireGuard بانعدام الثقة ZTNA، توجيه SD-WAN متعدد الروابط، وتحويل مسار دون فقدان الجلسات في أقل من ثانية عبر روابط الأقمار الصناعية والشواطئ.</p>
+      <div class="cta-row">
+        <a href="contact.html" class="btn primary magnetic">صمم شبكة مؤسستك &larr;</a>
+        <a href="#architecture" class="btn ghost magnetic">استعرض البنية الهندسية</a>
+      </div>
+    </div>
+    <div>
+      <div class="tactical-card reveal" data-tilt data-spot>
+        <div class="tactical-card-topbar">
+          <div class="tactical-unit-tag"><i></i><span>طوبولوجيا الشبكة // شبكة عالية التوافر HA</span></div>
+          <div class="tactical-unit-status" style="direction:ltr">Convergence &lt; 1.2s</div>
+        </div>
+
+        <svg viewBox="0 0 460 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="High availability enterprise maritime network architecture schematic">
+          <defs>
+            <filter id="net-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <linearGradient id="net-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#121f11"/>
+              <stop offset="100%" stop-color="#060a05"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="4" y="4" width="452" height="202" rx="10" fill="url(#net-bg)" stroke="#a8d506" stroke-width="1.3"/>
+          <rect x="10" y="10" width="440" height="190" rx="7" fill="#040804"/>
+
+          <line x1="10" y1="28" x2="450" y2="28" stroke="rgba(168,213,6,0.25)" stroke-width="0.8"/>
+          <circle cx="22" cy="19" r="2.2" fill="#a8d506" filter="url(#net-glow)"/>
+          <text x="32" y="22" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="700" fill="#a8d506" letter-spacing="0.14em">PRODUCTION HA CLUSTER // ZTNA ENCLAVE MESH</text>
+          <text x="438" y="22" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="700" fill="#eef3ea" text-anchor="end">SLA: 99.99% UP</text>
+
+          <g transform="translate(30, 42)">
+            <rect x="0" y="0" width="76" height="26" rx="3" fill="#0b160a" stroke="#a8d506" stroke-width="1"/>
+            <text x="10" y="12" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a8d506">VSAT KU-BAND</text>
+            <text x="10" y="20" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#eef3ea">PRI WAN · 20 Mbps</text>
+            <circle cx="68" cy="13" r="2" fill="#a8d506"/>
+
+            <rect x="88" y="0" width="76" height="26" rx="3" fill="#0b160a" stroke="rgba(168,213,6,0.5)" stroke-width="0.9"/>
+            <text x="98" y="12" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#d8ff36">LEO SATELLITE</text>
+            <text x="98" y="20" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#a7b0a3">SEC WAN · 100 Mbps</text>
+            <circle cx="156" cy="13" r="2" fill="#d8ff36"/>
+
+            <rect x="176" y="0" width="76" height="26" rx="3" fill="#0b160a" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+            <text x="186" y="12" font-family="'JetBrains Mono', monospace" font-size="5.5" font-weight="700" fill="#a7b0a3">4G/5G CELLULAR</text>
+            <text x="186" y="20" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#a7b0a3">PORT FAILOVER</text>
+            <circle cx="244" cy="13" r="2" fill="#ebb432"/>
+          </g>
+
+          <path d="M 68 68 L 68 84 L 140 84" stroke="#a8d506" stroke-width="1.4" fill="none"/>
+          <path d="M 156 68 L 156 84" stroke="#d8ff36" stroke-width="1.2" fill="none"/>
+          <path d="M 244 68 L 244 84 L 180 84" stroke="rgba(168,213,6,0.5)" stroke-width="1" fill="none"/>
+
+          <g transform="translate(30, 96)">
+            <rect x="20" y="0" width="100" height="42" rx="4" fill="#0f1f0e" stroke="#a8d506" stroke-width="1.4" filter="url(#net-glow)"/>
+            <text x="30" y="15" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="800" fill="#ffffff">FORTIGATE HA // PRI</text>
+            <text x="30" y="26" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a8d506">State: ACTIVE · Synced</text>
+            <text x="30" y="35" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#eef3ea">WireGuard ZTNA Mesh [UP]</text>
+            <circle cx="110" cy="14" r="2.5" fill="#d8ff36"/>
+
+            <line x1="120" y1="21" x2="150" y2="21" stroke="#d8ff36" stroke-width="2" stroke-dasharray="3 2"/>
+            <text x="135" y="16" font-family="'JetBrains Mono', monospace" font-size="4.5" font-weight="700" fill="#d8ff36" text-anchor="middle">SYNC</text>
+
+            <rect x="150" y="0" width="100" height="42" rx="4" fill="#080f07" stroke="rgba(168,213,6,0.4)" stroke-width="1"/>
+            <text x="160" y="15" font-family="'JetBrains Mono', monospace" font-size="6" font-weight="800" fill="#a7b0a3">FORTIGATE HA // SEC</text>
+            <text x="160" y="26" font-family="'JetBrains Mono', monospace" font-size="5" fill="#a7b0a3">State: STANDBY · Hot</text>
+            <text x="160" y="35" font-family="'JetBrains Mono', monospace" font-size="4.6" fill="#667262">Sub-second failover ready</text>
+            <circle cx="240" cy="14" r="2.5" fill="#a8d506"/>
+          </g>
+
+          <g transform="translate(300, 42)">
+            <rect x="0" y="0" width="138" height="138" rx="4" fill="#070c06" stroke="rgba(168,213,6,0.35)" stroke-width="0.9"/>
+            <text x="12" y="20" font-family="'JetBrains Mono', monospace" font-size="5.8" font-weight="700" fill="#a8d506">ZTNA SECURE ZONES</text>
+            <line x1="12" y1="28" x2="126" y2="28" stroke="rgba(168,213,6,0.2)" stroke-width="0.8"/>
+
+            <rect x="12" y="36" width="114" height="24" rx="2" fill="#0d180c" stroke="#a8d506" stroke-width="0.8"/>
+            <text x="20" y="47" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a8d506">VLAN 10: BRIDGE OT</text>
+            <text x="20" y="55" font-family="'JetBrains Mono', monospace" font-size="4.5" fill="#eef3ea">Isolated Air-Gap · Zero Internet</text>
+
+            <rect x="12" y="66" width="114" height="24" rx="2" fill="#0d180c" stroke="rgba(168,213,6,0.5)" stroke-width="0.8"/>
+            <text x="20" y="77" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#d8ff36">VLAN 20: VESSEL ADMIN</text>
+            <text x="20" y="85" font-family="'JetBrains Mono', monospace" font-size="4.5" fill="#a7b0a3">MFA Protected · SSO Enclave</text>
+
+            <rect x="12" y="96" width="114" height="24" rx="2" fill="#0d180c" stroke="rgba(168,213,6,0.3)" stroke-width="0.8"/>
+            <text x="20" y="107" font-family="'JetBrains Mono', monospace" font-size="5.2" font-weight="700" fill="#a7b0a3">VLAN 30: CREW INTERNET</text>
+            <text x="20" y="115" font-family="'JetBrains Mono', monospace" font-size="4.5" fill="#667262">Strict QoS · No Route to OT</text>
+          </g>
+
+          <g transform="translate(18, 184)">
+            <text x="0" y="12" font-family="'JetBrains Mono', monospace" font-size="5.4" fill="#a7b0a3">FAILOVER CONVERGENCE: &lt; 1.2s · ZERO SESSION DROPS</text>
+            <text x="420" y="12" font-family="'JetBrains Mono', monospace" font-size="5.4" font-weight="700" fill="#a8d506" text-anchor="end">CISCO · FORTINET · WIREGUARD ●</text>
+          </g>
+        </svg>
+
+        <div class="tactical-telemetry-hud">
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">توافر الخدمة SLA</span>
+            <span class="hud-telemetry-val" style="direction:ltr">99.99% UP</span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">سرعة التحويل البديل</span>
+            <span class="hud-telemetry-val" style="direction:ltr">&lt; 1.2s</span>
+          </div>
+          <div class="hud-telemetry-item">
+            <span class="hud-telemetry-lbl">المنافذ المكشوفة</span>
+            <span class="hud-telemetry-val">0 منافذ <em>معزولة بالكامل ●</em></span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(168,213,6,.15)">
+          <p style="font-size:.82rem;color:var(--mut);line-height:1.6;max-width:280px;margin:0">هندسة بنية تحتية بحرية حيوية باستخدام معدات Cisco و Fortinet وبروتوكولات WireGuard بانعدام الثقة.</p>
+          <a href="contact.html" class="btn primary magnetic" style="font-size:.9rem;padding:12px 20px;white-space:nowrap">طلب تقييم هندسي &larr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. 3-STAGE NETWORK ARCHITECTURE PIPELINE ═══ -->
+<section class="sec" id="architecture"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · هندسة الشبكات</div>
+    <h2>صُممت لأقصى درجات الاعتمادية، <em>في عرض البحر وعلى الشاطئ.</em></h2>
+    <p>توافر مستمر، توجيه آلي للمسارات، وعزل تشفيري محكم للشبكات مصمم للبيئات البحرية التجارية.</p>
+  </div>
+
+  <div class="pipe-wrap">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
+      <!-- PILLAR 01: HA CLUSTER -->
+      <div class="pipe-card reveal" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">المرحلة 01 // عناقيد HA المزدوجة</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-body">
+          <h3>عناقيد جدران الحماية المزدوجة</h3>
+          <p>تجميع نشط/احتياطي مع مزامنة فورية لجداول الاتصال. عند انقطاع الطاقة عن أحد الأجهزة، تنتقل حركة البيانات في أجزاء من الثانية دون انقطاع أي جلسة جارية.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; Fortinet &middot; Cisco &middot; تحويل دون ثانية</span>
+        </div>
+      </div>
+
+      <!-- PILLAR 02: SD-WAN STEERING -->
+      <div class="pipe-card reveal d1" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">المرحلة 02 // توجيه SD-WAN متعدد الخطوط</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-body">
+          <h3>التوجيه الديناميكي للمسارات</h3>
+          <p>مراقبة مستمرة للارتعاش، فقدان الحزم، والكمون عبر روابط VSAT و Starlink والشبكات الخلوية بالميناء. تحصل بيانات غرفة القيادة دائماً على المسار الأفضل أداءً.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; BGP &middot; OSPF &middot; توجيه سريع</span>
+        </div>
+      </div>
+
+      <!-- PILLAR 03: WIREGUARD ZTNA -->
+      <div class="pipe-card reveal d2" data-tilt data-spot>
+        <div class="pipe-card-top">
+          <span class="pipe-stage-badge">المرحلة 03 // انعدام الثقة ZTNA</span>
+          <div class="pipe-icon-node">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+
+        <div class="pipe-body">
+          <h3>شبكات WireGuard المعزولة ZTNA</h3>
+          <p>صفر منافذ مكشوفة على عناوين IP العامة. يتواصل المدير الفني، المحللون، وأجهزة الملاحة حصرياً عبر أنفاق WireGuard المشفرة والموثقة بالكامل.</p>
+        </div>
+
+        <div class="pipe-footer">
+          <span class="pipe-chip">&larr; WireGuard &middot; تشفير ChaCha20</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 3. BY THE NUMBERS ═══ -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="metrics">
+    <div class="met reveal">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>هدف التوافر</span></div>
+      <div>
+        <div class="num" data-text="99.99%" style="direction:ltr">99.99%</div>
+        <div class="lbl">بنية تحتية موثوقة</div>
+      </div>
+      <div class="desc">مصممة لمعيار الخمس تسعات للاستمرارية عبر مراكز البيانات وسفن أعالي البحار.</div>
+    </div>
+    <div class="met reveal d1">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>سرعة التحويل HA</span></div>
+      <div>
+        <div class="num" data-text="<1.2s" style="direction:ltr">&lt;1.2s</div>
+        <div class="lbl">زمن التحويل الاحتياطي</div>
+      </div>
+      <div class="desc">مزامنة دقيقة تضمن عدم انقطاع أي جلسة VoIP أو تدفق بيانات قياسات الملاحة.</div>
+    </div>
+    <div class="met reveal d2">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>انعدام الثقة</span></div>
+      <div>
+        <div class="num" data-text="0" style="direction:ltr">0</div>
+        <div class="lbl">منافذ إدارة مكشوفة</div>
+      </div>
+      <div class="desc">عزل كامل لواجهات إدارة الأجهزة عن ماسحات الإنترنت عبر شبكة WireGuard.</div>
+    </div>
+    <div class="met reveal d3">
+      <div class="met-corner met-corner-tl"></div>
+      <div class="met-corner met-corner-tr"></div>
+      <div class="met-corner met-corner-bl"></div>
+      <div class="met-corner met-corner-br"></div>
+      <div class="met-tag"><i></i><span>دعم SLA</span></div>
+      <div>
+        <div class="num" data-text="24/7" style="direction:ltr">24/7</div>
+        <div class="lbl">فريق عمليات الشبكة NOC</div>
+      </div>
+      <div class="desc">دعم هندسي مستمر لعمليات الشبكة من مهندسي مقري تالين والخبر.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ═══ 4. CTA ═══ -->
+<div class="wrap"><div class="cta reveal">
+  <div>
+    <div class="coord" style="margin-bottom:14px"><b>تخطيط وتنفيذ البنية الشبكية</b> شبكات عالية التوافر ومحصنة</div>
+    <h3>صُممت لتبقى متصلة ومحمية. <em>في كل محيط وكل ميناء.</em></h3>
+    <p>سواء كنت تطور موجهات الأقمار الصناعية لأسطولك أو تبني شبكات ZTNA بمستوى شركات الاتصالات، يتولى فريقنا التصميم، الاختبار، والاعتماد بالكامل.</p>
+  </div>
+  <div class="cta-row">
+    <a href="contact.html" class="btn primary magnetic" style="font-size:1.02rem;padding:18px 36px">صمم شبكة مؤسستك &larr;</a>
+    <a href="free-scan.html" class="btn ghost magnetic" style="font-size:.95rem;padding:16px 28px">افحص 3 سفن مجاناً</a>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a href="index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a>
+      <p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">الأمن السيبراني البحري، الحوسبة الطرفية بانعدام الثقة، وهندسة الشبكات والمنصات الرقمية. المقر الرئيسي في تالين، ومكتب المملكة العربية السعودية.</p>
+    </div>
+    <div><h4>المنتجات</h4><a href="shipcrawler.html">شيب كراولر (OSINT)</a><a href="M-SOC.html">مركز العمليات M-SOC</a><a href="haris.html">عقدة حارس الطرفية</a><a href="watchtower.html">برج المراقبة (Watchtower)</a></div>
+    <div><h4>المدونة والبحوث</h4><a href="../blog/how-attackers-find-ships-shodan.html">شيب كراولر وشودان</a><a href="../blog/vsat-security-fleet-managers.html">أمن محطات VSAT</a><a href="../blog/psc-cyber-requirements-2026.html">معايير PSC 2026</a></div>
+    <div><h4>الخدمات</h4><a href="web-design.html">تطوير الويب والمنصات</a><a href="networking.html">هندسة الشبكات</a><a href="mobile-app.html">تطبيقات الجوال</a></div>
+    <div><h4>التواصل</h4><a href="contact.html">تواصل مع الفريق</a><a href="mailto:contact@oversight.ee" style="direction:ltr;text-align:right">contact@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>تالين، إستونيا · &copy; 2026 شركة أوفرسايت (Oversight OÜ)</span><span>تصميم وتطوير بواسطة أوفرسايت (Oversight)</span></div>
+</div></footer>
+
+</body>
+</html>

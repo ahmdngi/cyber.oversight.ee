@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فحص الأسطول المجاني لـ 3 سفن · استطلاع الثغرات البحرية | Oversight</title>
+<meta name="description" content="فحص أمني واستطلاع سلبي مجاني لثلاث سفن تجارية بأسطولك. كشف المنافذ المفتوحة وثغرات VSAT وكاميرات الملاحة. سلبي 100% وبدون أجهزة على السفينة.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oversight">
+<meta property="og:title" content="فحص الأسطول المجاني لـ 3 سفن · استطلاع الثغرات البحرية | Oversight">
+<meta property="og:description" content="فحص أمني واستطلاع سلبي مجاني لثلاث سفن تجارية بأسطولك. كشف المنافذ المفتوحة وثغرات VSAT وكاميرات الملاحة.">
+<meta property="og:url" content="https://www.oversight.ee/ar/free-scan">
+<meta property="og:image" content="https://www.oversight.ee/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="فحص الأسطول المجاني لـ 3 سفن · استطلاع الثغرات البحرية | Oversight">
+<meta name="twitter:description" content="فحص أمني واستطلاع سلبي مجاني لثلاث سفن تجارية بأسطولك.">
+<meta name="twitter:image" content="https://www.oversight.ee/og-image.png">
+<link rel="alternate" type="text/plain" href="https://www.oversight.ee/llms.txt" title="LLMs.txt">
+<link rel="canonical" href="https://www.oversight.ee/ar/free-scan">
+<link rel="alternate" hreflang="en" href="https://www.oversight.ee/free-scan">
+<link rel="alternate" hreflang="ar" href="https://www.oversight.ee/ar/free-scan">
+<link rel="alternate" hreflang="x-default" href="https://www.oversight.ee/free-scan">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../mobile.css" media="screen and (max-width: 1024px)">
+<script src="../theme.js"></script>
+<script defer src="../fx.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "فحص مجاني لثغرات الأسطول البحري",
+  "name": "فحص الهجوم السلبي لـ 3 سفن بالأسطول",
+  "provider": {
+    "@type": "Organization",
+    "name": "Oversight",
+    "url": "https://www.oversight.ee"
+  },
+  "description": "فحص خارجي سلبي 100% دون إرسال حزم مباشرة للسفينة أو الحاجة لزيارة ميدانية. يحدد المنافذ المكشوفة ومحطات الأقمار الصناعية عبر Shodan و Censys.",
+  "url": "https://www.oversight.ee/ar/free-scan"
+}
+</script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<svg class="monumental-bg-emblem" viewBox="0 0 100 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="42" y="14" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="32" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="6" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="78" y="50" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="24" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="60" y="68" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+  <rect x="42" y="86" width="16" height="16" rx="2" fill="var(--watermark-fill)" stroke="var(--watermark-stroke)" stroke-width="1.5"/>
+</svg>
+<div class="ambient-aurora-orb"></div>
+<div class="brand-grid-bg"></div>
+
+<button class="theme-toggle-btn" aria-label="تغيير المظهر" title="تغيير المظهر"></button>
+
+<nav id="nav"><div class="wrap">
+  <a href="index.html" class="logo"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img"></a>
+  <div class="nav-links">
+    <a href="M-SOC.html">مركز M-SOC</a>
+    <a href="shipcrawler.html">شيب كراولر</a>
+    <a href="haris.html">حارس إيدج</a>
+    <a href="watchtower.html">ووتش تاور</a>
+    <div class="nav-drop">
+      <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">خدمات متخصصة <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="drop-menu">
+        <a href="web-design.html">المنصات والبوابات الرقمية</a>
+        <a href="networking.html">هندسة الشبكات والجدران النارية</a>
+        <a href="mobile-app.html">تطبيقات الملاحة والطاقم</a>
+      </div>
+    </div>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="blog.html">الأبحاث والمدونة</a>
+  </div>
+  <a href="free-scan.html" class="nav-cta active">فحص الأسطول مجاناً</a>
+  <div class="nav-right">
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">الرئيسية</a>
+  <a href="M-SOC.html">مركز M-SOC</a>
+  <a href="shipcrawler.html">شيب كراولر</a>
+  <a href="haris.html">حارس إيدج</a>
+  <a href="watchtower.html">ووتش تاور</a>
+  <div class="drawer-group">
+    <span class="drawer-label">خدمات متخصصة</span>
+    <a href="web-design.html">المنصات والبوابات الرقمية</a>
+    <a href="networking.html">هندسة الشبكات والجدران النارية</a>
+    <a href="mobile-app.html">تطبيقات الملاحة والطاقم</a>
+  </div>
+  <a href="contact.html">تواصل معنا</a>
+  <a href="blog.html">الأبحاث والمدونة</a>
+  <a href="free-scan.html" class="drawer-cta">فحص الأسطول مجاناً</a>
+</div>
+
+<!-- ══════════════════════ 1. HERO ══════════════════════ -->
+<section class="hero hero-evidence">
+  <div class="wrap hero-evidence-grid">
+    <div>
+      <div class="coord" style="direction:ltr;text-align:right"><b>FREE 3-VESSEL EXPOSURE SCAN</b> Passive OSINT · No Agent · 24h Report</div>
+      <h1>
+        <span class="h1-line">شاهد أسطولك البحري</span>
+        <span class="h1-line">كما يراه <em class="lime">المخترق تماماً.</em></span>
+      </h1>
+      <p class="sub">فحص استطلاعي مجاني لثلاث سفن تجارية. نقوم بالاستعلام عبر فهارس الإنترنت العامة ونطاقات ASN للأقمار الصناعية لكشف ما هو مكشوف على سفنك: لوحات تحكم VSAT دون كلمة مرور، منافذ Telnet غير مشفرة، وبث كاميرات قمرة القيادة. سلبي 100%. بدون برامج. بدون زيارة السفينة.</p>
+      <div class="cta-row">
+        <a href="#scan-form" class="btn primary magnetic">طلب تقرير الـ 3 سفن ←</a>
+        <a href="../blog/how-attackers-find-ships-shodan.html" class="btn ghost magnetic">قراءة دراسة محرك Shodan</a>
+      </div>
+    </div>
+    <div>
+      <div class="tactical-card reveal" id="scan-form" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div class="tactical-header" style="margin-bottom:16px">
+          <div>
+            <div class="tactical-title" style="direction:ltr;text-align:right">FREE RECON SCAN REQUEST <span class="slash">//</span> 24H DELIVERABLE</div>
+            <div class="tactical-sub">استطلاع سلبي عبر SHODAN و CENSYS للأقمار الصناعية</div>
+          </div>
+          <span class="tactical-status status-online"><i></i> بدون تداخل</span>
+        </div>
+
+        <form id="shipcrawlerScanForm" onsubmit="handleScanSubmit(event)" style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <label for="scanTargets" class="bl" style="display:block;margin-bottom:6px">السفن المستهدفة (أرقام IMO أو أسماء السفن)</label>
+            <input type="text" id="scanTargets" placeholder="مثال: IMO 0097421, IMO 0094102, M/V RED SEA" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.82rem;direction:ltr;text-align:right">
+          </div>
+          <div class="form-row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label for="scanEmail" class="bl" style="display:block;margin-bottom:6px">إيميل المشرف / مدير تقنية الأسطول</label>
+              <input type="email" id="scanEmail" placeholder="name@fleet-operator.com" required style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:.82rem;direction:ltr;text-align:right">
+            </div>
+            <div>
+              <label for="scanCompany" class="bl" style="display:block;margin-bottom:6px">الشركة / إدارة الأسطول</label>
+              <input type="text" id="scanCompany" placeholder="اسم الشركة الملاحية" style="width:100%;padding:11px 14px;background:rgba(238,243,234,.04);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:.82rem">
+            </div>
+          </div>
+          <button type="submit" class="btn primary magnetic" style="justify-content:center;font-size:.95rem;padding:15px 26px;border:none;cursor:pointer">إصدار تقرير كشف الثغرات التكتيكي ←</button>
+          <div id="scanFormStatus" style="display:none;font-size:.88rem;padding:11px 15px;border-radius:10px;font-family:var(--sans)"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 2. WHAT WE LOOK FOR ══════════════════════ -->
+<section class="sec" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="no"><svg class="sec-mark" viewBox="0 0 100 106" aria-hidden="true"><rect x="42" y="14" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="32" width="16" height="16" rx="2" fill="currentColor"/><rect x="6" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="78" y="50" width="16" height="16" rx="2" fill="currentColor"/><rect x="24" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="60" y="68" width="16" height="16" rx="2" fill="currentColor"/><rect x="42" y="86" width="16" height="16" rx="2" fill="currentColor"/></svg> 01 · نطاق الفحص والاستطلاع</div>
+    <h2>ماذا يكشف الفحص السلبي؟ <em>أخطر الثغرات الحية.</em></h2>
+    <p>ثلاث ثغرات رئيسية تضع السفينة فوراً على خارطة الاستهداف الخارجي عبر الأقمار الصناعية.</p>
+  </div>
+
+  <div class="pipe-wrap reveal">
+    <div class="pipe-conduit" aria-hidden="true"></div>
+    <div class="pipe-grid">
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">الثغرة 01</span>
+          <span class="pipe-status-tag" style="background:rgba(232,140,122,.15);color:var(--alert-red);border:1px solid rgba(232,140,122,.3)">حرج // CRITICAL</span>
+        </div>
+        <h3 style="font-family:var(--sans);font-size:1.25rem;font-weight:700;margin-bottom:10px">لوحات تحكم VSAT مكشوفة</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65">أجهزة الملاحة والاتصال بالأقمار الصناعية (مثل Sailor 900 و Cobham) التي تتيح واجهة ويب مفتوحة دون مصادقة، مما يتيح للمهاجمين التحكم في مسارات الاتصال وبيانات التوجيه.</p>
+      </div>
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">الثغرة 02</span>
+          <span class="pipe-status-tag" style="background:rgba(235,180,50,.15);color:#ebb432;border:1px solid rgba(235,180,50,.3)">تحذير // WARNING</span>
+        </div>
+        <h3 style="font-family:var(--sans);font-size:1.25rem;font-weight:700;margin-bottom:10px">منافذ Telnet المفتوحة (Port 23)</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65">أجهزة الراوتر والاتصال التي تبث نصوصاً غير مشفرة عبر المنفذ 23 مع كلمات مرور مصنعية افتراضية، مما يتيح استنشاق البيانات والتلاعب بمسار الشبكة.</p>
+      </div>
+
+      <div class="tactical-card" style="padding:28px" data-tilt data-spot>
+        <span class="tactical-reticle r-tl"></span>
+        <span class="tactical-reticle r-tr"></span>
+        <span class="tactical-reticle r-bl"></span>
+        <span class="tactical-reticle r-br"></span>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="pipe-step-num">الثغرة 03</span>
+          <span class="pipe-status-tag" style="background:rgba(168,213,6,.1);color:var(--lime);border:1px solid rgba(168,213,6,.3)">رصد // RTSP :554</span>
+        </div>
+        <h3 style="font-family:var(--sans);font-size:1.25rem;font-weight:700;margin-bottom:10px">بث كاميرات الملاحة (CCTV)</h3>
+        <p style="color:var(--mut);font-size:.88rem;line-height:1.65">بث مباشر عبر بروتوكول RTSP مفتوح دون حماية، يتيح للقراصنة مراقبة قمرة القيادة بصرياً وتأكيد مسار السفينة وحالة الطقس وورديات الطاقم.</p>
+      </div>
+
+    </div>
+  </div>
+</div></section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="../logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">الأمن السيبراني البحري، حوسبة الحافة zero-trust، الشبكات المتقدمة، والمنصات الرقمية. المقر الأوروبي تالين، مكتب الخليج الخُبر.</p></div>
+    <div><h4>الأنظمة والمنتجات</h4><a href="shipcrawler.html">شيب كراولر (Shipcrawler)</a><a href="M-SOC.html">مركز M-SOC</a><a href="haris.html">حارس إيدج (Haris)</a><a href="watchtower.html">ووتش تاور (Watchtower)</a></div>
+    <div><h4>المدونة والأبحاث</h4><a href="../blog/how-attackers-find-ships-shodan.html">شيب كراولر ومحرك Shodan</a><a href="../blog/vsat-security-fleet-managers.html">دليل تأمين محطات VSAT</a><a href="../blog/psc-cyber-requirements-2026.html">متطلبات تفتيش الموانئ 2026</a></div>
+    <div><h4>خدمات متخصصة</h4><a href="web-design.html">المنصات الرقمية</a><a href="networking.html">هندسة الشبكات والجدران النارية</a><a href="mobile-app.html">تطبيقات الطواقم</a></div>
+    <div><h4>التواصل المباشر</h4><a href="contact.html">تواصل معنا</a><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a></div>
+  </div>
+  <div class="foot-bottom"><span>تالين، إستونيا · © 2026 Oversight OÜ</span><span>بحث محكم في IEEE Access 2026 · تصميم وهندسة Oversight</span></div>
+</div></footer>
+
+<script>
+async function handleScanSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('shipcrawlerScanForm');
+  const btn = form.querySelector('button[type="submit"]');
+  const targets = document.getElementById('scanTargets').value.trim();
+  const email = document.getElementById('scanEmail').value.trim();
+  const company = document.getElementById('scanCompany').value.trim();
+  const status = document.getElementById('scanFormStatus');
+
+  btn.disabled = true;
+  btn.style.opacity = '0.75';
+  btn.textContent = 'جارٍ جدولة الفحص...';
+
+  status.style.display = 'block';
+  status.style.background = 'rgba(168,213,6,.08)';
+  status.style.border = '1px solid rgba(168,213,6,.3)';
+  status.style.color = 'var(--lime)';
+  status.innerHTML = 'جارٍ تجهيز مسح الأقمار الصناعية السلبي...';
+
+  const payload = {
+    targets: targets,
+    email: email,
+    company: company || 'Not specified'
+  };
+
+  let sent = false;
+
+  // 1. Direct contact.php
+  try {
+    const res = await fetch('../contact.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      const data = await res.json().catch(() => null);
+      if (data && data.success) sent = true;
+    }
+  } catch (err) {}
+
+  // 2. Serverless /api/contact
+  if (!sent) {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        const data = await res.json().catch(() => null);
+        if (data && data.success) sent = true;
+      }
+    } catch (err) {}
+  }
+
+  // 3. Fallback
+  if (!sent) {
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/contact@oversight.ee', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `[Arabic Scan Request] Free Fleet Scan: ${targets}`,
+          _template: 'table',
+          _captcha: 'false',
+          'Fleet targets': targets,
+          'Email': email,
+          'Company / Fleet': company || 'Not specified'
+        })
+      });
+      const data = await res.json().catch(() => null);
+      if (res.ok || (data && (data.success === 'true' || data.success === true))) {
+        sent = true;
+      }
+    } catch (err) {}
+  }
+
+  if (sent) {
+    status.style.background = 'rgba(168,213,6,.15)';
+    status.style.color = 'var(--lime)';
+    status.style.border = '1px solid var(--lime)';
+    status.innerHTML = '✓ <strong>تم استلام طلب الفحص بنجاح.</strong> تم إدراج الـ 3 سفن في جدول الاستطلاع السلبي، وسيصل التقرير السري إلى بريدك الإلكتروني خلال 24 ساعة.';
+    form.reset();
+  } else {
+    status.style.background = 'rgba(232,140,122,.12)';
+    status.style.color = 'var(--alert-red)';
+    status.style.border = '1px solid var(--alert-red)';
+    status.innerHTML = 'تعذر الإرسال المباشر. راسلنا مباشرة عبر: <a href="mailto:contact@oversight.ee?subject=Free%20Fleet%20Scan" style="color:var(--lime);font-weight:700">contact@oversight.ee</a>.';
+  }
+
+  btn.disabled = false;
+  btn.style.opacity = '1';
+  btn.textContent = 'إصدار تقرير كشف الثغرات التكتيكي ←';
+}
+</script>
+</body>
+</html>

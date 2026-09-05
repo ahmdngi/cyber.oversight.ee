@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 | Page not found, Cyber Oversight</title>
-<meta name="description" content="The page you are looking for is not here. Head back to Cyber Oversight, maritime cybersecurity for commercial fleets.">
+<title>404 | Page not found, Oversight</title>
+<meta name="description" content="The page you are looking for is not here. Head back to Oversight, maritime cybersecurity for commercial fleets.">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="mobile.css" media="screen and (max-width: 1024px)">
 <script src="theme.js"></script>
 <script defer src="fx.js"></script>
 </head>
@@ -41,9 +42,9 @@
 </div>
 
 <nav id="nav"><div class="wrap">
-  <a href="index.html" class="logo"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img"></a>
+  <a href="index.html" class="logo"><img src="logo-full.png" alt="Oversight" class="brand-logo-img"></a>
   <div class="nav-links">
-    <a href="capabilities.html">Capabilities</a><a href="architecture.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="blog.html">Blog</a>
+    <a href="M-SOC.html">M-SOC</a><a href="shipcrawler.html">Shipcrawler</a><a href="haris.html">Haris</a>
     <div class="nav-drop">
       <a href="#" class="drop-toggle" aria-haspopup="true" aria-expanded="false">Other Services <svg class="drop-caret" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="drop-menu">
@@ -52,25 +53,28 @@
         <a href="mobile-app.html">Mobile App Development</a>
       </div>
     </div>
+    <a href="contact.html">Contact</a><a href="blog.html">Blog</a>
   </div>
-  <a href="contact.html" class="nav-cta">Free Fleet Scan</a>
+  <a href="free-scan.html" class="nav-cta">Free Fleet Scan</a>
   <div class="nav-right">
     <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </div></nav>
+<button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme"></button>
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="index.html">Home</a>
-  <a href="capabilities.html">Capabilities</a>
-  <a href="architecture.html">M-SOC</a>
+  <a href="M-SOC.html">M-SOC</a>
   <a href="shipcrawler.html">Shipcrawler</a>
-  <a href="blog.html">Blog</a>
+  <a href="haris.html">Haris</a>
   <div class="drawer-group">
     <span class="drawer-label">Other Services</span>
     <a href="web-design.html">Web Development</a>
     <a href="networking.html">Networking</a>
     <a href="mobile-app.html">Mobile App Development</a>
   </div>
-  <a href="contact.html" class="drawer-cta">Free Fleet Scan</a>
+  <a href="contact.html">Contact</a>
+  <a href="blog.html">Blog</a>
+  <a href="free-scan.html" class="drawer-cta">Free Fleet Scan</a>
 </div>
 <section class="hero hero-evidence" style="min-height:75vh">
   <div class="wrap hero-evidence-grid">
@@ -115,8 +119,8 @@
         <div class="evidence-footer" style="padding-top:14px">
           <p class="evidence-note">Popular routes:</p>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
-            <a href="capabilities.html" class="qm-chip">Capabilities →</a>
-            <a href="architecture.html" class="qm-chip">M-SOC →</a>
+            <a href="haris.html" class="qm-chip">Haris Edge →</a>
+            <a href="M-SOC.html" class="qm-chip">M-SOC →</a>
             <a href="shipcrawler.html" class="qm-chip">Shipcrawler →</a>
             <a href="blog.html" class="qm-chip">Blog Research →</a>
             <a href="contact.html" class="qm-chip">Contact Engineers →</a>
@@ -127,20 +131,15 @@
   </div>
 </section>
 
-<!-- ticker -->
-<div class="ticker"><div class="track" id="tickTrack">
-  <span>IACS UR <b>E26/E27</b></span><span>IMO <b>MSC.428(98)</b></span><span>EU <b>NIS2</b></span><span><b>IEEE</b> ACCESS 2026</span><span>24/7 MARITIME <b>SOC</b></span><span>TALLINN <b>·</b> AL KHOBAR</span>
-</div></div>
-
 <footer><div class="wrap">
   <div class="foot-grid">
-    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Cyber Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
-    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="architecture.html">M-SOC</a><a href="architecture.html">Haris Edge</a><a href="architecture.html">Watchtower</a></div>
+    <div><a href="index.html" class="logo" style="margin-bottom:16px"><img src="logo-full.png" alt="Oversight" class="brand-logo-img" style="height:28px"></a><p style="color:var(--mut);font-size:.9rem;max-width:300px;line-height:1.75;margin-top:14px">Maritime cybersecurity, zero-trust edge computing, enterprise networking, and digital platforms. Tallinn HQ, Al Khobar desk.</p></div>
+    <div><h4>Products</h4><a href="shipcrawler.html">Shipcrawler</a><a href="M-SOC.html">M-SOC</a><a href="haris.html">Haris Edge</a><a href="watchtower.html">Watchtower</a></div>
     <div><h4>Blog</h4><a href="blog/how-attackers-find-ships-shodan.html">Shodan &amp; ships</a><a href="blog/vsat-security-fleet-managers.html">VSAT brief</a><a href="blog/psc-cyber-requirements-2026.html">PSC 2026</a></div>
     <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
-    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
   </div>
-  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Peer-reviewed in IEEE Access 2026</span></div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Designed & Developed by Oversight</span></div>
 </div></footer>
 
 </body>

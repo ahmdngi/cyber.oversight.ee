@@ -1,0 +1,28 @@
+# ══════════════════════════════════════════════════════════════════════════
+# OVERSIGHT — CLEAN EXTENSIONLESS URL ROUTING (.htaccess)
+# ══════════════════════════════════════════════════════════════════════════
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# 1. Strip index and index.html from URL (301 redirect to root /)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index(\.html)?[\s?] [NC]
+RewriteRule ^index(\.html)?$ / [R=301,L]
+
+# 2. 301 Redirect /page.html to /page (eliminates .html from browser address bar)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+([^.]+)\.html[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# 3. Internally resolve /page to /page.html without changing address bar
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# Optional security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
