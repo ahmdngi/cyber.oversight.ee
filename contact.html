@@ -324,7 +324,7 @@
     <div><h4>Services</h4><a href="web-design.html">Web Development</a><a href="networking.html">Networking</a><a href="mobile-app.html">Mobile Apps</a></div>
     <div><h4>Contact</h4><a href="contact.html">Contact Us</a><a href="mailto:contact@oversight.ee">contact@oversight.ee</a></div>
   </div>
-  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span>Designed & Developed by Oversight</span></div>
+  <div class="foot-bottom"><span>Tallinn, Estonia · © 2026 Oversight OÜ</span><span class="foot-credit">Designed By <a href="https://cyber.oversight.ee" target="_blank" rel="noopener" class="foot-cyber-link"><svg class="cyber-icon" viewBox="0 0 25 25" width="13" height="13" fill="currentColor" aria-hidden="true"><rect x="10.5" y="0.5" width="4" height="4" rx="0.8"/><rect x="5.5" y="5.5" width="4" height="4" rx="0.8"/><rect x="15.5" y="5.5" width="4" height="4" rx="0.8"/><rect x="0.5" y="10.5" width="4" height="4" rx="0.8"/><rect x="10.5" y="10.5" width="4" height="4" rx="0.8"/><rect x="20.5" y="10.5" width="4" height="4" rx="0.8"/><rect x="5.5" y="15.5" width="4" height="4" rx="0.8"/><rect x="15.5" y="15.5" width="4" height="4" rx="0.8"/><rect x="10.5" y="20.5" width="4" height="4" rx="0.8"/></svg>CYBER OVERSIGHT</a></span></div>
 </div></footer>
 
 <script>
@@ -421,9 +421,9 @@ async function handleContactSubmit(e) {
 
   let sent = false;
 
-  // 1. Direct contact.php (Resend API backend)
+  // 1. Cloudflare Worker (Resend API)
   try {
-    const res = await fetch('contact.php', {
+    const res = await fetch('https://oversight.engmhmdnsr.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
@@ -434,7 +434,7 @@ async function handleContactSubmit(e) {
     }
   } catch (err) {}
 
-  // 2. Serverless /api/contact (Vercel / Netlify)
+  // 2. Serverless /api/contact (Vercel / Netlify fallback)
   if (!sent) {
     try {
       const res = await fetch('/api/contact', {

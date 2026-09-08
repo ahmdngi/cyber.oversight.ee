@@ -382,7 +382,11 @@ footer{position:relative;z-index:10;background:rgba(5,10,6,.30);backdrop-filter:
 .foot-grid a{display:block;color:var(--mut);text-decoration:none;font-size:.88rem;margin-bottom:10px;transition:color .2s,transform .2s var(--ease-spring)}
 .foot-grid a:hover{color:var(--lime);transform:translateX(3px)}
 .foot-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--dim);flex-wrap:wrap;gap:12px}
-.foot-credit{letter-spacing:normal;font-family:var(--sans),sans-serif;font-size:.74rem}
+.foot-credit{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-size:.76rem;color:var(--dim);letter-spacing:.02em}
+.foot-cyber-link{display:inline-flex;align-items:center;gap:7px;color:var(--lime);text-decoration:none;border-bottom:1px solid var(--lime);padding-bottom:2px;font-weight:600;letter-spacing:.05em;transition:color .2s var(--ease-soft),border-color .2s var(--ease-soft),filter .2s var(--ease-soft)}
+.foot-cyber-link:hover{color:var(--lime2);border-color:var(--lime2);filter:drop-shadow(0 0 6px var(--brand-lime-glow))}
+.foot-cyber-link .cyber-icon{width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0;color:currentColor;transition:transform .2s var(--ease-soft)}
+.foot-cyber-link:hover .cyber-icon{transform:scale(1.1)}
 
 /* ambient watermark (stepped logo blocks) */
 .monumental-bg-emblem{position:fixed;top:30px;right:-70px;width:680px;height:680px;pointer-events:none;z-index:0;opacity:var(--watermark-opacity);transition:opacity .32s}

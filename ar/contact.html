@@ -316,7 +316,7 @@
     <div><h4>خدمات متخصصة</h4><a href="web-design.html">المنصات الرقمية</a><a href="networking.html">هندسة الشبكات والجدران النارية</a><a href="mobile-app.html">تطبيقات الطواقم</a></div>
     <div><h4>التواصل المباشر</h4><a href="contact.html">تواصل معنا</a><a href="mailto:contact@oversight.ee">contact@oversight.ee</a><a href="mailto:ksa@oversight.ee">ksa@oversight.ee</a></div>
   </div>
-  <div class="foot-bottom"><span>تالين، إستونيا · © 2026 Oversight OÜ</span><span>بحث محكم في IEEE Access 2026 · تصميم وهندسة Oversight</span></div>
+  <div class="foot-bottom"><span>تالين، إستونيا · © 2026 Oversight OÜ</span><span>بحث محكم في IEEE Access 2026 · تصميم بواسطة <a href="https://cyber.oversight.ee" target="_blank" rel="noopener" class="foot-cyber-link"><svg class="cyber-icon" viewBox="0 0 25 25" width="13" height="13" fill="currentColor" aria-hidden="true"><rect x="10.5" y="0.5" width="4" height="4" rx="0.8"/><rect x="5.5" y="5.5" width="4" height="4" rx="0.8"/><rect x="15.5" y="5.5" width="4" height="4" rx="0.8"/><rect x="0.5" y="10.5" width="4" height="4" rx="0.8"/><rect x="10.5" y="10.5" width="4" height="4" rx="0.8"/><rect x="20.5" y="10.5" width="4" height="4" rx="0.8"/><rect x="5.5" y="15.5" width="4" height="4" rx="0.8"/><rect x="15.5" y="15.5" width="4" height="4" rx="0.8"/><rect x="10.5" y="20.5" width="4" height="4" rx="0.8"/></svg>CYBER OVERSIGHT</a></span></div>
 </div></footer>
 
 <script>
@@ -408,9 +408,9 @@ async function handleContactSubmit(e) {
 
   let sent = false;
 
-  // 1. Direct contact.php
+  // 1. Cloudflare Worker (Resend API)
   try {
-    const res = await fetch('../contact.php', {
+    const res = await fetch('https://oversight.engmhmdnsr.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
@@ -421,7 +421,7 @@ async function handleContactSubmit(e) {
     }
   } catch (err) {}
 
-  // 2. Serverless /api/contact
+  // 2. Serverless /api/contact (Fallback)
   if (!sent) {
     try {
       const res = await fetch('/api/contact', {
