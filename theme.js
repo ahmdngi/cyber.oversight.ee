@@ -37,8 +37,24 @@
     const themeToggles = document.querySelectorAll('.theme-toggle-btn');
     function syncLogo(theme) {
       document.querySelectorAll('.brand-logo-img').forEach(img => {
-        const base = img.getAttribute('data-logo-dark') || 'logo-full.png';
-        img.src = (theme === 'light') ? (img.getAttribute('data-logo-light') || 'logo-full-light.png') : base;
+        if (!img.dataset.logoDark) {
+          const explicitDark = img.getAttribute('data-logo-dark');
+          const explicitLight = img.getAttribute('data-logo-light');
+          if (explicitDark && explicitLight) {
+            img.dataset.logoDark = explicitDark;
+            img.dataset.logoLight = explicitLight;
+          } else {
+            const rawSrc = img.getAttribute('src') || '';
+            const slashIdx = rawSrc.lastIndexOf('/');
+            const prefix = slashIdx !== -1 ? rawSrc.substring(0, slashIdx + 1) : '';
+            img.dataset.logoDark = explicitDark || (prefix + 'logo-full.png');
+            img.dataset.logoLight = explicitLight || (prefix + 'logo-full-light.png');
+          }
+        }
+        const targetSrc = (theme === 'light') ? img.dataset.logoLight : img.dataset.logoDark;
+        if (img.getAttribute('src') !== targetSrc) {
+          img.setAttribute('src', targetSrc);
+        }
       });
     }
     function updateThemeUI(theme) {

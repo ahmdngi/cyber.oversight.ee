@@ -31,17 +31,19 @@
   --radius-xs:8px; --radius-sm:12px; --radius-md:16px; --radius-lg:22px; --radius-pill:999px;
 }
 :root[data-theme="light"]{
-  --void:#f5f6f0; --panel:#fbfcf7; --panel2:#f0f3e9; --line:rgba(20,23,19,.09);
-  --lime:#6b8d00; --lime2:#5c7a00; --lime-dim:rgba(107,141,0,.35);
-  --text:#141713; --mut:#5a645c; --dim:#959b8e;
+  --void:#f5f6f0; --panel:#fbfcf7; --panel2:#f0f3e9; --line:rgba(20,23,19,.10);
+  --lime:#527500; --lime2:#415e00; --lime-dim:rgba(82,117,0,.22);
+  --lime-bright:#84ba00;
+  --text:#141713; --mut:#4a534c; --dim:#687262;
   --bg-main:#f5f6f0; --bg-card:#fbfcf7; --bg-card-hover:#f0f3e9; --bg-nav:rgba(245,246,240,.88); --bg-void:#141713;
-  --brand-lime:#6b8d00; --brand-lime-hover:#5c7a00;
-  --brand-lime-glow:rgba(107,141,0,.14); --brand-lime-subtle:rgba(107,141,0,.07);
-  --brand-lime-border:rgba(107,141,0,.26); --brand-lime-bg:rgba(107,141,0,.10);
-  --text-title:#141713; --text-body:#43483f; --text-muted:#6b7066; --text-faint:#959b8e; --text-pure:#f5f6f0;
-  --border-subtle:rgba(20,23,19,.07); --border-card:rgba(20,23,19,.10); --border-hover:rgba(20,23,19,.20);
-  --watermark-opacity:.045; --watermark-stroke:rgba(107,141,0,.28); --watermark-fill:rgba(107,141,0,.05);
-  --alert-red:#b3382e; --status-green:#6b8d00;
+  --bg-input:#ffffff; --border-input:rgba(20,23,19,.18);
+  --brand-lime:#527500; --brand-lime-hover:#415e00;
+  --brand-lime-glow:rgba(82,117,0,.15); --brand-lime-subtle:rgba(82,117,0,.08);
+  --brand-lime-border:rgba(82,117,0,.26); --brand-lime-bg:rgba(82,117,0,.10);
+  --text-title:#141713; --text-body:#333831; --text-muted:#4a534c; --text-faint:#687262; --text-pure:#f5f6f0;
+  --border-subtle:rgba(20,23,19,.08); --border-card:rgba(20,23,19,.12); --border-hover:rgba(20,23,19,.22);
+  --watermark-opacity:.045; --watermark-stroke:rgba(82,117,0,.28); --watermark-fill:rgba(82,117,0,.05);
+  --alert-red:#b3382e; --status-green:#527500;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -1884,62 +1886,556 @@ section[id], .sec[id]{
   }
 }
 
-/* Light Theme Overrides */
-:root[data-theme="light"] .metrics .met {
-  background: linear-gradient(155deg, #f8fbf5 0%, #edf4e7 100%);
-  border-color: rgba(20,23,19,.12);
-  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+/* ══════════════════════════════════════════════════════════════════════════
+   COMPLETE LIGHT THEME PRECISION DESIGN SYSTEM
+   Ensures WCAG AA/AAA contrast, pristine form controls, electric cyber accents
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Global Form Inputs & Controls */
+:root[data-theme="light"] input[type="text"],
+:root[data-theme="light"] input[type="email"],
+:root[data-theme="light"] input[type="tel"],
+:root[data-theme="light"] input[type="url"],
+:root[data-theme="light"] input[type="password"],
+:root[data-theme="light"] select,
+:root[data-theme="light"] textarea,
+:root[data-theme="light"] .co-select-trigger {
+  background: #ffffff !important;
+  border: 1px solid rgba(20, 23, 19, 0.18) !important;
+  color: #141713 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(0, 0, 0, 0.02) !important;
 }
-:root[data-theme="light"] .metrics .met:hover {
-  border-color: #5d8200;
-  box-shadow: 0 18px 40px rgba(93,130,0,.12);
+
+:root[data-theme="light"] input::placeholder,
+:root[data-theme="light"] textarea::placeholder {
+  color: #768072 !important;
+  opacity: 0.88 !important;
 }
-:root[data-theme="light"] .met-corner {
-  border-color: #5d8200;
+
+:root[data-theme="light"] input:focus,
+:root[data-theme="light"] select:focus,
+:root[data-theme="light"] textarea:focus,
+:root[data-theme="light"] .co-select-trigger[aria-expanded="true"] {
+  border-color: #527500 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3.5px rgba(82, 117, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  background: #ffffff !important;
 }
+
+:root[data-theme="light"] label,
+:root[data-theme="light"] .bl {
+  color: #141713 !important;
+  font-weight: 600 !important;
+}
+
+/* 2. Primary Buttons & High-Energy CTAs (Jet Black on Electric Lime) */
+:root[data-theme="light"] .btn.primary,
+:root[data-theme="light"] .btn-primary,
+:root[data-theme="light"] button[type="submit"]:not(.ghost):not(.btn.ghost),
+:root[data-theme="light"] .nav-cta,
+:root[data-theme="light"] .cta .btn.primary {
+  background: #84ba00 !important;
+  color: #071207 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 18px rgba(107, 160, 0, 0.28) !important;
+  border: none !important;
+  text-shadow: none !important;
+}
+
+:root[data-theme="light"] .btn.primary:hover,
+:root[data-theme="light"] .btn-primary:hover,
+:root[data-theme="light"] button[type="submit"]:not(.ghost):not(.btn.ghost):hover,
+:root[data-theme="light"] .nav-cta:hover,
+:root[data-theme="light"] .cta .btn.primary:hover {
+  background: #73a400 !important;
+  color: #071207 !important;
+  box-shadow: 0 6px 24px rgba(107, 160, 0, 0.38) !important;
+  transform: translateY(-1px);
+}
+
+:root[data-theme="light"] .btn.primary:active,
+:root[data-theme="light"] .btn-primary:active,
+:root[data-theme="light"] button[type="submit"]:active,
+:root[data-theme="light"] .nav-cta:active {
+  transform: translateY(0);
+}
+
+/* 3. Tactical Cards & Form Containers */
 :root[data-theme="light"] .tactical-card {
-  background: linear-gradient(155deg, #ffffff 0%, #f4f9ee 100%);
-  border-color: rgba(93,130,0,.3);
-  box-shadow: 0 20px 50px rgba(0,0,0,.07);
+  background: #ffffff !important;
+  border: 1px solid rgba(20, 23, 19, 0.12) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+:root[data-theme="light"] .tactical-card-topbar {
+  border-bottom: 1px solid rgba(20, 23, 19, 0.08) !important;
+}
+:root[data-theme="light"] .tactical-unit-tag {
+  color: #527500 !important;
+  font-weight: 600;
+}
+:root[data-theme="light"] .tactical-unit-tag i {
+  background: #7ca800 !important;
+  box-shadow: 0 0 8px rgba(124, 168, 0, 0.45) !important;
+}
+:root[data-theme="light"] .tactical-unit-status {
+  color: #687262 !important;
+}
+:root[data-theme="light"] .tactical-title {
+  color: #141713 !important;
+}
+:root[data-theme="light"] .tactical-sub {
+  color: #687262 !important;
 }
 :root[data-theme="light"] .tactical-telemetry-hud {
-  background: #e9f2df;
-  border-color: rgba(93,130,0,.25);
+  background: #f4f8ee !important;
+  border: 1px solid rgba(82, 117, 0, 0.22) !important;
 }
 :root[data-theme="light"] .hud-telemetry-val {
-  color: #141713;
+  color: #141713 !important;
 }
+:root[data-theme="light"] .hud-telemetry-lbl {
+  color: #687262 !important;
+}
+
+/* 4. Dropdowns & Navigation Menus */
+:root[data-theme="light"] .nav-drop .drop-menu {
+  background: #ffffff !important;
+  border: 1px solid rgba(20, 23, 19, 0.12) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12) !important;
+}
+:root[data-theme="light"] .nav-drop .drop-menu a {
+  color: #535e55 !important;
+}
+:root[data-theme="light"] .nav-drop .drop-menu a:hover {
+  background: #f0f5e9 !important;
+  color: #141713 !important;
+}
+:root[data-theme="light"] .nav-drop .drop-menu a.active {
+  background: rgba(82, 117, 0, 0.10) !important;
+  color: #527500 !important;
+}
+
+/* 5. Mobile Navigation Drawer */
+:root[data-theme="light"] .mobile-drawer {
+  background: #ffffff !important;
+  border: 1px solid rgba(20, 23, 19, 0.14) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16) !important;
+}
+:root[data-theme="light"] .drawer-group {
+  border-bottom-color: rgba(20, 23, 19, 0.08) !important;
+}
+:root[data-theme="light"] .drawer-group a {
+  color: #535e55 !important;
+}
+:root[data-theme="light"] .drawer-group a:hover {
+  background: #f0f5e9 !important;
+  color: #141713 !important;
+}
+:root[data-theme="light"] .drawer-group a.active {
+  background: rgba(82, 117, 0, 0.10) !important;
+  color: #527500 !important;
+}
+:root[data-theme="light"] .drawer-label {
+  color: #768072 !important;
+}
+
+/* 6. Custom Select Component (Contact Page) */
+:root[data-theme="light"] .co-select-trigger {
+  background: #ffffff !important;
+  border-color: rgba(20, 23, 19, 0.18) !important;
+  color: #141713 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+:root[data-theme="light"] .co-select-trigger:hover {
+  border-color: #527500 !important;
+}
+:root[data-theme="light"] .co-select-trigger[aria-expanded="true"] {
+  border-color: #527500 !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(82, 117, 0, 0.15) !important;
+}
+:root[data-theme="light"] .co-select-menu {
+  background: #ffffff !important;
+  border-color: rgba(20, 23, 19, 0.14) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12) !important;
+}
+:root[data-theme="light"] .co-option {
+  color: #141713 !important;
+}
+:root[data-theme="light"] .co-option:hover {
+  background: #f0f5e9 !important;
+  color: #141713 !important;
+}
+:root[data-theme="light"] .co-option.selected {
+  background: #84ba00 !important;
+  color: #071207 !important;
+  font-weight: 600 !important;
+}
+
+/* 7. Reusable Pipeline & Stack Matrix */
 :root[data-theme="light"] .pipe-card {
-  background: linear-gradient(155deg, #ffffff 0%, #f5faef 100%);
-  border-color: rgba(20,23,19,.12);
+  background: linear-gradient(155deg, #ffffff 0%, #f5faef 100%) !important;
+  border-color: rgba(20, 23, 19, 0.12) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06) !important;
 }
 :root[data-theme="light"] .pipe-conduit {
-  background: linear-gradient(90deg, transparent, rgba(93,130,0,.25) 15%, rgba(93,130,0,.65) 50%, rgba(93,130,0,.25) 85%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(82, 117, 0, 0.22) 15%, rgba(82, 117, 0, 0.6) 50%, rgba(82, 117, 0, 0.22) 85%, transparent) !important;
 }
 :root[data-theme="light"] .pipe-icon-node {
-  background: #eef5e6;
-  border-color: #5d8200;
+  background: #eef5e6 !important;
+  border-color: #527500 !important;
+  color: #527500 !important;
+}
+:root[data-theme="light"] .pipe-stage-badge {
+  color: #527500 !important;
+  background: rgba(82, 117, 0, 0.10) !important;
+  border-color: rgba(82, 117, 0, 0.28) !important;
 }
 :root[data-theme="light"] .stack-micro-art {
-  background: #edf4e7;
-  border-color: rgba(93,130,0,.25);
+  background: #edf4e7 !important;
+  border-color: rgba(82, 117, 0, 0.25) !important;
 }
 :root[data-theme="light"] .stack-telemetry-row {
-  background: #e9f2df;
-  border-color: rgba(93,130,0,.2);
+  background: #e9f2df !important;
+  border-color: rgba(82, 117, 0, 0.2) !important;
 }
 :root[data-theme="light"] .stack-tel-v {
-  color: #141713;
+  color: #141713 !important;
 }
 :root[data-theme="light"] .stack-card-chip {
-  background: rgba(93,130,0,.1);
-  border-color: rgba(93,130,0,.3);
-  color: #5d8200;
+  background: rgba(82, 117, 0, 0.10) !important;
+  border-color: rgba(82, 117, 0, 0.3) !important;
+  color: #527500 !important;
 }
 :root[data-theme="light"] .stack-card:hover .stack-card-action {
-  color: #5d8200;
+  color: #527500 !important;
 }
 
+/* 8. HARIS Telemetry & Pipeline */
+:root[data-theme="light"] .haris-telemetry-hud {
+  background: #f4f8ee !important;
+  border-color: rgba(82, 117, 0, 0.25) !important;
+}
+:root[data-theme="light"] .haris-hud-val {
+  color: #141713 !important;
+}
+:root[data-theme="light"] .haris-hud-lbl {
+  color: #687262 !important;
+}
+:root[data-theme="light"] .haris-pipe-card {
+  background: linear-gradient(155deg, #ffffff 0%, #f5faef 100%) !important;
+  border-color: rgba(20, 23, 19, 0.12) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06) !important;
+}
+:root[data-theme="light"] .haris-pipe-icon-node {
+  background: #eef5e6 !important;
+  border-color: #527500 !important;
+  color: #527500 !important;
+}
+:root[data-theme="light"] .haris-pipe-conduit {
+  background: linear-gradient(90deg, transparent, rgba(82, 117, 0, 0.22) 20%, rgba(82, 117, 0, 0.6) 50%, rgba(82, 117, 0, 0.22) 80%, transparent) !important;
+}
+:root[data-theme="light"] .haris-stage-badge {
+  color: #527500 !important;
+  background: rgba(82, 117, 0, 0.10) !important;
+  border-color: rgba(82, 117, 0, 0.28) !important;
+}
+:root[data-theme="light"] .haris-hero-footer {
+  border-top-color: rgba(20, 23, 19, 0.10) !important;
+}
 
+/* 9. Sonar Radar Console (Homepage) */
+:root[data-theme="light"] .sonar-console {
+  background: linear-gradient(155deg, #ffffff 0%, #f4f9ee 100%) !important;
+  border-color: rgba(20, 23, 19, 0.14) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+:root[data-theme="light"] .sonar-console-header {
+  border-bottom-color: rgba(20, 23, 19, 0.08) !important;
+  color: #687262 !important;
+}
+:root[data-theme="light"] .sonar-scope {
+  background: radial-gradient(circle, rgba(82, 117, 0, 0.08) 0%, rgba(235, 244, 228, 0.95) 85%) !important;
+  border-color: rgba(82, 117, 0, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), inset 0 0 20px rgba(82, 117, 0, 0.08) !important;
+}
+:root[data-theme="light"] .depth-circle {
+  border-color: rgba(20, 23, 19, 0.15) !important;
+}
+:root[data-theme="light"] .sonar-center-target {
+  background: #ffffff !important;
+  border-color: #527500 !important;
+  color: #527500 !important;
+  box-shadow: 0 0 14px rgba(82, 117, 0, 0.25) !important;
+}
+:root[data-theme="light"] .target-blip {
+  background: #527500 !important;
+  box-shadow: 0 0 8px #527500 !important;
+}
+:root[data-theme="light"] .target-blip.active {
+  box-shadow: 0 0 16px #527500, 0 0 0 3px rgba(82, 117, 0, 0.25) !important;
+}
+:root[data-theme="light"] .depth-btn {
+  background: #ffffff !important;
+  border-color: rgba(20, 23, 19, 0.12) !important;
+  color: #141713 !important;
+}
+:root[data-theme="light"] .depth-btn.active {
+  border-color: #527500 !important;
+  background: #f0f5e9 !important;
+}
 
+/* 10. Metrics Cards */
+:root[data-theme="light"] .metrics .met {
+  background: linear-gradient(155deg, #f8fbf5 0%, #edf4e7 100%) !important;
+  border-color: rgba(20, 23, 19, 0.12) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
+}
+:root[data-theme="light"] .metrics .met:hover {
+  border-color: #527500 !important;
+  box-shadow: 0 18px 40px rgba(82, 117, 0, 0.12) !important;
+}
+:root[data-theme="light"] .met-corner {
+  border-color: #527500 !important;
+}
 
+/* 11. Hero Depth Selector & Sonar Telemetry Cards */
+:root[data-theme="light"] .depth-selector-wrap {
+  background: #ffffff !important;
+  border-color: rgba(20, 23, 19, 0.12) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+}
+:root[data-theme="light"] .depth-selector-label {
+  color: #687262 !important;
+}
+:root[data-theme="light"] .sonar-card-details {
+  background: #ffffff !important;
+  border-color: rgba(20, 23, 19, 0.12) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+:root[data-theme="light"] .chip-item {
+  background: #f0f5e9 !important;
+  border-color: rgba(20, 23, 19, 0.12) !important;
+  color: #4f594b !important;
+}
+
+/* 12. Haris 1U Rack Hardware Console & Components */
+:root[data-theme="light"] .haris-hero-card {
+  background: linear-gradient(155deg, #ffffff 0%, #f4f9ee 100%) !important;
+  border-color: rgba(20, 23, 19, 0.14) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+:root[data-theme="light"] .haris-card-topbar {
+  border-bottom-color: rgba(20, 23, 19, 0.08) !important;
+}
+:root[data-theme="light"] .haris-unit-status {
+  color: #687262 !important;
+}
+:root[data-theme="light"] .haris-hero-footer {
+  border-top-color: rgba(20, 23, 19, 0.08) !important;
+}
+:root[data-theme="light"] .haris-hero-note {
+  color: #687262 !important;
+}
+
+/* 13. Tactical Blueprints, Consoles & Hardware SVGs (Global System) */
+:root[data-theme="light"] .tactical-card svg,
+:root[data-theme="light"] .haris-hero-card svg,
+:root[data-theme="light"] .haris-pipe-card svg,
+:root[data-theme="light"] .pipe-card .pipe-art svg,
+:root[data-theme="light"] .pipe-art svg,
+:root[data-theme="light"] .stack-micro-art svg,
+:root[data-theme="light"] svg.tactical-blueprint-svg {
+  background: transparent !important;
+}
+
+/* Outer screen frames and dark terminal canvases */
+:root[data-theme="light"] .tactical-card svg > rect[fill^="#0"],
+:root[data-theme="light"] .tactical-card svg > rect[fill^="#1"],
+:root[data-theme="light"] .tactical-card svg > rect[fill="#000000"],
+:root[data-theme="light"] .tactical-card svg > polygon[fill^="#0"],
+:root[data-theme="light"] .tactical-card svg > polygon[fill="#000000"],
+:root[data-theme="light"] .haris-hero-card svg > rect[fill^="#0"],
+:root[data-theme="light"] .haris-hero-card svg > rect[fill^="#1"],
+:root[data-theme="light"] .haris-hero-card svg > rect[fill="#000000"],
+:root[data-theme="light"] .haris-pipe-card svg > rect[fill^="#0"],
+:root[data-theme="light"] .haris-pipe-card svg > rect[fill^="#1"],
+:root[data-theme="light"] .pipe-card .pipe-art svg > rect[fill^="#0"],
+:root[data-theme="light"] .pipe-card .pipe-art svg > rect[fill^="#1"],
+:root[data-theme="light"] .pipe-card .pipe-art svg > polygon[fill^="#0"],
+:root[data-theme="light"] .pipe-card .pipe-art svg > polygon[fill^="#1"],
+:root[data-theme="light"] .pipe-art svg > rect[fill^="#0"],
+:root[data-theme="light"] .pipe-art svg > rect[fill^="#1"],
+:root[data-theme="light"] .pipe-art svg > polygon[fill^="#0"],
+:root[data-theme="light"] .pipe-art svg > polygon[fill^="#1"],
+:root[data-theme="light"] .stack-micro-art svg > rect[fill^="#0"],
+:root[data-theme="light"] .stack-micro-art svg > rect[fill^="#1"],
+:root[data-theme="light"] svg.tactical-blueprint-svg > rect[fill^="#0"],
+:root[data-theme="light"] svg.tactical-blueprint-svg > rect[fill^="#1"],
+:root[data-theme="light"] svg.tactical-blueprint-svg > rect[fill="#000000"] {
+  fill: #f4f8ed !important;
+  stroke: rgba(82, 117, 0, 0.28) !important;
+}
+
+/* Inner cards, sub-panels, nodes, and device slots */
+:root[data-theme="light"] .tactical-card svg g rect[fill^="#0"],
+:root[data-theme="light"] .tactical-card svg g rect[fill^="#1"],
+:root[data-theme="light"] .tactical-card svg g rect[fill^="#2"],
+:root[data-theme="light"] .tactical-card svg g polygon[fill^="#0"],
+:root[data-theme="light"] .tactical-card svg g polygon[fill^="#1"],
+:root[data-theme="light"] .tactical-card svg rect[fill^="#0"]:not(:first-of-type),
+:root[data-theme="light"] .tactical-card svg rect[fill^="#1"]:not(:first-of-type),
+:root[data-theme="light"] .haris-hero-card svg g rect[fill^="#0"],
+:root[data-theme="light"] .haris-hero-card svg g rect[fill^="#1"],
+:root[data-theme="light"] .haris-hero-card svg g rect[fill^="#2"],
+:root[data-theme="light"] .haris-hero-card svg g polygon[fill^="#0"],
+:root[data-theme="light"] .haris-hero-card svg g polygon[fill^="#1"],
+:root[data-theme="light"] .haris-pipe-card svg g rect[fill^="#0"],
+:root[data-theme="light"] .haris-pipe-card svg g rect[fill^="#1"],
+:root[data-theme="light"] .haris-pipe-card svg g rect[fill^="#2"],
+:root[data-theme="light"] .pipe-card .pipe-art svg g rect[fill^="#0"],
+:root[data-theme="light"] .pipe-card .pipe-art svg g rect[fill^="#1"],
+:root[data-theme="light"] .pipe-art svg g rect[fill^="#0"],
+:root[data-theme="light"] .pipe-art svg g rect[fill^="#1"],
+:root[data-theme="light"] .stack-micro-art svg g rect[fill^="#0"],
+:root[data-theme="light"] .stack-micro-art svg g rect[fill^="#1"],
+:root[data-theme="light"] svg.tactical-blueprint-svg g rect[fill^="#0"],
+:root[data-theme="light"] svg.tactical-blueprint-svg g rect[fill^="#1"] {
+  fill: #ffffff !important;
+  stroke: rgba(82, 117, 0, 0.25) !important;
+}
+
+/* Radar scopes, topology circles, and shields */
+:root[data-theme="light"] .tactical-card svg circle[fill^="#0"],
+:root[data-theme="light"] .tactical-card svg circle[fill^="#1"],
+:root[data-theme="light"] .tactical-card svg circle[fill="#000000"],
+:root[data-theme="light"] .tactical-card svg path[fill^="#0"],
+:root[data-theme="light"] .tactical-card svg path[fill^="#1"],
+:root[data-theme="light"] .haris-hero-card svg circle[fill^="#0"],
+:root[data-theme="light"] .haris-hero-card svg circle[fill^="#1"],
+:root[data-theme="light"] .haris-hero-card svg path[fill^="#0"],
+:root[data-theme="light"] .haris-hero-card svg path[fill^="#1"],
+:root[data-theme="light"] .haris-hero-card svg polygon[fill^="#0"],
+:root[data-theme="light"] .haris-hero-card svg polygon[fill^="#1"],
+:root[data-theme="light"] .haris-pipe-card svg circle[fill^="#0"],
+:root[data-theme="light"] .haris-pipe-card svg circle[fill^="#1"],
+:root[data-theme="light"] .haris-pipe-card svg circle[fill="#000000"],
+:root[data-theme="light"] .pipe-art svg circle[fill^="#0"],
+:root[data-theme="light"] .pipe-art svg circle[fill^="#1"],
+:root[data-theme="light"] svg.tactical-blueprint-svg circle[fill^="#0"],
+:root[data-theme="light"] svg.tactical-blueprint-svg circle[fill^="#1"] {
+  fill: #e8f2df !important;
+  stroke: rgba(82, 117, 0, 0.32) !important;
+}
+
+/* Text typography inside tactical SVGs */
+:root[data-theme="light"] svg text[fill="#ffffff"],
+:root[data-theme="light"] svg text[fill="#eef3ea"],
+:root[data-theme="light"] svg text[fill="#f5f6f0"] {
+  fill: #141713 !important;
+}
+
+:root[data-theme="light"] svg text[fill="#a7b0a3"],
+:root[data-theme="light"] svg text[fill="#a8b2a4"],
+:root[data-theme="light"] svg text[fill="#697762"],
+:root[data-theme="light"] svg text[fill="#76806f"] {
+  fill: #4f594b !important;
+}
+
+:root[data-theme="light"] svg text[fill="#a8d506"],
+:root[data-theme="light"] svg tspan[fill="#a8d506"],
+:root[data-theme="light"] svg text[fill="#d8ff36"],
+:root[data-theme="light"] svg tspan[fill="#d8ff36"] {
+  fill: var(--lime) !important;
+}
+
+/* Linear and radial gradients across SVGs */
+:root[data-theme="light"] #sc-screen-grad stop,
+:root[data-theme="light"] #screen-edge-grad stop,
+:root[data-theme="light"] #mob-bg stop,
+:root[data-theme="light"] #net-bg stop,
+:root[data-theme="light"] #net-screen-grad stop,
+:root[data-theme="light"] #wt-grid-grad stop,
+:root[data-theme="light"] #chassis-face stop,
+:root[data-theme="light"] #oled-bg stop,
+:root[data-theme="light"] #wt-screen-bg stop,
+:root[data-theme="light"] #ms-screen-grad stop,
+:root[data-theme="light"] #wt-stand-base stop,
+:root[data-theme="light"] #wt-frame-top stop,
+:root[data-theme="light"] #wt-frame-side stop,
+:root[data-theme="light"] #ph-side-metal stop,
+:root[data-theme="light"] #tier-top-grad stop,
+:root[data-theme="light"] #tier-t1-top stop,
+:root[data-theme="light"] #tier-left-bevel stop,
+:root[data-theme="light"] #tier-right-bevel stop,
+:root[data-theme="light"] #ms-desk-grad stop,
+:root[data-theme="light"] #cp-cover-grad stop,
+:root[data-theme="light"] #cp-spine-grad stop,
+:root[data-theme="light"] #cp-pages-top stop,
+:root[data-theme="light"] #cp-pages-edge stop,
+:root[data-theme="light"] #tab-glass stop {
+  stop-color: #eef5e6 !important;
+}
+:root[data-theme="light"] #sc-screen-grad stop:last-child,
+:root[data-theme="light"] #screen-edge-grad stop:last-child,
+:root[data-theme="light"] #mob-bg stop:last-child,
+:root[data-theme="light"] #net-bg stop:last-child,
+:root[data-theme="light"] #net-screen-grad stop:last-child,
+:root[data-theme="light"] #wt-grid-grad stop:last-child,
+:root[data-theme="light"] #chassis-face stop:last-child,
+:root[data-theme="light"] #oled-bg stop:last-child,
+:root[data-theme="light"] #wt-screen-bg stop:last-child,
+:root[data-theme="light"] #ms-screen-grad stop:last-child,
+:root[data-theme="light"] #wt-stand-base stop:last-child,
+:root[data-theme="light"] #wt-frame-top stop:last-child,
+:root[data-theme="light"] #wt-frame-side stop:last-child,
+:root[data-theme="light"] #ph-side-metal stop:last-child,
+:root[data-theme="light"] #tier-top-grad stop:last-child,
+:root[data-theme="light"] #tier-t1-top stop:last-child,
+:root[data-theme="light"] #tier-left-bevel stop:last-child,
+:root[data-theme="light"] #tier-right-bevel stop:last-child,
+:root[data-theme="light"] #ms-desk-grad stop:last-child,
+:root[data-theme="light"] #cp-cover-grad stop:last-child,
+:root[data-theme="light"] #cp-spine-grad stop:last-child,
+:root[data-theme="light"] #cp-pages-top stop:last-child,
+:root[data-theme="light"] #cp-pages-edge stop:last-child,
+:root[data-theme="light"] #tab-glass stop:last-child {
+  stop-color: #dbe8cf !important;
+}
+
+/* Light mode overrides for dark cards in Haris.html */
+:root[data-theme="light"] .hpa-card,
+:root[data-theme="light"] .crew-pillar-card,
+:root[data-theme="light"] .crew-console-card {
+  background: linear-gradient(155deg, #ffffff 0%, #f4f8ed 100%);
+  border-color: rgba(82, 117, 0, 0.25);
+  box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08), 0 0 12px rgba(82, 117, 0, 0.05);
+}
+:root[data-theme="light"] .crew-console-title {
+  color: #141713;
+}
+:root[data-theme="light"] .crew-console-action:hover {
+  color: #ffffff;
+}
+
+/* Ensure the SVG inside the crew-console-card also inverts its dark rects */
+:root[data-theme="light"] .crew-console-card svg > rect[fill^="#0"],
+:root[data-theme="light"] .crew-console-card svg > rect[fill^="#1"],
+:root[data-theme="light"] .crew-console-card svg > rect[fill="#000000"],
+:root[data-theme="light"] .crew-console-card svg rect[fill="url(#tab-glass)"] {
+  fill: #f4f8ed !important;
+  stroke: rgba(82, 117, 0, 0.28) !important;
+}
+:root[data-theme="light"] .crew-console-card svg g rect[fill^="#0"],
+:root[data-theme="light"] .crew-console-card svg g rect[fill^="#1"],
+:root[data-theme="light"] .crew-console-card svg g rect[fill^="#2"] {
+  fill: #ffffff !important;
+  stroke: rgba(82, 117, 0, 0.25) !important;
+}
+:root[data-theme="light"] svg text[fill="#eef3ea"],
+:root[data-theme="light"] svg text[fill="#ffffff"] {
+  fill: #141713 !important;
+}
+:root[data-theme="light"] svg text[fill="#e88c7a"] {
+  fill: #c93b22 !important;
+}
